@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     public float hookShotMinSpeed = 10f;
     public float hookShotMaxSpeed = 40f;
     public float distanceToHookShotHitPoint = 1f;
-
+    private bool didHookShotMiss;
 
     // Look
     public float lookSensitivity = 2.0f;
@@ -63,7 +63,9 @@ public class PlayerController : MonoBehaviour
     {
         Normal,
         HookShotThrown,
-        HookShotFlying
+        HookShotFlying,
+        HookShotPullObjTowards,
+        HookShotMissed
     }
 
     private void Awake()
@@ -101,6 +103,9 @@ public class PlayerController : MonoBehaviour
                 HookShotMovement();
                 //Look(m_Look);
                 break;
+            case State.HookShotMissed:
+                HookShotMiss();
+                break;
         }
     }
 
@@ -137,26 +142,36 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 lineOrigin = cam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
         Debug.DrawLine(lineOrigin, cam.transform.forward * hookShotRange, Color.green);
-        Debug.Log("shoot");
 
-        int layerMask = 1 << 6;
+        //int canGrappleToLayerMask = 1 << 6;
 
-        //layerMask = ~layerMask;
+        //int canPullTowardsSelf = 1 << 7;
 
         Vector3 rayOrigin = cam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
 
         RaycastHit hit;
 
-        line.SetPosition(0, shootPoint.position);
+        //line.SetPosition(0, shootPoint.position);
 
-        if (Physics.Raycast(rayOrigin, cam.transform.forward, out hit, hookShotRange, layerMask))
+        if (Physics.Raycast(rayOrigin, cam.transform.forward, out hit, hookShotRange))
         {
-            line.SetPosition(1, hit.point);
+            //line.SetPosition(1, hit.point);
             hookShotHitPoint = hit.point;
+            didHookShotMiss = false;
             hookShotSize = 0f;
             shootPoint.gameObject.SetActive(true);
             shootPoint.localScale = Vector3.zero;
             currentState = State.HookShotThrown;
+        }
+        else
+        {
+            didHookShotMiss = true;
+            hookShotHitPoint = rayOrigin + (cam.transform.forward * hookShotRange);
+            hookShotSize = 0f;
+            shootPoint.gameObject.SetActive(true);
+            shootPoint.localScale = Vector3.zero;
+            currentState = State.HookShotThrown;
+
         }
 
 
@@ -170,8 +185,15 @@ public class PlayerController : MonoBehaviour
 
         if (hookShotSize >= Vector3.Distance(transform.position, hookShotHitPoint))
         {
-            currentState = State.HookShotFlying;
-            camFOV.SetCameraFOV(HOOKSHOT_FOV);
+            if (!didHookShotMiss)
+            {
+                currentState = State.HookShotFlying;
+                camFOV.SetCameraFOV(HOOKSHOT_FOV);
+            }
+            else if (didHookShotMiss)
+            {
+                currentState = State.HookShotMissed;
+            }
         }
     }
 
@@ -194,4 +216,21 @@ public class PlayerController : MonoBehaviour
             rb.useGravity = true;
         }
     }
+
+    public void HookShotMiss()
+    {
+        shootPoint.LookAt(hookShotHitPoint);
+        if (hookShotSize >= 0f)
+            hookShotSize -= hookShotThrowSpeed * Time.deltaTime;
+        shootPoint.localScale = new Vector3(1, 1, hookShotSize);
+
+        if (hookShotSize <= 0f)
+        {
+            shootPoint.gameObject.SetActive(false);
+            currentState = State.Normal;
+        }
+
+
+    }
+
 }
