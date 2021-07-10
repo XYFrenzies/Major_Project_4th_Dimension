@@ -2,16 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Linq;
+using UnityEngine.Events;
+
 
 public class PlayerController : MonoBehaviour
 {
     private const float NORMAL_FOV = 60f;
     private const float HOOKSHOT_FOV = 100f;
 
+    public string[] pullObjectTags;
+    private PullObjectToPlayer onTriggerEvent;
+    private string thingToPull;
     public float moveSpeed = 10.0f;
-    public Rigidbody rb;
-    public Animator anim;
-    public Camera cam;
+    private Rigidbody rb;
+    private Animator anim;
+    private Camera cam;
     private CameraFOV camFOV;
     public Transform shootPoint;
     private LineRenderer line;
@@ -24,7 +30,7 @@ public class PlayerController : MonoBehaviour
     public float hookShotMinSpeed = 10f;
     public float hookShotMaxSpeed = 40f;
     public float distanceToHookShotHitPoint = 1f;
-    private bool didHookShotMiss;
+    private bool HookShotHitSomething;
 
     // Look
     public float lookSensitivity = 2.0f;
@@ -77,7 +83,14 @@ public class PlayerController : MonoBehaviour
         camFOV = cam.GetComponent<CameraFOV>();
         currentState = State.Normal;
         Cursor.lockState = CursorLockMode.Locked;
-        shootPoint.gameObject.SetActive(false);
+
+        if (onTriggerEvent == null)
+            onTriggerEvent = GameObject.FindObjectOfType<PullObjectToPlayer>();
+        if (onTriggerEvent.hookShotOnTrigger == null)
+            onTriggerEvent.hookShotOnTrigger = new UnityEvent();
+
+        onTriggerEvent.hookShotOnTrigger.AddListener(DoThing);
+        //shootPoint.gameObject.SetActive(false);
     }
 
     // Start is called before the first frame update
@@ -98,10 +111,15 @@ public class PlayerController : MonoBehaviour
                 break;
             case State.HookShotThrown:
                 HandleHookShotThrown();
+                rb.velocity = Vector3.zero; // If player is moving while firing, player will continue to move for a short time.
+                                            // This stops player from moving while hookshot if firing
                 break;
             case State.HookShotFlying:
-                HookShotMovement();
+                HookShotFlyingMovement();
                 //Look(m_Look);
+                break;
+            case State.HookShotPullObjTowards:
+                HookShotPullObject();
                 break;
             case State.HookShotMissed:
                 HookShotMiss();
@@ -150,25 +168,25 @@ public class PlayerController : MonoBehaviour
         Vector3 rayOrigin = cam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
 
         RaycastHit hit;
-
-        //line.SetPosition(0, shootPoint.position);
+        thingToPull = "";
 
         if (Physics.Raycast(rayOrigin, cam.transform.forward, out hit, hookShotRange))
         {
-            //line.SetPosition(1, hit.point);
             hookShotHitPoint = hit.point;
-            didHookShotMiss = false;
-            hookShotSize = 0f;
-            shootPoint.gameObject.SetActive(true);
+            if (hit.rigidbody)
+                thingToPull = hit.rigidbody.gameObject.tag;
+            HookShotHitSomething = true;
+            hookShotSize = 2f;
+            //shootPoint.gameObject.SetActive(true);
             shootPoint.localScale = Vector3.zero;
             currentState = State.HookShotThrown;
         }
         else
         {
-            didHookShotMiss = true;
+            HookShotHitSomething = false;
             hookShotHitPoint = rayOrigin + (cam.transform.forward * hookShotRange);
-            hookShotSize = 0f;
-            shootPoint.gameObject.SetActive(true);
+            hookShotSize = 2f;
+            //shootPoint.gameObject.SetActive(true);
             shootPoint.localScale = Vector3.zero;
             currentState = State.HookShotThrown;
 
@@ -185,19 +203,26 @@ public class PlayerController : MonoBehaviour
 
         if (hookShotSize >= Vector3.Distance(transform.position, hookShotHitPoint))
         {
-            if (!didHookShotMiss)
+            if (HookShotHitSomething)
             {
-                currentState = State.HookShotFlying;
-                camFOV.SetCameraFOV(HOOKSHOT_FOV);
+                if (pullObjectTags.Contains(thingToPull))
+                {
+                    currentState = State.HookShotPullObjTowards;
+                }
+                else
+                {
+                    currentState = State.HookShotFlying;
+                    camFOV.SetCameraFOV(HOOKSHOT_FOV);
+                }
             }
-            else if (didHookShotMiss)
+            else if (!HookShotHitSomething)
             {
                 currentState = State.HookShotMissed;
             }
         }
     }
 
-    public void HookShotMovement()
+    public void HookShotFlyingMovement()
     {
         shootPoint.LookAt(hookShotHitPoint);
         rb.useGravity = false;
@@ -210,27 +235,45 @@ public class PlayerController : MonoBehaviour
         if (Vector3.Distance(transform.position, hookShotHitPoint) < distanceToHookShotHitPoint)
         {
             currentState = State.Normal;
-            shootPoint.gameObject.SetActive(false);
+            //shootPoint.gameObject.SetActive(false);
             camFOV.SetCameraFOV(NORMAL_FOV);
 
             rb.useGravity = true;
         }
     }
 
-    public void HookShotMiss()
+    public void HookShotPullObject()
     {
         shootPoint.LookAt(hookShotHitPoint);
-        if (hookShotSize >= 0f)
+        if (hookShotSize >= 2f)
             hookShotSize -= hookShotThrowSpeed * Time.deltaTime;
         shootPoint.localScale = new Vector3(1, 1, hookShotSize);
 
-        if (hookShotSize <= 0f)
+        if (hookShotSize <= 2f)
         {
-            shootPoint.gameObject.SetActive(false);
+            //shootPoint.gameObject.SetActive(false);
+            currentState = State.Normal;
+        }
+    }
+
+    public void HookShotMiss()
+    {
+        shootPoint.LookAt(hookShotHitPoint);
+        if (hookShotSize >= 2f)
+            hookShotSize -= hookShotThrowSpeed * Time.deltaTime;
+        shootPoint.localScale = new Vector3(1, 1, hookShotSize);
+
+        if (hookShotSize <= 2f)
+        {
+            //shootPoint.gameObject.SetActive(false);
             currentState = State.Normal;
         }
 
+    }
 
+    public void DoThing()
+    {
+        Debug.Log("asd");
     }
 
 }

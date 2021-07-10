@@ -325,7 +325,7 @@ GameObject:
   - component: {fileID: 191896167}
   m_Layer: 6
   m_Name: Wall (2)
-  m_TagString: Untagged
+  m_TagString: CanHookShotTowards
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -418,6 +418,8 @@ GameObject:
   - component: {fileID: 453804250}
   - component: {fileID: 453804249}
   - component: {fileID: 453804248}
+  - component: {fileID: 453804251}
+  - component: {fileID: 453804252}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -501,6 +503,38 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 453804246}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!135 &453804251
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453804246}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.1
+  m_Center: {x: 0, y: 0, z: 0.51}
+--- !u!114 &453804252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453804246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dec699c5c8efaf4f806f599dacec42e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectsICanPull:
+  - MoveableToMe
+  lerpSpeed: 30
+  holder: {fileID: 1607504169}
+  hookShotOnTrigger:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &497616519
 GameObject:
   m_ObjectHideFlags: 0
@@ -515,7 +549,7 @@ GameObject:
   - component: {fileID: 497616520}
   m_Layer: 6
   m_Name: Wall (1)
-  m_TagString: Untagged
+  m_TagString: CanHookShotTowards
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1605,6 +1639,7 @@ Transform:
   m_Children:
   - {fileID: 1795537787}
   - {fileID: 1859828581}
+  - {fileID: 1607504169}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1620,10 +1655,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ed5d5c8dd4b24145addd276387cba9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pullObjectTags:
+  - MoveableToMe
   moveSpeed: 10
-  rb: {fileID: 0}
-  anim: {fileID: 0}
-  cam: {fileID: 742426570}
   shootPoint: {fileID: 1859828581}
   hookShotRange: 50
   hookShotThrowSpeed: 70
@@ -1734,6 +1768,36 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!1 &1607504168
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1607504169}
+  m_Layer: 0
+  m_Name: Holder
+  m_TagString: Untagged
+  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1607504169
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1607504168}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.22, y: 0, z: 2.01}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1454060534}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1779793576
 GameObject:
   m_ObjectHideFlags: 0
@@ -1997,7 +2061,7 @@ GameObject:
   - component: {fileID: 1974644301}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: CanHookShotTowards
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

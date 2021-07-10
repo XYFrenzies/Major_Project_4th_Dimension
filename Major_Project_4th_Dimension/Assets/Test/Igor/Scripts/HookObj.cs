@@ -17,13 +17,13 @@ public class HookObj : MonoBehaviour
     [HideInInspector]
     public Transform objectCollidedWith;
 
-    private LineRenderer line;
+    //private LineRenderer line;
     private bool hasCollided;
 
 
     private void Awake()
     {
-        line = GetComponentInChildren<LineRenderer>();
+        //line = GetComponentInChildren<LineRenderer>();
     }
     // Start is called before the first frame update
     void Start()
@@ -36,8 +36,8 @@ public class HookObj : MonoBehaviour
     {
         if (hookShotPoint)
         {
-            line.SetPosition(0, hookShotPoint.position);
-            line.SetPosition(1, transform.position);
+            //line.SetPosition(0, hookShotPoint.position);
+            //line.SetPosition(1, transform.position);
             //Check if we have impacted
             if (hasCollided)
             {
