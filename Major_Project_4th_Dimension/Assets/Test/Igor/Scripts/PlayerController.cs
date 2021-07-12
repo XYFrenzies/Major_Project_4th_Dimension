@@ -11,11 +11,15 @@ public class PlayerController : MonoBehaviour
     private const float NORMAL_FOV = 60f;
     private const float HOOKSHOT_FOV = 100f;
 
+
+
+
     public string[] pullObjectTags;
-    private PullObjectToPlayer onTriggerEvent;
-    private string thingToPull;
+    private PullObjectToPlayer pObjToPlayer;
+    private string thingToPull = "";
     public float moveSpeed = 10.0f;
     private Rigidbody rb;
+
     private Animator anim;
     private Camera cam;
     private CameraFOV camFOV;
@@ -43,6 +47,8 @@ public class PlayerController : MonoBehaviour
     private Vector2 m_Move;
     private Vector2 m_Look;
     private State currentState;
+
+    public UnityEvent myEvent;
 
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -83,13 +89,13 @@ public class PlayerController : MonoBehaviour
         camFOV = cam.GetComponent<CameraFOV>();
         currentState = State.Normal;
         Cursor.lockState = CursorLockMode.Locked;
+        
+        if (pObjToPlayer == null)
+            pObjToPlayer = GameObject.FindObjectOfType<PullObjectToPlayer>();
+        if (pObjToPlayer.hookShotOnTrigger == null)
+            pObjToPlayer.hookShotOnTrigger = new UnityEvent();
 
-        if (onTriggerEvent == null)
-            onTriggerEvent = GameObject.FindObjectOfType<PullObjectToPlayer>();
-        if (onTriggerEvent.hookShotOnTrigger == null)
-            onTriggerEvent.hookShotOnTrigger = new UnityEvent();
-
-        onTriggerEvent.hookShotOnTrigger.AddListener(DoThing);
+        pObjToPlayer.hookShotOnTrigger.AddListener(DoThing);
         //shootPoint.gameObject.SetActive(false);
     }
 
@@ -164,17 +170,18 @@ public class PlayerController : MonoBehaviour
         //int canGrappleToLayerMask = 1 << 6;
 
         //int canPullTowardsSelf = 1 << 7;
-
+        myEvent.Invoke();
         Vector3 rayOrigin = cam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
 
         RaycastHit hit;
-        thingToPull = "";
 
+        thingToPull = "";
         if (Physics.Raycast(rayOrigin, cam.transform.forward, out hit, hookShotRange))
         {
             hookShotHitPoint = hit.point;
             if (hit.rigidbody)
                 thingToPull = hit.rigidbody.gameObject.tag;
+            
             HookShotHitSomething = true;
             hookShotSize = 2f;
             //shootPoint.gameObject.SetActive(true);
@@ -271,9 +278,10 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    // Listening for the event invoked in OnTriggerEnter in PullObjectToplayer
     public void DoThing()
     {
-        Debug.Log("asd");
+        Debug.Log("Player controller");
     }
 
 }
