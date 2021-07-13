@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 m_Move;
     private Vector2 m_Look;
-    private State currentState;
+    public State currentState;
     public float speed = 1.0f;
     public Transform hand;
     public Transform handStartPos;
@@ -89,7 +89,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private enum State
+    public enum State
     {
         Normal,
         HookShotThrown,

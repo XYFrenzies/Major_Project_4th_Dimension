@@ -50,6 +50,8 @@ public class PullObjectToPlayer : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
+        if (playerCont.isObjectHeld)
+            playerCont.currentState = PlayerController.State.HookShotMissed;
         if (!playerCont.isObjectHeld)
             if (objectsICanPull.Contains(other.gameObject.tag))
             {
