@@ -12,10 +12,13 @@ public class PullObjectToPlayer : MonoBehaviour
     public Transform holder;
     public UnityEvent hookShotOnTrigger;
     PlayerController playerCont;
+    Camera cam;
+    public float throwForce = 10f;
 
     // Start is called before the first frame update
     void Awake()
     {
+        cam = Camera.main;
         if (playerCont == null)
             playerCont = GameObject.FindObjectOfType<PlayerController>();
         if (playerCont.myEvent == null)
@@ -65,7 +68,9 @@ public class PullObjectToPlayer : MonoBehaviour
     // Listens to the event invoked in PlayerController
     public void DoTheEvent()
     {
-        Debug.Log("Pull Object To Player");
+        rb.isKinematic = false;
+        rb.AddForce(cam.transform.forward * throwForce, ForceMode.VelocityChange);
+        rb = null;
 
     }
 }
