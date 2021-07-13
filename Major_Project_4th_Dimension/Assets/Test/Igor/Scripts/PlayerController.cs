@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
 
 
     public string[] pullObjectTags;
+    //public string[] pullObjectTags;
+
     private PullObjectToPlayer pObjToPlayer;
     private string thingToPull = "";
     public float moveSpeed = 10.0f;
@@ -35,7 +37,7 @@ public class PlayerController : MonoBehaviour
     public float hookShotMaxSpeed = 40f;
     public float distanceToHookShotHitPoint = 1f;
     private bool HookShotHitSomething;
-    private bool isObjectHeld;
+    public bool isObjectHeld;
 
     // Look
     public float lookSensitivity = 2.0f;
@@ -52,7 +54,8 @@ public class PlayerController : MonoBehaviour
     public Transform hand;
     public Transform handStartPos;
 
-    public UnityEvent myEvent;
+    public UnityEvent ThrowObjectEvent;
+    public UnityEvent PlaceObjectEvent;
 
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -71,7 +74,18 @@ public class PlayerController : MonoBehaviour
         {
             return;
         }
-        HookShot();
+        ThrowHookShot();
+
+    }
+
+    public void OnThrowObject(InputAction.CallbackContext context)
+    {
+
+        if (context.phase != InputActionPhase.Performed)
+        {
+            return;
+        }
+        ThrowObject();
 
     }
 
@@ -99,7 +113,7 @@ public class PlayerController : MonoBehaviour
         if (pObjToPlayer.hookShotOnTrigger == null)
             pObjToPlayer.hookShotOnTrigger = new UnityEvent();
 
-        pObjToPlayer.hookShotOnTrigger.AddListener(DoThing);
+        pObjToPlayer.hookShotOnTrigger.AddListener(PlayerHoldingObject);
         //shootPoint.gameObject.SetActive(false);
     }
 
@@ -166,15 +180,10 @@ public class PlayerController : MonoBehaviour
         camAnchor.eulerAngles = clampedAngle;
     }
 
-    public void HookShot()
+    public void ThrowHookShot()
     {
 
-        if (isObjectHeld)
-        {
-            myEvent.Invoke();
-            isObjectHeld = false;
-            return;
-        }
+
         Vector3 lineOrigin = cam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
         Debug.DrawLine(lineOrigin, cam.transform.forward * hookShotRange, Color.green);
 
@@ -185,7 +194,22 @@ public class PlayerController : MonoBehaviour
 
         RaycastHit hit;
 
+        if (isObjectHeld)
+        {
+            HookShotHitSomething = false;
+            hookShotHitPoint = rayOrigin + (cam.transform.forward * hookShotRange);
+            Debug.Log(hookShotHitPoint);
+            hookShotSize = 2f;
+            shootPoint.gameObject.SetActive(true);
+            shootPoint.localScale = Vector3.zero;
+            currentState = State.HookShotThrown;
+            //PlaceObjectEvent.Invoke();
+            // isObjectHeld = false;
+            return;
+        }
+
         thingToPull = "";
+
         if (Physics.Raycast(rayOrigin, cam.transform.forward, out hit, hookShotRange))
         {
             hookShotHitPoint = hit.point;
@@ -282,6 +306,8 @@ public class PlayerController : MonoBehaviour
 
     public void HookShotMiss()
     {
+        PlaceObjectEvent.Invoke();
+        isObjectHeld = false;
         shootPoint.LookAt(hookShotHitPoint);
         if (hookShotSize >= 2f)
             hookShotSize -= hookShotThrowSpeed * Time.deltaTime;
@@ -297,9 +323,20 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    // Listening for the event invoked in OnTriggerEnter in PullObjectToplayer
-    public void DoThing()
+    public void ThrowObject()
     {
+        if (isObjectHeld)
+        {
+            ThrowObjectEvent.Invoke();
+            isObjectHeld = false;
+            //return;
+        }
+    }
+
+    // Listening for the event invoked in OnTriggerEnter in PullObjectToplayer
+    public void PlayerHoldingObject()
+    {
+        currentState = State.HookShotPullObjTowards;
         isObjectHeld = true;
     }
 
