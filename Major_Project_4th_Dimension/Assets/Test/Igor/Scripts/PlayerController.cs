@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 10.0f;
     private Rigidbody rb;
 
-    private Animator anim;
+    public Animator anim;
     private Camera cam;
     private CameraFOV camFOV;
     public Transform shootPoint;
@@ -101,7 +101,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        anim = GetComponent<Animator>();
+        //anim = GetComponent<Animator>();
         line = GetComponent<LineRenderer>();
         cam = Camera.main;
         camFOV = cam.GetComponent<CameraFOV>();
@@ -158,8 +158,8 @@ public class PlayerController : MonoBehaviour
         dir.y = rb.velocity.y;
         rb.velocity = dir;
 
-        //anim.SetFloat("Xpos", direction.x); 
-        //anim.SetFloat("Ypos", direction.y);
+        anim.SetFloat("xPos", direction.x); 
+        anim.SetFloat("yPos", direction.y);
     }
 
     public void Look(Vector2 direction)
@@ -198,7 +198,7 @@ public class PlayerController : MonoBehaviour
         {
             HookShotHitSomething = false;
             hookShotHitPoint = rayOrigin + (cam.transform.forward * hookShotRange);
-            Debug.Log(hookShotHitPoint);
+            
             hookShotSize = 2f;
             shootPoint.gameObject.SetActive(true);
             shootPoint.localScale = Vector3.zero;
