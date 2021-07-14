@@ -160,6 +160,9 @@ public class PlayerController : MonoBehaviour
 
         anim.SetFloat("xPos", direction.x); 
         anim.SetFloat("yPos", direction.y);
+        anim.SetBool("IsLanding", false);
+
+
     }
 
     public void Look(Vector2 direction)
@@ -238,6 +241,7 @@ public class PlayerController : MonoBehaviour
 
     public void HandleHookShotThrown()
     {
+        //anim.SetBool("StartSwinging", true);
         shootPoint.LookAt(hookShotHitPoint);
         hookShotSize += hookShotThrowSpeed * Time.deltaTime;
         shootPoint.localScale = new Vector3(1, 1, hookShotSize);
@@ -267,6 +271,9 @@ public class PlayerController : MonoBehaviour
 
     public void HookShotFlyingMovement()
     {
+        //anim.SetBool("StartSwinging", false);
+
+        anim.SetBool("IsFlying", true);
         shootPoint.LookAt(hookShotHitPoint);
         rb.useGravity = false;
         flyingSpeed = Mathf.Clamp(Vector3.Distance(transform.position, hookShotHitPoint), hookShotMinSpeed, hookShotMaxSpeed);
@@ -279,6 +286,10 @@ public class PlayerController : MonoBehaviour
         hand.position = hookShotHitPoint;
         if (Vector3.Distance(transform.position, hookShotHitPoint) < distanceToHookShotHitPoint)
         {
+            anim.SetBool("IsFlying", false);
+            anim.SetBool("IsLanding", true);
+            //anim.SetBool("IsLanding", false);
+
             hand.position = handStartPos.position;
             currentState = State.Normal;
             shootPoint.gameObject.SetActive(false);
