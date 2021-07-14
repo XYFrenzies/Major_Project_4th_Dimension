@@ -11,8 +11,8 @@ public class PlayerController : MonoBehaviour
     private const float NORMAL_FOV = 60f;
     private const float HOOKSHOT_FOV = 100f;
 
-
-
+    public FloatSO playerHealth;
+    public GameEvent myDeathEvent;
 
     public string[] pullObjectTags;
     //public string[] pullObjectTags;
@@ -120,7 +120,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        playerHealth.value = 5;
     }
 
     // Update is called once per frame
@@ -185,7 +185,7 @@ public class PlayerController : MonoBehaviour
 
     public void ThrowHookShot()
     {
-
+        myDeathEvent.Raise();
 
         Vector3 lineOrigin = cam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
         Debug.DrawLine(lineOrigin, cam.transform.forward * hookShotRange, Color.green);

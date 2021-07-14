@@ -6,6 +6,7 @@ using UnityEngine.Events;
 
 public class PullObjectToPlayer : MonoBehaviour
 {
+    public FloatSO myHealth;
     public string[] objectsICanPull;
     private Rigidbody rb;
     //public float lerpSpeed = 30.0f;
@@ -18,6 +19,7 @@ public class PullObjectToPlayer : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        Debug.Log(myHealth.value);
         cam = Camera.main;
         if (playerCont == null)
             playerCont = GameObject.FindObjectOfType<PlayerController>();
