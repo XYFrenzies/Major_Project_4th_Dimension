@@ -181,6 +181,18 @@ public class PlayerController : MonoBehaviour
         clampedAngle.x = currentXRot;
 
         camAnchor.eulerAngles = clampedAngle;
+
+        Vector3 rayOrigin = cam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
+
+        RaycastHit hit;
+
+        if (Physics.Raycast(rayOrigin, cam.transform.forward, out hit, hookShotRange))
+        {
+            if (hit.collider.CompareTag("CanHookShotTowards"))
+            {
+                Debug.Log("Hook point");
+            }
+        }
     }
 
     public void ThrowHookShot()
