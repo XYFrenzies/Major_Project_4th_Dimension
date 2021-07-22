@@ -19,7 +19,7 @@ public class PullObjectToPlayer : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        Debug.Log(myHealth.value);
+        //Debug.Log(myHealth.value);
         cam = Camera.main;
         if (playerCont == null)
             playerCont = GameObject.FindObjectOfType<PlayerController>();

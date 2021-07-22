@@ -190,7 +190,12 @@ public class PlayerController : MonoBehaviour
         {
             if (hit.collider.CompareTag("CanHookShotTowards"))
             {
-                Debug.Log("Hook point");
+                
+            }
+            else
+            {
+                
+
             }
         }
     }
