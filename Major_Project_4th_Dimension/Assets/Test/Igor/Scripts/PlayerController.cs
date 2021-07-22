@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
     private PullObjectToPlayer pObjToPlayer;
     private string thingToPull = "";
     public float moveSpeed = 10.0f;
+    public float jumpForce = 10.0f;
+
     private Rigidbody rb;
 
     public Animator anim;
@@ -57,6 +59,31 @@ public class PlayerController : MonoBehaviour
     public UnityEvent ThrowObjectEvent;
     public UnityEvent PlaceObjectEvent;
 
+    public bool Grounded
+    {
+        get
+        {
+            return anim.GetBool("IsGrounded");
+        }
+        set
+        {
+            anim.SetBool("IsGrounded", value);
+        }
+    }
+
+    // Is the player falling
+    public bool Falling
+    {
+        get
+        {
+            if (!Grounded && !CanJump())
+                return true;
+            else
+                return false;
+        }
+
+    }
+
     public void OnMove(InputAction.CallbackContext context)
     {
         m_Move = context.ReadValue<Vector2>();
@@ -65,6 +92,17 @@ public class PlayerController : MonoBehaviour
     public void OnLook(InputAction.CallbackContext context)
     {
         m_Look = context.ReadValue<Vector2>();
+    }
+
+    public void OnJump(InputAction.CallbackContext context)
+    {
+
+        if (context.phase != InputActionPhase.Performed)
+        {
+            return;
+        }
+        Jump();
+
     }
 
     public void OnHookShot(InputAction.CallbackContext context)
@@ -162,6 +200,12 @@ public class PlayerController : MonoBehaviour
         anim.SetFloat("yPos", direction.y);
         anim.SetBool("IsLanding", false);
 
+        CanJump();
+        if (Falling)
+        {
+            Grounded = false;
+            anim.SetBool("IsJumping", false);
+        }
 
     }
 
@@ -198,6 +242,32 @@ public class PlayerController : MonoBehaviour
 
             }
         }
+    }
+
+    public void Jump()
+    {
+        if (CanJump())
+        {
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            anim.SetBool("IsJumping", true);
+            Grounded = false;
+        }
+    }
+
+    bool CanJump()
+    {
+        Ray ray = new Ray(transform.position, Vector3.down); // Shoot a ray down
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, 1.5f)) // If the ray hits the ground
+        {
+            Grounded = true; // is the player on the ground?
+            anim.SetBool("IsJumping", false);
+            return true;
+        }
+
+        Grounded = false;
+        return false;
     }
 
     public void ThrowHookShot()
