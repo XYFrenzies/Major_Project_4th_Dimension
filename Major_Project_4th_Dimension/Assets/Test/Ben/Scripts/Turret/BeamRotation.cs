@@ -40,10 +40,13 @@ public class BeamRotation : Singleton<BeamRotation>
                     hasTakenDamage = true;
                     return;
                 }
-                renderer.material = m_attack;
-                hasChangedColour = true;
+                else if (!isShooting)
+                {
+                    renderer.material = m_attack;
+                    hasChangedColour = true;
+                }
             }
-            else if (hasChangedColour)
+            else if (hasChangedColour && !isShooting)
             {
                 renderer.material = m_neutral;
                 hasChangedColour = false;
