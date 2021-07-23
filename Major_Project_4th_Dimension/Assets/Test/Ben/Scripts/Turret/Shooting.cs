@@ -6,7 +6,6 @@ public class Shooting : MonoBehaviour
 {
     [SerializeField] private float timeBeforeShot = 2.0f;
     [SerializeField] private float timePeriodOfShot = 2.0f;
-    [SerializeField] private bool isHitScan = true;
     [SerializeField] private GameEvent shooting;
     [SerializeField] private GameEvent stoppedShooting;
     private bool aboutToFire = false;
@@ -21,7 +20,8 @@ public class Shooting : MonoBehaviour
         }
         else if ((cRBeforeShot || cRDuringShot) && !BeamRotation.Instance.isInRange)
         {
-            StopCoroutine(ShootWithHitScan());
+            StopAllCoroutines();
+           // StopCoroutine(ShootWithHitScan());
             stoppedShooting.Raise();
             aboutToFire = false;
             cRBeforeShot = false;
