@@ -16,24 +16,19 @@ public class Shooting : MonoBehaviour
     {
         if (!aboutToFire)
         {
-            if (isHitScan)
-            {
-                ShootWithHitScan();
-            }
-            else if (isProjectile)
-            {
-                ShootWithProjectile();
-            }
+            ShootWithHitScan();
         }
     }
     IEnumerator ShootWithHitScan()
     {
         aboutToFire = true;
         yield return new WaitForSeconds(timeBeforeShot);
-        
+        shooting.Raise();
         //Do damage to player if they are within the line renderer
+        yield return new WaitForSeconds(timePeriodOfShot);
+        stoppedShooting.Raise();
     }
-    public void ShootWithProjectile()
+    public void Shoot()
     {
         aboutToFire = true;
     }
