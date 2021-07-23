@@ -9,7 +9,15 @@ public class TurretController : MonoBehaviour
     private Vector3 m_lastKnownLocation = Vector3.zero;
     private Quaternion m_lookRotation;
     private bool isShooting = false;
-
+    private void Awake()
+    {
+        //Will only work on the first instance in the game
+        //Need to attach the player to the script.
+        if (m_player == null)
+        {
+            m_player = GameObject.FindGameObjectWithTag("Player");
+        }
+    }
     // Update is called once per frame
     void Update()
     {
