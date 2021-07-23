@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2159.0781, g: 2263.5078, b: 3302.5898, a: 1}
+  m_IndirectSpecularColor: {r: 2157.1455, g: 2261.5352, b: 3300.4062, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1087,6 +1087,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!1 &1230847765 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 596246212438535344, guid: e0799b1a0041f4d408ecf0c19cdffd9a, type: 3}
+  m_PrefabInstance: {fileID: 3610690197521451470}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1230847766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1230847765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48be2ea0f33e0194caf93c70cfde9568, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 55f6c2d7777578747aa2e03680d92b13, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1316779161 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3118910816151523641, guid: ebf10df212ceced448ef03c5b7890975, type: 3}
@@ -1513,9 +1534,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3118910815464158143, guid: ebf10df212ceced448ef03c5b7890975, type: 3}
-      propertyPath: m_shooting
+      propertyPath: m_takeDamage
       value: 
-      objectReference: {fileID: 2100000, guid: 92621f61a4b3ad8449abb75897f726eb, type: 2}
+      objectReference: {fileID: 11400000, guid: 55f6c2d7777578747aa2e03680d92b13, type: 2}
     - target: {fileID: 3118910816151523640, guid: ebf10df212ceced448ef03c5b7890975, type: 3}
       propertyPath: m_Name
       value: Turret
