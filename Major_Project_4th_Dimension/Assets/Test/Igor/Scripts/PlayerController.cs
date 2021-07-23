@@ -12,7 +12,8 @@ public class PlayerController : MonoBehaviour
     private const float HOOKSHOT_FOV = 100f;
 
     public FloatSO playerHealth;
-    public GameEvent myDeathEvent;
+    public GameEvent canSeeGrapplePoint;
+    public GameEvent notSeeGrapplePoint;
 
     public string[] pullObjectTags;
     //public string[] pullObjectTags;
@@ -234,11 +235,11 @@ public class PlayerController : MonoBehaviour
         {
             if (hit.collider.CompareTag("CanHookShotTowards"))
             {
-                
+                canSeeGrapplePoint.Raise();
             }
             else
             {
-                
+                notSeeGrapplePoint.Raise();
 
             }
         }
@@ -272,7 +273,7 @@ public class PlayerController : MonoBehaviour
 
     public void ThrowHookShot()
     {
-        myDeathEvent.Raise();
+        
 
         Vector3 lineOrigin = cam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
         Debug.DrawLine(lineOrigin, cam.transform.forward * hookShotRange, Color.green);
