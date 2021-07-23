@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2160.9697, g: 2265.6055, b: 3304.832, a: 1}
+  m_IndirectSpecularColor: {r: 2162.334, g: 2268.3496, b: 3313.1484, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1502,20 +1502,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3118910815464158143, guid: ebf10df212ceced448ef03c5b7890975, type: 3}
-      propertyPath: m_attack
-      value: 
-      objectReference: {fileID: 2100000, guid: ed8cb018882648747abf8e389ad91508, type: 2}
-    - target: {fileID: 3118910815464158143, guid: ebf10df212ceced448ef03c5b7890975, type: 3}
-      propertyPath: m_neutral
-      value: 
-      objectReference: {fileID: 2100000, guid: cfdbba96a2dc39f418674d837fbebd7d, type: 2}
+      propertyPath: beamLength
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 3118910816151523640, guid: ebf10df212ceced448ef03c5b7890975, type: 3}
       propertyPath: m_Name
       value: Turret
-      objectReference: {fileID: 0}
-    - target: {fileID: 3118910816151523642, guid: ebf10df212ceced448ef03c5b7890975, type: 3}
-      propertyPath: speed
-      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3118910816151523642, guid: ebf10df212ceced448ef03c5b7890975, type: 3}
       propertyPath: m_player

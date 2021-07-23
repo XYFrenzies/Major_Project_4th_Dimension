@@ -221,7 +221,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f41248058cf0a5d4786117feaf2cf28b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beamLength: 10
+  beamLength: 15
+  m_neutral: {fileID: 2100000, guid: cfdbba96a2dc39f418674d837fbebd7d, type: 2}
+  m_attack: {fileID: 2100000, guid: ed8cb018882648747abf8e389ad91508, type: 2}
   isInRange: 0
 --- !u!1 &3118910816151523640
 GameObject:
@@ -334,7 +336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dc7d80faf74d54458daaa47982d4c54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 20
   m_player: {fileID: 0}
 --- !u!114 &3118910816151523641
 MonoBehaviour:
@@ -350,6 +352,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBeforeShot: 2
   timePeriodOfShot: 2
-  isHitScan: 1
   shooting: {fileID: 11400000, guid: 32af847070d27a94a9094b80e8f5a4aa, type: 2}
   stoppedShooting: {fileID: 11400000, guid: 81f6851e2c3cb364895e0a845b67cdaa, type: 2}
