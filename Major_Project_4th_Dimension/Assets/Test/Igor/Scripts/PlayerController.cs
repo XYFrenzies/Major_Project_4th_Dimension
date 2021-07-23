@@ -197,7 +197,7 @@ public class PlayerController : MonoBehaviour
         dir.y = rb.velocity.y;
         rb.velocity = dir;
 
-        anim.SetFloat("xPos", direction.x); 
+        anim.SetFloat("xPos", direction.x);
         anim.SetFloat("yPos", direction.y);
         anim.SetBool("IsLanding", false);
 
@@ -237,11 +237,12 @@ public class PlayerController : MonoBehaviour
             {
                 canSeeGrapplePoint.Raise();
             }
-            else
-            {
-                notSeeGrapplePoint.Raise();
 
-            }
+        }
+        else
+        {
+            notSeeGrapplePoint.Raise();
+
         }
     }
 
@@ -273,7 +274,7 @@ public class PlayerController : MonoBehaviour
 
     public void ThrowHookShot()
     {
-        
+
 
         Vector3 lineOrigin = cam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
         Debug.DrawLine(lineOrigin, cam.transform.forward * hookShotRange, Color.green);
@@ -289,7 +290,7 @@ public class PlayerController : MonoBehaviour
         {
             HookShotHitSomething = false;
             hookShotHitPoint = rayOrigin + (cam.transform.forward * hookShotRange);
-            
+
             hookShotSize = 2f;
             shootPoint.gameObject.SetActive(true);
             shootPoint.localScale = Vector3.zero;
