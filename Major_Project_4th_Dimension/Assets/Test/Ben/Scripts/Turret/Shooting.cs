@@ -6,7 +6,6 @@ public class Shooting : MonoBehaviour
 {
     [SerializeField] private float timeBeforeShot = 2.0f;
     [SerializeField] private float timePeriodOfShot = 2.0f;
-    [SerializeField] private bool isProjectile = false;
     [SerializeField] private bool isHitScan = true;
     [SerializeField] private GameEvent shooting;
     [SerializeField] private GameEvent stoppedShooting;
@@ -24,12 +23,9 @@ public class Shooting : MonoBehaviour
         aboutToFire = true;
         yield return new WaitForSeconds(timeBeforeShot);
         shooting.Raise();
-        //Do damage to player if they are within the line renderer
+        //Do damage to player if they are within the line renderer with raycast.hit (need to discuss if its a health system or not)
         yield return new WaitForSeconds(timePeriodOfShot);
         stoppedShooting.Raise();
-    }
-    public void Shoot()
-    {
-        aboutToFire = true;
+        aboutToFire = false;
     }
 }
