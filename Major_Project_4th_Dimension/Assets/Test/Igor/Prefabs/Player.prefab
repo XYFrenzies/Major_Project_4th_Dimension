@@ -600,10 +600,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 11400000, guid: 47ea8f086b4acc847b248e29bf03b541, type: 2}
-  myDeathEvent: {fileID: 11400000, guid: bb3443760e1a272439975f51fb815ae5, type: 2}
+  canSeeGrapplePoint: {fileID: 11400000, guid: b0f7e8e017f0b6c49a9faf7aaa723c60, type: 2}
+  notSeeGrapplePoint: {fileID: 11400000, guid: c79ee39653d41764ba531ddbedcaf7e7, type: 2}
   pullObjectTags:
   - MoveableToMe
   moveSpeed: 10
+  jumpForce: 10
   anim: {fileID: 4427215333668197846}
   shootPoint: {fileID: 4427215334449136962}
   hookShotRange: 50
