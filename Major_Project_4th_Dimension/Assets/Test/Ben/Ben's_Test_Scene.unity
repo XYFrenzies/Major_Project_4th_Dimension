@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2162.334, g: 2268.3496, b: 3313.1484, a: 1}
+  m_IndirectSpecularColor: {r: 2159.0781, g: 2263.5078, b: 3302.5898, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -774,6 +774,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &896849439 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3118910815464158143, guid: ebf10df212ceced448ef03c5b7890975, type: 3}
+  m_PrefabInstance: {fileID: 3118910815242659232}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f41248058cf0a5d4786117feaf2cf28b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &910656376
 GameObject:
   m_ObjectHideFlags: 0
@@ -1502,9 +1513,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3118910815464158143, guid: ebf10df212ceced448ef03c5b7890975, type: 3}
-      propertyPath: beamLength
-      value: 15
-      objectReference: {fileID: 0}
+      propertyPath: m_shooting
+      value: 
+      objectReference: {fileID: 2100000, guid: 92621f61a4b3ad8449abb75897f726eb, type: 2}
     - target: {fileID: 3118910816151523640, guid: ebf10df212ceced448ef03c5b7890975, type: 3}
       propertyPath: m_Name
       value: Turret
@@ -1615,9 +1626,45 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2250713127149867113, guid: e0799b1a0041f4d408ecf0c19cdffd9a, type: 3}
+      propertyPath: Response.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2250713127149867113, guid: e0799b1a0041f4d408ecf0c19cdffd9a, type: 3}
+      propertyPath: Response.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2250713127149867113, guid: e0799b1a0041f4d408ecf0c19cdffd9a, type: 3}
       propertyPath: Response.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1316779162}
+    - target: {fileID: 2250713127149867113, guid: e0799b1a0041f4d408ecf0c19cdffd9a, type: 3}
+      propertyPath: Response.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 896849439}
+    - target: {fileID: 2250713127149867113, guid: e0799b1a0041f4d408ecf0c19cdffd9a, type: 3}
+      propertyPath: Response.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2250713127149867113, guid: e0799b1a0041f4d408ecf0c19cdffd9a, type: 3}
+      propertyPath: Response.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: IsNotShooting
+      objectReference: {fileID: 0}
+    - target: {fileID: 2250713127149867113, guid: e0799b1a0041f4d408ecf0c19cdffd9a, type: 3}
+      propertyPath: Response.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: BeamRotation, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2250713127149867113, guid: e0799b1a0041f4d408ecf0c19cdffd9a, type: 3}
+      propertyPath: Response.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5139810861926942025, guid: e0799b1a0041f4d408ecf0c19cdffd9a, type: 3}
+      propertyPath: Response.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5139810861926942025, guid: e0799b1a0041f4d408ecf0c19cdffd9a, type: 3}
+      propertyPath: Response.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5139810861926942025, guid: e0799b1a0041f4d408ecf0c19cdffd9a, type: 3}
       propertyPath: Response.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1626,5 +1673,25 @@ PrefabInstance:
       propertyPath: Response.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1316779161}
+    - target: {fileID: 5139810861926942025, guid: e0799b1a0041f4d408ecf0c19cdffd9a, type: 3}
+      propertyPath: Response.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 896849439}
+    - target: {fileID: 5139810861926942025, guid: e0799b1a0041f4d408ecf0c19cdffd9a, type: 3}
+      propertyPath: Response.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5139810861926942025, guid: e0799b1a0041f4d408ecf0c19cdffd9a, type: 3}
+      propertyPath: Response.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: IsShooting
+      objectReference: {fileID: 0}
+    - target: {fileID: 5139810861926942025, guid: e0799b1a0041f4d408ecf0c19cdffd9a, type: 3}
+      propertyPath: Response.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: BeamRotation, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5139810861926942025, guid: e0799b1a0041f4d408ecf0c19cdffd9a, type: 3}
+      propertyPath: Response.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0799b1a0041f4d408ecf0c19cdffd9a, type: 3}

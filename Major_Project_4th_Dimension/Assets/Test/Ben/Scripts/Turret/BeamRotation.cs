@@ -7,10 +7,12 @@ public class BeamRotation : Singleton<BeamRotation>
     [SerializeField] private float beamLength = 10.0f;
     [SerializeField] private Material m_neutral = null;
     [SerializeField] private Material m_attack = null;
+    [SerializeField] private Material m_shooting = null;
     [HideInInspector] public bool isInRange = false;
     private LineRenderer renderer;
     private GameObject m_player;
     private bool hasChangedColour = false;
+    private bool isShooting = false;
     //This is for damaging the player.
     //[SerializeField] private GameObject m_player = null;
     //[SerializeField] private float damage = 1.0f;
@@ -27,19 +29,22 @@ public class BeamRotation : Singleton<BeamRotation>
             renderer.enabled = true;
             renderer.SetPosition(0, transform.position);
             renderer.SetPosition(1, transform.position + (transform.forward * beamLength));
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position, transform.forward, out hit, beamLength))
+            if (!isShooting)
             {
-                if (hit.transform.gameObject == m_player)
+                RaycastHit hit;
+                if (Physics.Raycast(transform.position, transform.forward, out hit, beamLength))
                 {
-                    renderer.material = m_attack;
-                    hasChangedColour = true;
+                    if (hit.transform.gameObject == m_player)
+                    {
+                        renderer.material = m_attack;
+                        hasChangedColour = true;
+                    }
                 }
-            }
-            else if (hasChangedColour)
-            {
-                renderer.material = m_neutral;
-                hasChangedColour = false;
+                else if (hasChangedColour)
+                {
+                    renderer.material = m_neutral;
+                    hasChangedColour = false;
+                }
             }
         }
         else
@@ -58,5 +63,15 @@ public class BeamRotation : Singleton<BeamRotation>
         {
             isInRange = false;
         }
+    }
+    public void IsShooting() 
+    {
+        renderer.material = m_shooting;
+        isShooting = true;
+    }
+    public void IsNotShooting()
+    {
+        renderer.material = m_neutral;
+        isShooting = false;
     }
 }
