@@ -12,8 +12,9 @@ public class PlayerController : MonoBehaviour
     private const float HOOKSHOT_FOV = 100f;
 
     public FloatSO playerHealth;
-    public GameEvent canSeeGrapplePoint;
-    public GameEvent notSeeGrapplePoint;
+
+    public UnityEvent canSeeGrapplePoint;
+    public UnityEvent notSeeGrapplePoint;
 
     public string[] pullObjectTags;
     //public string[] pullObjectTags;
@@ -235,13 +236,13 @@ public class PlayerController : MonoBehaviour
         {
             if (hit.collider.CompareTag("CanHookShotTowards"))
             {
-                canSeeGrapplePoint.Raise();
+                
             }
 
         }
         else
         {
-            notSeeGrapplePoint.Raise();
+            
 
         }
     }
@@ -345,7 +346,7 @@ public class PlayerController : MonoBehaviour
                 {
                     currentState = State.HookShotPullObjTowards;
                 }
-                else
+                else if(thingToPull.Contains("CanHookShotTowards"))
                 {
                     currentState = State.HookShotFlying;
                     camFOV.SetCameraFOV(HOOKSHOT_FOV);
