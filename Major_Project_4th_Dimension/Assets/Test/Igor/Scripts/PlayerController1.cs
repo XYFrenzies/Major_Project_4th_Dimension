@@ -6,12 +6,12 @@ using System.Linq;
 using UnityEngine.Events;
 
 
-public class PlayerController : MonoBehaviour
+public class PlayerController1 : MonoBehaviour
 {
     private const float NORMAL_FOV = 60f;
     private const float HOOKSHOT_FOV = 100f;
 
-    
+    //public FloatSO playerHealth;
 
     public UnityEvent canSeeGrapplePoint;
     public UnityEvent notSeeGrapplePoint;
@@ -160,7 +160,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //playerHealth.value = 5;
     }
 
     // Update is called once per frame
@@ -200,7 +200,7 @@ public class PlayerController : MonoBehaviour
 
         anim.SetFloat("xPos", direction.x);
         anim.SetFloat("yPos", direction.y);
-        //anim.SetBool("IsLanding", false);
+        anim.SetBool("IsLanding", false);
 
         CanJump();
         if (Falling)
@@ -229,23 +229,20 @@ public class PlayerController : MonoBehaviour
         camAnchor.eulerAngles = clampedAngle;
 
         Vector3 rayOrigin = cam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
-        //Debug.DrawRay(hand.transform.position, cam.ScreenToWorldPoint(new Vector3(0.5f, 0.5f, 0)) * hookShotRange, Color.red);
-        //Debug.DrawLine(lineOrigin, cam.transform.forward * hookShotRange, Color.green);
 
         RaycastHit hit;
 
         if (Physics.Raycast(rayOrigin, cam.transform.forward, out hit, hookShotRange))
         {
-            
             if (hit.collider.CompareTag("CanHookShotTowards"))
             {
-                GameEvents.current.GrapplePointVisible(hit.collider.GetComponent<GrapplePoint>().id);
+                
             }
 
         }
         else
         {
-            GameEvents.current.GrapplePointNotVisible();
+            
 
         }
     }
@@ -282,7 +279,6 @@ public class PlayerController : MonoBehaviour
 
         Vector3 lineOrigin = cam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
         Debug.DrawLine(lineOrigin, cam.transform.forward * hookShotRange, Color.green);
-        
 
         //int canGrappleToLayerMask = 1 << 6;
 
@@ -307,7 +303,7 @@ public class PlayerController : MonoBehaviour
 
         thingToPull = "";
 
-        if (Physics.Raycast(rayOrigin,cam.transform.forward, out hit, hookShotRange))
+        if (Physics.Raycast(rayOrigin, cam.transform.forward, out hit, hookShotRange))
         {
             hookShotHitPoint = hit.point;
             if (hit.rigidbody)
@@ -355,11 +351,6 @@ public class PlayerController : MonoBehaviour
                     currentState = State.HookShotFlying;
                     camFOV.SetCameraFOV(HOOKSHOT_FOV);
                 }
-                else
-                {
-                    currentState = State.HookShotMissed;
-
-                }
             }
             else if (!HookShotHitSomething)
             {
@@ -386,7 +377,7 @@ public class PlayerController : MonoBehaviour
         if (Vector3.Distance(transform.position, hookShotHitPoint) < distanceToHookShotHitPoint)
         {
             anim.SetBool("IsFlying", false);
-            //anim.SetBool("IsLanding", true);
+            anim.SetBool("IsLanding", true);
             //anim.SetBool("IsLanding", false);
 
             hand.position = handStartPos.position;

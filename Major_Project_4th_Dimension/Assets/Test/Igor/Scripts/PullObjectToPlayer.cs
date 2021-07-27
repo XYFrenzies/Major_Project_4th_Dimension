@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class PullObjectToPlayer : MonoBehaviour
 {
-    public FloatSO myHealth;
+    
     public string[] objectsICanPull;
     private Rigidbody rb;
     //public float lerpSpeed = 30.0f;

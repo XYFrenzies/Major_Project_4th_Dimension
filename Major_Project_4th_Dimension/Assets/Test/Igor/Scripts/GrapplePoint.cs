@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GrapplePoint : MonoBehaviour
 {
     Transform cam;
     Material mat;
-    SphereCollider col;
-    public float grapplePointRadius = 50f;
+    PlayerController playerCont;
+    //SphereCollider col;
+    //public float grapplePointRadius = 50f;
+    public int id;
     public GameObject indicator;
     public Material materialOn;
     public Material materialOff;
@@ -16,13 +19,24 @@ public class GrapplePoint : MonoBehaviour
     {
         mat = GetComponent<Renderer>().material;
         cam = Camera.main.transform;
-        col = GetComponent<SphereCollider>();
+
+        //if (playerCont == null)
+        //    playerCont = GameObject.FindObjectOfType<PlayerController>();
+        //if (playerCont.canSeeGrapplePoint == null)
+        //    playerCont.canSeeGrapplePoint = new UnityEvent();
+        //if (playerCont.notSeeGrapplePoint == null)
+        //    playerCont.notSeeGrapplePoint = new UnityEvent();
+
+        //playerCont.canSeeGrapplePoint.AddListener(TurnPointOn);
+        //playerCont.notSeeGrapplePoint.AddListener(TurnPointOff);
+        //col = GetComponent<SphereCollider>();
     }
 
     private void Start()
     {
-        col.radius = grapplePointRadius;
-
+        //col.radius = grapplePointRadius;
+        GameEvents.current.onGrapplePointVisible += TurnPointOn;
+        GameEvents.current.onGrapplePointNotVisible += TurnPointOff;
     }
 
     private void Update()
@@ -31,26 +45,32 @@ public class GrapplePoint : MonoBehaviour
 
     }
 
-    public void TurnPointOn()
+    public void TurnPointOn(int id)
     {
-        mat.color = materialOn.color;
-        indicator.SetActive(true);
+        if (id == this.id)
+        {
+            mat.color = materialOn.color;
+            indicator.SetActive(true);
+        }
     }
 
     public void TurnPointOff()
     {
-        mat.color = materialOff.color;
-        indicator.SetActive(false);
-
+        
+            mat.color = materialOff.color;
+            indicator.SetActive(false);
+     
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        TurnPointOn();
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.CompareTag("Player"))
+    //        TurnPointOn();
+    //}
 
-    private void OnTriggerExit(Collider other)
-    {
-        TurnPointOff();
-    }
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    if (other.CompareTag("Player"))
+    //        TurnPointOff();
+    //}
 }
