@@ -288,7 +288,7 @@ MonoBehaviour:
       enableFptlForForwardOpaque: 0
       enableBigTilePrepass: 0
       isFptlEnabled: 0
-  clearColorMode: 0
+  clearColorMode: 1
   backgroundColorHDR: {r: 0.025, g: 0.07, b: 0.19, a: 0}
   clearDepth: 1
   volumeLayerMask:
@@ -374,7 +374,7 @@ GameObject:
   - component: {fileID: 4427215334053858783}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -599,9 +599,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ed5d5c8dd4b24145addd276387cba9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHealth: {fileID: 11400000, guid: 47ea8f086b4acc847b248e29bf03b541, type: 2}
-  canSeeGrapplePoint: {fileID: 11400000, guid: b0f7e8e017f0b6c49a9faf7aaa723c60, type: 2}
-  notSeeGrapplePoint: {fileID: 11400000, guid: c79ee39653d41764ba531ddbedcaf7e7, type: 2}
+  canSeeGrapplePoint:
+    m_PersistentCalls:
+      m_Calls: []
+  notSeeGrapplePoint:
+    m_PersistentCalls:
+      m_Calls: []
   pullObjectTags:
   - MoveableToMe
   moveSpeed: 10
@@ -868,9 +871,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dec699c5c8efaf4f806f599dacec42e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myHealth: {fileID: 11400000, guid: 47ea8f086b4acc847b248e29bf03b541, type: 2}
   objectsICanPull:
   - MoveableToMe
+  bigObjectsICanPull:
+  - BigPullObject
+  player: {fileID: 4427215334053858769}
   holder: {fileID: 4427215334198144782}
   hookShotOnTrigger:
     m_PersistentCalls:

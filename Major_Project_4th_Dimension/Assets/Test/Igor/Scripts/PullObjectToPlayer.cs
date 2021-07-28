@@ -6,8 +6,10 @@ using UnityEngine.Events;
 
 public class PullObjectToPlayer : MonoBehaviour
 {
-    
+
     public string[] objectsICanPull;
+    public string[] bigObjectsICanPull;
+    public Transform player;
     private Rigidbody rb;
     //public float lerpSpeed = 30.0f;
     public Transform holder;
@@ -19,6 +21,7 @@ public class PullObjectToPlayer : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        
         //Debug.Log(myHealth.value);
         cam = Camera.main;
         if (playerCont == null)
@@ -55,6 +58,7 @@ public class PullObjectToPlayer : MonoBehaviour
         if (playerCont.isObjectHeld)
             playerCont.currentState = PlayerController.State.HookShotMissed;
         if (!playerCont.isObjectHeld)
+        {
             if (objectsICanPull.Contains(other.gameObject.tag))
             {
                 rb = other.gameObject.GetComponent<Rigidbody>();
@@ -71,6 +75,13 @@ public class PullObjectToPlayer : MonoBehaviour
 
                 }
             }
+            else if (bigObjectsICanPull.Contains(other.gameObject.tag))
+            {
+                rb = other.gameObject.GetComponent<Rigidbody>();
+                rb.AddForce(player.position - transform.position, ForceMode.Impulse);
+            }
+
+        }
     }
 
     // Listens to the event invoked in PlayerController
