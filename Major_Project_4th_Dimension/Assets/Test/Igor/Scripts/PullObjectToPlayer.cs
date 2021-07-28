@@ -78,7 +78,7 @@ public class PullObjectToPlayer : MonoBehaviour
             else if (bigObjectsICanPull.Contains(other.gameObject.tag))
             {
                 rb = other.gameObject.GetComponent<Rigidbody>();
-                rb.AddForce(player.position - transform.position, ForceMode.Impulse);
+                rb.AddForce((player.position - transform.position) * 5f, ForceMode.Impulse);
             }
 
         }
