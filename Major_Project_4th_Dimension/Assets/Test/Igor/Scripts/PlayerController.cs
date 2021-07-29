@@ -13,8 +13,8 @@ public class PlayerController : MonoBehaviour
 
     
 
-    public UnityEvent canSeeGrapplePoint;
-    public UnityEvent notSeeGrapplePoint;
+    //public UnityEvent canSeeGrapplePoint;
+    //public UnityEvent notSeeGrapplePoint;
 
     public string[] pullObjectTags;
     //public string[] pullObjectTags;
@@ -160,7 +160,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        hand.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -278,7 +278,7 @@ public class PlayerController : MonoBehaviour
 
     public void ThrowHookShot()
     {
-
+        hand.gameObject.SetActive(true);
 
         Vector3 lineOrigin = cam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
         Debug.DrawLine(lineOrigin, cam.transform.forward * hookShotRange, Color.green);
@@ -392,6 +392,7 @@ public class PlayerController : MonoBehaviour
             hand.position = handStartPos.position;
             currentState = State.Normal;
             shootPoint.gameObject.SetActive(false);
+            hand.gameObject.SetActive(false);
             camFOV.SetCameraFOV(NORMAL_FOV);
 
             rb.useGravity = true;
@@ -428,6 +429,7 @@ public class PlayerController : MonoBehaviour
         {
 
             shootPoint.gameObject.SetActive(false);
+            hand.gameObject.SetActive(false);
             currentState = State.Normal;
         }
 
@@ -439,6 +441,7 @@ public class PlayerController : MonoBehaviour
         {
             ThrowObjectEvent.Invoke();
             isObjectHeld = false;
+            hand.gameObject.SetActive(false);
             //return;
         }
     }
@@ -449,5 +452,7 @@ public class PlayerController : MonoBehaviour
         currentState = State.HookShotPullObjTowards;
         isObjectHeld = true;
     }
+
+    
 
 }

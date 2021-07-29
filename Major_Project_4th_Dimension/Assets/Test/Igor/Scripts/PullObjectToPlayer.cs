@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class PullObjectToPlayer : MonoBehaviour
 {
-
+    public float pullForce = 20f;
     public string[] objectsICanPull;
     public string[] bigObjectsICanPull;
     public Transform player;
@@ -78,7 +78,7 @@ public class PullObjectToPlayer : MonoBehaviour
             else if (bigObjectsICanPull.Contains(other.gameObject.tag))
             {
                 rb = other.gameObject.GetComponent<Rigidbody>();
-                rb.AddForce((player.position - transform.position) * 5f, ForceMode.Impulse);
+                rb.AddForce((player.position - transform.position) * pullForce);/*, ForceMode.Impulse);*/
             }
 
         }

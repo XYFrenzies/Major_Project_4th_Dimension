@@ -11,7 +11,7 @@ public class GrapplePoint : MonoBehaviour
     //SphereCollider col;
     //public float grapplePointRadius = 50f;
     public int id;
-    public GameObject indicator;
+    //public GameObject indicator;
     public Material materialOn;
     public Material materialOff;
 
@@ -41,7 +41,7 @@ public class GrapplePoint : MonoBehaviour
 
     private void Update()
     {
-        transform.LookAt(transform.position + cam.forward);
+        //transform.LookAt(transform.position + cam.forward);
 
     }
 
@@ -50,7 +50,7 @@ public class GrapplePoint : MonoBehaviour
         if (id == this.id)
         {
             mat.color = materialOn.color;
-            indicator.SetActive(true);
+            //indicator.SetActive(true);
         }
     }
 
@@ -58,7 +58,7 @@ public class GrapplePoint : MonoBehaviour
     {
         
             mat.color = materialOff.color;
-            indicator.SetActive(false);
+           // indicator.SetActive(false);
      
     }
 
