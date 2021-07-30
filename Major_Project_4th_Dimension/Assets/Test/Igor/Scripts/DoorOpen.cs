@@ -10,7 +10,7 @@ public class DoorOpen : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("BigPullObject"))
+        if(other.CompareTag("BigPullObject") || other.CompareTag("MoveableToMe"))
         {
             OpenDoor.Raise();
         }
