@@ -9,7 +9,7 @@ using UnityEngine;
 public class SwitchConveyorBelt : MonoBehaviour
 {
     [SerializeField] private GameEvent changeDirection;
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter()
     {
         changeDirection.Raise();
     }
