@@ -10,7 +10,7 @@ public class BeamRotation : Singleton<BeamRotation>
     [SerializeField] private Material m_shooting = null;
     [SerializeField] private GameEvent m_takeDamage = null;
     [HideInInspector] public bool isInRange = false;
-    private LineRenderer renderer;
+    private LineRenderer beamRenderer;
     private GameObject m_player;
     private bool hasChangedColour = false;
     private bool isShooting = false;
@@ -20,7 +20,7 @@ public class BeamRotation : Singleton<BeamRotation>
     //[SerializeField] private float damage = 1.0f;
     private void Awake()
     {
-        renderer = GetComponent<LineRenderer>();
+        beamRenderer = GetComponent<LineRenderer>();
         m_player = GameObject.FindGameObjectWithTag("Player");
     }
     // Update is called once per frame
@@ -28,9 +28,9 @@ public class BeamRotation : Singleton<BeamRotation>
     {
         if (isInRange)
         {
-            renderer.enabled = true;
-            renderer.SetPosition(0, transform.position);
-            renderer.SetPosition(1, transform.position + (transform.forward * beamLength));
+            beamRenderer.enabled = true;
+            beamRenderer.SetPosition(0, transform.position);
+            beamRenderer.SetPosition(1, transform.position + (transform.forward * beamLength));
             RaycastHit hit;
             if (Physics.Raycast(transform.position, transform.forward, out hit, beamLength) && hit.transform.gameObject == m_player)
             {
@@ -42,19 +42,19 @@ public class BeamRotation : Singleton<BeamRotation>
                 }
                 else if (!isShooting)
                 {
-                    renderer.material = m_attack;
+                    beamRenderer.material = m_attack;
                     hasChangedColour = true;
                 }
             }
             else if (hasChangedColour && !isShooting)
             {
-                renderer.material = m_neutral;
+                beamRenderer.material = m_neutral;
                 hasChangedColour = false;
                 return;
             }
         }
         else
-            renderer.enabled = false;
+            beamRenderer.enabled = false;
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -72,12 +72,12 @@ public class BeamRotation : Singleton<BeamRotation>
     }
     public void IsShooting()
     {
-        renderer.material = m_shooting;
+        beamRenderer.material = m_shooting;
         isShooting = true;
     }
     public void IsNotShooting()
     {
-        renderer.material = m_neutral;
+        beamRenderer.material = m_neutral;
         isShooting = false;
         hasTakenDamage = false;
     }
