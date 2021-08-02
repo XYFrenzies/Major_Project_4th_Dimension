@@ -691,6 +691,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   openDoor: {fileID: 11400000, guid: 25b955866ed0bbf4f9a73b042bfa34ed, type: 2}
+--- !u!4 &639587042 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1994895770, guid: 73cf95ede4bbc5845986aeda9d431514, type: 3}
+  m_PrefabInstance: {fileID: 1318423272}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &658900373
 GameObject:
   m_ObjectHideFlags: 0
@@ -1315,6 +1320,22 @@ PrefabInstance:
     - target: {fileID: 1318423275, guid: 73cf95ede4bbc5845986aeda9d431514, type: 3}
       propertyPath: Speed
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 1318423275, guid: 73cf95ede4bbc5845986aeda9d431514, type: 3}
+      propertyPath: m_scanLocation
+      value: 
+      objectReference: {fileID: 639587042}
+    - target: {fileID: 1994895770, guid: 73cf95ede4bbc5845986aeda9d431514, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1994895770, guid: 73cf95ede4bbc5845986aeda9d431514, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1994895770, guid: 73cf95ede4bbc5845986aeda9d431514, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4427215334053858760, guid: 73cf95ede4bbc5845986aeda9d431514, type: 3}
       propertyPath: m_Name
