@@ -2380,6 +2380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cedc18fdcc15e0a4b9c385d7be7d9874, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waveScale: 1
   shootPoint: {fileID: 430369291}
   chainPrefab: {fileID: 0}
   objectToPickUpOrDrop: {fileID: 0}
@@ -2389,6 +2390,7 @@ MonoBehaviour:
   canPickUp: 0
   lookAtPos: {x: 0, y: 0, z: 0}
   posToLookAt: {fileID: 0}
+  lineRenderer: {fileID: 1454060536}
 --- !u!114 &1454060529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2636,12 +2638,7 @@ MonoBehaviour:
   speed: 1
   hand: {fileID: 0}
   handStartPos: {fileID: 0}
-  ThrowObjectEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  PlaceObjectEvent:
-    m_PersistentCalls:
-      m_Calls: []
+  chainShoot: {fileID: 0}
   flyToTarget: {x: 0, y: 0, z: 0}
   canFly: 0
 --- !u!120 &1454060536
@@ -2651,7 +2648,7 @@ LineRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1454060527}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

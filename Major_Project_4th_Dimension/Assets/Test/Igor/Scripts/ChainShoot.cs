@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class ChainShoot : MonoBehaviour
 {
+    public float waveScale = 1f;
     //private HoldObject holdObj;
     public Transform shootPoint;
     //public Transform hand;
@@ -20,10 +21,14 @@ public class ChainShoot : MonoBehaviour
     public bool canGrapple;
     public bool canPickUp;
     private bool isObjectHeld = false;
-
+    private Vector3 hitPos;
     public Vector3 lookAtPos;
     public Transform posToLookAt;
-
+    private Vector3 currentGrapplePos;
+    private float hookShotFlySpeed = 1;
+    public LineRenderer lineRenderer;
+    private GameObject objectToPull;
+    private bool pullCheck = false;
 
     public void OnHookShot(InputAction.CallbackContext context)
     {
@@ -46,12 +51,15 @@ public class ChainShoot : MonoBehaviour
     private void Update()
     {
         shootPoint.LookAt(posToLookAt);
+        if(pullCheck)
+        {
+            PullObject(objectToPull);
+        }
     }
 
 
     public void ThrowHookShot()
     {
-        player.currentState = PlayerControllerNew.State.HookShotThrown;
         RaycastHit hit;
 
         Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
@@ -64,7 +72,7 @@ public class ChainShoot : MonoBehaviour
             //    objectToPickUpOrDrop = holdObj.heldObj;
             if (Physics.Raycast(ray, out hit, hookShotRange))
             {
-               // SpawnChain(shootPoint.position, shootPoint.forward, chainSpeed, hit.point, objectToPickUpOrDrop, false, false); // put back object at hit point
+                // SpawnChain(shootPoint.position, shootPoint.forward, chainSpeed, hit.point, objectToPickUpOrDrop, false, false); // put back object at hit point
             }
             else // put back at point of chain's full length
             {
@@ -76,11 +84,16 @@ public class ChainShoot : MonoBehaviour
         //if (Physics.SphereCast(rayOrigin,2f , cam.transform.forward ,out hit, hookShotRange))
         if (Physics.Raycast(ray, out hit, hookShotRange))
         {
+            hitPos = hit.point;
+            currentGrapplePos = shootPoint.position;
+            
             if (hit.transform.CompareTag("CanHookShotTowards")) // hit grapple point
             {
-
+                player.flyToTarget = hit.point;
+                //player.currentState = PlayerControllerNew.State.HookShotFlying;
                 Debug.Log("Can hook shot towards");
-               // SpawnChain(shootPoint.position, shootPoint.forward, chainSpeed, hit.point, true, false);
+                //return;
+                // SpawnChain(shootPoint.position, shootPoint.forward, chainSpeed, hit.point, true, false);
             }
             else if (hit.transform.CompareTag("MoveableToMe")) // pick up object
             {
@@ -93,6 +106,9 @@ public class ChainShoot : MonoBehaviour
             else if (hit.transform.CompareTag("BigPullObject")) // pull object towards me
             {
                 Debug.Log("can pull to me");
+                objectToPull = hit.transform.gameObject;
+                //pullCheck = true;
+
                 
                 //SpawnChain(shootPoint.position, shootPoint.forward, chainSpeed, hit.point, hit.transform.gameObject, false, true);
 
@@ -101,7 +117,7 @@ public class ChainShoot : MonoBehaviour
             {
 
                 Debug.Log("Hit other thing");
-               // SpawnChain(shootPoint.position, shootPoint.forward, chainSpeed, hit.point, false, false); // hit non grapple point but still object
+                // SpawnChain(shootPoint.position, shootPoint.forward, chainSpeed, hit.point, false, false); // hit non grapple point but still object
             }
 
 
@@ -149,13 +165,58 @@ public class ChainShoot : MonoBehaviour
 
         //}
 
-        player.currentState = PlayerControllerNew.State.Normal;
+        player.currentState = PlayerControllerNew.State.HookShotThrown;
 
+    }
+
+    public void HandleHookShotThrow()
+    {
+        CalculateLineRenderer();
+        
+        //StopHookShot();
+        player.currentState = PlayerControllerNew.State.Normal;
+    }
+
+    private void StopHookShot()
+    {
+        player.currentState = PlayerControllerNew.State.Normal;
     }
 
     private void CalculateLineRenderer()
     {
+        lineRenderer.positionCount = 2;
+        lineRenderer.SetPosition(0, shootPoint.position);
+        lineRenderer.SetPosition(1, hitPos);
+        //lineRenderer.SetPosition(1, objectToPull.transform.position);
 
+        //currentGrapplePos = Vector3.Lerp(shootPoint.position, hitPos, Time.deltaTime * hookShotFlySpeed);
+        //for (int i = 0; i < hookShotRange; i++)
+        //{
+        //    Vector3 dir = i * (currentGrapplePos - shootPoint.position) / hookShotRange;
+        //    float x = dir.magnitude;
+        //    float y = Mathf.Sin(x * waveScale);
+        //    Vector3 way = dir + shootPoint.position + (shootPoint.rotation * new Vector3(y, 0, 0));
+        //    lineRenderer.SetPosition(i, way);
+        //}
+    }
+
+    public void PullObject(GameObject pullObject)
+    {
+        //lineRenderer.positionCount = 2;
+        //lineRenderer.SetPosition(0, shootPoint.position);
+        //lineRenderer.SetPosition(1, hitPos);
+
+        if(pullObject.CompareTag("BigPullObject"))
+        {
+            Rigidbody rb = pullObject.GetComponent<Rigidbody>();
+            if(player.GetComponent<Rigidbody>().velocity.sqrMagnitude > 0f)
+            {
+                lineRenderer.SetPosition(1, pullObject.transform.position);
+                rb.AddForce(player.transform.position - pullObject.transform.position);
+                Debug.Log("pulling " + pullObject.name + "Player velocity " + player.GetComponent<Rigidbody>().velocity);
+                
+            }
+        }
     }
 
     //public void SpawnChain(Vector3 spawnPos, Vector3 direction, float speed, Vector3 hitPoint, bool grapple, bool pickup)

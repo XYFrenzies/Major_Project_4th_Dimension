@@ -58,8 +58,7 @@ public class PlayerControllerNew : MonoBehaviour
     public Transform hand;
     public Transform handStartPos;
 
-    public UnityEvent ThrowObjectEvent;
-    public UnityEvent PlaceObjectEvent;
+    public ChainShoot chainShoot;
 
     public Vector3 flyToTarget;
     public bool canFly;
@@ -107,7 +106,7 @@ public class PlayerControllerNew : MonoBehaviour
         camFOV = cam.GetComponent<CameraFOV>();
         currentState = State.Normal;
         Cursor.lockState = CursorLockMode.Locked;
-
+        chainShoot = GetComponent<ChainShoot>();
 
         //shootPoint.gameObject.SetActive(false);
     }
@@ -131,6 +130,9 @@ public class PlayerControllerNew : MonoBehaviour
             case State.HookShotThrown:
                 rb.velocity = Vector3.zero; // If player is moving while firing, player will continue to move for a short time.
                                             // This stops player from moving while hookshot if firing
+                chainShoot.HandleHookShotThrow();
+                
+                
                 break;
             case State.HookShotFlying:
                 Fly(flyToTarget);
@@ -224,7 +226,7 @@ public class PlayerControllerNew : MonoBehaviour
         flyingSpeed = Mathf.Clamp(Vector3.Distance(transform.position, target), hookShotMinSpeed, hookShotMaxSpeed);
         transform.position = Vector3.MoveTowards(transform.position, target, flyingSpeed * flyingSpeedMultiplier * Time.deltaTime);
 
-        if(Vector3.Distance(transform.position, target) < distanceToHookShotHitPoint)
+        if (Vector3.Distance(transform.position, target) < distanceToHookShotHitPoint)
         {
             anim.SetBool("IsFlying", false);
             //rb.useGravity = true;
