@@ -10,9 +10,9 @@ FBXHeaderExtension:  {
 		Month: 8
 		Day: 3
 		Hour: 18
-		Minute: 4
-		Second: 13
-		Millisecond: 436
+		Minute: 1
+		Second: 15
+		Millisecond: 329
 	}
 	Creator: "FBX SDK/FBX Plugins version 2020.1"
 	OtherFlags:  {
@@ -37,13 +37,13 @@ FBXHeaderExtension:  {
 			P: "Original|ApplicationVendor", "KString", "", "", "Autodesk"
 			P: "Original|ApplicationName", "KString", "", "", "Maya"
 			P: "Original|ApplicationVersion", "KString", "", "", "2022"
-			P: "Original|DateTime_GMT", "DateTime", "", "", "03/08/2021 08:04:13.435"
+			P: "Original|DateTime_GMT", "DateTime", "", "", "03/08/2021 08:01:15.328"
 			P: "Original|FileName", "KString", "", "", "C:\Users\User\OneDrive - Academy of Interactive Entertainment\_2nd Year\07_Proof_of_concept\_foliage\SM_ivy.fbx"
 			P: "LastSaved", "Compound", "", ""
 			P: "LastSaved|ApplicationVendor", "KString", "", "", "Autodesk"
 			P: "LastSaved|ApplicationName", "KString", "", "", "Maya"
 			P: "LastSaved|ApplicationVersion", "KString", "", "", "2022"
-			P: "LastSaved|DateTime_GMT", "DateTime", "", "", "03/08/2021 08:04:13.435"
+			P: "LastSaved|DateTime_GMT", "DateTime", "", "", "03/08/2021 08:01:15.328"
 			P: "Original|ApplicationActiveProject", "KString", "", "", "C:\Users\User\OneDrive - Academy of Interactive Entertainment\_2nd Year\07_Proof_of_concept\_foliage"
 			P: "Original|ApplicationNativeFile", "KString", "", "", "C:\Users\User\OneDrive - Academy of Interactive Entertainment\_2nd Year\07_Proof_of_concept\_foliage\foliage.ma"
 		}
@@ -80,7 +80,7 @@ GlobalSettings:  {
 
 Documents:  {
 	Count: 1
-	Document: 1984640169968, "", "Scene" {
+	Document: 1983438092192, "", "Scene" {
 		Properties70:  {
 			P: "SourceObject", "object", "", ""
 			P: "ActiveAnimStackName", "KString", "", "", "Take 001"
@@ -100,7 +100,7 @@ References:  {
 
 Definitions:  {
 	Version: 100
-	Count: 6
+	Count: 10
 	ObjectType: "GlobalSettings" {
 		Count: 1
 	}
@@ -147,9 +147,9 @@ Definitions:  {
 	}
 	ObjectType: "Material" {
 		Count: 1
-		PropertyTemplate: "FbxSurfaceLambert" {
+		PropertyTemplate: "FbxSurfacePhong" {
 			Properties70:  {
-				P: "ShadingModel", "KString", "", "", "Lambert"
+				P: "ShadingModel", "KString", "", "", "Phong"
 				P: "MultiLayer", "bool", "", "",0
 				P: "EmissiveColor", "Color", "", "A",0,0,0
 				P: "EmissiveFactor", "Number", "", "A",1
@@ -166,6 +166,34 @@ Definitions:  {
 				P: "DisplacementFactor", "double", "Number", "",1
 				P: "VectorDisplacementColor", "ColorRGB", "Color", "",0,0,0
 				P: "VectorDisplacementFactor", "double", "Number", "",1
+				P: "SpecularColor", "Color", "", "A",0.2,0.2,0.2
+				P: "SpecularFactor", "Number", "", "A",1
+				P: "ShininessExponent", "Number", "", "A",20
+				P: "ReflectionColor", "Color", "", "A",0,0,0
+				P: "ReflectionFactor", "Number", "", "A",1
+			}
+		}
+	}
+	ObjectType: "Texture" {
+		Count: 2
+		PropertyTemplate: "FbxFileTexture" {
+			Properties70:  {
+				P: "TextureTypeUse", "enum", "", "",0
+				P: "Texture alpha", "Number", "", "A",1
+				P: "CurrentMappingType", "enum", "", "",0
+				P: "WrapModeU", "enum", "", "",0
+				P: "WrapModeV", "enum", "", "",0
+				P: "UVSwap", "bool", "", "",0
+				P: "PremultiplyAlpha", "bool", "", "",1
+				P: "Translation", "Vector", "", "A",0,0,0
+				P: "Rotation", "Vector", "", "A",0,0,0
+				P: "Scaling", "Vector", "", "A",1,1,1
+				P: "TextureRotationPivot", "Vector3D", "Vector", "",0,0,0
+				P: "TextureScalingPivot", "Vector3D", "Vector", "",0,0,0
+				P: "CurrentTextureBlendMode", "enum", "", "",1
+				P: "UVSet", "KString", "", "", "default"
+				P: "UseMaterial", "bool", "", "",0
+				P: "UseMipMap", "bool", "", "",0
 			}
 		}
 	}
@@ -247,13 +275,40 @@ Definitions:  {
 			}
 		}
 	}
+	ObjectType: "Video" {
+		Count: 2
+		PropertyTemplate: "FbxVideo" {
+			Properties70:  {
+				P: "Path", "KString", "XRefUrl", "", ""
+				P: "RelPath", "KString", "XRefUrl", "", ""
+				P: "Color", "ColorRGB", "Color", "",0.8,0.8,0.8
+				P: "ClipIn", "KTime", "Time", "",0
+				P: "ClipOut", "KTime", "Time", "",0
+				P: "Offset", "KTime", "Time", "",0
+				P: "PlaySpeed", "double", "Number", "",0
+				P: "FreeRunning", "bool", "", "",0
+				P: "Loop", "bool", "", "",0
+				P: "Mute", "bool", "", "",0
+				P: "AccessMode", "enum", "", "",0
+				P: "ImageSequence", "bool", "", "",0
+				P: "ImageSequenceOffset", "int", "Integer", "",0
+				P: "FrameRate", "double", "Number", "",0
+				P: "LastFrame", "int", "Integer", "",0
+				P: "Width", "int", "Integer", "",0
+				P: "Height", "int", "Integer", "",0
+				P: "StartFrame", "int", "Integer", "",0
+				P: "StopFrame", "int", "Integer", "",0
+				P: "InterlaceMode", "enum", "", "",0
+			}
+		}
+	}
 }
 
 ; Object properties
 ;------------------------------------------------------------------
 
 Objects:  {
-	Geometry: 1982969593264, "Geometry::", "Mesh" {
+	Geometry: 1983064740160, "Geometry::", "Mesh" {
 		Vertices: *162 {
 			a: 93.8426742553711,27.3876533508301,-0.433847486972809,-96.2555923461914,27.3876533508301,-0.433848440647125,93.8426742553711,55.0637359619141,-0.433847486972809,-96.2555923461914,55.0637359619141,-0.433848440647125,-96.3601913452148,46.195930480957,-18.3878593444824,93.7323379516602,47.088623046875,-19.5635757446289,-96.1452713012695,29.4602012634277,3.65379810333252,93.9472579956055,30.3528938293457,2.47808170318604,88.1871109008789,-32.918571472168,-0.433846533298492,-86.632926940918,43.1768531799316,-0.433847486972809,79.1265869140625,-59.0695304870605,-0.433846533298492,-95.6934509277344,17.0258979797363,-0.433847486972809,8.68473529815674,27.9525833129883,4.8152027130127,-0.375788688659668,1.8016300201416,4.8152027130127,-36.4186592102051,42.9403533935547,1.95295286178589,-45.4791831970215,16.7893962860107,1.95295286178589,48.7422637939453,-1.59881591796875,1.79747772216797,39.6817398071289,-27.7497711181641,1.74831366539001,-93.2334976196289,31.478702545166,-20.2878913879395,93.5693435668945,42.6859931945801,14.2878913879395,-92.8903503417969,3.80474281311035,-20.2878952026367,93.911735534668,15.0729207992554,14.2878913879395,0.244040966033936,30.9434261322021,-2.99999904632568,0.587191581726074,3.26947212219238,-3.00000095367432,-31.2692947387695,20.8648319244385,-8.85165882110596,-30.9261474609375,-6.80912399291992,-8.85165786743164,-62.9943656921387,25.2784576416016,-14.7092399597168,-62.6512145996094,-2.39549255371094,-14.7092409133911,30.0375099182129,45.0478439331055,2.54279184341431,30.3806610107422,17.3738861083984,2.54279184341431,63.5325775146484,49.061580657959,8.74707126617432,63.875732421875,21.3876266479492,8.74707126617432,-96.2555923461914,18.0517120361328,-0.433847486972809,93.8426742553711,39.0662269592285,-0.433848440647125,-96.2555923461914,-9.62437057495117,-0.433847486972809,93.8426742553711,11.3901433944702,-0.433848440647125,-1.20646190643311,28.0404987335205,-0.433847963809967,-1.20646190643311,0.364416122436523,-0.433847963809967,33.1011428833008,29.3388805389404,-0.433848083019257,
 33.1011428833008,1.66279792785645,-0.433848083019257,64.667854309082,35.790340423584,-0.433848321437836,64.667854309082,8.11425590515137,-0.433848321437836,-33.4196586608887,25.2037773132324,-0.433847844600677,-33.4196586608887,-2.47230529785156,-0.433847844600677,-68.7240982055664,23.3862800598145,-0.433847606182098,-68.7240982055664,-4.28980445861816,-0.433847606182098,-1.20646190643311,-11.4240989685059,-15.4946537017822,-1.20646190643311,12.9548969268799,-2.39388465881348,-35.5140686035156,-12.5678024291992,-16.1092586517334,-35.5140686035156,11.8111934661865,-3.0084867477417,31.0067329406738,-8.92531967163086,-14.1518621444702,31.0067329406738,15.4536762237549,-1.05109119415283,66.311164855957,-7.3243408203125,-13.2915296554565,66.311164855957,17.0546531677246,-0.190757811069489
@@ -365,7 +420,7 @@ Objects:  {
 			}
 		}
 	}
-	Model: 1983443140096, "Model::bakingPlane7", "Mesh" {
+	Model: 1983443154016, "Model::bakingPlane7", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "RotationPivot", "Vector3D", "Vector", "",-1.20646667480469,-2.00289726257324,-3.00000190734863
@@ -379,22 +434,82 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Material: 1984626951056, "Material::lambert3", "" {
+	Material: 1984630829568, "Material::blinn2", "" {
 		Version: 102
-		ShadingModel: "lambert"
+		ShadingModel: "phong"
 		MultiLayer: 0
 		Properties70:  {
 			P: "AmbientColor", "Color", "", "A",0,0,0
-			P: "DiffuseColor", "Color", "", "A",0.5,0.5,0.5
+			P: "DiffuseColor", "Color", "", "A",1,1,1
 			P: "DiffuseFactor", "Number", "", "A",0.800000011920929
 			P: "TransparencyFactor", "Number", "", "A",1
+			P: "SpecularColor", "Color", "", "A",0.5,0.5,0.5
+			P: "ShininessExponent", "Number", "", "A",300
+			P: "ReflectionFactor", "Number", "", "A",0.5
 			P: "Emissive", "Vector3D", "Vector", "",0,0,0
 			P: "Ambient", "Vector3D", "Vector", "",0,0,0
-			P: "Diffuse", "Vector3D", "Vector", "",0.400000005960464,0.400000005960464,0.400000005960464
+			P: "Diffuse", "Vector3D", "Vector", "",0.800000011920929,0.800000011920929,0.800000011920929
+			P: "Specular", "Vector3D", "Vector", "",0.5,0.5,0.5
+			P: "Shininess", "double", "Number", "",300
 			P: "Opacity", "double", "Number", "",1
+			P: "Reflectivity", "double", "Number", "",0
 		}
 	}
-	AnimationStack: 1983221853520, "AnimStack::Take 001", "" {
+	Video: 1984601026976, "Video::file4", "Clip" {
+		Type: "Clip"
+		Properties70:  {
+			P: "Path", "KString", "XRefUrl", "", "C:/Users/User/OneDrive - Academy of Interactive Entertainment/_2nd Year/07_Proof_of_concept/_foliage/_texture/ivy/T_ivy_BaseColor.tga"
+			P: "RelPath", "KString", "XRefUrl", "", "_texture\ivy\T_ivy_BaseColor.tga"
+		}
+		UseMipMap: 0
+		Filename: "C:/Users/User/OneDrive - Academy of Interactive Entertainment/_2nd Year/07_Proof_of_concept/_foliage/_texture/ivy/T_ivy_BaseColor.tga"
+		RelativeFilename: "_texture\ivy\T_ivy_BaseColor.tga"
+	}
+	Video: 1984630806624, "Video::file5", "Clip" {
+		Type: "Clip"
+		Properties70:  {
+			P: "Path", "KString", "XRefUrl", "", "C:/Users/User/OneDrive - Academy of Interactive Entertainment/_2nd Year/07_Proof_of_concept/_foliage/ZGrab01.psd"
+			P: "RelPath", "KString", "XRefUrl", "", "ZGrab01.psd"
+		}
+		UseMipMap: 0
+		Filename: "C:/Users/User/OneDrive - Academy of Interactive Entertainment/_2nd Year/07_Proof_of_concept/_foliage/ZGrab01.psd"
+		RelativeFilename: "ZGrab01.psd"
+	}
+	Texture: 1984630831008, "Texture::file4", "" {
+		Type: "TextureVideoClip"
+		Version: 202
+		TextureName: "Texture::file4"
+		Properties70:  {
+			P: "CurrentTextureBlendMode", "enum", "", "",0
+			P: "UVSet", "KString", "", "", "map1"
+			P: "UseMaterial", "bool", "", "",1
+		}
+		Media: "Video::file4"
+		FileName: "C:/Users/User/OneDrive - Academy of Interactive Entertainment/_2nd Year/07_Proof_of_concept/_foliage/_texture/ivy/T_ivy_BaseColor.tga"
+		RelativeFilename: "_texture\ivy\T_ivy_BaseColor.tga"
+		ModelUVTranslation: 0,0
+		ModelUVScaling: 1,1
+		Texture_Alpha_Source: "None"
+		Cropping: 0,0,0,0
+	}
+	Texture: 1984630830048, "Texture::file5", "" {
+		Type: "TextureVideoClip"
+		Version: 202
+		TextureName: "Texture::file5"
+		Properties70:  {
+			P: "CurrentTextureBlendMode", "enum", "", "",0
+			P: "UVSet", "KString", "", "", "map1"
+			P: "UseMaterial", "bool", "", "",1
+		}
+		Media: "Video::file5"
+		FileName: "C:/Users/User/OneDrive - Academy of Interactive Entertainment/_2nd Year/07_Proof_of_concept/_foliage/ZGrab01.psd"
+		RelativeFilename: "ZGrab01.psd"
+		ModelUVTranslation: 0,0
+		ModelUVScaling: 1,1
+		Texture_Alpha_Source: "None"
+		Cropping: 0,0,0,0
+	}
+	AnimationStack: 1984792283408, "AnimStack::Take 001", "" {
 		Properties70:  {
 			P: "LocalStart", "KTime", "Time", "",1924423250
 			P: "LocalStop", "KTime", "Time", "",230930790000
@@ -402,7 +517,7 @@ Objects:  {
 			P: "ReferenceStop", "KTime", "Time", "",230930790000
 		}
 	}
-	AnimationLayer: 1984787414592, "AnimLayer::BaseLayer", "" {
+	AnimationLayer: 1984632246880, "AnimLayer::BaseLayer", "" {
 	}
 }
 
@@ -412,16 +527,28 @@ Objects:  {
 Connections:  {
 	
 	;Model::bakingPlane7, Model::RootNode
-	C: "OO",1983443140096,0
+	C: "OO",1983443154016,0
 	
 	;AnimLayer::BaseLayer, AnimStack::Take 001
-	C: "OO",1984787414592,1983221853520
+	C: "OO",1984632246880,1984792283408
+	
+	;Texture::file4, Material::blinn2
+	C: "OP",1984630831008,1984630829568, "DiffuseColor"
+	
+	;Texture::file5, Material::blinn2
+	C: "OP",1984630830048,1984630829568, "TransparentColor"
+	
+	;Video::file4, Texture::file4
+	C: "OO",1984601026976,1984630831008
+	
+	;Video::file5, Texture::file5
+	C: "OO",1984630806624,1984630830048
 	
 	;Geometry::, Model::bakingPlane7
-	C: "OO",1982969593264,1983443140096
+	C: "OO",1983064740160,1983443154016
 	
-	;Material::lambert3, Model::bakingPlane7
-	C: "OO",1984626951056,1983443140096
+	;Material::blinn2, Model::bakingPlane7
+	C: "OO",1984630829568,1983443154016
 }
 ;Takes section
 ;----------------------------------------------------
