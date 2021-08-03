@@ -2391,6 +2391,7 @@ MonoBehaviour:
   lookAtPos: {x: 0, y: 0, z: 0}
   posToLookAt: {fileID: 0}
   lineRenderer: {fileID: 1454060536}
+  showLine: 0
 --- !u!114 &1454060529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2734,7 +2735,7 @@ LineRenderer:
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 0
-    textureMode: 0
+    textureMode: 3
     shadowBias: 0.5
     generateLightingData: 0
   m_UseWorldSpace: 1
