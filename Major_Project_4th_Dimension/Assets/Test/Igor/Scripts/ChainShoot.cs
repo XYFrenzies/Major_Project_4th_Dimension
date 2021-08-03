@@ -29,6 +29,8 @@ public class ChainShoot : MonoBehaviour
     public LineRenderer lineRenderer;
     private GameObject objectToPull;
     private bool pullCheck = false;
+    [HideInInspector]
+    public bool showLine = false;
 
     public void OnHookShot(InputAction.CallbackContext context)
     {
@@ -51,10 +53,17 @@ public class ChainShoot : MonoBehaviour
     private void Update()
     {
         shootPoint.LookAt(posToLookAt);
-        if(pullCheck)
+        if (pullCheck)
         {
             PullObject(objectToPull);
         }
+        if (showLine)
+            CalculateLineRenderer();
+        //else
+        //{
+        //    if (lineRenderer != null)
+        //        Destroy(lineRenderer);
+        //}
     }
 
 
@@ -86,11 +95,12 @@ public class ChainShoot : MonoBehaviour
         {
             hitPos = hit.point;
             currentGrapplePos = shootPoint.position;
-            
+
             if (hit.transform.CompareTag("CanHookShotTowards")) // hit grapple point
             {
                 player.flyToTarget = hit.point;
-                //player.currentState = PlayerControllerNew.State.HookShotFlying;
+                showLine = true;
+                player.currentState = PlayerControllerNew.State.HookShotFlying;
                 Debug.Log("Can hook shot towards");
                 //return;
                 // SpawnChain(shootPoint.position, shootPoint.forward, chainSpeed, hit.point, true, false);
@@ -109,7 +119,7 @@ public class ChainShoot : MonoBehaviour
                 objectToPull = hit.transform.gameObject;
                 //pullCheck = true;
 
-                
+
                 //SpawnChain(shootPoint.position, shootPoint.forward, chainSpeed, hit.point, hit.transform.gameObject, false, true);
 
             }
@@ -165,14 +175,14 @@ public class ChainShoot : MonoBehaviour
 
         //}
 
-        player.currentState = PlayerControllerNew.State.HookShotThrown;
+        //player.currentState = PlayerControllerNew.State.HookShotThrown;
 
     }
 
     public void HandleHookShotThrow()
     {
         CalculateLineRenderer();
-        
+
         //StopHookShot();
         player.currentState = PlayerControllerNew.State.Normal;
     }
@@ -206,15 +216,15 @@ public class ChainShoot : MonoBehaviour
         //lineRenderer.SetPosition(0, shootPoint.position);
         //lineRenderer.SetPosition(1, hitPos);
 
-        if(pullObject.CompareTag("BigPullObject"))
+        if (pullObject.CompareTag("BigPullObject"))
         {
             Rigidbody rb = pullObject.GetComponent<Rigidbody>();
-            if(player.GetComponent<Rigidbody>().velocity.sqrMagnitude > 0f)
+            if (player.GetComponent<Rigidbody>().velocity.sqrMagnitude > 0f)
             {
                 lineRenderer.SetPosition(1, pullObject.transform.position);
                 rb.AddForce(player.transform.position - pullObject.transform.position);
                 Debug.Log("pulling " + pullObject.name + "Player velocity " + player.GetComponent<Rigidbody>().velocity);
-                
+
             }
         }
     }

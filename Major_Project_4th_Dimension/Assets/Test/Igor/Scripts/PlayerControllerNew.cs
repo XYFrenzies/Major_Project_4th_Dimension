@@ -230,6 +230,7 @@ public class PlayerControllerNew : MonoBehaviour
         {
             anim.SetBool("IsFlying", false);
             //rb.useGravity = true;
+            chainShoot.showLine = false;
             currentState = State.Normal;
             //Debug.Log(rb.useGravity);
         }
