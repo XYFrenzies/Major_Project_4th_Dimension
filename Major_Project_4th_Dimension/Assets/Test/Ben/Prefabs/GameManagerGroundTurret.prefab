@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2250713127149867113}
   - component: {fileID: 1230847766}
   m_Layer: 0
-  m_Name: GameManagerTurret
+  m_Name: GameManagerGroundTurret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49,7 +49,19 @@ MonoBehaviour:
   Response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 3118910816151523641, guid: ebf10df212ceced448ef03c5b7890975, type: 3}
+        m_TargetAssemblyTypeName: Shooting, Assembly-CSharp
+        m_MethodName: Shoot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3118910816151523642, guid: ebf10df212ceced448ef03c5b7890975, type: 3}
         m_TargetAssemblyTypeName: TurretController, Assembly-CSharp
         m_MethodName: TurretIsShooting
         m_Mode: 1
@@ -62,20 +74,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Shooting, Assembly-CSharp
-        m_MethodName: Shoot
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BeamRotation, Assembly-CSharp
-        m_MethodName: IsShooting
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -101,7 +101,7 @@ MonoBehaviour:
   Response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 3118910816151523642, guid: ebf10df212ceced448ef03c5b7890975, type: 3}
         m_TargetAssemblyTypeName: TurretController, Assembly-CSharp
         m_MethodName: TurretStoppedShooting
         m_Mode: 1
