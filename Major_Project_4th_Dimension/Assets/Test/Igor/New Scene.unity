@@ -2382,6 +2382,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waveScale: 1
   shootPoint: {fileID: 430369291}
+  holdPoint: {fileID: 175403106}
   chainPrefab: {fileID: 0}
   objectToPickUpOrDrop: {fileID: 0}
   hookShotRange: 50
@@ -2392,6 +2393,10 @@ MonoBehaviour:
   posToLookAt: {fileID: 0}
   lineRenderer: {fileID: 1454060536}
   showLine: 0
+  currentHookShotState: 0
+  pull: 0
+  pickup: 0
+  fly: 0
 --- !u!114 &1454060529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2501,22 +2506,6 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: a0e9814f-fb93-4ae4-8a0d-6085b28b2b55
     m_ActionName: Player/Scanner[/Keyboard/c,/XInputControllerWindows/rightShoulder]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1454060528}
-        m_TargetAssemblyTypeName: ChainShoot, Assembly-CSharp
-        m_MethodName: OnPull
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: a42cb08a-644c-480d-8b1b-696c3349cfd7
-    m_ActionName: Player/Pull[/Mouse/leftButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

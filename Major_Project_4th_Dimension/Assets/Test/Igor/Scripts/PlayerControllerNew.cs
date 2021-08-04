@@ -173,7 +173,7 @@ public class PlayerControllerNew : MonoBehaviour
         dir *= moveSpeed;
         dir.y = rb.velocity.y;
         rb.velocity = dir;
-
+        
         anim.SetFloat("xPos", direction.x);
         anim.SetFloat("yPos", direction.y);
         //anim.SetBool("IsLanding", false);
