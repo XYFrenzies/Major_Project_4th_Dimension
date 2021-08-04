@@ -43,6 +43,30 @@ public class ChainShoot : MonoBehaviour
 
     }
 
+    //public void OnPull(InputAction.CallbackContext context)
+    //{
+
+    //    if (context.phase != InputActionPhase.Performed)
+    //    {
+    //        return;
+    //    }
+    //    if (objectToPull)
+    //        ReelIn(objectToPull);
+
+    //}
+
+    public void OnThrow(InputAction.CallbackContext context)
+    {
+
+        if (context.phase != InputActionPhase.Performed)
+        {
+            return;
+        }
+        if (!objectToPull)
+            Debug.Log("Throw");
+
+    }
+
     private void Awake()
     {
         player = GetComponent<PlayerControllerNew>();
@@ -99,7 +123,7 @@ public class ChainShoot : MonoBehaviour
             if (hit.transform.CompareTag("CanHookShotTowards")) // hit grapple point
             {
                 player.flyToTarget = hit.point;
-                showLine = true;
+                //showLine = true;
                 player.currentState = PlayerControllerNew.State.HookShotFlying;
                 Debug.Log("Can hook shot towards");
                 //return;
@@ -117,7 +141,13 @@ public class ChainShoot : MonoBehaviour
             {
                 Debug.Log("can pull to me");
                 objectToPull = hit.transform.gameObject;
+                pullCheck = !pullCheck;
+
+
+                Debug.Log("Pullcheck: " + pullCheck);
+
                 //pullCheck = true;
+                showLine = true;
 
 
                 //SpawnChain(shootPoint.position, shootPoint.forward, chainSpeed, hit.point, hit.transform.gameObject, false, true);
@@ -196,8 +226,8 @@ public class ChainShoot : MonoBehaviour
     {
         lineRenderer.positionCount = 2;
         lineRenderer.SetPosition(0, shootPoint.position);
-        lineRenderer.SetPosition(1, hitPos);
-        //lineRenderer.SetPosition(1, objectToPull.transform.position);
+        //lineRenderer.SetPosition(1, hitPos);
+        lineRenderer.SetPosition(1, objectToPull.transform.position);
 
         //currentGrapplePos = Vector3.Lerp(shootPoint.position, hitPos, Time.deltaTime * hookShotFlySpeed);
         //for (int i = 0; i < hookShotRange; i++)
@@ -222,12 +252,20 @@ public class ChainShoot : MonoBehaviour
             if (player.GetComponent<Rigidbody>().velocity.sqrMagnitude > 0f)
             {
                 lineRenderer.SetPosition(1, pullObject.transform.position);
-                rb.AddForce(player.transform.position - pullObject.transform.position);
+                //rb.AddForce((player.transform.position - pullObject.transform.position), ForceMode.Force);
+                pullObject.transform.position = Vector3.MoveTowards(pullObject.transform.position, player.transform.position, 5f * Time.deltaTime);
                 Debug.Log("pulling " + pullObject.name + "Player velocity " + player.GetComponent<Rigidbody>().velocity);
 
             }
         }
     }
+
+    //public void ReelIn(GameObject pullObject)
+    //{
+    //    Rigidbody rb = pullObject.GetComponent<Rigidbody>();
+    //    rb.AddForce((player.transform.position - pullObject.transform.position), ForceMode.VelocityChange);
+    //    Debug.Log("Reeling");
+    //}
 
     //public void SpawnChain(Vector3 spawnPos, Vector3 direction, float speed, Vector3 hitPoint, bool grapple, bool pickup)
     //{
