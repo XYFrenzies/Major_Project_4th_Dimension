@@ -37,6 +37,7 @@ public class ChainShoot : MonoBehaviour
     public bool pull = false;
     public bool pickup = false;
     public bool fly = false;
+    public bool place = false;
     private float stopPullingDistance = 5f;
 
     public void OnHookShot(InputAction.CallbackContext context)
@@ -99,6 +100,8 @@ public class ChainShoot : MonoBehaviour
         }
         if (pickup)
             PickUp(objectToPickUpOrDrop);
+        if (place)
+            PlaceObject();
         if (showLine)
             CalculateLineRenderer();
         //else
@@ -113,6 +116,7 @@ public class ChainShoot : MonoBehaviour
     {
         fly = false;
         pull = false;
+        place = false;
         RaycastHit hit;
 
         Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
@@ -125,10 +129,16 @@ public class ChainShoot : MonoBehaviour
             //    objectToPickUpOrDrop = holdObj.heldObj;
             if (Physics.Raycast(ray, out hit, hookShotRange))
             {
+                place = true;
+                pickup = false;
+                hitPos = hit.point;
                 // SpawnChain(shootPoint.position, shootPoint.forward, chainSpeed, hit.point, objectToPickUpOrDrop, false, false); // put back object at hit point
             }
             else // put back at point of chain's full length
             {
+                pickup = false;
+                place = true;
+                hitPos = ray.origin + (cam.transform.forward * hookShotRange);
                 //SpawnChain(shootPoint.position, shootPoint.forward, chainSpeed, (ray.origin/*rayOrigin*/ + (cam.transform.forward * hookShotRange)/*ray.GetPoint(hookShotRange*/), objectToPickUpOrDrop, false, false);
             }
             return;
@@ -271,12 +281,7 @@ public class ChainShoot : MonoBehaviour
 
     public void PullObject(GameObject pullObject)
     {
-        //lineRenderer.positionCount = 2;
-        //lineRenderer.SetPosition(0, shootPoint.position);
-        //lineRenderer.SetPosition(1, hitPos);
 
-        //if (pullObject.CompareTag("BigPullObject"))
-        // {
         if (Vector3.Distance(pullObject.transform.position, player.transform.position) >= stopPullingDistance)
         {
 
@@ -290,12 +295,12 @@ public class ChainShoot : MonoBehaviour
 
             }
         }
-        //}
+
     }
 
     public void PickUp(GameObject pickupObject)
     {
-        
+
         Rigidbody rb = pickupObject.GetComponent<Rigidbody>();
         rb.useGravity = false;
         pickupObject.transform.position = Vector3.MoveTowards(pickupObject.transform.position, holdPoint.position, 50f * Time.deltaTime);
@@ -305,7 +310,20 @@ public class ChainShoot : MonoBehaviour
             pickupObject.GetComponent<Rigidbody>().isKinematic = true;
             pickupObject.transform.SetParent(holdPoint);
             isObjectHeld = true;
+
         }
+    }
+
+    public void PlaceObject()
+    {
+
+        objectToPickUpOrDrop.layer = LayerMask.NameToLayer("Default");
+        objectToPickUpOrDrop.GetComponent<Rigidbody>().isKinematic = false;
+        objectToPickUpOrDrop.transform.SetParent(null);
+        isObjectHeld = false;
+        Rigidbody rb = objectToPickUpOrDrop.GetComponent<Rigidbody>();
+        rb.useGravity = true;
+
     }
 
     //public void ReelIn(GameObject pullObject)
