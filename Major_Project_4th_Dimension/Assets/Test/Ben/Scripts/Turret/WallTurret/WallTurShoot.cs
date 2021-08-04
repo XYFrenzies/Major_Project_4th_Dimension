@@ -5,23 +5,25 @@ using UnityEngine;
 /// This is an extra class incase we want to personalise the wall turrets shooting ability 
 /// in comparison to the regular shooting.
 /// </summary>
-public class WallTurShoot : MonoBehaviour
+public class WallTurShoot : Singleton<WallTurShoot>
 {
     [SerializeField] private float timeBeforeShot = 2.0f;
     [SerializeField] private float timePeriodOfShot = 2.0f;
     [SerializeField] private GameEvent shooting;
     [SerializeField] private GameEvent stoppedShooting;
-    private bool aboutToFire = false;
+    [HideInInspector]public bool aboutToFire = false;
     private bool cRBeforeShot = false;
     private bool cRDuringShot = false;
+    [HideInInspector]public bool isShooting = false;
     // Update is called once per frame
     void Update()
     {
-        if (!aboutToFire && BeamRotation.Instance.isInRange)
+        if (aboutToFire && WallTurretController.Instance.playerInArea)
         {
             StartCoroutine(ShootWithHitScan());
+            isShooting = true;
         }
-        else if ((cRBeforeShot || cRDuringShot) && !BeamRotation.Instance.isInRange)
+        else if ((cRBeforeShot || cRDuringShot) && !WallTurretController.Instance.playerInArea)
         {
             StopAllCoroutines();
             // StopCoroutine(ShootWithHitScan());
@@ -33,7 +35,7 @@ public class WallTurShoot : MonoBehaviour
     }
     IEnumerator ShootWithHitScan()
     {
-        aboutToFire = true;
+        aboutToFire = false;
         cRBeforeShot = true;
         yield return new WaitForSeconds(timeBeforeShot);
         shooting.Raise();
@@ -41,7 +43,7 @@ public class WallTurShoot : MonoBehaviour
         //Do damage to player if they are within the line renderer with raycast.hit (need to discuss if its a health system or not)
         yield return new WaitForSeconds(timePeriodOfShot);
         stoppedShooting.Raise();
-        aboutToFire = false;
+        isShooting = false;
     }
     public void Shoot()
     {
