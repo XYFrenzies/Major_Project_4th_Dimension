@@ -11,9 +11,10 @@ public class DoorOpen : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("BigPullObject") || other.CompareTag("MoveableToMe"))
+        if (other.CompareTag("BigPullObject") || other.CompareTag("MoveableToMe"))
         {
-            OpenDoor.Raise();
+            if (OpenDoor != null)
+                OpenDoor.Raise();
         }
     }
 
@@ -21,7 +22,8 @@ public class DoorOpen : MonoBehaviour
     {
         if (other.CompareTag("BigPullObject") || other.CompareTag("MoveableToMe"))
         {
-            CloseDoor.Raise();
+            if (CloseDoor != null)
+                CloseDoor.Raise();
         }
     }
 }
