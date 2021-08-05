@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TurretController : MonoBehaviour
+public class TurretController : Singleton<TurretController>
 {
     [SerializeField] private float speed = 3.0f;
-    [SerializeField] private GameObject m_player = null;
+    public GameObject m_player = null;
     private Vector3 m_lastKnownLocation = Vector3.zero;
     private Quaternion m_lookRotation;
     private bool isShooting = false;
+    [HideInInspector]public bool playerColliding = false;
     private void Awake()
     {
         //Will only work on the first instance in the game
@@ -22,7 +23,7 @@ public class TurretController : MonoBehaviour
     void Update()
     {
         //If the player is within the radius of the turret (need to have a trigger check for the player)
-        if (m_player && !isShooting && BeamRotation.Instance.isInRange)
+        if (m_player && !isShooting && BeamRotation.Instance.isInRange && !playerColliding)
         {
             //Checks if the player is in a different area.
             if (m_lastKnownLocation != m_player.transform.position)

@@ -78,6 +78,7 @@ public class ChainShoot : MonoBehaviour
     public enum HookShotState
     {
         Normal,
+        Throw,
         Pull,
         Pickup,
         Fly
@@ -202,6 +203,9 @@ public class ChainShoot : MonoBehaviour
 
             //SpawnChain(shootPoint.position, shootPoint.forward, chainSpeed, (ray.origin/*rayOrigin*/ + (cam.transform.forward * hookShotRange)/*ray.GetPoint(hookShotRange*/), false, false);
         }
+
+
+
         //hand.gameObject.SetActive(true);
 
         //Vector3 lineOrigin = cam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
@@ -239,14 +243,15 @@ public class ChainShoot : MonoBehaviour
 
         //}
 
-        //player.currentState = PlayerControllerNew.State.HookShotThrown;
+        player.currentState = PlayerControllerNew.State.HookShotThrown;
+        
 
     }
 
     public void HandleHookShotThrow()
     {
         //CalculateLineRenderer();
-
+        Debug.Log("hookshot throw");
         //StopHookShot();
         //player.currentState = PlayerControllerNew.State.Normal;
     }
