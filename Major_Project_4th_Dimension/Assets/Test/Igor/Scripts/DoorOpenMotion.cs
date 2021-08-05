@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class DoorOpenMotion : MonoBehaviour
 {
-    //public Animator anim;
     public float openSpeed = 5f;
     public float closeSpeed = 5f;
     private Vector3 target;
@@ -35,9 +34,7 @@ public class DoorOpenMotion : MonoBehaviour
         open = true;
         close = false;
         transform.position = Vector3.MoveTowards(transform.position, target, openSpeed * Time.deltaTime);
-        //transform.Translate(0, 0, Time.deltaTime);
-        //anim.Play("DoorOpen");
-        Debug.Log("open");
+
     }
 
     public void CloseDoor()
@@ -45,9 +42,6 @@ public class DoorOpenMotion : MonoBehaviour
         close = true;
         open = false;
         transform.position = Vector3.MoveTowards(transform.position, startPos, closeSpeed * Time.deltaTime);
-
-        //anim.Play("LowerDoorOpen");
-        Debug.Log("close");
 
     }
 }

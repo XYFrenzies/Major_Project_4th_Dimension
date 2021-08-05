@@ -89,6 +89,7 @@ public class ChainShoot : MonoBehaviour
         player = GetComponent<PlayerControllerNew>();
         cam = Camera.main;
         currentHookShotState = HookShotState.Normal;
+        lineRenderer = GetComponent<LineRenderer>();
         //holdObj = GetComponentInChildren<HoldObject>();
     }
 
@@ -104,7 +105,12 @@ public class ChainShoot : MonoBehaviour
         if (place)
             PlaceObject();
         if (showLine)
-            CalculateLineRenderer();
+        {
+            lineRenderer.positionCount = 2;
+            lineRenderer.SetPosition(0, shootPoint.position); // my position
+            lineRenderer.SetPosition(1, Vector3.MoveTowards(shootPoint.position, hitPos, 5f * Time.deltaTime)); // fly
+        }
+            //CalculateLineRenderer();
         //else
         //{
         //    if (lineRenderer != null)
@@ -155,7 +161,7 @@ public class ChainShoot : MonoBehaviour
             {
                 player.flyToTarget = hit.point;
                 showLine = true;
-                player.currentState = PlayerControllerNew.State.HookShotFlying;
+                //player.currentState = PlayerControllerNew.State.HookShotFlying;
                 fly = true;
                 Debug.Log("Can hook shot towards");
                 //return;
@@ -250,7 +256,7 @@ public class ChainShoot : MonoBehaviour
 
     public void HandleHookShotThrow()
     {
-        //CalculateLineRenderer();
+        CalculateLineRenderer();
         Debug.Log("hookshot throw");
         //StopHookShot();
         //player.currentState = PlayerControllerNew.State.Normal;
@@ -263,14 +269,15 @@ public class ChainShoot : MonoBehaviour
 
     private void CalculateLineRenderer()
     {
-        lineRenderer.positionCount = 2;
-        lineRenderer.SetPosition(0, shootPoint.position); // my position
-        if (fly)
-            lineRenderer.SetPosition(1, hitPos); // fly
-        if (pull)
-            lineRenderer.SetPosition(1, objectToPull.transform.position); // pull
-        if (pickup)
-            lineRenderer.SetPosition(1, objectToPickUpOrDrop.transform.position); // pick up
+        //lineRenderer.positionCount = 2;
+        //lineRenderer.SetPosition(0, shootPoint.position); // my position
+       //lineRenderer.SetPosition(1, Vector3.MoveTowards(shootPoint.position, hitPos, 5f * Time.deltaTime)); // fly
+        //if (fly)
+        //    lineRenderer.SetPosition(1, hitPos); // fly
+        //if (pull)
+        //    lineRenderer.SetPosition(1, objectToPull.transform.position); // pull
+        //if (pickup)
+        //    lineRenderer.SetPosition(1, objectToPickUpOrDrop.transform.position); // pick up
 
 
         //currentGrapplePos = Vector3.Lerp(shootPoint.position, hitPos, Time.deltaTime * hookShotFlySpeed);
