@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shooting : MonoBehaviour
+public class Shooting : Singleton<Shooting>
 {
     [SerializeField] private float timeBeforeShot = 2.0f;
     [SerializeField] private float timePeriodOfShot = 2.0f;
@@ -14,11 +14,11 @@ public class Shooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!aboutToFire && BeamRotation.Instance.isInRange)
+        if (!aboutToFire && BeamRotation.Instance.isInRange && !TurretController.Instance.playerColliding)
         {
             StartCoroutine(ShootWithHitScan());
         }
-        else if ((cRBeforeShot || cRDuringShot) && !BeamRotation.Instance.isInRange)
+        else if (((cRBeforeShot || cRDuringShot) && !BeamRotation.Instance.isInRange) || TurretController.Instance.playerColliding)
         {
             StopAllCoroutines();
            // StopCoroutine(ShootWithHitScan());
@@ -43,5 +43,19 @@ public class Shooting : MonoBehaviour
     public void Shoot() 
     {
         aboutToFire = true;
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject == TurretController.Instance.m_player)
+        {
+            TurretController.Instance.playerColliding = true;
+        }
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject == TurretController.Instance.m_player)
+        {
+            TurretController.Instance.playerColliding = false;
+        }
     }
 }
