@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 689.1997, g: 722.5254, b: 1054.209, a: 1}
+  m_IndirectSpecularColor: {r: 689.2036, g: 722.52344, b: 1054.2109, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -783,6 +783,23 @@ Transform:
   m_Father: {fileID: 2040074751}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &312178867 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 855497123272372436, guid: 779750df6b5d4b944bb066d662eeb761, type: 3}
+  m_PrefabInstance: {fileID: 855497123788282809}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &312178868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 312178867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a910ae72a75cb5649ab0e41f1b9048c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &416141724 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7737625820796438236, guid: 784cd1e3a618d9542a4a8105842c44d9, type: 3}
@@ -974,7 +991,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 583035760, guid: 779750df6b5d4b944bb066d662eeb761, type: 3}
   m_PrefabInstance: {fileID: 855497123788282809}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 312178867}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5b4d3c6b3c9fce4fb680300814c68b7, type: 3}
@@ -2684,7 +2701,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Turret_Wall_Base
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 53871082, guid: 779750df6b5d4b944bb066d662eeb761, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 779750df6b5d4b944bb066d662eeb761, type: 3}
 --- !u!1001 &2061108888405396060
 PrefabInstance:
