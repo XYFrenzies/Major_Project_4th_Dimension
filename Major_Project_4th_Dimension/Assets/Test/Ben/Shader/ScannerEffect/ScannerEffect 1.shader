@@ -88,11 +88,11 @@ Shader "FullScreen/ScannerEffect"
         PositionInputs posInput = GetPositionInput(varyings.positionCS.xy, _ScreenSize.zw, depth, UNITY_MATRIX_I_VP, UNITY_MATRIX_V);
         float3 viewDirection = GetWorldSpaceNormalizeViewDir(posInput.positionWS);
 		float viewDirectionWS = GetWorldSpaceViewDir(posInput.positionWS);
-        float4 color = float4(0.0, 0.0, 0.0, 0.0);
+        float4 colour = float4(0.0, 0.0, 0.0, 0.0);
 	
-        // Load the camera color buffer at the mip 0 if we're not at the before rendering injection point
+        // Load the camera colour buffer at the mip 0 if we're not at the before rendering injection point
         if (_CustomPassInjectionPoint != CUSTOMPASSINJECTIONPOINT_BEFORE_RENDERING)
-            color = float4(CustomPassLoadCameraColor(varyings.positionCS.xy, 0), 1);
+            colour = float4(CustomPassLoadCameraColor(varyings.positionCS.xy, 0), 1);
         // Add your custom pass code here
 		float3 abu = lerp(_vectorA, _vectorB, posInput.positionNDC.y);
 		float3 dcu = lerp(_vectorD, _vectorC,  posInput.positionNDC.y);	
@@ -108,12 +108,12 @@ Shader "FullScreen/ScannerEffect"
 				if (dist < _ScanDistance && dist > _ScanDistance - _ScanWidth && linearDepth < 1)
 				{
 					float diff = 1 - (_ScanDistance - dist) / (_ScanWidth);
-					half4 edge = lerp(_MidColor, _LeadColor, pow(diff, _LeadSharp));
+					half4 edge = lerp(_MidColor, _LeadColor, pow(abs(diff), _LeadSharp));
 					scannerCol = lerp(_TrailColor, edge, diff) + horizBars(posInput.positionNDC) * _HBarColor;
 					scannerCol *= diff;
 				}
 
-				return color + scannerCol;
+				return colour + scannerCol;
     }
 
 

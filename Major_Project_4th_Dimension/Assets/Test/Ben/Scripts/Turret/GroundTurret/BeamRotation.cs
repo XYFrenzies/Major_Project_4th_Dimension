@@ -26,7 +26,7 @@ public class BeamRotation : Singleton<BeamRotation>
     // Update is called once per frame
     private void Update()
     {
-        if (isInRange)
+        if (isInRange && !TurretController.Instance.playerColliding)
         {
             beamRenderer.enabled = true;
             beamRenderer.SetPosition(0, transform.position);
