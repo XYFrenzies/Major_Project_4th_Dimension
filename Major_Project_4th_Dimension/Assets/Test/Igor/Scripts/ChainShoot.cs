@@ -16,6 +16,8 @@ public class ChainShoot : MonoBehaviour
     private Camera cam;
     private PlayerControllerNew player;
     public float hookShotRange = 50f;
+    public int maxHookShotDistance = 100;
+
     //public LayerMask grappleLayer;
     public float chainSpeed = 20f;
 
@@ -26,8 +28,10 @@ public class ChainShoot : MonoBehaviour
     public Vector3 lookAtPos;
     public Transform posToLookAt;
     private Vector3 currentGrapplePos;
-    private float hookShotFlySpeed = 1;
+    private float hookShotFlySpeed = 10;
     public LineRenderer lineRenderer;
+    public AnimationCurve magnitudeOverDistance;
+
     private GameObject objectToPull;
     private bool pullCheck = false;
     [HideInInspector]
@@ -90,6 +94,7 @@ public class ChainShoot : MonoBehaviour
         cam = Camera.main;
         currentHookShotState = HookShotState.Normal;
         lineRenderer = GetComponent<LineRenderer>();
+        lineRenderer.positionCount = maxHookShotDistance;
         //holdObj = GetComponentInChildren<HoldObject>();
     }
 
@@ -106,11 +111,25 @@ public class ChainShoot : MonoBehaviour
             PlaceObject();
         if (showLine)
         {
-            lineRenderer.positionCount = 2;
-            lineRenderer.SetPosition(0, shootPoint.position); // my position
-            lineRenderer.SetPosition(1, Vector3.MoveTowards(shootPoint.position, hitPos, 5f * Time.deltaTime)); // fly
+
         }
-            //CalculateLineRenderer();
+
+        switch (currentHookShotState)
+        {
+            default:
+            case HookShotState.Normal:
+                break;
+            case HookShotState.Throw:
+                HandleHookShotThrow();
+                break;
+            case HookShotState.Fly:
+                break;
+            case HookShotState.Pickup:
+                break;
+            case HookShotState.Pull:
+                break;
+        }
+        //CalculateLineRenderer();
         //else
         //{
         //    if (lineRenderer != null)
@@ -154,11 +173,11 @@ public class ChainShoot : MonoBehaviour
         //if (Physics.SphereCast(rayOrigin,2f , cam.transform.forward ,out hit, hookShotRange))
         if (Physics.Raycast(ray, out hit, hookShotRange))
         {
-            hitPos = hit.point;
-            currentGrapplePos = shootPoint.position;
 
             if (hit.transform.CompareTag("CanHookShotTowards")) // hit grapple point
             {
+                hitPos = hit.point;
+                currentGrapplePos = shootPoint.position;
                 player.flyToTarget = hit.point;
                 showLine = true;
                 //player.currentState = PlayerControllerNew.State.HookShotFlying;
@@ -250,8 +269,8 @@ public class ChainShoot : MonoBehaviour
         //}
 
         player.currentState = PlayerControllerNew.State.HookShotThrown;
-        
 
+        currentHookShotState = HookShotState.Throw;
     }
 
     public void HandleHookShotThrow()
@@ -271,24 +290,28 @@ public class ChainShoot : MonoBehaviour
     {
         //lineRenderer.positionCount = 2;
         //lineRenderer.SetPosition(0, shootPoint.position); // my position
-       //lineRenderer.SetPosition(1, Vector3.MoveTowards(shootPoint.position, hitPos, 5f * Time.deltaTime)); // fly
+        //lineRenderer.SetPosition(1, Vector3.MoveTowards(shootPoint.position, hitPos, 3f /** Time.time*/)); // fly
         //if (fly)
         //    lineRenderer.SetPosition(1, hitPos); // fly
         //if (pull)
         //    lineRenderer.SetPosition(1, objectToPull.transform.position); // pull
         //if (pickup)
         //    lineRenderer.SetPosition(1, objectToPickUpOrDrop.transform.position); // pick up
+        Vector3 calculatePoint = hitPos;
 
 
-        //currentGrapplePos = Vector3.Lerp(shootPoint.position, hitPos, Time.deltaTime * hookShotFlySpeed);
-        //for (int i = 0; i < hookShotRange; i++)
-        //{
-        //    Vector3 dir = i * (currentGrapplePos - shootPoint.position) / hookShotRange;
-        //    float x = dir.magnitude;
-        //    float y = Mathf.Sin(x * waveScale);
-        //    Vector3 way = dir + shootPoint.position + (shootPoint.rotation * new Vector3(y, 0, 0));
-        //    lineRenderer.SetPosition(i, way);
-        //}
+        currentGrapplePos = Vector3.Lerp(currentGrapplePos, calculatePoint, Time.deltaTime * hookShotFlySpeed);
+        for (int i = 0; i < maxHookShotDistance; i++)
+        {
+            Vector3 dir = i * (currentGrapplePos - shootPoint.position) / maxHookShotDistance;
+            float x = dir.magnitude;
+            float y = Mathf.Sin(x * waveScale);
+
+            float percent = (float)i / maxHookShotDistance;
+
+            Vector3 way = dir + shootPoint.position + (shootPoint.rotation * new Vector3(y, 0, 0) * magnitudeOverDistance.Evaluate(percent));
+            lineRenderer.SetPosition(i, way);
+        }
     }
 
     public void PullObject(GameObject pullObject)

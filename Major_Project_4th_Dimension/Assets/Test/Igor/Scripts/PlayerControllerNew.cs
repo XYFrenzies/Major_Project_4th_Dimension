@@ -112,7 +112,7 @@ public class PlayerControllerNew : MonoBehaviour
             case State.HookShotThrown:
                 rb.velocity = Vector3.zero; // If player is moving while firing, player will continue to move for a short time.
                                             // This stops player from moving while hookshot if firing
-                chainShoot.HandleHookShotThrow();
+                //chainShoot.HandleHookShotThrow();
                 
                 
                 break;
