@@ -12,7 +12,7 @@ public enum Movement
     OtherDirection,
     ContinueInLine
 }
-public class MovingTurret : MonoBehaviour
+public class MovingEntity : MonoBehaviour
 {
     [SerializeField] private bool canMove = true;
     [Tooltip("All the gameobjects on the trail line.")]
