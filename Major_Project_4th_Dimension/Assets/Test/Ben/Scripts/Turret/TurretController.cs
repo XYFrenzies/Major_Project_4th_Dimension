@@ -133,14 +133,14 @@ public class TurretController : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject == m_player)
+        if (collision.collider.tag == "Player")
         {
             playerColliding = true;
         }
     }
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject == m_player)
+        if (collision.collider.tag == "Player")
         {
             playerColliding = false;
         }
