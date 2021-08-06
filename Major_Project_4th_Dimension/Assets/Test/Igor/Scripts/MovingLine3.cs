@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class MovineLine2 : MonoBehaviour
+public class MovingLine3 : MonoBehaviour
 {
     public float waveScale = 1f;
     public float hookshotFlySpeed, hookshotReturnFlySpeed;
