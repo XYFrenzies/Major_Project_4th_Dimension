@@ -193,7 +193,7 @@ public class ChainShoot : MonoBehaviour
                 player.flyToTarget = hit.point;
                 // showLine = true;
                 //player.currentState = PlayerControllerNew.State.HookShotFlying;
-                //fly = true;
+                fly = true;
                 Debug.Log("Can hook shot towards");
                 //return;
                 // SpawnChain(shootPoint.position, shootPoint.forward, chainSpeed, hit.point, true, false);
@@ -293,6 +293,8 @@ public class ChainShoot : MonoBehaviour
         if (waveScale <= 0.01f)
         {
             currentHookShotState = HookShotState.Fly;
+            if (fly)
+                player.currentState = PlayerControllerNew.State.HookShotFlying;
             lineRenderer.positionCount = 2;
         }
         if (stop/*Input.GetButtonDown("HookShot")*/)
@@ -363,7 +365,7 @@ public class ChainShoot : MonoBehaviour
     }
     private void StopHookShot()
     {
-        //player.currentState = PlayerControllerNew.State.Normal;
+        player.currentState = PlayerControllerNew.State.Normal;
         currentHookShotState = HookShotState.Normal;
         StartCoroutine(RetrieveHook());
     }

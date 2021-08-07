@@ -187,8 +187,9 @@ public class PlayerControllerNew : MonoBehaviour
         {
             anim.SetBool("IsFlying", false);
             //rb.useGravity = true;
-            chainShoot.showLine = false;
+            chainShoot.fly = false;
             currentState = State.Normal;
+            chainShoot.currentHookShotState = ChainShoot.HookShotState.Normal;
             //Debug.Log(rb.useGravity);
         }
     }
