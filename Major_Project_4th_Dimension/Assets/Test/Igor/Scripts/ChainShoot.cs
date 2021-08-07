@@ -136,10 +136,12 @@ public class ChainShoot : MonoBehaviour
             case HookShotState.Fly:
                 HandleHookshotMovement();
                 break;
-                //case HookShotState.Pickup:
-                //    break;
-                //case HookShotState.Pull:
-                //    break;
+            case HookShotState.Pickup:
+                PickUp(objectToPickUpOrDrop);
+                break;
+            case HookShotState.Pull:
+                PullObject(objectToPull);
+                break;
         }
 
     }
@@ -147,9 +149,9 @@ public class ChainShoot : MonoBehaviour
 
     public void ThrowHookShot()
     {
-        //fly = false;
-        //pull = false;
-        //place = false;
+        fly = false;
+        pull = false;
+        place = false;
         RaycastHit hit;
 
         Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
@@ -164,14 +166,14 @@ public class ChainShoot : MonoBehaviour
             {
                 place = true;
                 pickup = false;
-                hitPos = hit.point;
+                hookshotPosition = hit.point;
                 // SpawnChain(shootPoint.position, shootPoint.forward, chainSpeed, hit.point, objectToPickUpOrDrop, false, false); // put back object at hit point
             }
             else // put back at point of chain's full length
             {
                 pickup = false;
                 place = true;
-                hitPos = ray.origin + (cam.transform.forward * hookShotRange);
+                hookshotPosition = ray.origin + (cam.transform.forward * hookShotRange);
                 //SpawnChain(shootPoint.position, shootPoint.forward, chainSpeed, (ray.origin/*rayOrigin*/ + (cam.transform.forward * hookShotRange)/*ray.GetPoint(hookShotRange*/), objectToPickUpOrDrop, false, false);
             }
             return;
@@ -194,6 +196,7 @@ public class ChainShoot : MonoBehaviour
                 // showLine = true;
                 //player.currentState = PlayerControllerNew.State.HookShotFlying;
                 fly = true;
+                
                 Debug.Log("Can hook shot towards");
                 //return;
                 // SpawnChain(shootPoint.position, shootPoint.forward, chainSpeed, hit.point, true, false);
@@ -202,9 +205,9 @@ public class ChainShoot : MonoBehaviour
             {
                 Debug.Log("can pick up");
                 objectToPickUpOrDrop = hit.transform.gameObject;
-                //isObjectHeld = true;
-                //pickup = true;
-
+                isObjectHeld = true;
+                pickup = true;
+                
                 //showLine = true;
                 //SpawnChain(shootPoint.position, shootPoint.forward, chainSpeed, hit.point, hit.transform.gameObject, false, true);
 
@@ -292,9 +295,20 @@ public class ChainShoot : MonoBehaviour
         CalculateLineRenderer();
         if (waveScale <= 0.01f)
         {
-            currentHookShotState = HookShotState.Fly;
             if (fly)
+            {
                 player.currentState = PlayerControllerNew.State.HookShotFlying;
+                currentHookShotState = HookShotState.Fly;
+            }
+            if(pickup)
+            {
+                currentHookShotState = HookShotState.Pickup;
+            }
+            if(pull)
+            {
+                currentHookShotState = HookShotState.Pull;
+
+            }
             lineRenderer.positionCount = 2;
         }
         if (stop/*Input.GetButtonDown("HookShot")*/)

@@ -90,13 +90,13 @@ public class PlayerControllerNew : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         chainShoot = GetComponent<ChainShoot>();
 
-        
+
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -112,15 +112,16 @@ public class PlayerControllerNew : MonoBehaviour
             case State.HookShotThrown:
                 rb.velocity = Vector3.zero; // If player is moving while firing, player will continue to move for a short time.
                                             // This stops player from moving while hookshot if firing
-                //chainShoot.HandleHookShotThrow();
-                
-                
+                                            //chainShoot.HandleHookShotThrow();
+
+
                 break;
             case State.HookShotFlying:
+                camFOV.SetCameraFOV(HOOKSHOT_FOV);
                 Fly(flyToTarget);
-                
+
                 break;
-                
+
         }
     }
 
@@ -130,7 +131,7 @@ public class PlayerControllerNew : MonoBehaviour
         dir *= moveSpeed;
         dir.y = rb.velocity.y;
         rb.velocity = dir;
-        
+
         anim.SetFloat("xPos", direction.x);
         anim.SetFloat("yPos", direction.y);
         //anim.SetBool("IsLanding", false);
@@ -190,6 +191,7 @@ public class PlayerControllerNew : MonoBehaviour
             chainShoot.fly = false;
             currentState = State.Normal;
             chainShoot.currentHookShotState = ChainShoot.HookShotState.Normal;
+            camFOV.SetCameraFOV(NORMAL_FOV);
             //Debug.Log(rb.useGravity);
         }
     }
