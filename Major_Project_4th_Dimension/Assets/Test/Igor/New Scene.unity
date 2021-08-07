@@ -2942,19 +2942,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cedc18fdcc15e0a4b9c385d7be7d9874, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveScale: 1
-  shootPoint: {fileID: 430369291}
-  holdPoint: {fileID: 175403106}
-  chainPrefab: {fileID: 0}
-  objectToPickUpOrDrop: {fileID: 0}
-  hookShotRange: 50
+  waveScale: 4
+  hookshotFlySpeed: 1
+  hookshotReturnFlySpeed: 6
   maxHookShotDistance: 100
-  chainSpeed: 20
-  canGrapple: 0
-  canPickUp: 0
-  lookAtPos: {x: 0, y: 0, z: 0}
-  posToLookAt: {fileID: 1855329790}
-  lineRenderer: {fileID: 1454060536}
   magnitudeOverDistance:
     serializedVersion: 2
     m_Curve:
@@ -2979,6 +2970,18 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  WhatisGrappleable:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  shootPoint: {fileID: 430369291}
+  holdPoint: {fileID: 175403106}
+  objectToPickUpOrDrop: {fileID: 0}
+  hookShotRange: 50
+  chainSpeed: 20
+  canGrapple: 0
+  canPickUp: 0
+  lookAtPos: {x: 0, y: 0, z: 0}
+  posToLookAt: {fileID: 1855329790}
   showLine: 0
   currentHookShotState: 0
   pull: 0
@@ -3094,6 +3097,26 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: a0e9814f-fb93-4ae4-8a0d-6085b28b2b55
     m_ActionName: Player/Scanner[/Keyboard/c,/XInputControllerWindows/rightShoulder]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 45f58ded-533b-4261-b247-e19bd7a4ba0c
+    m_ActionName: Player/Test[/Keyboard/k]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1454060528}
+        m_TargetAssemblyTypeName: ChainShoot, Assembly-CSharp
+        m_MethodName: OnTest2
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 2c543d62-bf48-482c-9d8f-4bbf445d1797
+    m_ActionName: Player/Test2[/Keyboard/l]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
