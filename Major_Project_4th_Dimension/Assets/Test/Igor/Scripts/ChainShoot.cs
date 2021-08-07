@@ -30,9 +30,6 @@ public class ChainShoot : MonoBehaviour
 
     public float chainSpeed = 20f;
 
-    public bool canGrapple;
-    public bool canPickUp;
-    private bool isObjectHeld = false;
     private Vector3 hitPos;
     public Vector3 lookAtPos;
     public Transform posToLookAt;
@@ -41,17 +38,21 @@ public class ChainShoot : MonoBehaviour
 
 
     private GameObject objectToPull;
-    private bool pullCheck = false;
     [HideInInspector]
-    public bool showLine = false;
     public HookShotState currentHookShotState;
 
-    private bool stop = false;
 
+    private bool isObjectHeld = false;
+    public bool showLine = false;
+    private bool pullCheck = false;
+    public bool canPickUp;
+    public bool canGrapple;
+    private bool stop = false;
     public bool pull = false;
     public bool pickup = false;
     public bool fly = false;
     public bool place = false;
+
     private float stopPullingDistance = 5f;
 
     public void OnHookShot(InputAction.CallbackContext context)
@@ -73,8 +74,9 @@ public class ChainShoot : MonoBehaviour
         {
             return;
         }
-        if (!objectToPull)
-            Debug.Log("Throw");
+        if (!objectToPull && isObjectHeld)
+            ThrowObject();
+        //Debug.Log("Throw");
 
     }
 
@@ -95,6 +97,8 @@ public class ChainShoot : MonoBehaviour
         Throw,
         Pull,
         Pickup,
+        Place,
+        ThrowObject,
         Fly
     }
 
@@ -115,14 +119,8 @@ public class ChainShoot : MonoBehaviour
         //{
         //    PullObject(objectToPull);
         //}
-        //if (pickup)
-        //    PickUp(objectToPickUpOrDrop);
-        //if (place)
-        //    PlaceObject();
-        //if (showLine)
-        //{
 
-        //}
+
 
         switch (currentHookShotState)
         {
@@ -142,6 +140,12 @@ public class ChainShoot : MonoBehaviour
             case HookShotState.Pull:
                 PullObject(objectToPull);
                 break;
+            case HookShotState.Place:
+                PlaceObject();
+                break;
+            //case HookShotState.ThrowObject:
+            //    ThrowObject();
+            //    break;
         }
 
     }
@@ -152,6 +156,7 @@ public class ChainShoot : MonoBehaviour
         fly = false;
         pull = false;
         place = false;
+        //pickup = false;
         RaycastHit hit;
 
         Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
@@ -160,21 +165,20 @@ public class ChainShoot : MonoBehaviour
         // Check if object is being held here
         if (isObjectHeld)
         {
-            //if (holdObj.heldObj != null)
-            //    objectToPickUpOrDrop = holdObj.heldObj;
+
             if (Physics.Raycast(ray, out hit, hookShotRange))
             {
                 place = true;
                 pickup = false;
                 hookshotPosition = hit.point;
-                // SpawnChain(shootPoint.position, shootPoint.forward, chainSpeed, hit.point, objectToPickUpOrDrop, false, false); // put back object at hit point
+
             }
             else // put back at point of chain's full length
             {
                 pickup = false;
                 place = true;
                 hookshotPosition = ray.origin + (cam.transform.forward * hookShotRange);
-                //SpawnChain(shootPoint.position, shootPoint.forward, chainSpeed, (ray.origin/*rayOrigin*/ + (cam.transform.forward * hookShotRange)/*ray.GetPoint(hookShotRange*/), objectToPickUpOrDrop, false, false);
+
             }
             return;
         }
@@ -191,25 +195,21 @@ public class ChainShoot : MonoBehaviour
 
             if (hit.transform.CompareTag("CanHookShotTowards")) // hit grapple point
             {
-                // currentGrapplePos = shootPoint.position;
+
                 player.flyToTarget = hit.point;
-                // showLine = true;
-                //player.currentState = PlayerControllerNew.State.HookShotFlying;
+
                 fly = true;
-                
+
                 Debug.Log("Can hook shot towards");
-                //return;
-                // SpawnChain(shootPoint.position, shootPoint.forward, chainSpeed, hit.point, true, false);
+
             }
             else if (hit.transform.CompareTag("MoveableToMe")) // pick up object
             {
                 Debug.Log("can pick up");
                 objectToPickUpOrDrop = hit.transform.gameObject;
-                isObjectHeld = true;
+                //isObjectHeld = true;
                 pickup = true;
-                
-                //showLine = true;
-                //SpawnChain(shootPoint.position, shootPoint.forward, chainSpeed, hit.point, hit.transform.gameObject, false, true);
+
 
             }
             else if (hit.transform.CompareTag("BigPullObject")) // pull object towards me
@@ -221,18 +221,12 @@ public class ChainShoot : MonoBehaviour
 
                 Debug.Log("Pullcheck: " + pullCheck);
 
-                //pullCheck = true;
-                // showLine = true;
-
-
-                //SpawnChain(shootPoint.position, shootPoint.forward, chainSpeed, hit.point, hit.transform.gameObject, false, true);
-
             }
-            else
+            else // hit object but cant pick up, pull or grapple
             {
 
                 Debug.Log("Hit other thing");
-                // SpawnChain(shootPoint.position, shootPoint.forward, chainSpeed, hit.point, false, false); // hit non grapple point but still object
+
             }
 
 
@@ -241,53 +235,19 @@ public class ChainShoot : MonoBehaviour
         {
             Debug.Log("missed everything");
 
-            //SpawnChain(shootPoint.position, shootPoint.forward, chainSpeed, (ray.origin/*rayOrigin*/ + (cam.transform.forward * hookShotRange)/*ray.GetPoint(hookShotRange*/), false, false);
         }
 
 
         {
-            //hand.gameObject.SetActive(true);
+
 
             //Vector3 lineOrigin = cam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
             //Debug.DrawLine(lineOrigin, cam.transform.forward * hookShotRange, Color.green);
 
-
-            ////int canGrappleToLayerMask = 1 << 6;
-
-            ////int canPullTowardsSelf = 1 << 7;
-            //Vector3 rayOrigin = cam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
-
-
-            //thingToPull = "";
-
-            //if (Physics.Raycast(rayOrigin, cam.transform.forward, out hit, hookShotRange))
-            //{
-            //    hookShotHitPoint = hit.point;
-            //    if (hit.rigidbody)
-            //        thingToPull = hit.rigidbody.gameObject.tag;
-
-            //    HookShotHitSomething = true;
-            //    hookShotSize = 2f;
-            //    shootPoint.gameObject.SetActive(true);
-            //    shootPoint.localScale = Vector3.zero;
-            //    currentState = State.HookShotThrown;
-            //}
-            //else
-            //{
-            //    HookShotHitSomething = false;
-            //    hookShotHitPoint = rayOrigin + (cam.transform.forward * hookShotRange);
-            //    hookShotSize = 2f;
-            //    shootPoint.gameObject.SetActive(true);
-            //    shootPoint.localScale = Vector3.zero;
-            //    currentState = State.HookShotThrown;
-
-            //}
         }
 
-        //player.currentState = PlayerControllerNew.State.HookShotThrown;
 
         currentHookShotState = HookShotState.Throw;
-        //currentHookShotState = HookShotState.Throw;
     }
 
     public void HandleHookShotThrow()
@@ -300,23 +260,22 @@ public class ChainShoot : MonoBehaviour
                 player.currentState = PlayerControllerNew.State.HookShotFlying;
                 currentHookShotState = HookShotState.Fly;
             }
-            if(pickup)
+            if (pickup)
             {
                 currentHookShotState = HookShotState.Pickup;
             }
-            if(pull)
+            if (pull)
             {
                 currentHookShotState = HookShotState.Pull;
 
             }
             lineRenderer.positionCount = 2;
         }
-        if (stop/*Input.GetButtonDown("HookShot")*/)
+        if (stop)
         {
             StopHookShot();
         }
-        //StopHookShot();
-        //player.currentState = PlayerControllerNew.State.Normal;
+
     }
 
 
@@ -372,7 +331,7 @@ public class ChainShoot : MonoBehaviour
         lineRenderer.SetPosition(0, shootPoint.position);
         lineRenderer.SetPosition(1, hookshotPosition);
 
-        if (stop/*Input.GetButtonDown("HookShot")*/)
+        if (stop)
         {
             StopHookShot();
         }
@@ -444,56 +403,23 @@ public class ChainShoot : MonoBehaviour
         isObjectHeld = false;
         Rigidbody rb = objectToPickUpOrDrop.GetComponent<Rigidbody>();
         rb.useGravity = true;
-
+        objectToPickUpOrDrop = null;
+        pickup = false;
     }
 
-    //public void ReelIn(GameObject pullObject)
-    //{
-    //    Rigidbody rb = pullObject.GetComponent<Rigidbody>();
-    //    rb.AddForce((player.transform.position - pullObject.transform.position), ForceMode.VelocityChange);
-    //    Debug.Log("Reeling");
-    //}
-
-    //public void SpawnChain(Vector3 spawnPos, Vector3 direction, float speed, Vector3 hitPoint, bool grapple, bool pickup)
-    //{
-    //    // Spawn
-    //    GameObject spawnedChain = Instantiate(chainPrefab, spawnPos, Quaternion.identity);
-
-    //    // Direction
-    //    spawnedChain.transform.forward = direction;
-
-    //    ChainController chainCont = spawnedChain.GetComponent<ChainController>();
-
-    //    chainCont.Initialise(hitPoint, speed, shootPoint, hand, grapple, pickup);
-    //    // 
-    //    chainCont.posToMoveTowards = hitPoint; /*= (hitPoint - spawnPos).normalized * speed;*/
-
-    //}
-
-    //public void SpawnChain(Vector3 spawnPos, Vector3 direction, float speed, Vector3 hitPoint, GameObject pickUpObject, bool grapple, bool pickup)
-    //{
-    //    // Spawn
-    //    GameObject spawnedChain = Instantiate(chainPrefab, spawnPos, Quaternion.identity);
-
-    //    // Direction
-    //    spawnedChain.transform.forward = direction;
-
-    //    ChainController chainCont = spawnedChain.GetComponent<ChainController>();
-
-    //    chainCont.Initialise(hitPoint, speed, shootPoint, hand, pickUpObject, grapple, pickup);
-    //    // 
-    //    chainCont.posToMoveTowards = hitPoint; /*= (hitPoint - spawnPos).normalized * speed;*/
-
-    //}
-
-    //public void ObjectBeingHeld()
-    //{
-    //    isObjectHeld = true;
-    //}
-
-    //public void ObjectDropped()
-    //{
-    //    isObjectHeld = false;
-    //}
+    public void ThrowObject()
+    {
+        currentHookShotState = HookShotState.Normal;
+        objectToPickUpOrDrop.layer = LayerMask.NameToLayer("Default");
+        objectToPickUpOrDrop.GetComponent<Rigidbody>().isKinematic = false;
+        objectToPickUpOrDrop.transform.SetParent(null);
+        isObjectHeld = false;
+        Rigidbody rb = objectToPickUpOrDrop.GetComponent<Rigidbody>();
+        rb.useGravity = true;
+        rb.AddForce(shootPoint.forward * 30f, ForceMode.Impulse);
+        Debug.Log(rb.gameObject.name);
+        objectToPickUpOrDrop = null;
+        pickup = false;
+    }
 
 }
