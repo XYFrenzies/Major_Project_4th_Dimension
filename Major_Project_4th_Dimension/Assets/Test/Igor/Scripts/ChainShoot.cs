@@ -52,6 +52,7 @@ public class ChainShoot : MonoBehaviour
     public bool pickup = false;
     public bool fly = false;
     public bool place = false;
+    public bool putDown = false;
 
     private float stopPullingDistance = 5f;
 
@@ -141,11 +142,13 @@ public class ChainShoot : MonoBehaviour
                 PullObject(objectToPull);
                 break;
             case HookShotState.Place:
-                PlaceObject();
+                PlaceObject(hookshotPosition);
+                HandleHookShotThrow();
+
                 break;
-            //case HookShotState.ThrowObject:
-            //    ThrowObject();
-            //    break;
+                //case HookShotState.ThrowObject:
+                //    ThrowObject();
+                //    break;
         }
 
     }
@@ -153,9 +156,9 @@ public class ChainShoot : MonoBehaviour
 
     public void ThrowHookShot()
     {
-        fly = false;
-        pull = false;
-        place = false;
+        //fly = false;
+        //pull = false;
+        //place = false;
         //pickup = false;
         RaycastHit hit;
 
@@ -170,14 +173,33 @@ public class ChainShoot : MonoBehaviour
             {
                 place = true;
                 pickup = false;
+                //putDown = false;
                 hookshotPosition = hit.point;
+                initialLength = Vector3.Distance(transform.position, hookshotPosition);
+                lineRenderer.positionCount = maxHookShotDistance;
+                currentGrapplePosition = shootPoint.position;
+                waveScale = initWaveScale;
+                
+
+                currentHookShotState = HookShotState.Place;
+
 
             }
             else // put back at point of chain's full length
             {
                 pickup = false;
                 place = true;
+                //putDown = false;
+
                 hookshotPosition = ray.origin + (cam.transform.forward * hookShotRange);
+                initialLength = Vector3.Distance(transform.position, hookshotPosition);
+                lineRenderer.positionCount = maxHookShotDistance;
+                currentGrapplePosition = shootPoint.position;
+                waveScale = initWaveScale;
+                
+
+                currentHookShotState = HookShotState.Place;
+
 
             }
             return;
@@ -253,8 +275,9 @@ public class ChainShoot : MonoBehaviour
     public void HandleHookShotThrow()
     {
         CalculateLineRenderer();
-        if (waveScale <= 0.01f)
+        if (waveScale <= 0.05f)
         {
+            lineRenderer.positionCount = 2;
             if (fly)
             {
                 player.currentState = PlayerControllerNew.State.HookShotFlying;
@@ -269,7 +292,11 @@ public class ChainShoot : MonoBehaviour
                 currentHookShotState = HookShotState.Pull;
 
             }
-            lineRenderer.positionCount = 2;
+            if (putDown)
+            {
+                currentHookShotState = HookShotState.Normal;
+                putDown = false;
+            }
         }
         if (stop)
         {
@@ -390,21 +417,31 @@ public class ChainShoot : MonoBehaviour
             pickupObject.GetComponent<Rigidbody>().isKinematic = true;
             pickupObject.transform.SetParent(holdPoint);
             isObjectHeld = true;
-
+            currentHookShotState = HookShotState.Normal;
         }
     }
 
-    public void PlaceObject()
+    public void PlaceObject(Vector3 target)
     {
+        if (objectToPickUpOrDrop != null)
+        {
+            objectToPickUpOrDrop.layer = LayerMask.NameToLayer("Default");
+            objectToPickUpOrDrop.GetComponent<Rigidbody>().isKinematic = false;
+            objectToPickUpOrDrop.transform.SetParent(null);
+            objectToPickUpOrDrop.transform.position = Vector3.MoveTowards(objectToPickUpOrDrop.transform.position, target, 50f * Time.deltaTime);
+            if (Vector3.Distance(objectToPickUpOrDrop.transform.position, target) <= 1f)
+            {
 
-        objectToPickUpOrDrop.layer = LayerMask.NameToLayer("Default");
-        objectToPickUpOrDrop.GetComponent<Rigidbody>().isKinematic = false;
-        objectToPickUpOrDrop.transform.SetParent(null);
-        isObjectHeld = false;
-        Rigidbody rb = objectToPickUpOrDrop.GetComponent<Rigidbody>();
-        rb.useGravity = true;
-        objectToPickUpOrDrop = null;
-        pickup = false;
+                Rigidbody rb = objectToPickUpOrDrop.GetComponent<Rigidbody>();
+                rb.useGravity = true;
+                isObjectHeld = false;
+                objectToPickUpOrDrop = null;
+                pickup = false;
+                place = false;
+                putDown = true;
+
+            }
+        }
     }
 
     public void ThrowObject()
