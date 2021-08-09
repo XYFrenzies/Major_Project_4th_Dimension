@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Conveyer_Belt_Move : MonoBehaviour
+public class Conveyor_Belt_Move : MonoBehaviour
 {
 
     public float speed;
