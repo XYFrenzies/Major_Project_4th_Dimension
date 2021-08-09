@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 688.7837, g: 721.98047, b: 1053.4258, a: 1}
+  m_IndirectSpecularColor: {r: 688.7798, g: 721.96875, b: 1053.418, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -230,6 +230,7 @@ GameObject:
   - component: {fileID: 156368197}
   - component: {fileID: 156368196}
   - component: {fileID: 156368199}
+  - component: {fileID: 156368200}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -304,6 +305,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80e4e085f1d1ef3499b27a0338e1261e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &156368200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156368195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de3ddc1c36d240447bdd4b0a5c6124b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objWithIndicators:
+  - {fileID: 910656376}
 --- !u!1 &157207112
 GameObject:
   m_ObjectHideFlags: 0
@@ -1068,14 +1083,13 @@ GameObject:
   - component: {fileID: 841304538}
   - component: {fileID: 841304541}
   - component: {fileID: 841304540}
-  - component: {fileID: 841304539}
   m_Layer: 0
   m_Name: UI indicator Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &841304538
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1096,23 +1110,6 @@ RectTransform:
   m_AnchoredPosition: {x: 383, y: 191}
   m_SizeDelta: {x: 1532, y: 769}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &841304539
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 841304537}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
 --- !u!114 &841304540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1651,6 +1648,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1318423275, guid: 73cf95ede4bbc5845986aeda9d431514, type: 3}
       propertyPath: Speed
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 1318423275, guid: 73cf95ede4bbc5845986aeda9d431514, type: 3}
+      propertyPath: m_speed
       value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 1318423275, guid: 73cf95ede4bbc5845986aeda9d431514, type: 3}
