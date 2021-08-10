@@ -4,16 +4,8 @@ using UnityEngine;
 
 public class Moving_Texture : MonoBehaviour
 {
-
-    public float ScrollX = 0.5f;
-    public float ScrollY = 0.5f;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    [SerializeField] private float ScrollX = 0.5f;
+    [SerializeField] private float ScrollY = 0.5f;
     // Update is called once per frame
     void Update()
     {
