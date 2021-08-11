@@ -219,6 +219,7 @@ public class ChainShootStartAgain : MonoBehaviour
             {
                 Debug.Log("can pull to me");
                 objectToPull = hit.transform.gameObject;
+
                 pullCheck = !pullCheck;
                 pull = true;
 
@@ -243,9 +244,9 @@ public class ChainShootStartAgain : MonoBehaviour
         {
             Debug.Log("missed everything");
             hookshotPosition = ray.origin + (cam.transform.forward * hookShotRange);
-            initialLength = Vector3.Distance(transform.position, hookshotPosition);
+           // initialLength = Vector3.Distance(transform.position, hookshotPosition);
 
-            currentGrapplePosition = shootPoint.position;
+           // currentGrapplePosition = shootPoint.position;
 
 
         }
@@ -387,14 +388,15 @@ public class ChainShootStartAgain : MonoBehaviour
         if (Vector3.Distance(pullObject.transform.position, player.transform.position) >= stopPullingDistance)
         {
 
-            Rigidbody rb = pullObject.GetComponent<Rigidbody>();
-            if (player.GetComponent<Rigidbody>().velocity.sqrMagnitude > 0f)
-            {
-                lineRenderer.SetPosition(1, pullObject.transform.position);
-                pullObject.transform.position = Vector3.MoveTowards(pullObject.transform.position, player.transform.position, 5f * Time.deltaTime);
-                Debug.Log("pulling " + pullObject.name + "Player velocity " + player.GetComponent<Rigidbody>().velocity);
-
-            }
+            //Rigidbody rb = pullObject.GetComponent<Rigidbody>();
+            // if (player.GetComponent<Rigidbody>().velocity.sqrMagnitude > 0f)
+            // {
+            //lineRenderer.SetPosition(1, pullObject.transform.position);
+            pullObject.transform.position = Vector3.MoveTowards(pullObject.transform.position, player.transform.position, 5f * Time.deltaTime);
+            pullObject.transform.rotation = Quaternion.LookRotation(pullObject.transform.position - player.transform.position);
+            //   Debug.Log("pulling " + pullObject.name + "Player velocity " + player.GetComponent<Rigidbody>().velocity);
+            //hand.Translate(hookshotPosition, Space.Self);
+            //  }
         }
 
     }
@@ -490,8 +492,11 @@ public class ChainShootStartAgain : MonoBehaviour
                 player.currentState = PlayerControllerNew.State.HookShotFlying;
             if (pickup)
                 currentHookShotState = HookShotState.Pickup;
-
-
+            if (pull)
+            {
+                currentHookShotState = HookShotState.Pull;
+                player.currentState = PlayerControllerNew.State.Normal;
+            }
         }
     }
 
