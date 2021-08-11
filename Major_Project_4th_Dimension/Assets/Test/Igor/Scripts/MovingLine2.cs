@@ -99,7 +99,7 @@ public class MovingLine2 : MonoBehaviour
     private void HandleHookshotThrow()
     {
         CalculateLineRenderer();
-        if (waveScale <= 0.01f)
+        if (waveScale <= 0.05f)
         {
             state = State.HookshotFlyingPlayer;
             lineRenderer.positionCount = 2;

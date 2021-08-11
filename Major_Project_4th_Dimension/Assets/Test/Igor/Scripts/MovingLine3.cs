@@ -87,7 +87,7 @@ public class MovingLine3 : MonoBehaviour
     private void HandleHookshotThrow()
     {
         CalculateLineRenderer();
-        if (waveScale <= 0.01f)
+        if (waveScale <= 0.05f)
         {
             state = State.HookshotFlyingPlayer;
             lineRenderer.positionCount = 2;
@@ -105,7 +105,7 @@ public class MovingLine3 : MonoBehaviour
             calculatePoint = transform.position;
 
         currentGrapplePosition = Vector3.Lerp(currentGrapplePosition, calculatePoint, Time.deltaTime *
-            (isRetrieve ? hookshotReturnFlySpeed : hookshotReturnFlySpeed));
+            (isRetrieve ? hookshotReturnFlySpeed : hookshotFlySpeed));
 
         if (isRetrieve)
             waveScale = (1 - (Vector3.Distance(currentGrapplePosition, calculatePoint) / initialLength)) * initWaveScale;
@@ -147,7 +147,7 @@ public class MovingLine3 : MonoBehaviour
     {
         isRetrieve = true;
         lineRenderer.positionCount = maxHookShotDistance;
-        float maxWaveScale = initWaveScale - 0.01f;
+        float maxWaveScale = initWaveScale - 0.05f;
         while (waveScale <= maxWaveScale)
         {
             CalculateLineRenderer();
