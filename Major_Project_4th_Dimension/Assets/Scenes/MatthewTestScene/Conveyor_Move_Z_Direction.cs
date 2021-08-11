@@ -4,17 +4,12 @@ using UnityEngine;
 
 public class Conveyor_Move_Z_Direction : MonoBehaviour
 {
-
-    public float speed;
-    Rigidbody rBody;
-
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private float speed = 0.5f;
+    private Rigidbody rBody;
+    void Awake()
     {
-        speed = 0.5f;
         rBody = GetComponent<Rigidbody>();
     }
-
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -22,6 +17,4 @@ public class Conveyor_Move_Z_Direction : MonoBehaviour
         rBody.position += Vector3.back * speed * Time.deltaTime;
         rBody.MovePosition(pos);
     }
-
-
 }
