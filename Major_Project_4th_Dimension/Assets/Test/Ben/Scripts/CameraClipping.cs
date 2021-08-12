@@ -25,17 +25,12 @@ public class CameraClipping : MonoBehaviour
             MeshRenderer objectMesh = hit.transform.gameObject.GetComponent<MeshRenderer>();
             if (objectMesh != null && alphaMat != null)
             {
-                //if (objectMesh.gameObject.CompareTag("Barrier"))//Because this is being called in update, it is always being called.
-                //{
                 AddToList(objectMesh);
                 lastHitObject = hit.collider.gameObject;
-                //}
             }
         }
         else
             SetBack();
-
-
     }
     private void SetBack()//Setting the meshRenderer back to active
     {
