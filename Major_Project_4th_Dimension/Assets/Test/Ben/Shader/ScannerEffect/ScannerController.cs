@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class ScannerController : MonoBehaviour
 {
+    [SerializeField] private bool m_scanGreyScale = false; 
     [SerializeField] private Transform m_scanLocation = null;
     [SerializeField] private Material material;
     [SerializeField] private float m_speed = 40.0f;
@@ -39,6 +40,10 @@ public class ScannerController : MonoBehaviour
                 {
                     indicator.transform.GetChild(0).gameObject.SetActive(true);
                 }
+            }
+            if (m_scanGreyScale)
+            {
+               
             }
             material.SetFloat("_ScanDistance", m_scanDistance);
             material.SetVector("_WorldSpaceScannerPos", new Vector4(m_scanLocation.position.x, m_scanLocation.position.y, m_scanLocation.position.z, 0));

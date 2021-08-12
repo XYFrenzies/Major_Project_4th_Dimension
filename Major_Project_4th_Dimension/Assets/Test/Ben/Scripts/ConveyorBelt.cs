@@ -14,7 +14,7 @@ public class ConveyorBelt : MonoBehaviour
     [SerializeField] private Direction m_directionToGo;
     [SerializeField] private float speed = 1.0f;
     [SerializeField] private float m_scrollX = 0.5f;
-    [SerializeField] private float ScrollY = 0.5f;
+    [SerializeField] private float m_scrollY = 0.5f;
     private GameObject endPointForward;
     private GameObject endPointBackward;
     private void Awake()
@@ -25,7 +25,7 @@ public class ConveyorBelt : MonoBehaviour
     void Update()
     {
         float OffsetX = Time.time * m_scrollX;
-        float OffsetY = Time.time * ScrollY;
+        float OffsetY = Time.time * m_scrollY;
         GetComponent<Renderer>().material.mainTextureOffset = new Vector2(OffsetX, OffsetY);
     }
     private void OnCollisionStay(Collision collision)
