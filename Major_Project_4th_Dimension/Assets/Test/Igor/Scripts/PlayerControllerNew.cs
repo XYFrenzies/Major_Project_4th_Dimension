@@ -100,7 +100,7 @@ public class PlayerControllerNew : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         switch (currentState)
         {
@@ -131,6 +131,7 @@ public class PlayerControllerNew : MonoBehaviour
         dir *= moveSpeed;
         dir.y = rb.velocity.y;
         rb.velocity = dir;
+        //transform.position += dir * moveSpeed * Time.deltaTime;
 
         anim.SetFloat("xPos", direction.x);
         anim.SetFloat("yPos", direction.y);
