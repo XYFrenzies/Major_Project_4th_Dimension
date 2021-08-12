@@ -12,12 +12,7 @@ public class PlayerControllerNew : MonoBehaviour
     private const float HOOKSHOT_FOV = 100f;
 
 
-
-    //public UnityEvent canSeeGrapplePoint;
-    //public UnityEvent notSeeGrapplePoint;
-
     public string[] pullObjectTags;
-    //public string[] pullObjectTags;
 
     private PullObjectToPlayer pObjToPlayer;
     private string thingToPull = "";
@@ -58,7 +53,7 @@ public class PlayerControllerNew : MonoBehaviour
     public Transform hand;
     public Transform handStartPos;
 
-    public ChainShoot chainShoot;
+    public ChainShootStartAgain chainShoot;
 
     public Vector3 flyToTarget;
     public bool canFly;
@@ -72,19 +67,6 @@ public class PlayerControllerNew : MonoBehaviour
     {
         m_Look = context.ReadValue<Vector2>();
     }
-
-
-
-    //public void OnHookShot(InputAction.CallbackContext context)
-    //{
-
-    //    if (context.phase != InputActionPhase.Performed)
-    //    {
-    //        return;
-    //    }
-    //    ThrowHookShot();
-
-    //}
 
 
 
@@ -106,15 +88,15 @@ public class PlayerControllerNew : MonoBehaviour
         camFOV = cam.GetComponent<CameraFOV>();
         currentState = State.Normal;
         Cursor.lockState = CursorLockMode.Locked;
-        chainShoot = GetComponent<ChainShoot>();
+        chainShoot = GetComponent<ChainShootStartAgain>();
 
-        //shootPoint.gameObject.SetActive(false);
+
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        //hand.gameObject.SetActive(false);
+
     }
 
     // Update is called once per frame
@@ -130,40 +112,16 @@ public class PlayerControllerNew : MonoBehaviour
             case State.HookShotThrown:
                 rb.velocity = Vector3.zero; // If player is moving while firing, player will continue to move for a short time.
                                             // This stops player from moving while hookshot if firing
-                chainShoot.HandleHookShotThrow();
-                
-                
+                                            //chainShoot.HandleHookShotThrow();
+
+
                 break;
             case State.HookShotFlying:
+                camFOV.SetCameraFOV(HOOKSHOT_FOV);
                 Fly(flyToTarget);
-                //        //HookShotFlyingMovement();
-                //        //Look(m_Look);
+
                 break;
-                //if (canFly)
-                //{
-                //    Fly(flyToTarget);
-                //}
-                //else
-                //{
-                //    Move(m_Move);
-                //    Look(m_Look);
-                //}
-                //        break;
-                //    case State.HookShotThrown:
-                //        //HandleHookShotThrown();
-                //        rb.velocity = Vector3.zero; // If player is moving while firing, player will continue to move for a short time.
-                //                                    // This stops player from moving while hookshot if firing
-                //        break;
-                //    case State.HookShotFlying:
-                //        //HookShotFlyingMovement();
-                //        //Look(m_Look);
-                //        break;
-                //    case State.HookShotPullObjTowards:
-                //        //HookShotPullObject();
-                //        break;
-                //    case State.HookShotMissed:
-                //        //HookShotMiss();
-                //        break;
+
         }
     }
 
@@ -230,8 +188,11 @@ public class PlayerControllerNew : MonoBehaviour
         {
             anim.SetBool("IsFlying", false);
             //rb.useGravity = true;
-            chainShoot.showLine = false;
+            chainShoot.fly = false;
+            chainShoot.ReturnHand();
             currentState = State.Normal;
+            //chainShoot.currentHookShotState = ChainShootStartAgain.HookShotState.Normal;
+            camFOV.SetCameraFOV(NORMAL_FOV);
             //Debug.Log(rb.useGravity);
         }
     }

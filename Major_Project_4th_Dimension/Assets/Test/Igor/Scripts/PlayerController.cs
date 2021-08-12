@@ -282,12 +282,13 @@ public class PlayerController : MonoBehaviour
 
         Vector3 lineOrigin = cam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
         Debug.DrawLine(lineOrigin, cam.transform.forward * hookShotRange, Color.green);
-        
+
 
         //int canGrappleToLayerMask = 1 << 6;
 
         //int canPullTowardsSelf = 1 << 7;
         Vector3 rayOrigin = cam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
+        
 
         RaycastHit hit;
 

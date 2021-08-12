@@ -6,13 +6,24 @@ public class DoorOpen : MonoBehaviour
 {
 
     public GameEvent OpenDoor;
+    public GameEvent CloseDoor;
 
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("BigPullObject") || other.CompareTag("MoveableToMe"))
+        if (other.CompareTag("BigPullObject") || other.CompareTag("MoveableToMe"))
         {
-            OpenDoor.Raise();
+            if (OpenDoor != null)
+                OpenDoor.Raise();
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("BigPullObject") || other.CompareTag("MoveableToMe"))
+        {
+            if (CloseDoor != null)
+                CloseDoor.Raise();
         }
     }
 }
