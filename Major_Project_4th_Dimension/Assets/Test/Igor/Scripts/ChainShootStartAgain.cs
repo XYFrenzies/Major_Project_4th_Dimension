@@ -55,6 +55,7 @@ public class ChainShootStartAgain : MonoBehaviour
     public bool fly = false;
     public bool place = false;
     public bool putDown = false;
+    public bool missed = false;
 
     private float stopPullingDistance = 5f;
 
@@ -116,7 +117,7 @@ public class ChainShootStartAgain : MonoBehaviour
         handStartPos.position = hand.position;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         //shootPoint.LookAt(posToLookAt);
         //if (pullCheck)
@@ -226,7 +227,7 @@ public class ChainShootStartAgain : MonoBehaviour
             {
                 Debug.Log("can pull to me");
                 //if (!pull)
-                    objectToPull = hit.transform.gameObject;
+                objectToPull = hit.transform.gameObject;
                 //localPoint = ray.GetPoint(0f);
                 //localPoint = objectToPull.transform.InverseTransformPoint(localPoint);
 
@@ -245,7 +246,7 @@ public class ChainShootStartAgain : MonoBehaviour
                 //initialLength = Vector3.Distance(transform.position, hookshotPosition);
 
                 //currentGrapplePosition = shootPoint.position;
-
+                missed = true;
 
             }
 
@@ -258,6 +259,7 @@ public class ChainShootStartAgain : MonoBehaviour
             // initialLength = Vector3.Distance(transform.position, hookshotPosition);
 
             // currentGrapplePosition = shootPoint.position;
+            missed = true;
 
 
         }
@@ -399,13 +401,24 @@ public class ChainShootStartAgain : MonoBehaviour
         {
             if (Vector3.Distance(pullObject.transform.position, player.transform.position) >= stopPullingDistance)
             {
+                float singleStep = 1.0f * Time.deltaTime;
+                float degreesPerSecond = 90 * Time.deltaTime;
+                Rigidbody rb = objectToPull.GetComponent<Rigidbody>();
 
+                Vector3 dir = hookshotPosition - player.transform.position;
+                
+                Quaternion targetRotation = Quaternion.LookRotation(hookshotPosition - player.transform.position);
+
+                
+                objectToPull.transform.rotation = Quaternion.RotateTowards(objectToPull.transform.rotation, targetRotation, degreesPerSecond);
                 //Rigidbody rb = pullObject.GetComponent<Rigidbody>();
                 // if (player.GetComponent<Rigidbody>().velocity.sqrMagnitude > 0f)
                 // {
                 //lineRenderer.SetPosition(1, pullObject.transform.position);
                 pullObject.transform.position = Vector3.MoveTowards(pullObject.transform.position, player.transform.position, 5f * Time.deltaTime);
-                pullObject.transform.rotation = Quaternion.LookRotation(pullObject.transform.position - player.transform.position);
+                //pullObject.transform.rotation = Quaternion.Lerp()
+                //Vector3 newDirection = Vector3.RotateTowards(pullObject.transform.forward, hookshotPosition - player.transform.position, singleStep, 0.0f);
+                //pullObject.transform.rotation = Quaternion.LookRotation(newDirection);
                 //   Debug.Log("pulling " + pullObject.name + "Player velocity " + player.GetComponent<Rigidbody>().velocity);
                 //hand.Translate(hookshotPosition, Space.Self);
                 //hand.position = localPoint;
@@ -424,6 +437,7 @@ public class ChainShootStartAgain : MonoBehaviour
     {
 
         Rigidbody rb = pickupObject.GetComponent<Rigidbody>();
+        rb.velocity = Vector3.zero;
         rb.useGravity = false;
         pickupObject.transform.position = Vector3.MoveTowards(pickupObject.transform.position, holdPoint.position, 50f * Time.deltaTime);
         ReturnHand();
@@ -449,9 +463,10 @@ public class ChainShootStartAgain : MonoBehaviour
             objectToPickUpOrDrop.transform.SetParent(null);
             ShootHand();
             objectToPickUpOrDrop.transform.position = Vector3.MoveTowards(objectToPickUpOrDrop.transform.position, target, 50f * Time.deltaTime);
-
+            //rb.MovePosition(target * 5f * Time.deltaTime);
             if (Vector3.Distance(objectToPickUpOrDrop.transform.position, target) <= 1f)
             {
+
                 Rigidbody rb = objectToPickUpOrDrop.GetComponent<Rigidbody>();
                 rb.useGravity = true;
                 isObjectHeld = false;
@@ -464,7 +479,6 @@ public class ChainShootStartAgain : MonoBehaviour
 
     public void ThrowObject()
     {
-        currentHookShotState = HookShotState.Normal;
         objectToPickUpOrDrop.layer = LayerMask.NameToLayer("Default");
         objectToPickUpOrDrop.GetComponent<Rigidbody>().isKinematic = false;
         objectToPickUpOrDrop.transform.SetParent(null);
@@ -475,6 +489,7 @@ public class ChainShootStartAgain : MonoBehaviour
         Debug.Log(rb.gameObject.name);
         objectToPickUpOrDrop = null;
         pickup = false;
+        currentHookShotState = HookShotState.Normal;
     }
 
     public void SendHandForward()
@@ -507,6 +522,11 @@ public class ChainShootStartAgain : MonoBehaviour
         {
             Debug.Log("reached target");
 
+            if (missed)
+            {
+                missed = false;
+                currentHookShotState = HookShotState.ReturnHand;
+            }
             if (fly)
                 player.currentState = PlayerControllerNew.State.HookShotFlying;
             if (pickup)
