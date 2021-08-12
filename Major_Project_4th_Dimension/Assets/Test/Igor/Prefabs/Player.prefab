@@ -439,6 +439,7 @@ GameObject:
   - component: {fileID: 4427215334053858774}
   - component: {fileID: 4427215334053858768}
   - component: {fileID: 4427215334053858783}
+  - component: {fileID: 5247059589114455979}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -816,6 +817,23 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!114 &5247059589114455979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4427215334053858760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8631dbe24d59015449049d1fa4ae574c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alphaMat: {fileID: 2100000, guid: 8ec06a9f4a95dea4dbdd4239e1265803, type: 2}
+  m_playerCamera: {fileID: 4427215333351946733}
+  rayCastRange: 5
+  listobj: []
+  objectMaterials: []
 --- !u!1 &4427215334198144783
 GameObject:
   m_ObjectHideFlags: 0
