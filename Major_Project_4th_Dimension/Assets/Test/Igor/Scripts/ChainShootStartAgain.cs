@@ -31,6 +31,7 @@ public class ChainShootStartAgain : MonoBehaviour
 
     public float chainSpeed = 20f;
 
+    private Vector3 localPoint;
     private Vector3 hitPos;
     public Vector3 lookAtPos;
     public Transform posToLookAt;
@@ -164,6 +165,12 @@ public class ChainShootStartAgain : MonoBehaviour
 
         Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
 
+        if (pull)
+        {
+            pullCheck = false;
+
+            return;
+        }
 
         // Check if object is being held here
         if (isObjectHeld)
@@ -218,9 +225,13 @@ public class ChainShootStartAgain : MonoBehaviour
             else if (hit.transform.CompareTag("BigPullObject")) // pull object towards me
             {
                 Debug.Log("can pull to me");
-                objectToPull = hit.transform.gameObject;
+                //if (!pull)
+                    objectToPull = hit.transform.gameObject;
+                //localPoint = ray.GetPoint(0f);
+                //localPoint = objectToPull.transform.InverseTransformPoint(localPoint);
 
-                pullCheck = !pullCheck;
+                //pullCheck = !pullCheck;
+                pullCheck = true;
                 pull = true;
 
                 Debug.Log("Pullcheck: " + pullCheck);
@@ -244,9 +255,9 @@ public class ChainShootStartAgain : MonoBehaviour
         {
             Debug.Log("missed everything");
             hookshotPosition = ray.origin + (cam.transform.forward * hookShotRange);
-           // initialLength = Vector3.Distance(transform.position, hookshotPosition);
+            // initialLength = Vector3.Distance(transform.position, hookshotPosition);
 
-           // currentGrapplePosition = shootPoint.position;
+            // currentGrapplePosition = shootPoint.position;
 
 
         }
@@ -384,19 +395,27 @@ public class ChainShootStartAgain : MonoBehaviour
 
     public void PullObject(GameObject pullObject)
     {
-
-        if (Vector3.Distance(pullObject.transform.position, player.transform.position) >= stopPullingDistance)
+        if (pullCheck)
         {
+            if (Vector3.Distance(pullObject.transform.position, player.transform.position) >= stopPullingDistance)
+            {
 
-            //Rigidbody rb = pullObject.GetComponent<Rigidbody>();
-            // if (player.GetComponent<Rigidbody>().velocity.sqrMagnitude > 0f)
-            // {
-            //lineRenderer.SetPosition(1, pullObject.transform.position);
-            pullObject.transform.position = Vector3.MoveTowards(pullObject.transform.position, player.transform.position, 5f * Time.deltaTime);
-            pullObject.transform.rotation = Quaternion.LookRotation(pullObject.transform.position - player.transform.position);
-            //   Debug.Log("pulling " + pullObject.name + "Player velocity " + player.GetComponent<Rigidbody>().velocity);
-            //hand.Translate(hookshotPosition, Space.Self);
-            //  }
+                //Rigidbody rb = pullObject.GetComponent<Rigidbody>();
+                // if (player.GetComponent<Rigidbody>().velocity.sqrMagnitude > 0f)
+                // {
+                //lineRenderer.SetPosition(1, pullObject.transform.position);
+                pullObject.transform.position = Vector3.MoveTowards(pullObject.transform.position, player.transform.position, 5f * Time.deltaTime);
+                pullObject.transform.rotation = Quaternion.LookRotation(pullObject.transform.position - player.transform.position);
+                //   Debug.Log("pulling " + pullObject.name + "Player velocity " + player.GetComponent<Rigidbody>().velocity);
+                //hand.Translate(hookshotPosition, Space.Self);
+                //hand.position = localPoint;
+                //  }
+            }
+        }
+        else
+        {
+            ReturnHand();
+            pull = false;
         }
 
     }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 79.82892, g: 83.74609, b: 122.31006, a: 1}
+  m_IndirectSpecularColor: {r: 79.74823, g: 83.604614, b: 121.963135, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1645,6 +1645,10 @@ PrefabInstance:
       propertyPath: Speed
       value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 1318423275, guid: 73cf95ede4bbc5845986aeda9d431514, type: 3}
+      propertyPath: m_timeToScan
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1994895770, guid: 73cf95ede4bbc5845986aeda9d431514, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1655,6 +1659,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1994895770, guid: 73cf95ede4bbc5845986aeda9d431514, type: 3}
       propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4427215333351946731, guid: 73cf95ede4bbc5845986aeda9d431514, type: 3}
+      propertyPath: antialiasing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4427215333351946735, guid: 73cf95ede4bbc5845986aeda9d431514, type: 3}
+      propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4427215334053858760, guid: 73cf95ede4bbc5845986aeda9d431514, type: 3}
