@@ -101,9 +101,12 @@ public class ScannerController : MonoBehaviour
             m_scanning = false;
             m_hasBeganScanning = false;
         }
-        foreach (var indicator in Indicator.Instance.objWithIndicators)
+        if (Indicator.Instance != null)
         {
-            indicator.transform.GetChild(0).gameObject.SetActive(false);
+            foreach (var indicator in Indicator.Instance.objWithIndicators)
+            {
+                indicator.transform.GetChild(0).gameObject.SetActive(false);
+            }
         }
     }
     private void OnDisable()
