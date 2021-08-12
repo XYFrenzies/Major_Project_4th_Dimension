@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 688.9033, g: 722.2051, b: 1053.8672, a: 1}
+  m_IndirectSpecularColor: {r: 79.82892, g: 83.74609, b: 122.31006, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -349,7 +349,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 41495.184
+  m_Intensity: 4799.3267
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -433,7 +433,7 @@ MonoBehaviour:
   m_PointlightHDType: 0
   m_SpotLightShape: 0
   m_AreaLightShape: 0
-  m_Intensity: 41495.184
+  m_Intensity: 4799.3267
   m_EnableSpotReflector: 0
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
@@ -940,11 +940,6 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 2814579832816932658, guid: 2042358d1ccbd2b44a25aa350b9d36ac, type: 3}
   m_PrefabInstance: {fileID: 3229137471519854880}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &639587042 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1994895770, guid: 73cf95ede4bbc5845986aeda9d431514, type: 3}
-  m_PrefabInstance: {fileID: 1318423272}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &658900373
 GameObject:
@@ -1650,14 +1645,6 @@ PrefabInstance:
       propertyPath: Speed
       value: 40
       objectReference: {fileID: 0}
-    - target: {fileID: 1318423275, guid: 73cf95ede4bbc5845986aeda9d431514, type: 3}
-      propertyPath: m_speed
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 1318423275, guid: 73cf95ede4bbc5845986aeda9d431514, type: 3}
-      propertyPath: m_scanLocation
-      value: 
-      objectReference: {fileID: 639587042}
     - target: {fileID: 1994895770, guid: 73cf95ede4bbc5845986aeda9d431514, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2541,10 +2528,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 702435608, guid: 1fa9641c17d5dd64fb2a6c11022ed3ad, type: 3}
-      propertyPath: speed
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1433787103176300030, guid: 1fa9641c17d5dd64fb2a6c11022ed3ad, type: 3}
       propertyPath: m_Name
       value: SM_Conveyor_Belt Variant
@@ -2552,18 +2535,6 @@ PrefabInstance:
     - target: {fileID: 1778364857879121732, guid: 1fa9641c17d5dd64fb2a6c11022ed3ad, type: 3}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1778364857879121732, guid: 1fa9641c17d5dd64fb2a6c11022ed3ad, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1778364857879121732, guid: 1fa9641c17d5dd64fb2a6c11022ed3ad, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1778364857879121732, guid: 1fa9641c17d5dd64fb2a6c11022ed3ad, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1778364857879121732, guid: 1fa9641c17d5dd64fb2a6c11022ed3ad, type: 3}
       propertyPath: m_LocalPosition.x

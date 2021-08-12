@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class GetFrustumCorners : MonoBehaviour
 {
-    public Material material;
-    Camera _camera;
-    private void Awake() => _camera = Camera.main;
-    // Start is called before the first frame update
+    [SerializeField]private Material material = null;
+    private Camera _camera;
+    private void Awake()
+    {
+        _camera = Camera.main;
+    }
     void Update()
     {
         Vector3[] frustumCorners = new Vector3[4];
