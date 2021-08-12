@@ -418,7 +418,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 175403105}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.49, y: 0.766, z: 1.187}
+  m_LocalPosition: {x: 0.49, y: 0.766, z: 3.017}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1454060534}
@@ -5849,8 +5849,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9215fbe7415e04e4e9a241fb9dd2050b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: c63b4af3b1d7f8046a2c7d9e023c70a8, type: 2}
-  _camera: {fileID: 0}
 --- !u!114 &4427215333917455564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5866,7 +5864,11 @@ MonoBehaviour:
   m_scanGreyScale: 0
   m_scanLocation: {fileID: 4427215334587355069}
   material: {fileID: 2100000, guid: c63b4af3b1d7f8046a2c7d9e023c70a8, type: 2}
+  volume: {fileID: 0}
+  m_colourValueStart: {x: 0, y: 0}
+  m_colourValueEnd: {x: 0, y: 0}
   m_speed: 40
+  m_timeToScan: 5
 --- !u!114 &4427215333917455581
 MonoBehaviour:
   m_ObjectHideFlags: 0
