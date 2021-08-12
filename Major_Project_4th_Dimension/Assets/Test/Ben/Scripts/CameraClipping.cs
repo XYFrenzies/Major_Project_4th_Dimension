@@ -34,6 +34,8 @@ public class CameraClipping : MonoBehaviour
         }
         else
             SetBack();
+
+
     }
     private void SetBack()//Setting the meshRenderer back to active
     {
