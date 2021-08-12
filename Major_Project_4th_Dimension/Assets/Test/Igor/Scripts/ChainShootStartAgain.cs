@@ -59,6 +59,11 @@ public class ChainShootStartAgain : MonoBehaviour
 
     private float stopPullingDistance = 5f;
 
+    public GameObject grappleHandle;
+    public GameObject newGrappleHandle;
+    public SpringJoint springJoint;
+    Vector3 grappleLocal;
+
     public void OnHookShot(InputAction.CallbackContext context)
     {
 
@@ -117,6 +122,7 @@ public class ChainShootStartAgain : MonoBehaviour
         lineRenderer = GetComponent<LineRenderer>();
         initWaveScale = waveScale;
         handStartPos.position = hand.position;
+        springJoint = GetComponent<SpringJoint>();
     }
 
     private void FixedUpdate()
@@ -132,24 +138,38 @@ public class ChainShootStartAgain : MonoBehaviour
         {
             default:
             case HookShotState.Normal:
+                lineRenderer.enabled = false; ;
+                
                 //ThrowHookShot();
                 break;
             case HookShotState.Throw:
+                lineRenderer.enabled = true;
+                StationaryHand();
                 HandleHookShotThrow();
                 break;
             case HookShotState.Fly:
+                lineRenderer.enabled = true;
+                StationaryHand();
                 //HandleHookshotMovement();
                 break;
             case HookShotState.Pickup:
+                lineRenderer.enabled = true;
+                StationaryHand();
                 PickUp(objectToPickUpOrDrop);
                 break;
             case HookShotState.Pull:
+                lineRenderer.enabled = true;
+                StationaryHand();
                 PullObject(objectToPull);
                 break;
             case HookShotState.Place:
+                lineRenderer.enabled = true;
+                StationaryHand();
                 PlaceObject(hookshotPosition);
                 break;
             case HookShotState.ReturnHand:
+                lineRenderer.enabled = true;
+                StationaryHand();
                 ReturnHand();
                 break;
                 //case HookShotState.ThrowObject:
@@ -230,8 +250,9 @@ public class ChainShootStartAgain : MonoBehaviour
                 Debug.Log("can pull to me");
                 //if (!pull)
                 objectToPull = hit.transform.gameObject;
+
                 //localPoint = ray.GetPoint(0f);
-                //localPoint = objectToPull.transform.InverseTransformPoint(localPoint);
+                localPoint = objectToPull.transform.InverseTransformPoint(hit.point);
 
                 //pullCheck = !pullCheck;
                 pullCheck = true;
@@ -399,25 +420,31 @@ public class ChainShootStartAgain : MonoBehaviour
 
     public void PullObject(GameObject pullObject)
     {
-        if (pullCheck)
-        {
-            if (Vector3.Distance(pullObject.transform.position, player.transform.position) >= stopPullingDistance)
-            {
+        //if (pullCheck)
+        //{
+
+           // if (Vector3.Distance(pullObject.transform.position, player.transform.position) >= stopPullingDistance)
+            //{
                 //float singleStep = 1.0f * Time.deltaTime;
                 //float degreesPerSecond = 90 * Time.deltaTime;
-                Rigidbody rb = objectToPull.GetComponent<Rigidbody>();
+                //Rigidbody rb = objectToPull.GetComponent<Rigidbody>();
 
-                Vector3 dir = player.transform.position - hookshotPosition;
+                //Vector3 dir = player.transform.position - hookshotPosition;
+
+                //Vector3 localHit = objectToPull.transform.InverseTransformPoint(hookshotPosition);
+
+                //float pullForce = 0.1f;
+
+                //rb.AddForceAtPosition(dir.normalized * pullForce, localHit, ForceMode.Impulse);
+                //rb.AddForce(dir.normalized * 2f, ForceMode.Impulse);
 
                 //Quaternion targetRotation = Quaternion.LookRotation(dir);
-                rb.AddForce(dir.normalized * 2f, ForceMode.Impulse);
-                
                 //objectToPull.transform.rotation = Quaternion.RotateTowards(objectToPull.transform.rotation, targetRotation, degreesPerSecond);
                 //Rigidbody rb = pullObject.GetComponent<Rigidbody>();
                 // if (player.GetComponent<Rigidbody>().velocity.sqrMagnitude > 0f)
                 // {
                 //lineRenderer.SetPosition(1, pullObject.transform.position);
-               // pullObject.transform.position = Vector3.MoveTowards(pullObject.transform.position, player.transform.position, 5f * Time.deltaTime);
+                //pullObject.transform.position = Vector3.MoveTowards(pullObject.transform.position, player.transform.position, 5f * Time.deltaTime);
                 //pullObject.transform.rotation = Quaternion.Lerp()
                 //Vector3 newDirection = Vector3.RotateTowards(pullObject.transform.forward, hookshotPosition - player.transform.position, singleStep, 0.0f);
                 //pullObject.transform.rotation = Quaternion.LookRotation(newDirection);
@@ -425,10 +452,17 @@ public class ChainShootStartAgain : MonoBehaviour
                 //hand.Translate(hookshotPosition, Space.Self);
                 //hand.position = localPoint;
                 //  }
-            }
-        }
-        else
+           // }
+        //}
+       // else
+       if(!pullCheck)
         {
+            hand.transform.SetParent(transform);
+            Destroy(newGrappleHandle);
+            springJoint.connectedAnchor = Vector3.zero;
+
+            springJoint.maxDistance = 0f;
+            springJoint.minDistance = 0f;
             ReturnHand();
             pull = false;
             objectToPull = null;
@@ -555,6 +589,17 @@ public class ChainShootStartAgain : MonoBehaviour
                 currentHookShotState = HookShotState.Pickup;
             if (pull)
             {
+                newGrappleHandle = Instantiate(grappleHandle, objectToPull.transform);
+                newGrappleHandle.transform.localPosition = localPoint;
+                newGrappleHandle.GetComponent<FixedJoint>().connectedBody = objectToPull.GetComponent<Rigidbody>();
+                hand.transform.SetParent(newGrappleHandle.transform);
+                hand.transform.localPosition = Vector3.zero;
+                springJoint.connectedBody = newGrappleHandle.GetComponent<Rigidbody>();
+                springJoint.connectedAnchor = Vector3.zero;
+                float distance = Vector3.Distance(transform.position, newGrappleHandle.transform.position);
+                springJoint.minDistance = 2.5f;
+                springJoint.maxDistance = 2.5f;
+
                 currentHookShotState = HookShotState.Pull;
                 player.currentState = PlayerControllerNew.State.Normal;
             }
@@ -577,7 +622,9 @@ public class ChainShootStartAgain : MonoBehaviour
 
     public void StationaryHand()
     {
-
+        lineRenderer.positionCount = 2;
+        lineRenderer.SetPosition(0, shootPoint.position);
+        lineRenderer.SetPosition(1, hand.position);
     }
 
 }
