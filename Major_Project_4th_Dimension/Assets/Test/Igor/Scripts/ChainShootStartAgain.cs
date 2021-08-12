@@ -405,19 +405,19 @@ public class ChainShootStartAgain : MonoBehaviour
             {
                 //float singleStep = 1.0f * Time.deltaTime;
                 //float degreesPerSecond = 90 * Time.deltaTime;
-                //Rigidbody rb = objectToPull.GetComponent<Rigidbody>();
+                Rigidbody rb = objectToPull.GetComponent<Rigidbody>();
 
-                //Vector3 dir = player.transform.position - hookshotPosition;
+                Vector3 dir = player.transform.position - hookshotPosition;
 
                 //Quaternion targetRotation = Quaternion.LookRotation(dir);
-
-
+                rb.AddForce(dir.normalized * 2f, ForceMode.Impulse);
+                
                 //objectToPull.transform.rotation = Quaternion.RotateTowards(objectToPull.transform.rotation, targetRotation, degreesPerSecond);
                 //Rigidbody rb = pullObject.GetComponent<Rigidbody>();
                 // if (player.GetComponent<Rigidbody>().velocity.sqrMagnitude > 0f)
                 // {
                 //lineRenderer.SetPosition(1, pullObject.transform.position);
-                pullObject.transform.position = Vector3.MoveTowards(pullObject.transform.position, player.transform.position, 5f * Time.deltaTime);
+               // pullObject.transform.position = Vector3.MoveTowards(pullObject.transform.position, player.transform.position, 5f * Time.deltaTime);
                 //pullObject.transform.rotation = Quaternion.Lerp()
                 //Vector3 newDirection = Vector3.RotateTowards(pullObject.transform.forward, hookshotPosition - player.transform.position, singleStep, 0.0f);
                 //pullObject.transform.rotation = Quaternion.LookRotation(newDirection);
