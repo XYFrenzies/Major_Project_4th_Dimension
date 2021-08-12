@@ -53,7 +53,7 @@ public class PlayerControllerNew : MonoBehaviour
     public Transform hand;
     public Transform handStartPos;
 
-    public ChainShoot chainShoot;
+    public ChainShootStartAgain chainShoot;
 
     public Vector3 flyToTarget;
     public bool canFly;
@@ -88,7 +88,7 @@ public class PlayerControllerNew : MonoBehaviour
         camFOV = cam.GetComponent<CameraFOV>();
         currentState = State.Normal;
         Cursor.lockState = CursorLockMode.Locked;
-        chainShoot = GetComponent<ChainShoot>();
+        chainShoot = GetComponent<ChainShootStartAgain>();
 
 
     }
@@ -189,8 +189,9 @@ public class PlayerControllerNew : MonoBehaviour
             anim.SetBool("IsFlying", false);
             //rb.useGravity = true;
             chainShoot.fly = false;
+            chainShoot.ReturnHand();
             currentState = State.Normal;
-            chainShoot.currentHookShotState = ChainShoot.HookShotState.Normal;
+            //chainShoot.currentHookShotState = ChainShootStartAgain.HookShotState.Normal;
             camFOV.SetCameraFOV(NORMAL_FOV);
             //Debug.Log(rb.useGravity);
         }

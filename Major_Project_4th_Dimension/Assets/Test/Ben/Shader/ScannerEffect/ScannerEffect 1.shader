@@ -2,6 +2,7 @@ Shader "FullScreen/ScannerEffect"
 {
 	Properties
     {
+		_MainTex("_GreyScaleObj", 2D) = "white"{}
 		_ScanDistance("_ScanDistance", float) = 0
 		_ScanWidth ("_ScanWidth",float) = 100
 		_MidColor("Mid Color", Color) = (1, 1, 1, 0)
@@ -29,29 +30,6 @@ Shader "FullScreen/ScannerEffect"
     #pragma target 4.5
     #pragma only_renderers d3d11 playstation xboxone vulkan metal switch
     #include  "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/RenderPass/CustomPass/CustomPassCommon.hlsl"
- 
-
-    // The PositionInputs struct allow you to retrieve a lot of useful information for your fullScreenShader:
-  // struct PositionInputs
-   //{
-   //    float3 positionWS;  // World space position (could be camera-relative)
-   //    float2 positionNDC; // Normalized screen coordinates within the viewport    : [0, 1) (with the half-pixel offset)
-   //    uint2  positionSS;  // Screen space pixel coordinates                       : [0, NumPixels)
-   //    uint2  tileCoord;   // Screen tile coordinates                              : [0, NumTiles)
-   //    float  deviceDepth; // Depth from the depth buffer                          : [0, 1] (typically reversed)
-   //    float  linearDepth; // View space Z coordinate                              : [Near, Far]
-   //};
-
-    // To sample custom buffers, you have access to these functions:
-    // But be careful, on most platforms you can't sample to the bound color buffer. It means that you
-    // can't use the SampleCustomColor when the pass color buffer is set to custom (and same for camera the buffer).
-    // float4 SampleCustomColor(float2 uv);
-    // float4 LoadCustomColor(uint2 pixelCoords);
-    // float LoadCustomDepth(uint2 pixelCoords);
-    // float SampleCustomDepth(float2 uv);
-
-    // There are also a lot of utility function you can use inside Common.hlsl and Color.hlsl,
-    // you can check them out in the source code of the core SRP package.
 
 	float3 _vectorA;
 	float3 _vectorC;
@@ -67,6 +45,7 @@ Shader "FullScreen/ScannerEffect"
 	float _ScanWidth;
 	float4 _WorldSpaceScannerPos;
 	float4 _HBarColor;
+	bool _isGreyScale;
 	sampler2D _DetailTex;
 	float4 horizBars(float2 p)
 	{
@@ -121,6 +100,23 @@ Shader "FullScreen/ScannerEffect"
 
     SubShader
     {
+		
+		Tags{"Queue" = "Transparent" "IgnoreProjector"="True" "RenderType"="Transparent"}
+		LOD 200
+		CGPROGRAM
+     #pragma surface surf Lambert alpha
+         sampler2D _MainTex;
+         struct Input 
+		 {
+             float2 uv_MainTex;
+         };
+         void surf (Input IN, inout SurfaceOutput o) 
+		 {
+            half4 c = tex2D(_MainTex, IN.uv_MainTex);
+            o.Albedo = dot(c.rgb, float3(0.3, 0.59, 0.11));
+            o.Alpha = c.a;
+         }
+     ENDCG
         Pass
         {
             Name "Custom Pass 0"
