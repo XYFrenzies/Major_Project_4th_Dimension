@@ -3,7 +3,22 @@ guid: ddf11f76872078e4abd659ea063916f5
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: T_CharacterHuman
+    second: {fileID: 2100000, guid: 7e8b9db5090060543a7cfd5474c6f522, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: T_CharacterMachine
+    second: {fileID: 2100000, guid: bee9544389f8710429a55f2a6b4aea67, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: UI_L
+    second: {fileID: 2100000, guid: 2d8c3f8938c2d2c4685e419a3fac3569, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -15,8 +30,7 @@ ModelImporter:
     resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
-    rigImportErrors: "Invalid Avatar Rig Configuration. Missing or invalid transform:\n\tRequired
-      human bone 'RightHand' not found\n"
+    rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
