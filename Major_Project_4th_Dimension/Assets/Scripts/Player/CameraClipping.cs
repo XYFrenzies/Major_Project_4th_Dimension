@@ -9,11 +9,15 @@ using UnityEngine;
 public class CameraClipping : MonoBehaviour
 {
     [SerializeField] public Material alphaMat = null;
-    [SerializeField] private Camera m_playerCamera = null;
-    [SerializeField] [Range(3.0f, 7.0f)] public float rayCastRange = 5.5f;
+    private Camera m_playerCamera = null;
+    [SerializeField] [Range(1.0f, 4.0f)] public float rayCastRange = 5.5f;
     [HideInInspector] public List<MeshRenderer> listobj;
     [HideInInspector] public List<Material> objectMaterials;
     private GameObject lastHitObject;
+    private void Awake()
+    {
+        m_playerCamera = GetComponent<Camera>();
+    }
     private void FixedUpdate()
     {
         RaycastHit hit;
