@@ -2,17 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GlobalVariables : MonoBehaviour
+public class GlobalVariables : Singleton<GlobalVariables>
 {
-    // Start is called before the first frame update
-    void Start()
+    //[HideInInspector] public string time = "";
+    //[HideInInspector] public float score = 0;
+    //[HideInInspector] public bool isTowerDead = false;
+    [HideInInspector]public bool isFading = false;
+    private void Awake()
     {
-        
+        DontDestroyOnLoad(gameObject);
     }
-
-    // Update is called once per frame
-    void Update()
+    public void RestartGlobalValues()
     {
-        
+
+        //time = "";
+        //score = 0;
+        //isTowerDead = false;
+    }
+    public bool CheckIsFade()
+    {
+        switch (isFading)
+        {
+            case true:
+                return true;
+            case false:
+                return false;
+        }
     }
 }
