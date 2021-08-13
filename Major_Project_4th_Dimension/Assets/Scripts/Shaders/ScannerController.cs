@@ -62,11 +62,14 @@ public class ScannerController : MonoBehaviour
                 col.hueVsSat.Override(newTex);
             }
             m_scanDistance += Time.deltaTime * m_speed;
-            foreach (var indicator in Indicator.Instance.objWithIndicators)
+            if (Indicator.Instance != null)
             {
-                if (Vector3.Distance(m_scanLocation.position, indicator.transform.position) <= m_scanDistance)
+                foreach (var indicator in Indicator.Instance.objWithIndicators)
                 {
-                    indicator.transform.GetChild(0).gameObject.SetActive(true);
+                    if (Vector3.Distance(m_scanLocation.position, indicator.transform.position) <= m_scanDistance)
+                    {
+                        indicator.transform.GetChild(0).gameObject.SetActive(true);
+                    }
                 }
             }
             material.SetFloat("_ScanDistance", m_scanDistance);
