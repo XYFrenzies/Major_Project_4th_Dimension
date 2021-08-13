@@ -170,6 +170,8 @@ GameObject:
   - component: {fileID: 4427215333351946730}
   - component: {fileID: 1318423275}
   - component: {fileID: 1318423290}
+  - component: {fileID: 2073298312268128367}
+  - component: {fileID: 429657935037356127}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -423,6 +425,36 @@ MonoBehaviour:
         materialPassIndex: 0
         materialPassName: Custom Pass 0
         fetchColorBuffer: 0
+--- !u!114 &2073298312268128367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4427215333351946735}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2169b606a1e2d047a61021b2e2eeefd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_player: {fileID: 4427215334053858760}
+  maxDistanceRaycast: 4.5
+--- !u!114 &429657935037356127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4427215333351946735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae2350c977e74ea46a03a8e7f5603648, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeEffectActive: 0
+  fadingInTime: 2
+  timePeriodBeforeFadeOut: 1
+  fadingOutTime: 2
 --- !u!1 &4427215334053858760
 GameObject:
   m_ObjectHideFlags: 0
@@ -439,7 +471,6 @@ GameObject:
   - component: {fileID: 4427215334053858774}
   - component: {fileID: 4427215334053858768}
   - component: {fileID: 4427215334053858783}
-  - component: {fileID: 5247059589114455979}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -693,7 +724,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pullObjectTags:
   - MoveableToMe
-  moveSpeed: 5
+  moveSpeed: 20
   jumpForce: 5
   anim: {fileID: 7403486033585841888}
   shootPoint: {fileID: 4427215334449136962}
@@ -817,23 +848,6 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
---- !u!114 &5247059589114455979
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4427215334053858760}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8631dbe24d59015449049d1fa4ae574c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  alphaMat: {fileID: 2100000, guid: 8ec06a9f4a95dea4dbdd4239e1265803, type: 2}
-  m_playerCamera: {fileID: 4427215333351946733}
-  rayCastRange: 5
-  listobj: []
-  objectMaterials: []
 --- !u!1 &4427215334198144783
 GameObject:
   m_ObjectHideFlags: 0
@@ -1038,6 +1052,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4427215334547637596}
+  - component: {fileID: 771407971296681773}
   m_Layer: 0
   m_Name: Camera Anchor
   m_TagString: Untagged
@@ -1062,6 +1077,19 @@ Transform:
   m_Father: {fileID: 4427215334053858769}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &771407971296681773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4427215334547637597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbab9541f728378408fc5ce749d948b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFading: 0
 --- !u!1 &4715848654788889454
 GameObject:
   m_ObjectHideFlags: 0
