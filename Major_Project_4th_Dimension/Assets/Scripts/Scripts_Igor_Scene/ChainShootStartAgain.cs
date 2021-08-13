@@ -5,38 +5,38 @@ using UnityEngine.InputSystem;
 
 public class ChainShootStartAgain : MonoBehaviour
 {
-    public float waveScale = 1f;
-    public float hookshotFlySpeed, hookshotReturnFlySpeed;
-    float initialLength;
-    float initWaveScale = 1f;
-    public int maxHookShotDistance = 100;
-    public AnimationCurve magnitudeOverDistance;
+    //public float waveScale = 1f;
+    //public float hookshotFlySpeed, hookshotReturnFlySpeed;
+    //float initialLength;
+    //float initWaveScale = 1f;
+    //public int maxHookShotDistance = 100;
+    //public AnimationCurve magnitudeOverDistance;
     LineRenderer lineRenderer;
-    Vector3 currentGrapplePosition;
-    Vector3 hookOffset;
-    bool isRetrieve;
-    public LayerMask WhatisGrappleable;
+    //Vector3 currentGrapplePosition;
+    //Vector3 hookOffset;
+    //bool isRetrieve;
+    //public LayerMask WhatisGrappleable;
     private Vector3 hookshotPosition;
 
     public Transform shootPoint;
     public Transform holdPoint;
     public Transform hand;
     public Transform handStartPos;
-
-    public GameObject objectToPickUpOrDrop;
+    
+    private GameObject objectToPickUpOrDrop;
 
     private Camera cam;
     private PlayerControllerNew player;
     public float hookShotRange = 50f;
 
-    public float chainSpeed = 20f;
+    //public float chainSpeed = 20f;
 
     private Vector3 localPoint;
-    private Vector3 hitPos;
-    public Vector3 lookAtPos;
-    public Transform posToLookAt;
-    private Vector3 currentGrapplePos;
-    private float hookShotFlySpeed = 10;
+    //private Vector3 hitPos;
+    //public Vector3 lookAtPos;
+    //public Transform posToLookAt;
+    //private Vector3 currentGrapplePos;
+    //private float hookShotFlySpeed = 10;
 
 
     private GameObject objectToPull;
@@ -45,22 +45,23 @@ public class ChainShootStartAgain : MonoBehaviour
 
 
     private bool isObjectHeld = false;
-    public bool showLine = false;
+    //public bool showLine = false;
     private bool pullCheck = false;
-    public bool canPickUp;
-    public bool canGrapple;
+    //public bool canPickUp;
+    //public bool canGrapple;
     private bool stop = false;
-    public bool pull = false;
-    public bool pickup = false;
+    private bool pull = false;
+    private bool pickup = false;
+    [HideInInspector]
     public bool fly = false;
-    public bool place = false;
-    public bool putDown = false;
-    public bool missed = false;
+    private bool place = false;
+    private bool putDown = false;
+    private bool missed = false;
 
-    private float stopPullingDistance = 5f;
+    //private float stopPullingDistance = 5f;
 
     public GameObject grappleHandle;
-    public GameObject newGrappleHandle;
+    private GameObject newGrappleHandle;
     public SpringJoint springJoint;
     Vector3 grappleLocal;
 
@@ -120,7 +121,7 @@ public class ChainShootStartAgain : MonoBehaviour
         cam = Camera.main;
         currentHookShotState = HookShotState.Normal;
         lineRenderer = GetComponent<LineRenderer>();
-        initWaveScale = waveScale;
+        //initWaveScale = waveScale;
         handStartPos.position = hand.position;
         springJoint = GetComponent<SpringJoint>();
     }
@@ -548,27 +549,27 @@ public class ChainShootStartAgain : MonoBehaviour
         currentHookShotState = HookShotState.Normal;
     }
 
-    public void SendHandForward()
-    {
-        if (!isRetrieve)
-            hand.position = Vector3.MoveTowards(hand.position, hookshotPosition, 50f * Time.deltaTime);
-        else
-            hand.position = Vector3.MoveTowards(hand.position, handStartPos.position, 50f * Time.deltaTime);
+    //public void SendHandForward()
+    //{
+    //    if (!isRetrieve)
+    //        hand.position = Vector3.MoveTowards(hand.position, hookshotPosition, 50f * Time.deltaTime);
+    //    else
+    //        hand.position = Vector3.MoveTowards(hand.position, handStartPos.position, 50f * Time.deltaTime);
 
-        if (Vector3.Distance(hand.position, hookshotPosition) <= 2f)
-        {
-            Debug.Log("reached target");
-            isRetrieve = true;
-        }
+    //    if (Vector3.Distance(hand.position, hookshotPosition) <= 2f)
+    //    {
+    //        Debug.Log("reached target");
+    //        isRetrieve = true;
+    //    }
 
-        if (isRetrieve)
-            if (Vector3.Distance(hand.position, handStartPos.position) <= 2f)
-            {
-                Debug.Log("returned home");
+    //    if (isRetrieve)
+    //        if (Vector3.Distance(hand.position, handStartPos.position) <= 2f)
+    //        {
+    //            Debug.Log("returned home");
 
-                currentHookShotState = HookShotState.Normal;
-            }
-    }
+    //            currentHookShotState = HookShotState.Normal;
+    //        }
+    //}
 
     public void ShootHand()
     {

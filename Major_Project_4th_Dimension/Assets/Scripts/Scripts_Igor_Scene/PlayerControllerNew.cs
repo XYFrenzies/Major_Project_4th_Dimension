@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 using UnityEngine.InputSystem;
-using System.Linq;
-using UnityEngine.Events;
+
 
 
 public class PlayerControllerNew : MonoBehaviour
@@ -12,10 +10,6 @@ public class PlayerControllerNew : MonoBehaviour
     private const float HOOKSHOT_FOV = 100f;
 
 
-    public string[] pullObjectTags;
-
-    private PullObjectToPlayer pObjToPlayer;
-    private string thingToPull = "";
     public float moveSpeed = 10.0f;
     public float jumpForce = 10.0f;
 
@@ -24,19 +18,16 @@ public class PlayerControllerNew : MonoBehaviour
     public Animator anim;
     private Camera cam;
     private CameraFOV camFOV;
-    public Transform shootPoint;
-    private LineRenderer line;
+
     public float hookShotRange = 50f;
-    private Vector3 hookShotHitPoint;
-    private float hookShotSize;
+
     public float hookShotThrowSpeed = 70f;
     private float flyingSpeed;
     public float flyingSpeedMultiplier = 2f;
     public float hookShotMinSpeed = 10f;
     public float hookShotMaxSpeed = 40f;
     public float distanceToHookShotHitPoint = 1f;
-    private bool HookShotHitSomething;
-    public bool isObjectHeld;
+
 
     // Look
     public float lookSensitivity = 2.0f;
@@ -48,15 +39,14 @@ public class PlayerControllerNew : MonoBehaviour
 
     private Vector2 m_Move;
     private Vector2 m_Look;
+    [HideInInspector]
     public State currentState;
-    public float speed = 1.0f;
-    public Transform hand;
-    public Transform handStartPos;
 
+    [HideInInspector]
     public ChainShootStartAgain chainShoot;
-
+    [HideInInspector]
     public Vector3 flyToTarget;
-    public bool canFly;
+
 
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -82,8 +72,6 @@ public class PlayerControllerNew : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        //anim = GetComponent<Animator>();
-        line = GetComponent<LineRenderer>();
         cam = Camera.main;
         camFOV = cam.GetComponent<CameraFOV>();
         currentState = State.Normal;
@@ -93,11 +81,6 @@ public class PlayerControllerNew : MonoBehaviour
 
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void FixedUpdate()
@@ -109,13 +92,14 @@ public class PlayerControllerNew : MonoBehaviour
                 Move(m_Move);
                 Look(m_Look);
                 break;
+
             case State.HookShotThrown:
                 rb.velocity = Vector3.zero; // If player is moving while firing, player will continue to move for a short time.
                                             // This stops player from moving while hookshot if firing
                                             //chainShoot.HandleHookShotThrow();
 
-
                 break;
+
             case State.HookShotFlying:
                 camFOV.SetCameraFOV(HOOKSHOT_FOV);
                 Fly(flyToTarget);
@@ -157,8 +141,7 @@ public class PlayerControllerNew : MonoBehaviour
         camAnchor.eulerAngles = clampedAngle;
 
         Vector3 rayOrigin = cam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
-        //Debug.DrawRay(hand.transform.position, cam.ScreenToWorldPoint(new Vector3(0.5f, 0.5f, 0)) * hookShotRange, Color.red);
-        //Debug.DrawLine(lineOrigin, cam.transform.forward * hookShotRange, Color.green);
+
 
         RaycastHit hit;
 
@@ -192,134 +175,10 @@ public class PlayerControllerNew : MonoBehaviour
             chainShoot.fly = false;
             chainShoot.ReturnHand();
             currentState = State.Normal;
-            //chainShoot.currentHookShotState = ChainShootStartAgain.HookShotState.Normal;
+
             camFOV.SetCameraFOV(NORMAL_FOV);
-            //Debug.Log(rb.useGravity);
+
         }
     }
-
-
-
-    //public void HandleHookShotThrown()
-    //{
-    //    //anim.SetBool("StartSwinging", true);
-    //    shootPoint.LookAt(hookShotHitPoint);
-    //    hookShotSize += hookShotThrowSpeed * Time.deltaTime;
-    //    shootPoint.localScale = new Vector3(1, 1, hookShotSize);
-    //    //float step = speed * Time.deltaTime;
-    //    hand.position = Vector3.MoveTowards(hand.position, hookShotHitPoint, speed * Time.deltaTime);
-
-    //    if (hookShotSize >= Vector3.Distance(transform.position, hookShotHitPoint))
-    //    {
-    //        if (HookShotHitSomething)
-    //        {
-    //            if (pullObjectTags.Contains(thingToPull))
-    //            {
-    //                currentState = State.HookShotPullObjTowards;
-    //            }
-    //            else if(thingToPull.Contains("CanHookShotTowards"))
-    //            {
-    //                currentState = State.HookShotFlying;
-    //                camFOV.SetCameraFOV(HOOKSHOT_FOV);
-    //            }
-    //            else
-    //            {
-    //                currentState = State.HookShotMissed;
-
-    //            }
-    //        }
-    //        else if (!HookShotHitSomething)
-    //        {
-    //            currentState = State.HookShotMissed;
-    //        }
-    //    }
-    //}
-
-    //public void HookShotFlyingMovement()
-    //{
-    //    //anim.SetBool("StartSwinging", false);
-
-    //    anim.SetBool("IsFlying", true);
-    //    shootPoint.LookAt(hookShotHitPoint);
-    //    rb.useGravity = false;
-    //    flyingSpeed = Mathf.Clamp(Vector3.Distance(transform.position, hookShotHitPoint), hookShotMinSpeed, hookShotMaxSpeed);
-    //    transform.position = Vector3.MoveTowards(transform.position, hookShotHitPoint, flyingSpeed * flyingSpeedMultiplier * Time.deltaTime);
-
-    //    hookShotSize = Vector3.Distance(transform.position, hookShotHitPoint);
-    //    shootPoint.localScale = new Vector3(1, 1, hookShotSize);
-
-    //    //hand.position = Vector3.MoveTowards(hookShotHitPoint, handStartPos.position, speed * Time.deltaTime);
-    //    hand.position = hookShotHitPoint;
-    //    if (Vector3.Distance(transform.position, hookShotHitPoint) < distanceToHookShotHitPoint)
-    //    {
-    //        anim.SetBool("IsFlying", false);
-    //        //anim.SetBool("IsLanding", true);
-    //        //anim.SetBool("IsLanding", false);
-
-    //        hand.position = handStartPos.position;
-    //        currentState = State.Normal;
-    //        shootPoint.gameObject.SetActive(false);
-    //        hand.gameObject.SetActive(false);
-    //        camFOV.SetCameraFOV(NORMAL_FOV);
-
-    //        rb.useGravity = true;
-    //    }
-    //}
-
-    //public void HookShotPullObject()
-    //{
-    //    shootPoint.LookAt(hookShotHitPoint);
-    //    if (hookShotSize >= 2f)
-    //        hookShotSize -= hookShotThrowSpeed * Time.deltaTime;
-    //    shootPoint.localScale = new Vector3(1, 1, hookShotSize);
-    //    hand.position = Vector3.MoveTowards(hand.position, handStartPos.position, speed * Time.deltaTime);
-
-    //    if (hookShotSize <= 2f)
-    //    {
-
-    //        shootPoint.gameObject.SetActive(false);
-    //        currentState = State.Normal;
-    //    }
-    //}
-
-    //public void HookShotMiss()
-    //{
-    //    PlaceObjectEvent.Invoke();
-    //    isObjectHeld = false;
-    //    shootPoint.LookAt(hookShotHitPoint);
-    //    if (hookShotSize >= 2f)
-    //        hookShotSize -= hookShotThrowSpeed * Time.deltaTime;
-    //    shootPoint.localScale = new Vector3(1, 1, hookShotSize);
-    //    hand.position = Vector3.MoveTowards(hand.position, handStartPos.position, speed * Time.deltaTime);
-
-    //    if (hookShotSize <= 2f)
-    //    {
-
-    //        shootPoint.gameObject.SetActive(false);
-    //        hand.gameObject.SetActive(false);
-    //        currentState = State.Normal;
-    //    }
-
-    //}
-
-    //public void ThrowObject()
-    //{
-    //    if (isObjectHeld)
-    //    {
-    //        ThrowObjectEvent.Invoke();
-    //        isObjectHeld = false;
-    //        hand.gameObject.SetActive(false);
-    //        //return;
-    //    }
-    //}
-
-    //// Listening for the event invoked in OnTriggerEnter in PullObjectToplayer
-    //public void PlayerHoldingObject()
-    //{
-    //    currentState = State.HookShotPullObjTowards;
-    //    isObjectHeld = true;
-    //}
-
-
 
 }
