@@ -49,13 +49,13 @@ public class ChainShootStartAgain : MonoBehaviour
     private bool pullCheck = false;
     //public bool canPickUp;
     //public bool canGrapple;
-    private bool stop = false;
+    //private bool stop = false;
     private bool pull = false;
     private bool pickup = false;
     [HideInInspector]
     public bool fly = false;
     private bool place = false;
-    private bool putDown = false;
+    //private bool putDown = false;
     private bool missed = false;
 
     //private float stopPullingDistance = 5f;
@@ -92,16 +92,16 @@ public class ChainShootStartAgain : MonoBehaviour
 
     }
 
-    public void OnTest2(InputAction.CallbackContext context)
-    {
+    //public void OnTest2(InputAction.CallbackContext context)
+    //{
 
-        if (context.phase != InputActionPhase.Performed)
-        {
-            return;
-        }
-        stop = true;
+    //    if (context.phase != InputActionPhase.Performed)
+    //    {
+    //        return;
+    //    }
+    //    stop = true;
 
-    }
+    //}
 
     public enum HookShotState
     {
