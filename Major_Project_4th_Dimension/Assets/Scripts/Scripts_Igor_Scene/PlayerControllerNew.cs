@@ -9,18 +9,17 @@ public class PlayerControllerNew : MonoBehaviour
     private const float NORMAL_FOV = 60f;
     private const float HOOKSHOT_FOV = 100f;
 
-
+    [Header("Movement")]
     public float moveSpeed = 10.0f;
-    public float jumpForce = 10.0f;
+    //public float jumpForce = 10.0f;
 
     private Rigidbody rb;
 
-    public Animator anim;
     private Camera cam;
     private CameraFOV camFOV;
 
+    [Header("Hook Shot")]
     public float hookShotRange = 50f;
-
     public float hookShotThrowSpeed = 70f;
     private float flyingSpeed;
     public float flyingSpeedMultiplier = 2f;
@@ -30,6 +29,7 @@ public class PlayerControllerNew : MonoBehaviour
 
 
     // Look
+    [Header("Player Look")]
     public float lookSensitivity = 2.0f;
     public float minXLook = -60f;
     public float maxXLook = 60f;
@@ -37,6 +37,7 @@ public class PlayerControllerNew : MonoBehaviour
     public bool invertXRotation; // For inverting the controls
     private float currentXRot;
 
+    public Animator anim;
     private Vector2 m_Move;
     private Vector2 m_Look;
     [HideInInspector]
