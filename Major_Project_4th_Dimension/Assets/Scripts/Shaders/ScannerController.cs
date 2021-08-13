@@ -92,9 +92,9 @@ public class ScannerController : MonoBehaviour
     private IEnumerator ScanEffect()
     {
         yield return new WaitForSeconds(m_timeToScan);
-        ResetScanningEffect();
+        ResetScanningEffect(false);
     }
-    private void ResetScanningEffect()
+    private void ResetScanningEffect(bool isOnDisable)
     {
         if (profile.TryGet<ColorCurves>(out var col))
         {
@@ -104,7 +104,7 @@ public class ScannerController : MonoBehaviour
             m_scanning = false;
             m_hasBeganScanning = false;
         }
-        if (Indicator.Instance != null)
+        if (Indicator.Instance != null && !isOnDisable)
         {
             foreach (var indicator in Indicator.Instance.objWithIndicators)
             {
@@ -116,6 +116,6 @@ public class ScannerController : MonoBehaviour
     {
         m_scanDistance = 0;
         material.SetFloat("_ScanDistance", m_scanDistance);
-        ResetScanningEffect();
+        ResetScanningEffect(true);
     }
 }
