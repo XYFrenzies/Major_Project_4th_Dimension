@@ -14,7 +14,7 @@ public class ChainShoot_old : MonoBehaviour
     public GameObject objectToPickUpOrDrop;
     // private PlayerController player;
     private Camera cam;
-    private PlayerControllerNew player;
+    private PlayerControllerNew1 player;
     public float hookShotRange = 50f;
     public int maxHookShotDistance = 100;
 
@@ -90,7 +90,7 @@ public class ChainShoot_old : MonoBehaviour
 
     private void Awake()
     {
-        player = GetComponent<PlayerControllerNew>();
+        player = GetComponent<PlayerControllerNew1>();
         cam = Camera.main;
         currentHookShotState = HookShotState.Normal;
         lineRenderer = GetComponent<LineRenderer>();
@@ -268,7 +268,7 @@ public class ChainShoot_old : MonoBehaviour
 
         //}
 
-        player.currentState = PlayerControllerNew.State.HookShotThrown;
+        player.currentState = PlayerControllerNew1.State.HookShotThrown;
 
         currentHookShotState = HookShotState.Throw;
     }
@@ -283,7 +283,7 @@ public class ChainShoot_old : MonoBehaviour
 
     private void StopHookShot()
     {
-        player.currentState = PlayerControllerNew.State.Normal;
+        player.currentState = PlayerControllerNew1.State.Normal;
     }
 
     private void CalculateLineRenderer()
