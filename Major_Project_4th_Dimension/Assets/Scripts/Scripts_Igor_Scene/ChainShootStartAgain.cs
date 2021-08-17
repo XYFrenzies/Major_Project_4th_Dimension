@@ -7,6 +7,7 @@ public class ChainShootStartAgain : MonoBehaviour
 {
 
     LineRenderer lineRenderer;
+    public Animator anim;
 
     private Vector3 hookshotPosition;
 
@@ -52,33 +53,6 @@ public class ChainShootStartAgain : MonoBehaviour
     Vector3 grappleLocal;
     public LayerMask layerMask;
 
-    //public void OnHookShot(InputAction.CallbackContext context)
-    //{
-
-    //    if (context.phase != InputActionPhase.Performed)
-    //    {
-    //        return;
-    //    }
-    //    ThrowHookShot();
-
-    //}
-
-
-    //public void OnThrow(InputAction.CallbackContext context)
-    //{
-
-    //    if (context.phase != InputActionPhase.Performed)
-    //    {
-    //        return;
-    //    }
-    //    if (!objectToPull && isObjectHeld)
-    //    {
-    //        ThrowObject();
-    //        Debug.Log("Throw");
-    //    }
-
-    //}
-
 
     public enum HookShotState
     {
@@ -121,12 +95,6 @@ public class ChainShootStartAgain : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //shootPoint.LookAt(posToLookAt);
-        //if (pullCheck)
-        //{
-        //    PullObject(objectToPull);
-        //}
-
 
         switch (currentHookShotState)
         {
@@ -277,6 +245,7 @@ public class ChainShootStartAgain : MonoBehaviour
 
         player.currentState = PlayerControllerCinemachineLook.State.HookShotThrown;
         currentHookShotState = HookShotState.Throw;
+        anim.SetBool("IsShooting", true);
     }
     public void HandleHookShotThrow()
     {
@@ -312,7 +281,7 @@ public class ChainShootStartAgain : MonoBehaviour
         rb.useGravity = false;
         pickupObject.transform.position = Vector3.MoveTowards(pickupObject.transform.position, holdPoint.position, 50f * Time.deltaTime);
         ReturnHand();
-        if (Vector3.Distance(pickupObject.transform.position, holdPoint.position) <= 1f)
+        if (Vector3.Distance(pickupObject.transform.position, holdPoint.position) <= 2f)
         {
             pickupObject.layer = LayerMask.NameToLayer("Hold");
             pickupObject.GetComponent<Rigidbody>().isKinematic = true;
@@ -432,6 +401,7 @@ public class ChainShootStartAgain : MonoBehaviour
             currentHookShotState = HookShotState.Normal;
             player.currentState = PlayerControllerCinemachineLook.State.Normal;
             hand.gameObject.SetActive(false);
+            anim.SetBool("IsShooting", false);
 
         }
     }
