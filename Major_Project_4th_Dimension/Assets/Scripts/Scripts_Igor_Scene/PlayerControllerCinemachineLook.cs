@@ -108,8 +108,8 @@ public class PlayerControllerCinemachineLook : MonoBehaviour
             direction = direction.x * cam.transform.right.normalized + direction.z * cam.transform.forward.normalized;
         direction.y = 0f;
 
-        anim.SetFloat("xPos", direction.x/*, 0.3f, Time.deltaTime*/);
-        anim.SetFloat("yPos", direction.y/*, 0.3f, Time.deltaTime*/);
+        anim.SetFloat("xPos", inputs.x, 0.3f, Time.deltaTime);
+        anim.SetFloat("yPos", inputs.y, 0.3f, Time.deltaTime);
         //anim.SetBool("IsLanding", false);
 
     }
