@@ -93,8 +93,8 @@ public class PlayerControllerCinemachineLook : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        rb.MovePosition(rb.position + direction * moveSpeed * Time.fixedDeltaTime);
 
+        rb.MovePosition(rb.position + direction * moveSpeed * Time.fixedDeltaTime);
     }
 
     public void Move()
@@ -108,8 +108,8 @@ public class PlayerControllerCinemachineLook : MonoBehaviour
             direction = direction.x * cam.transform.right.normalized + direction.z * cam.transform.forward.normalized;
         direction.y = 0f;
 
-        anim.SetFloat("xPos", direction.x);
-        anim.SetFloat("yPos", direction.y);
+        anim.SetFloat("xPos", direction.x/*, 0.3f, Time.deltaTime*/);
+        anim.SetFloat("yPos", direction.y/*, 0.3f, Time.deltaTime*/);
         //anim.SetBool("IsLanding", false);
 
     }
