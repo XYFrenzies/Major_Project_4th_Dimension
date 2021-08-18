@@ -1262,7 +1262,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3517149633802049055}
   - component: {fileID: 3517149633802049054}
-  - component: {fileID: 3517149633802049053}
   - component: {fileID: 3517149633802049048}
   - component: {fileID: 3517149633802049049}
   - component: {fileID: 990734842044212504}
@@ -1331,14 +1330,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &3517149633802049053
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3517149633802049052}
-  m_Enabled: 1
 --- !u!114 &3517149633802049048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1881,11 +1872,6 @@ MonoBehaviour:
   hookShotMinSpeed: 10
   hookShotMaxSpeed: 40
   distanceToHookShotHitPoint: 2
-  lookSensitivity: 0.5
-  minXLook: -60
-  maxXLook: 60
-  camAnchor: {fileID: 3517149634997758639}
-  invertXRotation: 0
   anim: {fileID: 7036304169510505324}
   currentState: 0
   chainShoot: {fileID: 0}
@@ -2001,24 +1987,12 @@ MonoBehaviour:
     m_ActionName: Player/Scanner[/Keyboard/c,/XInputControllerWindows/rightShoulder]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 45f58ded-533b-4261-b247-e19bd7a4ba0c
-    m_ActionName: Player/Test[/Keyboard/k]
+    m_ActionId: f828ae51-9c08-488d-bb34-f783608c436b
+    m_ActionName: Player/PauseMenu[/Keyboard/escape,/XInputControllerWindows/start]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ChainShoot, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 2c543d62-bf48-482c-9d8f-4bbf445d1797
-    m_ActionName: Player/Test2[/Keyboard/l]
+      m_Calls: []
+    m_ActionId: d33d05b5-a242-439b-8990-b40322975f04
+    m_ActionName: Player/Aim[/Mouse/rightButton,/Keyboard/n]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -2134,6 +2108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ec5b7e74622cc54d919763c1db7b7ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
   shootPoint: {fileID: 3517149634148236255}
   holdPoint: {fileID: 3517149634438783414}
   hand: {fileID: 3517149635006586238}
@@ -2143,6 +2118,9 @@ MonoBehaviour:
   fly: 0
   grappleHandle: {fileID: 4420089562460233718, guid: 6f03739fc8325224b9481ec4268df3d6, type: 3}
   springJoint: {fileID: 1551001741050292745}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!145 &1551001741050292745
 SpringJoint:
   m_ObjectHideFlags: 0
