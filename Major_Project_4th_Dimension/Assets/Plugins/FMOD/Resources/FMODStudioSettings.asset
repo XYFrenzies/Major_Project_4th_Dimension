@@ -527,8 +527,8 @@ MonoBehaviour:
   SwitchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: 
-  sourceBankPath: 
+  sourceProjectPath: ../../../../Demos/Practice/Assets/Scenes/Event/Event.fspro
+  sourceBankPath: ../../../../Demos/Practice/Assets/Scenes/Event/Build
   SourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
@@ -549,7 +549,8 @@ MonoBehaviour:
   VirtualChannelSettings: []
   RealChannelSettings: []
   Plugins: []
-  MasterBanks: []
+  MasterBanks:
+  - Master
   Banks: []
   BanksToLoad: []
   LiveUpdatePort: 9264
@@ -563,17 +564,17 @@ MonoBehaviour:
   SharedLibraryTimeSinceStart: 0
   HideSetupWizard: 0
   Platforms:
-  - {fileID: 7847095125209223266}
-  - {fileID: 5691486682196833070}
-  - {fileID: -1019110619922636067}
-  - {fileID: -4046509458535100776}
-  - {fileID: -4077308504030481266}
-  - {fileID: -9154008199011596760}
-  - {fileID: -2341515738505604977}
-  - {fileID: -5858450425793384350}
-  - {fileID: -1210107248084110148}
-  - {fileID: 3114002830886220910}
   - {fileID: -1366990196773896902}
+  - {fileID: 3114002830886220910}
+  - {fileID: -1210107248084110148}
+  - {fileID: -5858450425793384350}
+  - {fileID: -2341515738505604977}
+  - {fileID: -9154008199011596760}
+  - {fileID: -4077308504030481266}
+  - {fileID: -4046509458535100776}
+  - {fileID: -1019110619922636067}
+  - {fileID: 5691486682196833070}
+  - {fileID: 7847095125209223266}
   MigratedPlatforms: 0c000000150000000b0000000a00000009000000120000000800000005000000060000000200000001000000
 --- !u!114 &3114002830886220910
 MonoBehaviour:
@@ -641,9 +642,9 @@ MonoBehaviour:
   - b7716510a1f36934c87976f3a81dbf3d
   - 52eb9df5db46521439908db3a29a1bbb
   - e7a046c753c3c3d4aacc91f6597f310d
-  - 2c5177b11d81d824dbb064f9ac8527da
-  - fd7c55dab0fce234b8c25f6ffca523c1
   - c88d16e5272a4e241b0ef0ac2e53b73d
+  - fd7c55dab0fce234b8c25f6ffca523c1
+  - 2c5177b11d81d824dbb064f9ac8527da
   outputType: 
   threadAffinities:
     Value: []
