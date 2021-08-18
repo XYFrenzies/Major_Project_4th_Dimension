@@ -25,7 +25,7 @@ public class ChainShoot : MonoBehaviour
     public GameObject objectToPickUpOrDrop;
 
     private Camera cam;
-    private PlayerControllerNew player;
+    private PlayerControllerNew1 player;
     public float hookShotRange = 50f;
 
     public float chainSpeed = 20f;
@@ -105,7 +105,7 @@ public class ChainShoot : MonoBehaviour
 
     private void Awake()
     {
-        player = GetComponent<PlayerControllerNew>();
+        player = GetComponent<PlayerControllerNew1>();
         cam = Camera.main;
         currentHookShotState = HookShotState.Normal;
         lineRenderer = GetComponent<LineRenderer>();
@@ -292,7 +292,7 @@ public class ChainShoot : MonoBehaviour
             lineRenderer.positionCount = 2;
             if (fly)
             {
-                player.currentState = PlayerControllerNew.State.HookShotFlying;
+                player.currentState = PlayerControllerNew1.State.HookShotFlying;
                 currentHookShotState = HookShotState.Fly;
             }
             if (pickup)
@@ -378,7 +378,7 @@ public class ChainShoot : MonoBehaviour
     }
     private void StopHookShot()
     {
-        player.currentState = PlayerControllerNew.State.Normal;
+        player.currentState = PlayerControllerNew1.State.Normal;
         currentHookShotState = HookShotState.Normal;
         StartCoroutine(RetrieveHook());
     }

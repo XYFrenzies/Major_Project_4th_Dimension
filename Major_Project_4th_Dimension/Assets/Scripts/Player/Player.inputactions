@@ -54,25 +54,17 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Test",
-                    "type": "Button",
-                    "id": "45f58ded-533b-4261-b247-e19bd7a4ba0c",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "Test2",
-                    "type": "Button",
-                    "id": "2c543d62-bf48-482c-9d8f-4bbf445d1797",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
                     "name": "PauseMenu",
                     "type": "Button",
                     "id": "f828ae51-9c08-488d-bb34-f783608c436b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Aim",
+                    "type": "Button",
+                    "id": "d33d05b5-a242-439b-8990-b40322975f04",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -84,7 +76,7 @@
                     "id": "df51ebac-390e-4115-a34e-bc6bd852a6a6",
                     "path": "2DVector",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "NormalizeVector2",
                     "groups": "",
                     "action": "Move",
                     "isComposite": true,
@@ -139,7 +131,7 @@
                     "id": "f701342e-37a7-4a65-9b2f-a637236a7103",
                     "path": "2DVector",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "NormalizeVector2",
                     "groups": "",
                     "action": "Move",
                     "isComposite": true,
@@ -236,7 +228,7 @@
                 {
                     "name": "",
                     "id": "4bd72a00-62b7-4e52-bec4-18267d550894",
-                    "path": "<Mouse>/rightButton",
+                    "path": "<Mouse>/middleButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -290,28 +282,6 @@
                 },
                 {
                     "name": "",
-                    "id": "746a20a8-be91-4cc0-ab70-56e5af654680",
-                    "path": "<Keyboard>/k",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Test",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "ed7c82fe-999b-49df-9e5f-10ed636f823e",
-                    "path": "<Keyboard>/l",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Test2",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "c7c1ceb3-42aa-4b02-a1d6-92064518f85c",
                     "path": "<Keyboard>/escape",
                     "interactions": "",
@@ -329,6 +299,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "PauseMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "86df0a20-e2a3-43f3-8561-62130da9aa32",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Aim",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2f12524a-cf7d-47cc-894c-3721d5a8ac31",
+                    "path": "<Keyboard>/n",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Aim",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

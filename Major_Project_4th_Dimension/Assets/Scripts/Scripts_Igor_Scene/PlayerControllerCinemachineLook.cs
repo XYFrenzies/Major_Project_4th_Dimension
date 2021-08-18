@@ -4,19 +4,22 @@ using UnityEngine.InputSystem;
 
 
 
-public class PlayerControllerNew : MonoBehaviour
+public class PlayerControllerCinemachineLook : MonoBehaviour
 {
-    private const float NORMAL_FOV = 60f;
-    private const float HOOKSHOT_FOV = 100f;
+    private PlayerInput playerInput;
+
 
     [Header("Movement")]
     public float moveSpeed = 10.0f;
-    //public float jumpForce = 10.0f;
+
 
     private Rigidbody rb;
 
     private Camera cam;
-    private CameraFOV camFOV;
+    private Vector3 direction = Vector3.zero;
+    private Vector2 inputs;
+    private InputAction moveAction;
+
 
     [Header("Hook Shot")]
     public float hookShotRange = 50f;
@@ -25,21 +28,12 @@ public class PlayerControllerNew : MonoBehaviour
     public float flyingSpeedMultiplier = 2f;
     public float hookShotMinSpeed = 10f;
     public float hookShotMaxSpeed = 40f;
-    public float distanceToHookShotHitPoint = 1f;
+    public float distanceToHookShotHitPoint = 2f;
 
-
-    // Look
-    [Header("Player Look")]
-    public float lookSensitivity = 2.0f;
-    public float minXLook = -60f;
-    public float maxXLook = 60f;
-    public Transform camAnchor;
-    public bool invertXRotation; // For inverting the controls
-    private float currentXRot;
 
     public Animator anim;
     private Vector2 m_Move;
-    private Vector2 m_Look;
+
     [HideInInspector]
     public State currentState;
 
@@ -47,18 +41,6 @@ public class PlayerControllerNew : MonoBehaviour
     public ChainShootStartAgain chainShoot;
     [HideInInspector]
     public Vector3 flyToTarget;
-
-
-    public void OnMove(InputAction.CallbackContext context)
-    {
-        m_Move = context.ReadValue<Vector2>();
-    }
-
-    public void OnLook(InputAction.CallbackContext context)
-    {
-        m_Look = context.ReadValue<Vector2>();
-    }
-
 
 
     public enum State
@@ -74,24 +56,23 @@ public class PlayerControllerNew : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         cam = Camera.main;
-        camFOV = cam.GetComponent<CameraFOV>();
         currentState = State.Normal;
         Cursor.lockState = CursorLockMode.Locked;
         chainShoot = GetComponent<ChainShootStartAgain>();
+        playerInput = GetComponent<PlayerInput>();
+        moveAction = playerInput.actions["Move"];
 
 
     }
 
-
-    // Update is called once per frame
-    void FixedUpdate()
+    private void Update()
     {
+        CalculateMove();
         switch (currentState)
         {
             default:
             case State.Normal:
-                Move(m_Move);
-                Look(m_Look);
+                Look();
                 break;
 
             case State.HookShotThrown:
@@ -102,7 +83,6 @@ public class PlayerControllerNew : MonoBehaviour
                 break;
 
             case State.HookShotFlying:
-                camFOV.SetCameraFOV(HOOKSHOT_FOV);
                 Fly(flyToTarget);
 
                 break;
@@ -110,36 +90,48 @@ public class PlayerControllerNew : MonoBehaviour
         }
     }
 
-    public void Move(Vector2 direction)
+    // Update is called once per frame
+    void FixedUpdate()
     {
-        Vector3 dir = transform.right * direction.x + transform.forward * direction.y;
-        dir *= moveSpeed;
-        dir.y = rb.velocity.y;
-        rb.velocity = dir;
-        //transform.position += dir * moveSpeed * Time.deltaTime;
+        switch (currentState)
+        {
+            default:
+            case State.Normal:
+                Move();
+                break;
+            case State.HookShotThrown:
+                rb.velocity = Vector3.zero;
+                break;
+        }
 
-        anim.SetFloat("xPos", direction.x);
-        anim.SetFloat("yPos", direction.y);
+    }
+
+    public void Move()
+    {
+        rb.MovePosition(rb.position + direction * moveSpeed * Time.fixedDeltaTime);
+    }
+
+    public void CalculateMove()
+    {
+        direction = Vector3.zero;
+        inputs = moveAction.ReadValue<Vector2>();
+        direction.x = inputs.x;
+        direction.z = inputs.y;
+        if (direction != Vector3.zero)
+            //transform.forward = direction;
+            direction = direction.x * cam.transform.right.normalized + direction.z * cam.transform.forward.normalized;
+        direction.y = 0f;
+
+        anim.SetFloat("xPos", inputs.x, 0.3f, Time.deltaTime);
+        anim.SetFloat("yPos", inputs.y, 0.3f, Time.deltaTime);
         //anim.SetBool("IsLanding", false);
 
     }
 
-    public void Look(Vector2 direction)
+    public void Look()
     {
-        transform.eulerAngles += Vector3.up * direction.x * lookSensitivity;
+        transform.rotation = Quaternion.Euler(0, cam.transform.eulerAngles.y, 0);
 
-        // Inverts the controls
-        if (invertXRotation)
-            currentXRot += direction.y * lookSensitivity;
-        else
-            currentXRot -= direction.y * lookSensitivity;
-
-        currentXRot = Mathf.Clamp(currentXRot, minXLook, maxXLook); // Stops player from being able too look to far up and down
-
-        Vector3 clampedAngle = camAnchor.eulerAngles;
-        clampedAngle.x = currentXRot;
-
-        camAnchor.eulerAngles = clampedAngle;
 
         Vector3 rayOrigin = cam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
 
@@ -164,7 +156,7 @@ public class PlayerControllerNew : MonoBehaviour
 
     public void Fly(Vector3 target)
     {
-        //rb.useGravity = false;
+        rb.useGravity = false;
         anim.SetBool("IsFlying", true);
         flyingSpeed = Mathf.Clamp(Vector3.Distance(transform.position, target), hookShotMinSpeed, hookShotMaxSpeed);
         transform.position = Vector3.MoveTowards(transform.position, target, flyingSpeed * flyingSpeedMultiplier * Time.deltaTime);
@@ -172,12 +164,11 @@ public class PlayerControllerNew : MonoBehaviour
         if (Vector3.Distance(transform.position, target) < distanceToHookShotHitPoint)
         {
             anim.SetBool("IsFlying", false);
-            //rb.useGravity = true;
+            rb.useGravity = true;
             chainShoot.fly = false;
             chainShoot.ReturnHand();
             currentState = State.Normal;
-
-            camFOV.SetCameraFOV(NORMAL_FOV);
+            Debug.Log(chainShoot.currentHookShotState);
 
         }
     }
