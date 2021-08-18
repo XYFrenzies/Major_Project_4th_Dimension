@@ -64,7 +64,7 @@ public class ScannerController : MonoBehaviour
             m_scanDistance += Time.deltaTime * m_speed;
             if (Indicator.Instance != null)
             {
-                foreach (var indicator in Indicator.Instance.objWithIndicators)
+                foreach (var indicator in Indicator.Instance.objToAddImagesTo)
                 {
                     if (Vector3.Distance(m_scanLocation.position, indicator.transform.position) <= m_scanDistance)
                     {
@@ -106,7 +106,7 @@ public class ScannerController : MonoBehaviour
         }
         if (Indicator.Instance != null && !isOnDisable)
         {
-            foreach (var indicator in Indicator.Instance.objWithIndicators)
+            foreach (var indicator in Indicator.Instance.objToAddImagesTo)
             {
                 indicator.transform.GetChild(0).gameObject.SetActive(false);
             }
