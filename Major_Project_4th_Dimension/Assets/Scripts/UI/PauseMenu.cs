@@ -9,6 +9,7 @@ public class PauseMenu : MonoBehaviour
     private float maxButtonDelay = 1.0f;
     [SerializeField] private GameObject m_pauseMenu = null;
     [SerializeField] private GameObject m_gameUI = null;
+    [SerializeField] private GameObject m_optionsUI = null;
     private bool pause = false;
     private bool isPaused = false;
     private void Awake()
@@ -61,8 +62,16 @@ public class PauseMenu : MonoBehaviour
         m_gameUI.SetActive(true);
         buttonDelay = 0;
     }
+    public void OptionsMenuBack()
+    {
+        m_optionsUI.SetActive(false);
+        m_pauseMenu.SetActive(true);
+        //Need to fill this in when the options menu is ready to be used.
+    }
     public void OptionsMenu()
     {
+        m_optionsUI.SetActive(true);
+        m_pauseMenu.SetActive(false);
         //Need to fill this in when the options menu is ready to be used.
     }
     public void ReturnToMenu(string nameOfScene)
