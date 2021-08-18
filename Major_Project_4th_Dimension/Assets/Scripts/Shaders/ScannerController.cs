@@ -6,6 +6,9 @@ using UnityEngine.Rendering;
 using UnityEngine.Rendering.HighDefinition;
 public class ScannerController : MonoBehaviour
 {
+    public PlayerInput playerInput;
+    private InputAction scannerAction;
+
     [SerializeField] private bool m_scanGreyScale = false;
     [SerializeField] private Transform m_scanLocation = null;
     [SerializeField] private Material material = null;
@@ -26,6 +29,7 @@ public class ScannerController : MonoBehaviour
     private Keyframe[] originalKeyTex = { new Keyframe(0, 0.5f), new Keyframe(1, 0.5f) };
     private void Awake()
     {
+        scannerAction = playerInput.actions["Scanner"];
         profile = volume.sharedProfile;
         Keyframe[] frame = {new Keyframe(m_colourValueStart.x, m_colourValueStart.y),
             new Keyframe(m_colourValueEnd.x, m_colourValueEnd.y) };
@@ -33,13 +37,14 @@ public class ScannerController : MonoBehaviour
         m_camera = Camera.main;
         alpha.AddRange(alphabet);
     }
-    //Checking if the keybind for the scanner has been pressed.
-    public void Scanner(InputAction.CallbackContext context)
+
+    private void OnEnable()
     {
-        if (context.phase != InputActionPhase.Performed)
-        {
-            return;
-        }
+        scannerAction.performed += _ => Scanner();
+    }
+
+    public void Scanner()
+    {
         if (!m_scanning)
         {
             m_scanning = true;
@@ -47,6 +52,7 @@ public class ScannerController : MonoBehaviour
             material.SetFloat("_ScanDistance", m_scanDistance);
         }
     }
+
     void Update()
     {
         if (m_scanning)
@@ -117,5 +123,23 @@ public class ScannerController : MonoBehaviour
         m_scanDistance = 0;
         material.SetFloat("_ScanDistance", m_scanDistance);
         ResetScanningEffect(true);
+        scannerAction.performed -= _ => Scanner();
+
     }
 }
+
+
+//Checking if the keybind for the scanner has been pressed.
+//public void Scanner(InputAction.CallbackContext context)
+//{
+//    if (context.phase != InputActionPhase.Performed)
+//    {
+//        return;
+//    }
+//    if (!m_scanning)
+//    {
+//        m_scanning = true;
+//        m_scanDistance = 3;
+//        material.SetFloat("_ScanDistance", m_scanDistance);
+//    }
+//}

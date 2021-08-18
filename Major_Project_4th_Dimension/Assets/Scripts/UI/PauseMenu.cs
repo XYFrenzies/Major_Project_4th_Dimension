@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 public class PauseMenu : MonoBehaviour
 {
+    public PlayerInput playerInput;
+    private InputAction pauseMenuAction;
+
+
     private float buttonDelay = 0.0f;
     private float maxButtonDelay = 1.0f;
     [SerializeField] private GameObject m_pauseMenu = null;
@@ -14,38 +18,39 @@ public class PauseMenu : MonoBehaviour
     private bool isPaused = false;
     private void Awake()
     {
+        pauseMenuAction = playerInput.actions["PauseMenu"];
         m_pauseMenu.SetActive(false);
     }
-    // Update is called once per frame
-    public void Pause(InputAction.CallbackContext context)
+
+    private void OnEnable()
     {
-        if (context.phase != InputActionPhase.Performed)
+        pauseMenuAction.performed += _ => Pause();
+    }
+
+    private void OnDisable()
+    {
+        pauseMenuAction.performed -= _ => Pause();
+    }
+
+
+    public void Pause()
+    {
+        if (isPaused && maxButtonDelay < buttonDelay)
         {
-            pause = false;
-            return;
+            ResumeGame();
         }
         else
         {
-            pause = true;
+            PauseGame();
         }
     }
 
+    
     private void Update()
     {
         buttonDelay += Time.unscaledDeltaTime;
-        if (pause && maxButtonDelay < buttonDelay)
-        {
-            switch (isPaused)
-            {
-                case true:
-                    ResumeGame();
-                    break;
-                case false:
-                    PauseGame();
-                    break;
-            }
-        }
     }
+    
     private void PauseGame() 
     {
         Time.timeScale = 0;
@@ -88,3 +93,34 @@ public class PauseMenu : MonoBehaviour
     }
 
 }
+
+// Update is called once per frame
+//public void Pause(InputAction.CallbackContext context)
+//{
+//    if (context.phase != InputActionPhase.Performed)
+//    {
+//        pause = false;
+//        return;
+//    }
+//    else
+//    {
+//        pause = true;
+//    }
+//}
+
+//private void Update()
+//{
+//    buttonDelay += Time.unscaledDeltaTime;
+//    if (pause && maxButtonDelay < buttonDelay)
+//    {
+//        switch (isPaused)
+//        {
+//            case true:
+//                ResumeGame();
+//                break;
+//            case false:
+//                PauseGame();
+//                break;
+//        }
+//    }
+//}

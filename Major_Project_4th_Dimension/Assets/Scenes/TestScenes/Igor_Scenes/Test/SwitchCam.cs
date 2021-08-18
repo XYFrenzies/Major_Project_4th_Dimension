@@ -6,7 +6,7 @@ using Cinemachine;
 
 public class SwitchCam : MonoBehaviour
 {
-
+    public Animator anim;
     public PlayerInput playerInput;
     private CinemachineVirtualCamera virtualCamera;
     private InputAction aimAction;
@@ -32,11 +32,14 @@ public class SwitchCam : MonoBehaviour
 
     public void StartAim()
     {
+        anim.SetBool("IsAiming", true);
         virtualCamera.Priority += priorityBoostAMount;
     }
 
     public void StopAim()
     {
+        anim.SetBool("IsAiming", false);
+
         virtualCamera.Priority -= priorityBoostAMount;
 
     }
