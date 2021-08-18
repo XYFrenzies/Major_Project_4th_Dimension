@@ -22,8 +22,8 @@ public class ScannerController : MonoBehaviour
     private bool m_hasBeganScanning = false;
     private Camera m_camera;
     private List<string> alpha = new List<string>();//This is used to prevent code from being repeated.
-    private string[] alphabet = { "A", "B", "C", "D" };
-    private Keyframe[] originalKeyTex = { new Keyframe(0, 0.5f), new Keyframe(1, 0.5f) };
+    private readonly string[] alphabet = { "A", "B", "C", "D" };
+    private readonly Keyframe[] originalKeyTex = { new Keyframe(0, 0.5f), new Keyframe(1, 0.5f) };
     private void Awake()
     {
         profile = volume.sharedProfile;

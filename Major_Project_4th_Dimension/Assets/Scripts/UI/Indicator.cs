@@ -8,8 +8,7 @@ public class Indicator : Singleton<Indicator>
     [SerializeField] private Image imgScan = null;
     [HideInInspector] public List<GameObject> objToAddImagesTo;
     private readonly Canvas can;
-    // Start is called before the first frame update
-    void Awake()
+    private void Awake()
     {
         objToAddImagesTo = new List<GameObject>();
         List<GameObject[]> obj = new List<GameObject[]>() { GameObject.FindGameObjectsWithTag("CanHookShotTowards"),
@@ -20,11 +19,14 @@ public class Indicator : Singleton<Indicator>
         }
         foreach (var item in objToAddImagesTo)
         {
-            can.renderMode = RenderMode.WorldSpace;
-            can.worldCamera = Camera.main;
-            can.transform.parent = item.transform;
-            imgScan.transform.parent = can.transform;
-            can.gameObject.SetActive(false);
+            if (!item.GetComponentInChildren<Canvas>())
+            {
+                can.renderMode = RenderMode.WorldSpace;
+                can.worldCamera = Camera.main;
+                can.transform.parent = item.transform;
+                imgScan.transform.parent = can.transform;
+                can.gameObject.SetActive(false);
+            }
         }
     }
 }
