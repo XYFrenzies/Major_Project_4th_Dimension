@@ -58,6 +58,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1;
         m_pauseMenu.SetActive(false);
         m_gameUI.SetActive(true);
+        m_optionsUI.SetActive(false);
     }
     public void OptionsMenuBack()
     {
