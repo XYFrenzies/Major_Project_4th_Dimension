@@ -7,8 +7,6 @@ public class PauseMenu : MonoBehaviour
 {
     public PlayerInput playerInput;
     private InputAction pauseMenuAction;
-
-
     [SerializeField] private GameObject m_pauseMenu = null;
     [SerializeField] private GameObject m_gameUI = null;
     [SerializeField] private GameObject m_optionsUI = null;
@@ -19,18 +17,14 @@ public class PauseMenu : MonoBehaviour
         pauseMenuAction = playerInput.actions["PauseMenu"];
         m_pauseMenu.SetActive(false);
     }
-
     private void OnEnable()
     {
         pauseMenuAction.performed += _ => Pause();
     }
-
     private void OnDisable()
     {
         pauseMenuAction.performed -= _ => Pause();
     }
-
-
     public void Pause()
     {
         if (isPaused)
@@ -42,8 +36,6 @@ public class PauseMenu : MonoBehaviour
             PauseGame();
         }
     }
-
-    
     private void PauseGame() 
     {
         Time.timeScale = 0;
