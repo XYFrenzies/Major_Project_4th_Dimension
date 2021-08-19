@@ -21,7 +21,7 @@ public class ScannerController : MonoBehaviour
     private TextureCurve originalTex;
     private TextureCurve newTex;
     private float m_scanDistance;
-    private bool m_scanning;
+    private bool m_scanning = false;
     private bool m_hasBeganScanning = false;
     private Camera m_camera;
     private List<string> alpha = new List<string>();//This is used to prevent code from being repeated.
@@ -47,6 +47,7 @@ public class ScannerController : MonoBehaviour
     {
         if (!m_scanning)
         {
+            Debug.Log("Scanning");
             m_scanning = true;
             m_scanDistance = 3;
             material.SetFloat("_ScanDistance", m_scanDistance);
