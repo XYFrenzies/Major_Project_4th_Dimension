@@ -1494,7 +1494,7 @@ GameObject:
   - component: {fileID: 742426573}
   - component: {fileID: 4427215333917455564}
   - component: {fileID: 4427215333917455581}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -1804,6 +1804,54 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &819471875
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 819471877}
+  - component: {fileID: 819471876}
+  m_Layer: 0
+  m_Name: GlobVol
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &819471876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819471875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: ba92897c262033f4d8f10af523747aa9, type: 2}
+--- !u!4 &819471877
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819471875}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 99.253716, y: -9.9383135, z: -24.68461}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &845280046
 GameObject:
@@ -2517,7 +2565,7 @@ PrefabInstance:
       objectReference: {fileID: 1258216104}
     - target: {fileID: 6652235864295120528, guid: b9fcaa184402b5c4c9c6edd2399ae4be, type: 3}
       propertyPath: m_RootOrder
-      value: 28
+      value: 29
       objectReference: {fileID: 0}
     - target: {fileID: 6652235864295120528, guid: b9fcaa184402b5c4c9c6edd2399ae4be, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3022,7 +3070,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6188624662914489924, guid: 9019643d56d51c54288d670f6f6f7d36, type: 3}
       propertyPath: m_RootOrder
-      value: 29
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6188624662914489924, guid: 9019643d56d51c54288d670f6f6f7d36, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3085,8 +3133,7 @@ GameObject:
   - component: {fileID: 1366611535}
   - component: {fileID: 1366611537}
   - component: {fileID: 1366611542}
-  - component: {fileID: 1366611538}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -3109,7 +3156,7 @@ MonoBehaviour:
   m_scanGreyScale: 0
   m_scanLocation: {fileID: 1258216107}
   material: {fileID: 2100000, guid: c63b4af3b1d7f8046a2c7d9e023c70a8, type: 2}
-  volume: {fileID: 1366611538}
+  volume: {fileID: 819471876}
   m_colourValueStart: {x: 0, y: 0}
   m_colourValueEnd: {x: 0, y: 0}
   m_speed: 40
@@ -3162,23 +3209,6 @@ MonoBehaviour:
         materialPassIndex: 0
         materialPassName: Custom Pass 0
         fetchColorBuffer: 0
---- !u!114 &1366611538
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1366611534}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isGlobal: 1
-  priority: 0
-  blendDistance: 0
-  weight: 1
-  sharedProfile: {fileID: 11400000, guid: ba92897c262033f4d8f10af523747aa9, type: 2}
 --- !u!114 &1366611539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3499,9 +3529,9 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4427215333917455564}
-        m_TargetAssemblyTypeName: DemoScannerController, Assembly-CSharp
+        m_TargetAssemblyTypeName: ScannerController, Assembly-CSharp
         m_MethodName: Scanner
-        m_Mode: 0
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3512,26 +3542,6 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: a0e9814f-fb93-4ae4-8a0d-6085b28b2b55
     m_ActionName: Player/Scanner[/Keyboard/c,/XInputControllerWindows/rightShoulder]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 45f58ded-533b-4261-b247-e19bd7a4ba0c
-    m_ActionName: Player/Test[/Keyboard/k]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ChainShoot, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 2c543d62-bf48-482c-9d8f-4bbf445d1797
-    m_ActionName: Player/Test2[/Keyboard/l]
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: f828ae51-9c08-488d-bb34-f783608c436b
@@ -6079,11 +6089,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a722de65737adf4fbd0e586a6a8d399, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerInput: {fileID: 0}
+  playerInput: {fileID: 1454060529}
   m_scanGreyScale: 0
   m_scanLocation: {fileID: 4427215334587355069}
-  material: {fileID: 2100000, guid: c63b4af3b1d7f8046a2c7d9e023c70a8, type: 2}
-  volume: {fileID: 0}
+  material: {fileID: 2100000, guid: 1142e0a36060adc4ab480771d484b5f8, type: 2}
+  volume: {fileID: 819471876}
   m_colourValueStart: {x: 0, y: 0}
   m_colourValueEnd: {x: 0, y: 0}
   m_speed: 40
@@ -6118,7 +6128,7 @@ MonoBehaviour:
         clearFlags: 0
         passFoldout: 0
         m_Version: 0
-        fullscreenPassMaterial: {fileID: 2100000, guid: c63b4af3b1d7f8046a2c7d9e023c70a8, type: 2}
+        fullscreenPassMaterial: {fileID: 2100000, guid: 1142e0a36060adc4ab480771d484b5f8, type: 2}
         materialPassIndex: 0
         materialPassName: Custom Pass 0
         fetchColorBuffer: 0
@@ -6130,7 +6140,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4427215334587355070}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.106, z: 0}
+  m_LocalPosition: {x: 0, y: 0.91, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1795537787}
@@ -6557,21 +6567,37 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4497997934912505562, guid: 46649cb7624a7504ba94256f10ec7789, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.4763265
+      objectReference: {fileID: 0}
+    - target: {fileID: 4497997934912505562, guid: 46649cb7624a7504ba94256f10ec7789, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.3347433
+      objectReference: {fileID: 0}
+    - target: {fileID: 4497997934912505562, guid: 46649cb7624a7504ba94256f10ec7789, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.5922568
+      objectReference: {fileID: 0}
     - target: {fileID: 4524801571375976726, guid: 46649cb7624a7504ba94256f10ec7789, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.336916
+      value: -4.3379908
       objectReference: {fileID: 0}
     - target: {fileID: 4524801571375976726, guid: 46649cb7624a7504ba94256f10ec7789, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.83609
+      value: -2.8360338
       objectReference: {fileID: 0}
     - target: {fileID: 5937174074090048006, guid: 46649cb7624a7504ba94256f10ec7789, type: 3}
       propertyPath: m_Name
       value: PlayerOne
       objectReference: {fileID: 0}
+    - target: {fileID: 5937174074090048006, guid: 46649cb7624a7504ba94256f10ec7789, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5937174074090048007, guid: 46649cb7624a7504ba94256f10ec7789, type: 3}
       propertyPath: m_RootOrder
-      value: 27
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 5937174074090048007, guid: 46649cb7624a7504ba94256f10ec7789, type: 3}
       propertyPath: m_LocalPosition.x
