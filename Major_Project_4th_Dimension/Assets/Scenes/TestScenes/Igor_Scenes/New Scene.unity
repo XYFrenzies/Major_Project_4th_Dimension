@@ -4262,9 +4262,6 @@ GameObject:
   - component: {fileID: 1606365001}
   - component: {fileID: 1606365000}
   - component: {fileID: 1606364999}
-  - component: {fileID: 1606365009}
-  - component: {fileID: 1606365010}
-  - component: {fileID: 1606365006}
   m_Layer: 7
   m_Name: PlayerNew (1)
   m_TagString: Player
@@ -4614,22 +4611,6 @@ CapsuleCollider:
   m_Height: 1.7
   m_Direction: 1
   m_Center: {x: 0, y: -0.18, z: 0}
---- !u!114 &1606365006
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1606364998}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fff0960ef4ea6e04eac66b4a7fd2189d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_RigLayers:
-  - m_Rig: {fileID: 956929478}
-    m_Active: 1
-  m_Effectors: []
 --- !u!33 &1606365007
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -4658,113 +4639,6 @@ Transform:
   m_Father: {fileID: 1415681985}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &1606365009
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1606364998}
-  m_Enabled: 0
-  m_Avatar: {fileID: 9000000, guid: ddf11f76872078e4abd659ea063916f5, type: 3}
-  m_Controller: {fileID: 9100000, guid: 27326d4b569bfb549bffa09e6056a6f0, type: 2}
-  m_CullingMode: 1
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1606365010
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1606364998}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2d8418b0b9634b1892b0268dd9c2743, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boneShape: 1
-  drawBones: 1
-  drawTripods: 0
-  boneSize: 2.2
-  tripodSize: 1
-  boneColor: {r: 0, g: 0, b: 1, a: 0.5}
-  m_Transforms:
-  - {fileID: 8546580510794549429}
-  - {fileID: 8983287226978541467}
-  - {fileID: 5781933423165883841}
-  - {fileID: 3241269272581976188}
-  - {fileID: 7001474658412054986}
-  - {fileID: 9135084134500004634}
-  - {fileID: 9141538534173029989}
-  - {fileID: 9025442695578424638}
-  - {fileID: 572617754306766144}
-  - {fileID: 2069206642270724053}
-  - {fileID: 2304755640084359031}
-  - {fileID: 3055715517767632137}
-  - {fileID: 3524216190941556290}
-  - {fileID: 3723520921106193464}
-  - {fileID: 2257057881557003798}
-  - {fileID: 1041222307327758395}
-  - {fileID: 2253691376076206041}
-  - {fileID: 6083543653913742960}
-  - {fileID: 1006910273086778486}
-  - {fileID: 3809396390113569698}
-  - {fileID: 4904837090912942522}
-  - {fileID: 5473096355401849738}
-  - {fileID: 1733669352112398110}
-  - {fileID: 3773180167643821538}
-  - {fileID: 3045054550409044294}
-  - {fileID: 2837149337295326370}
-  - {fileID: 4260797255585598654}
-  - {fileID: 1014133107314570031}
-  - {fileID: 1905030604976615699}
-  - {fileID: 1922325242229437530}
-  - {fileID: 8307896406941620737}
-  - {fileID: 7348645720337222419}
-  - {fileID: 6140247675925577781}
-  - {fileID: 9091814718776304780}
-  - {fileID: 4885354768808295915}
-  - {fileID: 6148510766259703842}
-  - {fileID: 3950912924225612716}
-  - {fileID: 9199186282809815574}
-  - {fileID: 4187929135924750090}
-  - {fileID: 4501103690759291110}
-  - {fileID: 3175754833831998590}
-  - {fileID: 8980846662665594669}
-  - {fileID: 605623291794830335}
-  - {fileID: 1934856481022939630}
-  - {fileID: 4989459395188641332}
-  - {fileID: 5930991655162684288}
-  - {fileID: 5807630345875804266}
-  - {fileID: 8554923276955258705}
-  - {fileID: 2830134341237053429}
-  - {fileID: 9004419449886808883}
-  - {fileID: 2183157724793816678}
-  - {fileID: 9115475438080113668}
-  - {fileID: 1168258877713643736}
-  - {fileID: 6605239911240366134}
-  - {fileID: 4025240833260612685}
-  - {fileID: 4930754672236176302}
-  - {fileID: 2618438219006524179}
-  - {fileID: 5328279429670211317}
-  - {fileID: 598518910476063343}
-  - {fileID: 4387961764408142524}
-  - {fileID: 8733227239844741250}
-  - {fileID: 4922203141793787466}
-  - {fileID: 5895527557151808268}
-  - {fileID: 3354125302655814697}
-  - {fileID: 5850913886589729355}
-  - {fileID: 2737413486563681543}
-  - {fileID: 1488760475464840669}
-  - {fileID: 1714025761927225066}
-  - {fileID: 3674073712988753389}
 --- !u!1 &1687964841
 GameObject:
   m_ObjectHideFlags: 0
@@ -5355,7 +5229,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2059821458}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 2.67}
+  m_LocalPosition: {x: 0, y: 0, z: 35.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 956929477}
@@ -6458,6 +6332,8 @@ GameObject:
   m_Component:
   - component: {fileID: 543450653500973641}
   - component: {fileID: 5866666021839763507}
+  - component: {fileID: 919132149227026677}
+  - component: {fileID: 919132149227026676}
   m_Layer: 0
   m_Name: SK_Matilda
   m_TagString: Untagged
@@ -6465,6 +6341,49 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &919132149227026676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149227026675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fff0960ef4ea6e04eac66b4a7fd2189d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RigLayers:
+  - m_Rig: {fileID: 956929478}
+    m_Active: 1
+  m_Effectors:
+  - m_Transform: {fileID: 543450653500973641}
+    m_Style:
+      shape: {fileID: 4300000, guid: c6793350c150f456688e39a81f97364a, type: 2}
+      color: {r: 1, g: 0, b: 0, a: 0.5}
+      size: 0.1
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0}
+    m_Visible: 1
+--- !u!114 &919132149227026677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149227026675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2d8418b0b9634b1892b0268dd9c2743, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boneShape: 1
+  drawBones: 1
+  drawTripods: 0
+  boneSize: 1
+  tripodSize: 1
+  boneColor: {r: 0, g: 0, b: 1, a: 0.5}
+  m_Transforms: []
 --- !u!1 &960464464459805594
 GameObject:
   m_ObjectHideFlags: 0
@@ -11534,7 +11453,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: ddf11f76872078e4abd659ea063916f5, type: 3}
   m_Controller: {fileID: 9100000, guid: 27326d4b569bfb549bffa09e6056a6f0, type: 2}
-  m_CullingMode: 1
+  m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
@@ -13470,8 +13389,8 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 9
   m_StandbyUpdate: 2
-  m_LookAt: {fileID: 1606365008}
-  m_Follow: {fileID: 1606365008}
+  m_LookAt: {fileID: 953104471}
+  m_Follow: {fileID: 953104471}
   m_Lens:
     FieldOfView: 30
     OrthographicSize: 10
