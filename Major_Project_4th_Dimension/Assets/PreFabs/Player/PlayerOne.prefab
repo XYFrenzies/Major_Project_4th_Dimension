@@ -3387,6 +3387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b194dadba87df3499aeaba39992bf13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 220537793954620917}
   playerInput: {fileID: 5937174074161984140}
 --- !u!114 &7871188602406113258
 MonoBehaviour:
@@ -4839,6 +4840,7 @@ Transform:
   - {fileID: 5937174074161984150}
   - {fileID: 4524801571375976726}
   - {fileID: 4497997934912505562}
+  - {fileID: 1630158613141742199}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5307,6 +5309,54 @@ Transform:
   m_Father: {fileID: 5937174074161984150}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5943977366032222791
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1630158613141742199}
+  - component: {fileID: 8939648498398079183}
+  m_Layer: 0
+  m_Name: GSEffect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1630158613141742199
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5943977366032222791}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5937174074090048007}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8939648498398079183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5943977366032222791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: ba92897c262033f4d8f10af523747aa9, type: 2}
 --- !u!1 &5966812966045654652
 GameObject:
   m_ObjectHideFlags: 0
