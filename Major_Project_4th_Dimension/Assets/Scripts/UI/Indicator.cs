@@ -5,28 +5,29 @@ using UnityEngine.UI;
 using System;
 public class Indicator : Singleton<Indicator>
 {
-    [SerializeField] private Image imgScan = null;
     [HideInInspector] public List<GameObject> objToAddImagesTo;
-    private readonly Canvas can;
+    private Canvas canvas;
     private void Awake()
     {
+        canvas = GetComponentInChildren<Canvas>();
         objToAddImagesTo = new List<GameObject>();
         List<GameObject[]> obj = new List<GameObject[]>() { GameObject.FindGameObjectsWithTag("CanHookShotTowards"),
         GameObject.FindGameObjectsWithTag("MoveableToMe"),  GameObject.FindGameObjectsWithTag("BigPullObject")};
         foreach (var item in obj)
         {
-            Array.Copy(item, objToAddImagesTo.ToArray(), 100);
+            for (int i = 0; i < item.Length; i++)
+            {
+                objToAddImagesTo.Add(item[i]);
+            }
         }
         foreach (var item in objToAddImagesTo)
         {
-            if (!item.GetComponentInChildren<Canvas>())
-            {
-                can.renderMode = RenderMode.WorldSpace;
-                can.worldCamera = Camera.main;
-                can.transform.parent = item.transform;
-                imgScan.transform.parent = can.transform;
-                can.gameObject.SetActive(false);
-            }
+            Canvas can = Instantiate(canvas, item.transform);
+            can.transform.position = item.transform.position;
+            can.GetComponentInChildren<Image>().gameObject.transform.position = item.transform.position;
+            can.gameObject.SetActive(false);
         }
+        canvas.GetComponentInChildren<Image>().gameObject.SetActive(false);
+        canvas.gameObject.SetActive(false);
     }
 }
