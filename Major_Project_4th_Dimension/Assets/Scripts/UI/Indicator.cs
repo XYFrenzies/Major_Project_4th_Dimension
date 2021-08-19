@@ -22,13 +22,12 @@ public class Indicator : Singleton<Indicator>
         }
         foreach (var item in objToAddImagesTo)
         {
-            if (!item.GetComponentInChildren<Canvas>())
-            {
-                Canvas can = Instantiate(canvas, item.transform);
-                can.renderMode = RenderMode.WorldSpace;
-                can.worldCamera = Camera.main;
-                can.gameObject.SetActive(false);
-            }
+            Canvas can = Instantiate(canvas, item.transform);
+            can.transform.position = item.transform.position;
+            can.GetComponentInChildren<Image>().gameObject.transform.position = item.transform.position;
+            can.gameObject.SetActive(false);
         }
+        canvas.GetComponentInChildren<Image>().gameObject.SetActive(false);
+        canvas.gameObject.SetActive(false);
     }
 }
