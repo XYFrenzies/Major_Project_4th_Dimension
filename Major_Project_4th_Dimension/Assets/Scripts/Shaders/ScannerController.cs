@@ -75,8 +75,7 @@ public class ScannerController : MonoBehaviour
                 {
                     if (Vector3.Distance(m_scanLocation.position, indicator.transform.position) <= m_scanDistance)
                     {
-                        indicator.transform.GetChild(0).gameObject.SetActive(true);
-                        indicator.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
+                        indicator.layer = LayerMask.NameToLayer("SeeThroughWalls");
                     }
                 }
             }
@@ -116,7 +115,7 @@ public class ScannerController : MonoBehaviour
         {
             foreach (var indicator in Indicator.Instance.objToAddImagesTo)
             {
-                indicator.transform.GetChild(0).gameObject.SetActive(false);
+                indicator.layer = LayerMask.NameToLayer("Default");
             }
         }
     }
