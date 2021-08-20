@@ -509,18 +509,6 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
-  - serializedVersion: 5
-    m_Name: UpperBody
-    m_StateMachine: {fileID: -4558042102635365372}
-    m_Mask: {fileID: 31900000, guid: 3e7ef49f397cc8c43b3bbeea3f5d3351, type: 2}
-    m_Motions: []
-    m_Behaviours: []
-    m_BlendingMode: 0
-    m_SyncedLayerIndex: -1
-    m_DefaultWeight: 1
-    m_IKPass: 0
-    m_SyncedLayerAffectsTiming: 0
-    m_Controller: {fileID: 9100000}
 --- !u!1102 &1333131030187971975
 AnimatorState:
   serializedVersion: 6
@@ -657,7 +645,7 @@ BlendTree:
   m_Name: Walking
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: b6386907b63a83d4a8dfae04fc32d988, type: 2}
+    m_Motion: {fileID: 7400000, guid: c5c2dab231edc934f8e667456cda557b, type: 2}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
