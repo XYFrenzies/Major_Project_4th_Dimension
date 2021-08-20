@@ -20,7 +20,6 @@ public class PlayerControllerCinemachineLook : MonoBehaviour
     private Vector2 inputs;
     private InputAction moveAction;
 
-
     [Header("Hook Shot")]
     public float hookShotRange = 50f;
     public float hookShotThrowSpeed = 70f;
@@ -30,9 +29,11 @@ public class PlayerControllerCinemachineLook : MonoBehaviour
     public float hookShotMaxSpeed = 40f;
     public float distanceToHookShotHitPoint = 2f;
 
-
-    public Animator anim;
+    [Header("Other Stuff")]
+    public Animator animator;
     private Vector2 m_Move;
+    public Transform aimTarget;
+    public float aimTargetDistance = 20f;
 
     [HideInInspector]
     public State currentState;
@@ -88,6 +89,7 @@ public class PlayerControllerCinemachineLook : MonoBehaviour
                 break;
 
         }
+       // aimTarget.position = cam.transform.position + cam.transform.forward * aimTargetDistance;
     }
 
     // Update is called once per frame
@@ -122,8 +124,8 @@ public class PlayerControllerCinemachineLook : MonoBehaviour
             direction = direction.x * cam.transform.right.normalized + direction.z * cam.transform.forward.normalized;
         direction.y = 0f;
 
-        anim.SetFloat("xPos", inputs.x, 0.3f, Time.deltaTime);
-        anim.SetFloat("yPos", inputs.y, 0.3f, Time.deltaTime);
+        animator.SetFloat("xPos", inputs.x, 0.3f, Time.deltaTime);
+        animator.SetFloat("yPos", inputs.y, 0.3f, Time.deltaTime);
         //anim.SetBool("IsLanding", false);
 
     }
@@ -157,13 +159,13 @@ public class PlayerControllerCinemachineLook : MonoBehaviour
     public void Fly(Vector3 target)
     {
         rb.useGravity = false;
-        anim.SetBool("IsFlying", true);
+        animator.SetBool("IsFlying", true);
         flyingSpeed = Mathf.Clamp(Vector3.Distance(transform.position, target), hookShotMinSpeed, hookShotMaxSpeed);
         transform.position = Vector3.MoveTowards(transform.position, target, flyingSpeed * flyingSpeedMultiplier * Time.deltaTime);
 
         if (Vector3.Distance(transform.position, target) < distanceToHookShotHitPoint)
         {
-            anim.SetBool("IsFlying", false);
+            animator.SetBool("IsFlying", false);
             rb.useGravity = true;
             chainShoot.fly = false;
             chainShoot.ReturnHand();
