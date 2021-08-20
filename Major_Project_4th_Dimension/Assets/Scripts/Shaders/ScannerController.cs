@@ -71,13 +71,8 @@ public class ScannerController : MonoBehaviour
             m_scanDistance += Time.deltaTime * m_speed;
             if (Indicator.Instance != null)
             {
-                foreach (var indicator in Indicator.Instance.objToAddImagesTo)
-                {
-                    if (Vector3.Distance(m_scanLocation.position, indicator.transform.position) <= m_scanDistance)
-                    {
-                        indicator.layer = LayerMask.NameToLayer("SeeThroughWalls");
-                    }
-                }
+                IndicatorChangeLayor(Indicator.Instance.objCanMoveAround, false, "SeeThroughWallsObjects");
+                IndicatorChangeLayor(Indicator.Instance.objCanHookTo, false, "SeeThroughWallsHook");
             }
             material.SetFloat("_ScanDistance", m_scanDistance);
             material.SetVector("_WorldSpaceScannerPos", new Vector4(m_scanLocation.position.x, m_scanLocation.position.y, m_scanLocation.position.z, 0));
@@ -113,7 +108,9 @@ public class ScannerController : MonoBehaviour
         }
         if (Indicator.Instance != null && !isOnDisable)
         {
-            foreach (var indicator in Indicator.Instance.objToAddImagesTo)
+            IndicatorChangeLayor(Indicator.Instance.objCanMoveAround, true, "SeeThroughWallsObjects");
+            IndicatorChangeLayor(Indicator.Instance.objCanHookTo, true, "SeeThroughWallsHook");
+            foreach (var indicator in Indicator.Instance.objCanMoveAround)
             {
                 indicator.layer = LayerMask.NameToLayer("Default");
             }
@@ -126,6 +123,23 @@ public class ScannerController : MonoBehaviour
         ResetScanningEffect(true);
         scannerAction.performed -= _ => Scanner();
 
+    }
+    private void IndicatorChangeLayor(List<GameObject> gameObjects, bool changeToDefaultLayer, string layorChange)
+    {
+        foreach (var item in gameObjects)
+        {
+            if (!changeToDefaultLayer)
+            {
+                if (Vector3.Distance(m_scanLocation.position, item.transform.position) <= m_scanDistance)
+                {
+                    item.layer = LayerMask.NameToLayer(layorChange);
+                }
+            }
+            else
+            {
+                item.layer = LayerMask.NameToLayer("Default");
+            }
+        }
     }
 }
 
