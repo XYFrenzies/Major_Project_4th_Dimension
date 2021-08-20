@@ -10,13 +10,13 @@ class SeeThrough : CustomPass
 {
     public LayerMask seeThroughLayer = 1;
     public Material seeThroughMaterial = null;
-
+    public GameObject obj;
     [SerializeField, HideInInspector]
     Shader stencilShader;
 
     Material stencilMaterial;
 
-    ShaderTagId[]   shaderTags;
+    ShaderTagId[] shaderTags;
 
     protected override void Setup(ScriptableRenderContext renderContext, CommandBuffer cmd)
     {
@@ -40,6 +40,7 @@ class SeeThrough : CustomPass
         // if the object is behind another object.
         stencilMaterial.SetInt("_StencilWriteMask", (int)UserStencilUsage.UserBit0);
 
+        //This determines whether the objects can be seen in front of you as well as behind walls.
         RenderObjects(ctx.renderContext, ctx.cmd, stencilMaterial, 0, CompareFunction.LessEqual, ctx.cullingResults, ctx.hdCamera);
 
         // Then we render the objects that are behind walls using the stencil buffer with Greater Equal ZTest:
@@ -56,6 +57,7 @@ class SeeThrough : CustomPass
     void RenderObjects(ScriptableRenderContext renderContext, CommandBuffer cmd, Material overrideMaterial, int passIndex, CompareFunction depthCompare, CullingResults cullingResult, HDCamera hdCamera, StencilState? overrideStencil = null)
     {
         // Render the objects in the layer blur mask into a mask buffer with their materials so we keep the alpha-clip and transparency if there is any.
+
         var result = new RendererListDesc(shaderTags, cullingResult, hdCamera.camera)
         {
             rendererConfiguration = PerObjectData.None,
@@ -65,7 +67,7 @@ class SeeThrough : CustomPass
             overrideMaterial = overrideMaterial,
             overrideMaterialPassIndex = passIndex,
             layerMask = seeThroughLayer,
-            stateBlock = new RenderStateBlock(RenderStateMask.Depth){ depthState = new DepthState(true, depthCompare)},
+            stateBlock = new RenderStateBlock(RenderStateMask.Depth) { depthState = new DepthState(true, depthCompare) },
         };
 
         if (overrideStencil != null)
