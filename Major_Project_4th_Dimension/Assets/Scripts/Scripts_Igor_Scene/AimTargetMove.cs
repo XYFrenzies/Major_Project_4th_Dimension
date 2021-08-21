@@ -35,7 +35,7 @@ public class AimTargetMove : MonoBehaviour
     void FixedUpdate()
     {
         mouseInput = lookAction.ReadValue<Vector2>();
-        Debug.Log(mouseInput);
+
         Vector3 lastPos = target.transform.position;
 
         Vector3 rayOrigin = cam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
@@ -50,9 +50,7 @@ public class AimTargetMove : MonoBehaviour
         }
         else // Makes the target sphere float at a point along the ray at a distance
         {
-            //Ray ray = Camera.main.ScreenPointToRay(/*Input.mousePosition*/mouseInput);
-            //Physics.Raycast(ray, out hit, weaponRange);
-            target.transform.position = Vector3.Lerp(lastPos, cam.transform.forward * weaponRange/*ray.GetPoint(weaponRange)*/, lerpSpeed * Time.fixedDeltaTime);
+            target.transform.position = Vector3.Lerp(lastPos, cam.transform.forward * weaponRange, lerpSpeed * Time.fixedDeltaTime);
         }
     }
 }

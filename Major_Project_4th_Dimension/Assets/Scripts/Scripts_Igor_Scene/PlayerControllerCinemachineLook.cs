@@ -32,8 +32,7 @@ public class PlayerControllerCinemachineLook : MonoBehaviour
     [Header("Other Stuff")]
     public Animator animator;
     private Vector2 m_Move;
-    public Transform aimTarget;
-    public float aimTargetDistance = 20f;
+
 
     [HideInInspector]
     public State currentState;
@@ -89,7 +88,7 @@ public class PlayerControllerCinemachineLook : MonoBehaviour
                 break;
 
         }
-       // aimTarget.position = cam.transform.position + cam.transform.forward * aimTargetDistance;
+
     }
 
     // Update is called once per frame

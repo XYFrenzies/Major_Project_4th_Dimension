@@ -11,11 +11,19 @@ public class SwitchCam : MonoBehaviour
     private CinemachineVirtualCamera virtualCamera;
     private InputAction aimAction;
     private int priorityBoostAMount = 10;
+    public float lerpDuration = 0.3f;
+    public float startValue = 0;
+    public float endValue = 1;
+    float layerWeight = 0f;
+    bool isAimOn = false;
+
     // Start is called before the first frame update
     private void Awake()
     {
         virtualCamera = GetComponent<CinemachineVirtualCamera>();
         aimAction = playerInput.actions["Aim"];
+        anim.SetLayerWeight(0, 1f);
+        anim.SetLayerWeight(1, 0f);
     }
 
     private void OnEnable()
@@ -32,15 +40,36 @@ public class SwitchCam : MonoBehaviour
 
     public void StartAim()
     {
-        anim.SetBool("IsAiming", true);
+        isAimOn = true;
+        StartCoroutine(LerpLayerWeight());
         virtualCamera.Priority += priorityBoostAMount;
     }
 
     public void StopAim()
     {
-        anim.SetBool("IsAiming", false);
+        isAimOn = false;
+        StartCoroutine(LerpLayerWeight());
 
         virtualCamera.Priority -= priorityBoostAMount;
 
     }
+
+    IEnumerator LerpLayerWeight()
+    {
+        float timeElapsed = 0f;
+
+        while (timeElapsed < lerpDuration)
+        {
+            layerWeight = Mathf.Lerp(isAimOn ? startValue : endValue, isAimOn ? endValue : startValue, timeElapsed / lerpDuration);
+            anim.SetLayerWeight(1, layerWeight);
+            timeElapsed += Time.deltaTime;
+
+            yield return null;
+        }
+
+        layerWeight = isAimOn ? endValue : startValue;
+        anim.SetLayerWeight(1, layerWeight);
+
+    }
+
 }
