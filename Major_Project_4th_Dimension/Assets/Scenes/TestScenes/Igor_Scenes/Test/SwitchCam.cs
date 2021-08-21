@@ -49,7 +49,6 @@ public class SwitchCam : MonoBehaviour
     {
         isAimOn = false;
         StartCoroutine(LerpLayerWeight());
-
         virtualCamera.Priority -= priorityBoostAMount;
 
     }
