@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Animations.Rigging;
 
 public class ChainShootStartAgain : MonoBehaviour
 {
 
     LineRenderer lineRenderer;
     public Animator anim;
+    public Rig rig;
 
     private Vector3 hookshotPosition;
 
