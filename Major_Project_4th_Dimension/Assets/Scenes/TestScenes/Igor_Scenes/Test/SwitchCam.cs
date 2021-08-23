@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Cinemachine;
+using UnityEngine.Animations.Rigging;
+
 
 public class SwitchCam : MonoBehaviour
 {
+    public Rig aimRig;
     public Animator anim;
     public PlayerInput playerInput;
     private CinemachineVirtualCamera virtualCamera;
@@ -60,14 +63,16 @@ public class SwitchCam : MonoBehaviour
         while (timeElapsed < lerpDuration)
         {
             layerWeight = Mathf.Lerp(isAimOn ? startValue : endValue, isAimOn ? endValue : startValue, timeElapsed / lerpDuration);
-            anim.SetLayerWeight(1, layerWeight);
+            //anim.SetLayerWeight(1, layerWeight);
+            aimRig.weight = layerWeight;
             timeElapsed += Time.deltaTime;
 
             yield return null;
         }
 
         layerWeight = isAimOn ? endValue : startValue;
-        anim.SetLayerWeight(1, layerWeight);
+        //anim.SetLayerWeight(1, layerWeight);
+        aimRig.weight = layerWeight;
 
     }
 
