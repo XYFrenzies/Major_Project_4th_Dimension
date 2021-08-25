@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 5039.4727, g: 4805.3047, b: 4673.4316, a: 1}
+  m_IndirectSpecularColor: {r: 5042.3315, g: 4808.506, b: 4677.6855, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 0ca8a15aba38c1e47be053be699d10f3, type: 2}
-  m_LightingSettings: {fileID: 4890085278179872738, guid: 486562f578281f84aad2a793695cd058, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: ee2d11691bfc5384b89d821ffe96a394, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2293,11 +2293,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 83985342}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.403, y: 0.946, z: 3.355}
+  m_LocalPosition: {x: 5.79, y: 0.946, z: 0.82}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1785223306}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &83985344
 MonoBehaviour:
@@ -2754,6 +2754,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -113.142
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5ceeedbde10faba448ce31328a064d2b, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5ceeedbde10faba448ce31328a064d2b, type: 3}
+      propertyPath: m_LightmapParameters
+      value: 
+      objectReference: {fileID: 15200, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 919132149155446097, guid: 5ceeedbde10faba448ce31328a064d2b, type: 3}
       propertyPath: m_Name
       value: SM_ivy (12)
@@ -2957,6 +2965,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -262.176
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5ceeedbde10faba448ce31328a064d2b, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5ceeedbde10faba448ce31328a064d2b, type: 3}
+      propertyPath: m_LightmapParameters
+      value: 
+      objectReference: {fileID: 15200, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 919132149155446097, guid: 5ceeedbde10faba448ce31328a064d2b, type: 3}
       propertyPath: m_Name
       value: SM_ivy (3)
@@ -5561,6 +5577,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 7cea0457c104e1e4ba12cea707a5c29b, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 7cea0457c104e1e4ba12cea707a5c29b, type: 3}
+      propertyPath: m_LightmapParameters
+      value: 
+      objectReference: {fileID: 15200, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 919132149155446097, guid: 7cea0457c104e1e4ba12cea707a5c29b, type: 3}
       propertyPath: m_Name
       value: SM_grass_var02_LOD0 (6)
@@ -5627,6 +5651,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -298.491
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5ceeedbde10faba448ce31328a064d2b, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5ceeedbde10faba448ce31328a064d2b, type: 3}
+      propertyPath: m_LightmapParameters
+      value: 
+      objectReference: {fileID: 15200, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 919132149155446097, guid: 5ceeedbde10faba448ce31328a064d2b, type: 3}
       propertyPath: m_Name
       value: SM_ivy (7)
@@ -5978,6 +6010,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 934717781169d4f46a49b74ca6920608, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 934717781169d4f46a49b74ca6920608, type: 3}
+      propertyPath: m_LightmapParameters
+      value: 
+      objectReference: {fileID: 15200, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 919132149155446097, guid: 934717781169d4f46a49b74ca6920608, type: 3}
       propertyPath: m_Name
       value: SM_grass_var01_LOD0 (1)
@@ -6114,6 +6154,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 7cea0457c104e1e4ba12cea707a5c29b, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 7cea0457c104e1e4ba12cea707a5c29b, type: 3}
+      propertyPath: m_LightmapParameters
+      value: 
+      objectReference: {fileID: 15200, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 919132149155446097, guid: 7cea0457c104e1e4ba12cea707a5c29b, type: 3}
       propertyPath: m_Name
       value: SM_grass_var02_LOD0 (1)
@@ -6277,6 +6325,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -249.925
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5ceeedbde10faba448ce31328a064d2b, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5ceeedbde10faba448ce31328a064d2b, type: 3}
+      propertyPath: m_LightmapParameters
+      value: 
+      objectReference: {fileID: 15200, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 919132149155446097, guid: 5ceeedbde10faba448ce31328a064d2b, type: 3}
       propertyPath: m_Name
       value: SM_ivy (8)
@@ -7278,6 +7334,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -6.054
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 7cea0457c104e1e4ba12cea707a5c29b, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 7cea0457c104e1e4ba12cea707a5c29b, type: 3}
+      propertyPath: m_LightmapParameters
+      value: 
+      objectReference: {fileID: 15200, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 919132149155446097, guid: 7cea0457c104e1e4ba12cea707a5c29b, type: 3}
       propertyPath: m_Name
       value: SM_grass_var02_LOD0 (8)
@@ -7344,32 +7408,32 @@ Transform:
   - {fileID: 1480234294}
   - {fileID: 2132815101}
   - {fileID: 2031977754}
+  - {fileID: 924581759}
   - {fileID: 1395226949}
   - {fileID: 59599244}
   - {fileID: 1984875397}
+  - {fileID: 1304371891}
   - {fileID: 1555097417}
   - {fileID: 1379655361}
+  - {fileID: 1650488590}
   - {fileID: 174599746}
   - {fileID: 1641685814}
+  - {fileID: 1799915192}
   - {fileID: 118533737}
+  - {fileID: 1697472734}
   - {fileID: 832104983}
+  - {fileID: 1285061122}
   - {fileID: 829830652}
   - {fileID: 121738014}
   - {fileID: 442112548}
   - {fileID: 678100817}
-  - {fileID: 1285061122}
+  - {fileID: 323408593}
   - {fileID: 469298402}
   - {fileID: 868197550}
   - {fileID: 939696530}
   - {fileID: 2088714289}
   - {fileID: 1407090153}
   - {fileID: 1850720227}
-  - {fileID: 1304371891}
-  - {fileID: 1650488590}
-  - {fileID: 1799915192}
-  - {fileID: 1697472734}
-  - {fileID: 924581759}
-  - {fileID: 323408593}
   - {fileID: 77035969}
   - {fileID: 2001548109}
   - {fileID: 2040400463}
@@ -20983,6 +21047,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 92.015
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5ceeedbde10faba448ce31328a064d2b, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5ceeedbde10faba448ce31328a064d2b, type: 3}
+      propertyPath: m_LightmapParameters
+      value: 
+      objectReference: {fileID: 15200, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 919132149155446097, guid: 5ceeedbde10faba448ce31328a064d2b, type: 3}
       propertyPath: m_Name
       value: SM_ivy (11)
@@ -24490,6 +24562,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 7cea0457c104e1e4ba12cea707a5c29b, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 7cea0457c104e1e4ba12cea707a5c29b, type: 3}
+      propertyPath: m_LightmapParameters
+      value: 
+      objectReference: {fileID: 15200, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 919132149155446097, guid: 7cea0457c104e1e4ba12cea707a5c29b, type: 3}
       propertyPath: m_Name
       value: SM_grass_var02_LOD0 (2)
@@ -24711,6 +24791,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 6.457
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 934717781169d4f46a49b74ca6920608, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 934717781169d4f46a49b74ca6920608, type: 3}
+      propertyPath: m_LightmapParameters
+      value: 
+      objectReference: {fileID: 15200, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 919132149155446097, guid: 934717781169d4f46a49b74ca6920608, type: 3}
       propertyPath: m_Name
       value: SM_grass_var01_LOD0 (2)
@@ -24834,6 +24922,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 2.554
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 934717781169d4f46a49b74ca6920608, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 934717781169d4f46a49b74ca6920608, type: 3}
+      propertyPath: m_LightmapParameters
+      value: 
+      objectReference: {fileID: 15200, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 919132149155446097, guid: 934717781169d4f46a49b74ca6920608, type: 3}
       propertyPath: m_Name
       value: SM_grass_var01_LOD0 (3)
@@ -24889,7 +24985,7 @@ Transform:
   - {fileID: 1338746563}
   - {fileID: 1815365042}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &543894995
 PrefabInstance:
@@ -25396,7 +25492,7 @@ Transform:
   m_LocalScale: {x: 0.6288344, y: 0.4232865, z: 0.4232865}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: -87.389, z: 0}
 --- !u!54 &547846963
 Rigidbody:
@@ -25695,6 +25791,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 93.646
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5ceeedbde10faba448ce31328a064d2b, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5ceeedbde10faba448ce31328a064d2b, type: 3}
+      propertyPath: m_LightmapParameters
+      value: 
+      objectReference: {fileID: 15200, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 919132149155446097, guid: 5ceeedbde10faba448ce31328a064d2b, type: 3}
       propertyPath: m_Name
       value: SM_ivy (17)
@@ -26609,7 +26713,7 @@ MonoBehaviour:
     m_ObsoleteBoxInfiniteProjection: 0
     m_Shape: 1
     m_BoxSize: {x: 15, y: 15, z: 15}
-    m_SphereRadius: 15
+    m_SphereRadius: 10
 --- !u!4 &622581856
 Transform:
   m_ObjectHideFlags: 0
@@ -26618,11 +26722,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 622581854}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.8, y: 0.76, z: 2.22}
+  m_LocalPosition: {x: 1.3, y: 1.17, z: 0.77}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_Father: {fileID: 1785223306}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &625968895
 PrefabInstance:
@@ -28835,6 +28939,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -72.095
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5ceeedbde10faba448ce31328a064d2b, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5ceeedbde10faba448ce31328a064d2b, type: 3}
+      propertyPath: m_LightmapParameters
+      value: 
+      objectReference: {fileID: 15200, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 919132149155446097, guid: 5ceeedbde10faba448ce31328a064d2b, type: 3}
       propertyPath: m_Name
       value: SM_ivy (1)
@@ -30047,8 +30159,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 1fa1cecc770aa12429d66ce60686f9b1, type: 3}
       propertyPath: m_ReceiveGI
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 1fa1cecc770aa12429d66ce60686f9b1, type: 3}
+      propertyPath: m_LightmapParameters
+      value: 
+      objectReference: {fileID: 15200, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 919132149155446097, guid: 1fa1cecc770aa12429d66ce60686f9b1, type: 3}
       propertyPath: m_Name
       value: SM_flower_var01_LOD0
@@ -31120,6 +31236,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 1fa1cecc770aa12429d66ce60686f9b1, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 1fa1cecc770aa12429d66ce60686f9b1, type: 3}
+      propertyPath: m_LightmapParameters
+      value: 
+      objectReference: {fileID: 15200, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 919132149155446097, guid: 1fa1cecc770aa12429d66ce60686f9b1, type: 3}
       propertyPath: m_Name
       value: SM_flower_var01_LOD0 (2)
@@ -32217,7 +32341,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3517149635305087522, guid: b8a38c458e38ce44089a4211f62674ae, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 3517149635305087522, guid: b8a38c458e38ce44089a4211f62674ae, type: 3}
       propertyPath: m_LocalPosition.x
@@ -32516,7 +32640,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &844461685
 PrefabInstance:
@@ -32639,6 +32763,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 934717781169d4f46a49b74ca6920608, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 934717781169d4f46a49b74ca6920608, type: 3}
+      propertyPath: m_LightmapParameters
+      value: 
+      objectReference: {fileID: 15200, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 919132149155446097, guid: 934717781169d4f46a49b74ca6920608, type: 3}
       propertyPath: m_Name
       value: SM_grass_var01_LOD0 (5)
@@ -32841,6 +32973,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -287.25598
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5ceeedbde10faba448ce31328a064d2b, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5ceeedbde10faba448ce31328a064d2b, type: 3}
+      propertyPath: m_LightmapParameters
+      value: 
+      objectReference: {fileID: 15200, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 919132149155446097, guid: 5ceeedbde10faba448ce31328a064d2b, type: 3}
       propertyPath: m_Name
       value: SM_ivy (5)
@@ -38138,6 +38278,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 7cea0457c104e1e4ba12cea707a5c29b, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 7cea0457c104e1e4ba12cea707a5c29b, type: 3}
+      propertyPath: m_LightmapParameters
+      value: 
+      objectReference: {fileID: 15200, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 919132149155446097, guid: 7cea0457c104e1e4ba12cea707a5c29b, type: 3}
       propertyPath: m_Name
       value: SM_grass_var02_LOD0 (5)
@@ -38475,6 +38623,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -311.973
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5ceeedbde10faba448ce31328a064d2b, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5ceeedbde10faba448ce31328a064d2b, type: 3}
+      propertyPath: m_LightmapParameters
+      value: 
+      objectReference: {fileID: 15200, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 919132149155446097, guid: 5ceeedbde10faba448ce31328a064d2b, type: 3}
       propertyPath: m_Name
       value: SM_ivy (4)
@@ -38841,6 +38997,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -9.122
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 934717781169d4f46a49b74ca6920608, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 934717781169d4f46a49b74ca6920608, type: 3}
+      propertyPath: m_LightmapParameters
+      value: 
+      objectReference: {fileID: 15200, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 919132149155446097, guid: 934717781169d4f46a49b74ca6920608, type: 3}
       propertyPath: m_Name
       value: SM_grass_var01_LOD0
@@ -39978,6 +40142,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -267.944
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5ceeedbde10faba448ce31328a064d2b, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5ceeedbde10faba448ce31328a064d2b, type: 3}
+      propertyPath: m_LightmapParameters
+      value: 
+      objectReference: {fileID: 15200, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 919132149155446097, guid: 5ceeedbde10faba448ce31328a064d2b, type: 3}
       propertyPath: m_Name
       value: SM_ivy (14)
@@ -41176,6 +41348,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -297.174
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5ceeedbde10faba448ce31328a064d2b, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5ceeedbde10faba448ce31328a064d2b, type: 3}
+      propertyPath: m_LightmapParameters
+      value: 
+      objectReference: {fileID: 15200, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 919132149155446097, guid: 5ceeedbde10faba448ce31328a064d2b, type: 3}
       propertyPath: m_Name
       value: SM_ivy (15)
@@ -41621,11 +41801,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1225446649}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.68, y: 1.769, z: 3.041765}
+  m_LocalPosition: {x: 2.97, y: 4.08, z: 3.041765}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1785223306}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1236490248
 PrefabInstance:
@@ -43542,6 +43722,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -242.764
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5ceeedbde10faba448ce31328a064d2b, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5ceeedbde10faba448ce31328a064d2b, type: 3}
+      propertyPath: m_LightmapParameters
+      value: 
+      objectReference: {fileID: 15200, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 919132149155446097, guid: 5ceeedbde10faba448ce31328a064d2b, type: 3}
       propertyPath: m_Name
       value: SM_ivy (9)
@@ -44616,6 +44804,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.264
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 7cea0457c104e1e4ba12cea707a5c29b, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 7cea0457c104e1e4ba12cea707a5c29b, type: 3}
+      propertyPath: m_LightmapParameters
+      value: 
+      objectReference: {fileID: 15200, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 919132149155446097, guid: 7cea0457c104e1e4ba12cea707a5c29b, type: 3}
       propertyPath: m_Name
       value: SM_grass_var02_LOD0 (11)
@@ -44682,6 +44878,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 98.251
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5ceeedbde10faba448ce31328a064d2b, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5ceeedbde10faba448ce31328a064d2b, type: 3}
+      propertyPath: m_LightmapParameters
+      value: 
+      objectReference: {fileID: 15200, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 919132149155446097, guid: 5ceeedbde10faba448ce31328a064d2b, type: 3}
       propertyPath: m_Name
       value: SM_ivy (16)
@@ -46840,6 +47044,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 7cea0457c104e1e4ba12cea707a5c29b, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 7cea0457c104e1e4ba12cea707a5c29b, type: 3}
+      propertyPath: m_LightmapParameters
+      value: 
+      objectReference: {fileID: 15200, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 919132149155446097, guid: 7cea0457c104e1e4ba12cea707a5c29b, type: 3}
       propertyPath: m_Name
       value: SM_grass_var02_LOD0 (4)
@@ -46967,6 +47179,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 934717781169d4f46a49b74ca6920608, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 934717781169d4f46a49b74ca6920608, type: 3}
+      propertyPath: m_LightmapParameters
+      value: 
+      objectReference: {fileID: 15200, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 919132149155446097, guid: 934717781169d4f46a49b74ca6920608, type: 3}
       propertyPath: m_Name
       value: SM_grass_var01_LOD0 (3)
@@ -49260,6 +49480,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -482.28
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5ceeedbde10faba448ce31328a064d2b, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5ceeedbde10faba448ce31328a064d2b, type: 3}
+      propertyPath: m_LightmapParameters
+      value: 
+      objectReference: {fileID: 15200, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 919132149155446097, guid: 5ceeedbde10faba448ce31328a064d2b, type: 3}
       propertyPath: m_Name
       value: SM_ivy (6)
@@ -49500,7 +49728,7 @@ Transform:
   m_LocalScale: {x: 1.6902, y: 1.6902, z: 1.6902}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: -105.723, z: 0}
 --- !u!1 &1406204827
 GameObject:
@@ -49596,7 +49824,7 @@ Transform:
   m_LocalScale: {x: 0.49114, y: 0.49114, z: 0.49114}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 38.573, z: 0}
 --- !u!54 &1406204832
 Rigidbody:
@@ -50074,7 +50302,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1476912868
 PrefabInstance:
@@ -50127,6 +50355,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5ceeedbde10faba448ce31328a064d2b, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5ceeedbde10faba448ce31328a064d2b, type: 3}
+      propertyPath: m_LightmapParameters
+      value: 
+      objectReference: {fileID: 15200, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 919132149155446097, guid: 5ceeedbde10faba448ce31328a064d2b, type: 3}
       propertyPath: m_Name
       value: SM_ivy (10)
@@ -50633,6 +50869,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.264
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 7cea0457c104e1e4ba12cea707a5c29b, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 7cea0457c104e1e4ba12cea707a5c29b, type: 3}
+      propertyPath: m_LightmapParameters
+      value: 
+      objectReference: {fileID: 15200, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 919132149155446097, guid: 7cea0457c104e1e4ba12cea707a5c29b, type: 3}
       propertyPath: m_Name
       value: SM_grass_var02_LOD0 (10)
@@ -50691,7 +50935,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1523937978
 PrefabInstance:
@@ -50814,6 +51058,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 934717781169d4f46a49b74ca6920608, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 934717781169d4f46a49b74ca6920608, type: 3}
+      propertyPath: m_LightmapParameters
+      value: 
+      objectReference: {fileID: 15200, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 919132149155446097, guid: 934717781169d4f46a49b74ca6920608, type: 3}
       propertyPath: m_Name
       value: SM_grass_var01_LOD0
@@ -50903,7 +51155,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: ecae1fb8f109ccc45825d64a7babb03a, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ecae1fb8f109ccc45825d64a7babb03a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -51146,6 +51398,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -71.428
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5ceeedbde10faba448ce31328a064d2b, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5ceeedbde10faba448ce31328a064d2b, type: 3}
+      propertyPath: m_LightmapParameters
+      value: 
+      objectReference: {fileID: 15200, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 919132149155446097, guid: 5ceeedbde10faba448ce31328a064d2b, type: 3}
       propertyPath: m_Name
       value: SM_ivy (18)
@@ -51260,8 +51520,8 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.9339623, g: 0.93026036, b: 0.8502581, a: 1}
-  m_Intensity: 62212.504
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 108841.58
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -51300,11 +51560,11 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 2
   m_AreaSize: {x: 0.5, y: 0.5}
   m_BounceIntensity: 1
-  m_ColorTemperature: 4000
+  m_ColorTemperature: 5200
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0.013216235, z: 4.5905e-41, w: 0}
   m_UseBoundingSphereOverride: 0
@@ -51318,13 +51578,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1631024283}
-  m_LocalRotation: {x: -0.0012324447, y: -0.7217106, z: 0.5700295, w: -0.39268136}
+  m_LocalRotation: {x: 0.2488401, y: -0.82081294, z: 0.5128502, w: -0.036461625}
   m_LocalPosition: {x: 2.69, y: 6.3, z: 2.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 55.463, y: -265.778, z: -51.86}
+  m_LocalEulerAnglesHint: {x: 55.463, y: -213.764, z: -51.861}
 --- !u!114 &1631024286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51345,13 +51605,13 @@ MonoBehaviour:
   m_PointlightHDType: 0
   m_SpotLightShape: 0
   m_AreaLightShape: 0
-  m_Intensity: 62212.504
+  m_Intensity: 108841.58
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
   m_SpotIESCutoffPercent: 100
   m_LightDimmer: 1
-  m_VolumetricDimmer: 10
+  m_VolumetricDimmer: 1
   m_LightUnit: 2
   m_FadeDistance: 10000
   m_VolumetricFadeDistance: 10000
@@ -51407,7 +51667,7 @@ MonoBehaviour:
   m_ShadowResolution:
     m_Override: 512
     m_UseOverride: 0
-    m_Level: 2
+    m_Level: 3
   m_ShadowDimmer: 1
   m_VolumetricShadowDimmer: 1
   m_ShadowFadeDistance: 10000
@@ -51974,6 +52234,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -11.558
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 7cea0457c104e1e4ba12cea707a5c29b, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 7cea0457c104e1e4ba12cea707a5c29b, type: 3}
+      propertyPath: m_LightmapParameters
+      value: 
+      objectReference: {fileID: 15200, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 919132149155446097, guid: 7cea0457c104e1e4ba12cea707a5c29b, type: 3}
       propertyPath: m_Name
       value: SM_grass_var02_LOD0 (9)
@@ -52015,11 +52283,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1662136102}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.341, y: 1.165, z: 5.552}
+  m_LocalPosition: {x: 1.44, y: 1.165, z: 6.78}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1785223306}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1662136104
 MonoBehaviour:
@@ -53582,6 +53850,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 15.142
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 934717781169d4f46a49b74ca6920608, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 934717781169d4f46a49b74ca6920608, type: 3}
+      propertyPath: m_LightmapParameters
+      value: 
+      objectReference: {fileID: 15200, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 919132149155446097, guid: 934717781169d4f46a49b74ca6920608, type: 3}
       propertyPath: m_Name
       value: SM_grass_var01_LOD0 (4)
@@ -53648,6 +53924,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 7cea0457c104e1e4ba12cea707a5c29b, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 7cea0457c104e1e4ba12cea707a5c29b, type: 3}
+      propertyPath: m_LightmapParameters
+      value: 
+      objectReference: {fileID: 15200, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 919132149155446097, guid: 7cea0457c104e1e4ba12cea707a5c29b, type: 3}
       propertyPath: m_Name
       value: SM_grass_var02_LOD0 (3)
@@ -53714,6 +53998,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -113.142
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5ceeedbde10faba448ce31328a064d2b, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5ceeedbde10faba448ce31328a064d2b, type: 3}
+      propertyPath: m_LightmapParameters
+      value: 
+      objectReference: {fileID: 15200, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 919132149155446097, guid: 5ceeedbde10faba448ce31328a064d2b, type: 3}
       propertyPath: m_Name
       value: SM_ivy (13)
@@ -53761,6 +54053,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 622581856}
   - {fileID: 1225446652}
   - {fileID: 83985343}
   - {fileID: 1975277816}
@@ -54644,6 +54937,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5ceeedbde10faba448ce31328a064d2b, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5ceeedbde10faba448ce31328a064d2b, type: 3}
+      propertyPath: m_LightmapParameters
+      value: 
+      objectReference: {fileID: 15200, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 919132149155446097, guid: 5ceeedbde10faba448ce31328a064d2b, type: 3}
       propertyPath: m_Name
       value: SM_ivy
@@ -55000,6 +55301,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 1fa1cecc770aa12429d66ce60686f9b1, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 1fa1cecc770aa12429d66ce60686f9b1, type: 3}
+      propertyPath: m_LightmapParameters
+      value: 
+      objectReference: {fileID: 15200, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 919132149155446097, guid: 1fa1cecc770aa12429d66ce60686f9b1, type: 3}
       propertyPath: m_Name
       value: SM_flower_var01_LOD0 (1)
@@ -57408,11 +57717,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1975277815}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.038, y: 0.946, z: -0.346}
+  m_LocalPosition: {x: -0.09, y: 1.56, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1785223306}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1975277817
 MonoBehaviour:
@@ -58005,6 +58314,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -13.488
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 7cea0457c104e1e4ba12cea707a5c29b, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 7cea0457c104e1e4ba12cea707a5c29b, type: 3}
+      propertyPath: m_LightmapParameters
+      value: 
+      objectReference: {fileID: 15200, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 919132149155446097, guid: 7cea0457c104e1e4ba12cea707a5c29b, type: 3}
       propertyPath: m_Name
       value: SM_grass_var02_LOD0 (7)
@@ -59255,6 +59572,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 7cea0457c104e1e4ba12cea707a5c29b, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 7cea0457c104e1e4ba12cea707a5c29b, type: 3}
+      propertyPath: m_LightmapParameters
+      value: 
+      objectReference: {fileID: 15200, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 919132149155446097, guid: 7cea0457c104e1e4ba12cea707a5c29b, type: 3}
       propertyPath: m_Name
       value: SM_grass_var02_LOD0
@@ -59386,6 +59711,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 934717781169d4f46a49b74ca6920608, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 934717781169d4f46a49b74ca6920608, type: 3}
+      propertyPath: m_LightmapParameters
+      value: 
+      objectReference: {fileID: 15200, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 919132149155446097, guid: 934717781169d4f46a49b74ca6920608, type: 3}
       propertyPath: m_Name
       value: SM_grass_var01_LOD0 (2)
@@ -59550,7 +59883,7 @@ Camera:
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
-  m_FOVAxisMode: 0
+  m_FOVAxisMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
   m_FocalLength: 50
@@ -59562,7 +59895,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 57.423107
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -59801,7 +60134,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2075868702
 PrefabInstance:
@@ -59948,6 +60281,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -2.567
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 934717781169d4f46a49b74ca6920608, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 934717781169d4f46a49b74ca6920608, type: 3}
+      propertyPath: m_LightmapParameters
+      value: 
+      objectReference: {fileID: 15200, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 919132149155446097, guid: 934717781169d4f46a49b74ca6920608, type: 3}
       propertyPath: m_Name
       value: SM_grass_var01_LOD0 (1)
@@ -60878,6 +61219,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -119.083
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5ceeedbde10faba448ce31328a064d2b, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5ceeedbde10faba448ce31328a064d2b, type: 3}
+      propertyPath: m_LightmapParameters
+      value: 
+      objectReference: {fileID: 15200, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 919132149155446097, guid: 5ceeedbde10faba448ce31328a064d2b, type: 3}
       propertyPath: m_Name
       value: SM_ivy (2)
@@ -60975,7 +61324,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2098272987
 MonoBehaviour:
   m_ObjectHideFlags: 0
