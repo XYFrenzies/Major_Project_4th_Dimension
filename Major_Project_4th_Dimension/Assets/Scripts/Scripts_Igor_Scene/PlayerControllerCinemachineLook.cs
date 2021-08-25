@@ -146,6 +146,11 @@ public class PlayerControllerCinemachineLook : MonoBehaviour
             {
                 GameEvents.current.GrapplePointVisible(hit.collider.GetComponent<GrapplePoint>().id);
             }
+            else
+            {
+                GameEvents.current.GrapplePointNotVisible();
+
+            }
 
         }
         else
