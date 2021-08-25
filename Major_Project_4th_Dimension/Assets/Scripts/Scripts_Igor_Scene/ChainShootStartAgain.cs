@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Animations.Rigging;
 
 public class ChainShootStartAgain : MonoBehaviour
 {
-
+    public SwitchCam switchCam;
     LineRenderer lineRenderer;
     public Animator anim;
+    public Rig rig;
 
     private Vector3 hookshotPosition;
 
@@ -242,10 +244,10 @@ public class ChainShootStartAgain : MonoBehaviour
             //Debug.DrawLine(lineOrigin, cam.transform.forward * hookShotRange, Color.green);
 
         }
-
-        player.currentState = PlayerControllerCinemachineLook.State.HookShotThrown;
-        currentHookShotState = HookShotState.Throw;
-        anim.SetBool("IsShooting", true);
+        switchCam.StartShoot();
+        //player.currentState = PlayerControllerCinemachineLook.State.HookShotThrown;
+        //currentHookShotState = HookShotState.Throw;
+        //anim.SetBool("IsShooting", true);
     }
     public void HandleHookShotThrow()
     {
@@ -402,7 +404,7 @@ public class ChainShootStartAgain : MonoBehaviour
             player.currentState = PlayerControllerCinemachineLook.State.Normal;
             hand.gameObject.SetActive(false);
             anim.SetBool("IsShooting", false);
-
+            switchCam.StopShoot();
         }
     }
 

@@ -165,7 +165,7 @@ MonoBehaviour:
     maximumLODLevelMode: 0
     maximumLODLevelQualityLevel: 0
     sssQualityMode: 0
-    sssQualityLevel: 0
+    sssQualityLevel: 2
     sssCustomSampleBudget: 20
     materialQuality: 0
   m_RenderingPathDefaultBakedOrCustomReflectionFrameSettings:
@@ -197,11 +197,11 @@ MonoBehaviour:
     sssCustomSampleBudget: 20
     materialQuality: 0
   m_RenderPipelineSettings:
-    supportShadowMask: 0
-    supportSSR: 0
-    supportSSRTransparent: 0
+    supportShadowMask: 1
+    supportSSR: 1
+    supportSSRTransparent: 1
     supportSSAO: 1
-    supportSSGI: 0
+    supportSSGI: 1
     supportSubsurfaceScattering: 1
     sssSampleBudget:
       m_Values: 140000002800000050000000
@@ -261,7 +261,7 @@ MonoBehaviour:
       reflectionCubemapSize: 256
       reflectionCacheCompressed: 1
       reflectionProbeFormat: 74
-      skyReflectionSize: 512
+      skyReflectionSize: 1024
       skyLightingOverrideLayerMask:
         serializedVersion: 2
         m_Bits: 0
@@ -276,7 +276,7 @@ MonoBehaviour:
     hdShadowInitParams:
       maxShadowRequests: 128
       directionalShadowsDepthBits: 16
-      shadowFilteringQuality: 1
+      shadowFilteringQuality: 2
       punctualLightShadowAtlas:
         shadowAtlasResolution: 4096
         shadowAtlasDepthBits: 16

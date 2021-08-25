@@ -10,9 +10,13 @@ Purpose:	        Draws a line in scene view to show the ray from the player
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class AimTargetMove : MonoBehaviour
 {
+    public PlayerInput playerInput;
+    private InputAction lookAction;
+    private Vector2 mouseInput;
 
     public float weaponRange = 200.0f;
     private Camera cam;
@@ -21,14 +25,17 @@ public class AimTargetMove : MonoBehaviour
     public float lerpSpeed = 10.0f;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         cam = Camera.main;
+        lookAction = playerInput.actions["Look"];
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        mouseInput = lookAction.ReadValue<Vector2>();
+
         Vector3 lastPos = target.transform.position;
 
         Vector3 rayOrigin = cam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
@@ -43,9 +50,7 @@ public class AimTargetMove : MonoBehaviour
         }
         else // Makes the target sphere float at a point along the ray at a distance
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            Physics.Raycast(ray, out hit, weaponRange);
-            target.transform.position = Vector3.Lerp(lastPos, ray.GetPoint(weaponRange), lerpSpeed * Time.fixedDeltaTime);
+            target.transform.position = Vector3.Lerp(lastPos, cam.transform.forward * weaponRange, lerpSpeed * Time.fixedDeltaTime);
         }
     }
 }
