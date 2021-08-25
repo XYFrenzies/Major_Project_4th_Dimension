@@ -2413,13 +2413,13 @@ MonoBehaviour:
       automaticScale: 1
       viewerScale: 1
     type: 0
-    mode: 1
+    mode: 0
     realtimeMode: 1
     lighting:
       multiplier: 1
       weight: 1
-      lightLayer: 1
-      fadeDistance: 10000
+      lightLayer: 255
+      fadeDistance: 40
       rangeCompressionFactor: 1
     influence:
       m_EditorAdvancedModeBlendDistancePositive: {x: 1, y: 1, z: 1}
@@ -2442,8 +2442,8 @@ MonoBehaviour:
       m_BoxBlendNormalDistanceNegative: {x: 0, y: 0, z: 0}
       m_BoxSideFadePositive: {x: 1, y: 1, z: 1}
       m_BoxSideFadeNegative: {x: 1, y: 1, z: 1}
-      m_SphereRadius: 3
-      m_SphereBlendDistance: 0
+      m_SphereRadius: 5
+      m_SphereBlendDistance: 2
       m_SphereBlendNormalDistance: 0
     proxy:
       m_CSVersion: 1
@@ -2580,7 +2580,7 @@ MonoBehaviour:
     camera:
       camera: 0
   m_ProxyVolume: {fileID: 622581855}
-  m_BakedTexture: {fileID: 8900000, guid: 08b9f0ec4e8e018439fb65e831bf69c1, type: 3}
+  m_BakedTexture: {fileID: 8900000, guid: a80d91c937af108419b8b548cc472b67, type: 3}
   m_CustomTexture: {fileID: 0}
   m_BakedRenderData:
     m_WorldToCameraRHS:
@@ -2685,7 +2685,7 @@ ReflectionProbe:
   m_TimeSlicingMode: 0
   m_Resolution: 128
   m_UpdateFrequency: 0
-  m_BoxSize: {x: 6, y: 6, z: 6}
+  m_BoxSize: {x: 10, y: 10, z: 10}
   m_BoxOffset: {x: 0, y: 0, z: 0}
   m_NearClip: 0.3
   m_FarClip: 1000
@@ -32628,6 +32628,15 @@ MonoBehaviour:
   - id: 0
     category: 0
     gameObject: {fileID: 1225446649}
+  - id: 1
+    category: 0
+    gameObject: {fileID: 1975277815}
+  - id: 2
+    category: 0
+    gameObject: {fileID: 83985342}
+  - id: 3
+    category: 0
+    gameObject: {fileID: 1662136102}
 --- !u!4 &839283829
 Transform:
   m_ObjectHideFlags: 19
@@ -41503,13 +41512,13 @@ MonoBehaviour:
       automaticScale: 1
       viewerScale: 1
     type: 0
-    mode: 1
+    mode: 0
     realtimeMode: 1
     lighting:
       multiplier: 1
       weight: 1
-      lightLayer: 1
-      fadeDistance: 10000
+      lightLayer: 255
+      fadeDistance: 40
       rangeCompressionFactor: 1
     influence:
       m_EditorAdvancedModeBlendDistancePositive: {x: 1, y: 1, z: 1}
@@ -41533,7 +41542,7 @@ MonoBehaviour:
       m_BoxSideFadePositive: {x: 1, y: 1, z: 1}
       m_BoxSideFadeNegative: {x: 1, y: 1, z: 1}
       m_SphereRadius: 15
-      m_SphereBlendDistance: 0
+      m_SphereBlendDistance: 1
       m_SphereBlendNormalDistance: 0
     proxy:
       m_CSVersion: 1
@@ -41670,7 +41679,7 @@ MonoBehaviour:
     camera:
       camera: 0
   m_ProxyVolume: {fileID: 622581855}
-  m_BakedTexture: {fileID: 8900000, guid: 08b9f0ec4e8e018439fb65e831bf69c1, type: 3}
+  m_BakedTexture: {fileID: 8900000, guid: 95b18dbf7548a8b41b2c0d9be153e4aa, type: 3}
   m_CustomTexture: {fileID: 0}
   m_BakedRenderData:
     m_WorldToCameraRHS:
@@ -52403,13 +52412,13 @@ MonoBehaviour:
       automaticScale: 1
       viewerScale: 1
     type: 0
-    mode: 1
+    mode: 0
     realtimeMode: 1
     lighting:
       multiplier: 1
       weight: 1
-      lightLayer: 1
-      fadeDistance: 10000
+      lightLayer: 255
+      fadeDistance: 40
       rangeCompressionFactor: 1
     influence:
       m_EditorAdvancedModeBlendDistancePositive: {x: 1, y: 1, z: 1}
@@ -52432,8 +52441,8 @@ MonoBehaviour:
       m_BoxBlendNormalDistanceNegative: {x: 0, y: 0, z: 0}
       m_BoxSideFadePositive: {x: 1, y: 1, z: 1}
       m_BoxSideFadeNegative: {x: 1, y: 1, z: 1}
-      m_SphereRadius: 3
-      m_SphereBlendDistance: 0
+      m_SphereRadius: 5
+      m_SphereBlendDistance: 2
       m_SphereBlendNormalDistance: 0
     proxy:
       m_CSVersion: 1
@@ -52570,7 +52579,7 @@ MonoBehaviour:
     camera:
       camera: 0
   m_ProxyVolume: {fileID: 622581855}
-  m_BakedTexture: {fileID: 8900000, guid: 08b9f0ec4e8e018439fb65e831bf69c1, type: 3}
+  m_BakedTexture: {fileID: 8900000, guid: 135600c5d825a154eba8173985e0350d, type: 3}
   m_CustomTexture: {fileID: 0}
   m_BakedRenderData:
     m_WorldToCameraRHS:
@@ -52675,7 +52684,7 @@ ReflectionProbe:
   m_TimeSlicingMode: 0
   m_Resolution: 128
   m_UpdateFrequency: 0
-  m_BoxSize: {x: 6, y: 6, z: 6}
+  m_BoxSize: {x: 10, y: 10, z: 10}
   m_BoxOffset: {x: 0, y: 0, z: 0}
   m_NearClip: 0.3
   m_FarClip: 1000
@@ -57837,13 +57846,13 @@ MonoBehaviour:
       automaticScale: 1
       viewerScale: 1
     type: 0
-    mode: 1
+    mode: 0
     realtimeMode: 1
     lighting:
       multiplier: 1
       weight: 1
-      lightLayer: 1
-      fadeDistance: 10000
+      lightLayer: 255
+      fadeDistance: 40
       rangeCompressionFactor: 1
     influence:
       m_EditorAdvancedModeBlendDistancePositive: {x: 1, y: 1, z: 1}
@@ -57866,8 +57875,8 @@ MonoBehaviour:
       m_BoxBlendNormalDistanceNegative: {x: 0, y: 0, z: 0}
       m_BoxSideFadePositive: {x: 1, y: 1, z: 1}
       m_BoxSideFadeNegative: {x: 1, y: 1, z: 1}
-      m_SphereRadius: 3
-      m_SphereBlendDistance: 0
+      m_SphereRadius: 5
+      m_SphereBlendDistance: 2
       m_SphereBlendNormalDistance: 0
     proxy:
       m_CSVersion: 1
@@ -58004,7 +58013,7 @@ MonoBehaviour:
     camera:
       camera: 0
   m_ProxyVolume: {fileID: 622581855}
-  m_BakedTexture: {fileID: 8900000, guid: 08b9f0ec4e8e018439fb65e831bf69c1, type: 3}
+  m_BakedTexture: {fileID: 8900000, guid: 190858bc4a42db940b5721bb1abe9d41, type: 3}
   m_CustomTexture: {fileID: 0}
   m_BakedRenderData:
     m_WorldToCameraRHS:
@@ -58109,7 +58118,7 @@ ReflectionProbe:
   m_TimeSlicingMode: 0
   m_Resolution: 128
   m_UpdateFrequency: 0
-  m_BoxSize: {x: 6, y: 6, z: 6}
+  m_BoxSize: {x: 10, y: 10, z: 10}
   m_BoxOffset: {x: 0, y: 0, z: 0}
   m_NearClip: 0.3
   m_FarClip: 1000
@@ -59895,7 +59904,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 57.423107
+  field of view: 60.869965
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
