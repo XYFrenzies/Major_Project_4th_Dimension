@@ -20,8 +20,10 @@ public class SwitchCam : MonoBehaviour
     public float startValue = 0;
     public float endValue = 1;
     float layerWeight = 0f;
-    bool isAimOn = false;
-    bool isStartShoot = false;
+    [HideInInspector]
+    public bool isAimOn = false;
+    [HideInInspector]
+    public bool isStartShoot = false;
 
     // Start is called before the first frame update
     private void Awake()
@@ -93,7 +95,12 @@ public class SwitchCam : MonoBehaviour
         if (isStartShoot)
         {
             player.currentState = PlayerControllerCinemachineLook.State.HookShotThrown;
-            chainShoot.currentHookShotState = ChainShootStartAgain.HookShotState.Throw;
+            if (!chainShoot.isObjectHeld)
+                chainShoot.currentHookShotState = ChainShootStartAgain.HookShotState.Throw;
+            else
+                chainShoot.currentHookShotState = ChainShootStartAgain.HookShotState.Place;
+
+            isAimOn = false;
         }
     }
 
