@@ -39,8 +39,8 @@ public class ChainShootStartAgain : MonoBehaviour
     public bool isObjectHeld = false;
 
     private bool pullCheck = false;
-
-    private bool pull = false;
+    [HideInInspector]
+    public bool pull = false;
     private bool pickup = false;
     [HideInInspector]
     public bool fly = false;

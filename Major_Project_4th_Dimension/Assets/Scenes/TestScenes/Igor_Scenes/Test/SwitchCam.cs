@@ -77,6 +77,8 @@ public class SwitchCam : MonoBehaviour
 
     IEnumerator LerpLayerWeight()
     {
+        if (chainShoot.currentHookShotState == ChainShootStartAgain.HookShotState.Pull)
+            yield break;
         float timeElapsed = 0f;
 
         while (timeElapsed < lerpDuration)
