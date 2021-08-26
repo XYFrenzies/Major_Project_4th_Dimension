@@ -42,6 +42,7 @@ public class PlayerControllerCinemachineLook : MonoBehaviour
     [HideInInspector]
     public Vector3 flyToTarget;
 
+    bool isHookThrown = false;
 
     public enum State
     {
@@ -73,13 +74,14 @@ public class PlayerControllerCinemachineLook : MonoBehaviour
             default:
             case State.Normal:
                 Look();
+                isHookThrown = false;
                 break;
 
             case State.HookShotThrown:
                 rb.velocity = Vector3.zero; // If player is moving while firing, player will continue to move for a short time.
                                             // This stops player from moving while hookshot if firing
                                             //chainShoot.HandleHookShotThrow();
-
+                isHookThrown = true;
                 break;
 
             case State.HookShotFlying:
@@ -131,7 +133,8 @@ public class PlayerControllerCinemachineLook : MonoBehaviour
 
     public void Look()
     {
-        transform.rotation = Quaternion.Euler(0, cam.transform.eulerAngles.y, 0);
+        if (!isHookThrown)
+            transform.rotation = Quaternion.Euler(0, cam.transform.eulerAngles.y, 0);
 
 
         Vector3 rayOrigin = cam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));

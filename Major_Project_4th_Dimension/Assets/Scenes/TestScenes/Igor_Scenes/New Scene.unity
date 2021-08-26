@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1478.8682, g: 1831.9521, b: 2425.4668, a: 1}
+  m_IndirectSpecularColor: {r: 3304.7012, g: 3214.0244, b: 3378, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1276,7 +1276,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Weight: 1
   m_Data:
-    m_ConstrainedObject: {fileID: 1041222307327758395}
+    m_ConstrainedObject: {fileID: 3524216190941556290}
     m_SourceObjects:
       m_Length: 1
       m_Item0:
@@ -1306,7 +1306,7 @@ MonoBehaviour:
     m_Offset: {x: 0, y: 0, z: 0}
     m_MinLimit: -180
     m_MaxLimit: 180
-    m_AimAxis: 4
+    m_AimAxis: 2
     m_UpAxis: 2
     m_WorldUpType: 0
     m_WorldUpObject: {fileID: 0}
@@ -4075,7 +4075,7 @@ MonoBehaviour:
     m_Offset: {x: 0, y: 0, z: 0}
     m_MinLimit: -180
     m_MaxLimit: 180
-    m_AimAxis: 4
+    m_AimAxis: 2
     m_UpAxis: 2
     m_WorldUpType: 0
     m_WorldUpObject: {fileID: 0}
@@ -5244,6 +5244,7 @@ MonoBehaviour:
   handStartPos: {fileID: 374670280}
   hookShotRange: 50
   currentHookShotState: 0
+  isObjectHeld: 0
   fly: 0
   grappleHandle: {fileID: 4420089562460233718, guid: 6f03739fc8325224b9481ec4268df3d6, type: 3}
   springJoint: {fileID: 2686730503993342941}
@@ -5479,6 +5480,7 @@ MonoBehaviour:
   handStartPos: {fileID: 1117659954}
   hookShotRange: 50
   currentHookShotState: 0
+  isObjectHeld: 0
   fly: 0
   grappleHandle: {fileID: 4420089562460233718, guid: 6f03739fc8325224b9481ec4268df3d6, type: 3}
   springJoint: {fileID: 1606364999}
@@ -5504,7 +5506,7 @@ LineRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ac7f5c2bcbee1b1468a3e10a62d375aa, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5535,8 +5537,8 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.025566101
-        value: 1
+        time: 0
+        value: 0.2719307
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -16645,6 +16647,8 @@ MonoBehaviour:
   lerpDuration: 0.3
   startValue: 0
   endValue: 1
+  isAimOn: 0
+  isStartShoot: 0
 --- !u!4 &4577929954665449175
 Transform:
   m_ObjectHideFlags: 0
@@ -23265,7 +23269,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7831275224780033234}
   m_LocalRotation: {x: 0.02616798, y: 0.02616798, z: -0.0006852327, w: 0.9993148}
-  m_LocalPosition: {x: 0.6621175, y: 1.7656513, z: -2.8360395}
+  m_LocalPosition: {x: 0.6627015, y: 1.7656513, z: -2.8360703}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7831275224449201528}
