@@ -10,7 +10,6 @@ class SeeThrough : CustomPass
 {
     public LayerMask seeThroughLayer = 1;
     public Material seeThroughMaterial = null;
-    public GameObject obj;
     [SerializeField, HideInInspector]
     Shader stencilShader;
 
@@ -61,7 +60,7 @@ class SeeThrough : CustomPass
         var result = new RendererListDesc(shaderTags, cullingResult, hdCamera.camera)
         {
             rendererConfiguration = PerObjectData.None,
-            renderQueueRange = RenderQueueRange.all,
+            renderQueueRange = new RenderQueueRange(0, 2225),
             sortingCriteria = SortingCriteria.BackToFront,
             excludeObjectMotionVectors = false,
             overrideMaterial = overrideMaterial,
