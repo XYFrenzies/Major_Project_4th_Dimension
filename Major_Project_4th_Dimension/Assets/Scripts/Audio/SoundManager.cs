@@ -5,7 +5,6 @@ using UnityEngine;
 public class SoundManager : Singleton<SoundManager>
 {
     private FMOD.Studio.EventInstance instance;
-
     public void Play2DSound(string soundLocation) 
     {
         instance = FMODUnity.RuntimeManager.CreateInstance(soundLocation);
