@@ -35,12 +35,12 @@ public class ChainShootStartAgain : MonoBehaviour
     [HideInInspector]
     public HookShotState currentHookShotState;
 
-
-    private bool isObjectHeld = false;
+    [HideInInspector]
+    public bool isObjectHeld = false;
 
     private bool pullCheck = false;
-
-    private bool pull = false;
+    [HideInInspector]
+    public bool pull = false;
     private bool pickup = false;
     [HideInInspector]
     public bool fly = false;
@@ -111,26 +111,31 @@ public class ChainShootStartAgain : MonoBehaviour
                 StationaryHand();
                 HandleHookShotThrow();
                 break;
+
             case HookShotState.Fly:
                 lineRenderer.enabled = true;
                 StationaryHand();
                 //HandleHookshotMovement();
                 break;
+
             case HookShotState.Pickup:
                 lineRenderer.enabled = true;
                 StationaryHand();
                 PickUp(objectToPickUpOrDrop);
                 break;
+
             case HookShotState.Pull:
                 lineRenderer.enabled = true;
                 StationaryHand();
                 PullObject(objectToPull);
                 break;
+
             case HookShotState.Place:
                 lineRenderer.enabled = true;
                 StationaryHand();
                 PlaceObject(hookshotPosition);
                 break;
+
             case HookShotState.ReturnHand:
                 lineRenderer.enabled = true;
                 StationaryHand();
@@ -140,7 +145,7 @@ public class ChainShootStartAgain : MonoBehaviour
                 //    ThrowObject();
                 //    break;
         }
-        Debug.Log(currentHookShotState);
+        //Debug.Log(currentHookShotState);
 
     }
 
@@ -178,8 +183,18 @@ public class ChainShootStartAgain : MonoBehaviour
 
             pickup = false;
             //place = true;
-            currentHookShotState = HookShotState.Place;
-            player.currentState = PlayerControllerCinemachineLook.State.HookShotThrown;
+            //currentHookShotState = HookShotState.Place;
+            //player.currentState = PlayerControllerCinemachineLook.State.HookShotThrown;
+            if (switchCam.isAimOn) // arm already up
+            {
+                player.currentState = PlayerControllerCinemachineLook.State.HookShotThrown;
+                currentHookShotState = HookShotState.Place;
+            }
+            else // arm is down. Needs to go up first to then be able to fire hookshot
+            {
+
+                switchCam.StartShoot();
+            }
             return;
         }
         //Debug.DrawRay(shootPoint.position, ray.direction * 50f, Color.red, 2f);
@@ -244,9 +259,17 @@ public class ChainShootStartAgain : MonoBehaviour
             //Debug.DrawLine(lineOrigin, cam.transform.forward * hookShotRange, Color.green);
 
         }
-        switchCam.StartShoot();
-        //player.currentState = PlayerControllerCinemachineLook.State.HookShotThrown;
-        //currentHookShotState = HookShotState.Throw;
+        if (switchCam.isAimOn) // arm already up
+        {
+
+            player.currentState = PlayerControllerCinemachineLook.State.HookShotThrown;
+            currentHookShotState = HookShotState.Throw;
+        }
+        else // arm is down. Needs to go up first to then be able to fire hookshot
+        {
+
+            switchCam.StartShoot();
+        }
         //anim.SetBool("IsShooting", true);
     }
     public void HandleHookShotThrow()
@@ -404,7 +427,11 @@ public class ChainShootStartAgain : MonoBehaviour
             player.currentState = PlayerControllerCinemachineLook.State.Normal;
             hand.gameObject.SetActive(false);
             anim.SetBool("IsShooting", false);
-            switchCam.StopShoot();
+            if (!switchCam.isAimOn) // if player is not still aiming, put the arm down
+            {
+                switchCam.StopShoot();
+
+            }
         }
     }
 
