@@ -22,7 +22,7 @@ public class ConveyorBelt : MonoBehaviour
         endPointBackward = transform.Find("Backward").gameObject;
         endPointForward = transform.Find("Forward").gameObject;
     }
-    void Update()
+    private void Update()
     {
         float OffsetX = Time.time * m_scrollX;
         float OffsetY = Time.time * m_scrollY;
