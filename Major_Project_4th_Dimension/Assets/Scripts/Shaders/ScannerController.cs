@@ -6,10 +6,7 @@ using UnityEngine.Rendering;
 using UnityEngine.Rendering.HighDefinition;
 public class ScannerController : MonoBehaviour
 {
-    public PlayerInput playerInput;
-    private InputAction scannerAction;
-
-    [SerializeField] private bool m_scanGreyScale = false;
+    [SerializeField]private PlayerInput playerInput;
     [SerializeField] private Transform m_scanLocation = null;
     [SerializeField] private Material material = null;
     [SerializeField] private Volume volume = null;
@@ -17,9 +14,11 @@ public class ScannerController : MonoBehaviour
     [SerializeField] private Vector2 m_colourValueEnd;
     [SerializeField] private float m_speed = 40.0f;
     [SerializeField] private float m_timeToScan = 5.0f;
+    [SerializeField] private bool m_scanGreyScale = false;
     private VolumeProfile profile;
     private TextureCurve originalTex;
     private TextureCurve newTex;
+    private InputAction scannerAction;
     private float m_scanDistance;
     private bool m_scanning = false;
     private bool m_hasBeganScanning = false;
@@ -54,7 +53,7 @@ public class ScannerController : MonoBehaviour
         }
     }
 
-    void Update()
+    private void Update()
     {
         if (m_scanning)
         {
@@ -142,19 +141,3 @@ public class ScannerController : MonoBehaviour
         }
     }
 }
-
-
-//Checking if the keybind for the scanner has been pressed.
-//public void Scanner(InputAction.CallbackContext context)
-//{
-//    if (context.phase != InputActionPhase.Performed)
-//    {
-//        return;
-//    }
-//    if (!m_scanning)
-//    {
-//        m_scanning = true;
-//        m_scanDistance = 3;
-//        material.SetFloat("_ScanDistance", m_scanDistance);
-//    }
-//}
