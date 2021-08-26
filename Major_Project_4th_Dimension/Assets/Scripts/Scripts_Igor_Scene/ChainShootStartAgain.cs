@@ -84,13 +84,13 @@ public class ChainShootStartAgain : MonoBehaviour
     private void OnEnable()
     {
         hookshotAction.performed += _ => ThrowHookShot();
-        throwAction.performed += _ => ThrowObject();
+        throwAction.performed += _ => StartThrowObject();
     }
 
     private void OnDisable()
     {
         hookshotAction.performed -= _ => ThrowHookShot();
-        throwAction.performed -= _ => ThrowObject();
+        throwAction.performed -= _ => StartThrowObject();
 
     }
 
@@ -141,9 +141,10 @@ public class ChainShootStartAgain : MonoBehaviour
                 StationaryHand();
                 ReturnHand();
                 break;
-                //case HookShotState.ThrowObject:
-                //    ThrowObject();
-                //    break;
+
+            case HookShotState.ThrowObject:
+                ThrowObject();
+                break;
         }
         //Debug.Log(currentHookShotState);
 
@@ -342,6 +343,22 @@ public class ChainShootStartAgain : MonoBehaviour
         }
     }
 
+    public void StartThrowObject()
+    {
+        if (!objectToPull && isObjectHeld)
+            if (switchCam.isAimOn) // arm already up
+            {
+
+                player.currentState = PlayerControllerCinemachineLook.State.HookShotThrown;
+                currentHookShotState = HookShotState.ThrowObject;
+            }
+            else // arm is down. Needs to go up first to then be able to fire hookshot
+            {
+
+                switchCam.StartShoot();
+            }
+    }
+
     public void ThrowObject()
     {
         if (!objectToPull && isObjectHeld)
@@ -375,6 +392,12 @@ public class ChainShootStartAgain : MonoBehaviour
             Debug.Log(rb.gameObject.name);
             objectToPickUpOrDrop = null;
             pickup = false;
+            if (!switchCam.isAimOn) // if player is not still aiming, put the arm down
+            {
+                switchCam.StopShoot();
+
+            }
+
             currentHookShotState = HookShotState.Normal;
         }
         else
