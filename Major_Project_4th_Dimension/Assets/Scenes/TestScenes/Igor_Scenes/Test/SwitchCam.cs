@@ -8,6 +8,8 @@ using UnityEngine.Animations.Rigging;
 
 public class SwitchCam : MonoBehaviour
 {
+    public PlayerControllerCinemachineLook player;
+    public ChainShootStartAgain chainShoot;
     public Rig aimRig;
     public Animator anim;
     public PlayerInput playerInput;
@@ -19,6 +21,7 @@ public class SwitchCam : MonoBehaviour
     public float endValue = 1;
     float layerWeight = 0f;
     bool isAimOn = false;
+    bool isStartShoot = false;
 
     // Start is called before the first frame update
     private void Awake()
@@ -56,6 +59,20 @@ public class SwitchCam : MonoBehaviour
 
     }
 
+    public void StartShoot()
+    {
+        isAimOn = true;
+        isStartShoot = true;
+        StartCoroutine(LerpLayerWeight());
+    }
+
+    public void StopShoot()
+    {
+        isAimOn = false;
+        isStartShoot = false;
+        StartCoroutine(LerpLayerWeight());
+    }
+
     IEnumerator LerpLayerWeight()
     {
         float timeElapsed = 0f;
@@ -73,7 +90,11 @@ public class SwitchCam : MonoBehaviour
         layerWeight = isAimOn ? endValue : startValue;
         //anim.SetLayerWeight(1, layerWeight);
         aimRig.weight = layerWeight;
-
+        if (isStartShoot)
+        {
+            player.currentState = PlayerControllerCinemachineLook.State.HookShotThrown;
+            chainShoot.currentHookShotState = ChainShootStartAgain.HookShotState.Throw;
+        }
     }
 
 }
