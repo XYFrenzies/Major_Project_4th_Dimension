@@ -21,7 +21,7 @@ public class Camera_Call : MonoBehaviour
         if (value > 0 && time > minTime)
         {
             Debug.Log("Hi");
-            //snapCam.CallTakeSnapshot();
+            snapCam.CallTakeSnapshot();
             time = 0;
         }
         time += Time.unscaledDeltaTime;
