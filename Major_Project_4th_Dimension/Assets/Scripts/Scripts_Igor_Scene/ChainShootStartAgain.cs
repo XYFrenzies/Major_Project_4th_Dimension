@@ -280,8 +280,6 @@ public class ChainShootStartAgain : MonoBehaviour
         ShootHand();
     }
 
-
-
     public void PullObject(GameObject pullObject)
     {
 
