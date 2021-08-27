@@ -7,15 +7,18 @@ public class PauseMenu : MonoBehaviour
 {
     public PlayerInput playerInput;
     private InputAction pauseMenuAction;
+    private InputAction moveAction;
     [SerializeField] private GameObject m_pauseMenu = null;
     [SerializeField] private GameObject m_gameUI = null;
     [SerializeField] private GameObject m_optionsUI = null;
-
     private bool isPaused = false;
+    private Vector2 cursorPosition;
     private void Awake()
     {
         pauseMenuAction = playerInput.actions["PauseMenu"];
+        moveAction = playerInput.actions["PauseMoveController"];
         m_pauseMenu.SetActive(false);
+        cursorPosition = Mouse.current.position.ReadValue();
     }
     private void OnEnable()
     {
@@ -24,6 +27,21 @@ public class PauseMenu : MonoBehaviour
     private void OnDisable()
     {
         pauseMenuAction.performed -= _ => Pause();
+    }
+    private void Update()
+    {
+        if (isPaused)
+        {
+            moveAction.performed -= _ => MoveController();
+        }
+    }
+    private void MoveController() 
+    {
+        Vector2 delta = moveAction.ReadValue<Vector2>();
+        cursorPosition += delta;
+        cursorPosition.x = Mathf.Clamp(cursorPosition.x, 0, Screen.width);
+        cursorPosition.y = Mathf.Clamp(cursorPosition.y, 0, Screen.height);
+        
     }
     public void Pause()
     {
