@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.LowLevel;
 public class PauseMenu : MonoBehaviour
 {
     public PlayerInput playerInput;
@@ -12,6 +13,8 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject m_gameUI = null;
     [SerializeField] private GameObject m_optionsUI = null;
     private bool isPaused = false;
+    private bool isGamePad = false;
+
     private Vector2 cursorPosition;
     private void Awake()
     {
@@ -32,16 +35,17 @@ public class PauseMenu : MonoBehaviour
     {
         if (isPaused)
         {
-            moveAction.performed -= _ => MoveController();
+            MoveController();
         }
     }
     private void MoveController() 
     {
         Vector2 delta = moveAction.ReadValue<Vector2>();
-        cursorPosition += delta;
-        cursorPosition.x = Mathf.Clamp(cursorPosition.x, 0, Screen.width);
-        cursorPosition.y = Mathf.Clamp(cursorPosition.y, 0, Screen.height);
-        
+        if (delta != Vector2.zero)
+        {
+            Vector2 newPos = cursorPosition + delta;
+            Mouse.current.WarpCursorPosition(newPos * Time.unscaledDeltaTime);
+        }
     }
     public void Pause()
     {
