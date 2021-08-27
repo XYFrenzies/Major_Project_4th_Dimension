@@ -401,6 +401,7 @@ public class ChainShootStartAgain : MonoBehaviour
             }
 
             currentHookShotState = HookShotState.Normal;
+            player.currentState = PlayerControllerCinemachineLook.State.Normal;
         }
         else
             return;
