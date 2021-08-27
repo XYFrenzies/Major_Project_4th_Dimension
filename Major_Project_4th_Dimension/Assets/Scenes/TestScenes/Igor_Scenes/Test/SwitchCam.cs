@@ -99,8 +99,8 @@ public class SwitchCam : MonoBehaviour
             player.currentState = PlayerControllerCinemachineLook.State.HookShotThrown;
             if (!chainShoot.isObjectHeld)
                 chainShoot.currentHookShotState = ChainShootStartAgain.HookShotState.Throw;
-            else if(chainShoot.isObjectHeld)
-                chainShoot.currentHookShotState = ChainShootStartAgain.HookShotState.ThrowObject;
+            //else if(chainShoot.isObjectHeld)
+            //    chainShoot.currentHookShotState = ChainShootStartAgain.HookShotState.ThrowObject;
             else
                 chainShoot.currentHookShotState = ChainShootStartAgain.HookShotState.Place;
 
