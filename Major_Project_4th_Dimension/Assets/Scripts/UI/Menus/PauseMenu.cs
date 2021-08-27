@@ -16,7 +16,8 @@ public class PauseMenu : MonoBehaviour
     private bool isPaused = false;
     private Vector2 cursorPosition;
     private Vector3 screenPos;
-    [SerializeField] private float gamepadSpeed = 2.0f;
+    private bool isGamePadActive = false;
+    [SerializeField] private float gamepadSpeed = 0.2f;
     private void Awake()
     {
         pauseMenuAction = playerInput.actions["PauseMenu"];
@@ -43,22 +44,25 @@ public class PauseMenu : MonoBehaviour
     private void MoveController()
     {
         cursorPosition = mouseControl.ReadValue<Vector2>();
-        if (cursorPosition == Vector2.zero)
+        if (!isGamePadActive)
         {
-            screenPos = new Vector2(Screen.width / 2, Screen.height);
+            if (cursorPosition == Vector2.zero)
+            {
+                screenPos = new Vector2(Screen.width / 2, Screen.height / 2);
+            }
+            else
+                screenPos = Camera.main.ScreenToWorldPoint(new Vector3((Screen.width / 2) + cursorPosition.x, (Screen.height / 2) + cursorPosition.y, 0));
+            isGamePadActive = true;
         }
-        else
-            screenPos = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width + cursorPosition.x, Screen.height + cursorPosition.y, 0));
-        Vector2 mouseDelta = moveAction.ReadValue<Vector2>();
-        screenPos.x += mouseDelta.x * gamepadSpeed;
-        screenPos.y += mouseDelta.y * gamepadSpeed;
-        Mouse.current.WarpCursorPosition(screenPos);
 
-        //Vector2 delta = moveAction.ReadValue<Vector2>();
-        //cursorPosition += delta;
-        //cursorPosition.x = Mathf.Clamp(cursorPosition.x, 0, Screen.width);
-        //cursorPosition.y = Mathf.Clamp(cursorPosition.y, 0, Screen.height);
-        //InputState.Change(Mouse.current.position, cursorPosition);
+        Vector2 mouseDelta = moveAction.ReadValue<Vector2>();
+        Vector2 multiplier = mouseDelta * gamepadSpeed;
+        screenPos.x += multiplier.x;
+        screenPos.y += multiplier.y; 
+        screenPos.x = Mathf.Clamp(screenPos.x, 0, Screen.width);
+        screenPos.y = Mathf.Clamp(screenPos.y, 0, Screen.height);
+        InputState.Change(Mouse.current.position, screenPos, InputUpdateType.Fixed);
+        Mouse.current.WarpCursorPosition(screenPos);
     }
     public void Pause()
     {
