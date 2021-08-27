@@ -37,7 +37,8 @@ public class ChainShootStartAgain : MonoBehaviour
 
     [HideInInspector]
     public bool isObjectHeld = false;
-
+    [HideInInspector]
+    public bool isThrow = false;
     private bool pullCheck = false;
     [HideInInspector]
     public bool pull = false;
@@ -354,7 +355,7 @@ public class ChainShootStartAgain : MonoBehaviour
             }
             else // arm is down. Needs to go up first to then be able to fire hookshot
             {
-
+                isThrow = true;
                 switchCam.StartShoot();
             }
     }
@@ -386,6 +387,7 @@ public class ChainShootStartAgain : MonoBehaviour
             objectToPickUpOrDrop.GetComponent<Rigidbody>().isKinematic = false;
             objectToPickUpOrDrop.transform.SetParent(null);
             isObjectHeld = false;
+            isThrow = false;
             Rigidbody rb = objectToPickUpOrDrop.GetComponent<Rigidbody>();
             rb.useGravity = true;
             rb.AddForce(dir.normalized * 30f, ForceMode.Impulse);
