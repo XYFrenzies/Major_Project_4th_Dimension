@@ -15,7 +15,7 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject m_optionsUI = null;
     private bool isPaused = false;
     private Vector2 cursorPosition;
-    private Vector3 screenPos;
+    private Vector2 screenPos;
     private bool isGamePadActive = false;
     [SerializeField] private float gamepadSpeed = 0.2f;
     private void Awake()
@@ -46,23 +46,20 @@ public class PauseMenu : MonoBehaviour
         cursorPosition = mouseControl.ReadValue<Vector2>();
         if (!isGamePadActive)
         {
-            if (cursorPosition == Vector2.zero)
-            {
-                screenPos = new Vector2(Screen.width / 2, Screen.height / 2);
-            }
-            else
-                screenPos = Camera.main.ScreenToWorldPoint(new Vector3((Screen.width / 2) + cursorPosition.x, (Screen.height / 2) + cursorPosition.y, 0));
+            screenPos = Mouse.current.position.ReadValue();
             isGamePadActive = true;
         }
 
         Vector2 mouseDelta = moveAction.ReadValue<Vector2>();
-        Vector2 multiplier = mouseDelta * gamepadSpeed;
-        screenPos.x += multiplier.x;
-        screenPos.y += multiplier.y; 
+        screenPos.x += mouseDelta.x * 0.2f;
+        screenPos.y += mouseDelta.y * 0.2f;
         screenPos.x = Mathf.Clamp(screenPos.x, 0, Screen.width);
         screenPos.y = Mathf.Clamp(screenPos.y, 0, Screen.height);
-        InputState.Change(Mouse.current.position, screenPos, InputUpdateType.Fixed);
+        
+        InputState.Change(Mouse.current.position, screenPos);
         Mouse.current.WarpCursorPosition(screenPos);
+        InputSystem.QueueDeltaStateEvent(Mouse.current["position"], new Vector2(screenPos.x, screenPos.y));
+
     }
     public void Pause()
     {
