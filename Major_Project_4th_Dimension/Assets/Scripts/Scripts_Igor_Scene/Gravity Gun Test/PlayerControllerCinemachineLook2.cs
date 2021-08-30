@@ -1,8 +1,10 @@
+
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 
-public class PlayerControllerCinemachineLook : MonoBehaviour
+
+public class PlayerControllerCinemachineLook2 : MonoBehaviour
 {
     private PlayerInput playerInput;
 

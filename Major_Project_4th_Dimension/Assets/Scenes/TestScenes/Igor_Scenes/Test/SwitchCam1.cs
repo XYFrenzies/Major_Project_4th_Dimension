@@ -5,10 +5,10 @@ using Cinemachine;
 using UnityEngine.Animations.Rigging;
 
 
-public class SwitchCam : MonoBehaviour
+public class SwitchCam1 : MonoBehaviour
 {
-    public PlayerControllerCinemachineLook player;
-    public ChainShootStartAgain chainShoot;
+    public PlayerControllerCinemachineLook2 player;
+    public ChainShootStartAgainNew chainShoot;
     public Rig aimRig;
     public Animator anim;
     public PlayerInput playerInput;
@@ -76,7 +76,7 @@ public class SwitchCam : MonoBehaviour
 
     IEnumerator LerpLayerWeight()
     {
-        if (chainShoot.currentHookShotState == ChainShootStartAgain.HookShotState.Pull)
+        if (chainShoot.currentHookShotState == ChainShootStartAgainNew.HookShotState.Pull)
             yield break;
         float timeElapsed = 0f;
 
@@ -95,13 +95,13 @@ public class SwitchCam : MonoBehaviour
         aimRig.weight = layerWeight;
         if (isStartShoot)
         {
-            player.currentState = PlayerControllerCinemachineLook.State.HookShotThrown;
+            player.currentState = PlayerControllerCinemachineLook2.State.HookShotThrown;
             if (!chainShoot.isObjectHeld)
-                chainShoot.currentHookShotState = ChainShootStartAgain.HookShotState.Throw;
+                chainShoot.currentHookShotState = ChainShootStartAgainNew.HookShotState.Throw;
             else if(chainShoot.isObjectHeld && chainShoot.isThrow)
-                chainShoot.currentHookShotState = ChainShootStartAgain.HookShotState.ThrowObject;
+                chainShoot.currentHookShotState = ChainShootStartAgainNew.HookShotState.ThrowObject;
             else
-                chainShoot.currentHookShotState = ChainShootStartAgain.HookShotState.Place;
+                chainShoot.currentHookShotState = ChainShootStartAgainNew.HookShotState.Place;
 
             isAimOn = false;
         }
