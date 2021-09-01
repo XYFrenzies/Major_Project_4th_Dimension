@@ -5168,7 +5168,7 @@ MonoBehaviour:
     m_Offset: {x: 0, y: 0, z: 0}
     m_MinLimit: -180
     m_MaxLimit: 180
-    m_AimAxis: 2
+    m_AimAxis: 4
     m_UpAxis: 2
     m_WorldUpType: 0
     m_WorldUpObject: {fileID: 0}
@@ -13161,7 +13161,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1123040563}
   m_LocalRotation: {x: 0.02616798, y: 0.02616798, z: -0.0006852327, w: 0.9993148}
-  m_LocalPosition: {x: 0.6627121, y: 1.7656513, z: -2.8360708}
+  m_LocalPosition: {x: 0.66304946, y: 1.7656513, z: -2.8360884}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1080433557}
@@ -14584,6 +14584,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6562e952a08f15f4faf99bc2524cfca6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFlying: 0
   moveSpeed: 10
   hookShotRange: 50
   hookShotThrowSpeed: 70
@@ -14593,7 +14594,6 @@ MonoBehaviour:
   distanceToHookShotHitPoint: 2
   animator: {fileID: 972447960}
   currentState: 0
-  chainShoot: {fileID: 0}
   flyToTarget: {x: 0, y: 0, z: 0}
 --- !u!4 &1174014384
 Transform:
@@ -17624,7 +17624,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1415681985
 Transform:
   m_ObjectHideFlags: 0
@@ -19423,7 +19423,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   switchCam: {fileID: 4564679739950715437}
-  anim: {fileID: 5866666019919417843}
+  anim: {fileID: 5866666021839763507}
   rig: {fileID: 0}
   shootPoint: {fileID: 1343061028}
   holdPoint: {fileID: 1750934455}
@@ -19699,7 +19699,7 @@ MonoBehaviour:
   hookShotMinSpeed: 10
   hookShotMaxSpeed: 40
   distanceToHookShotHitPoint: 1
-  animator: {fileID: 5866666019919417843}
+  animator: {fileID: 5866666021839763507}
   currentState: 0
   chainShoot: {fileID: 0}
   flyToTarget: {x: 0, y: 0, z: 0}
@@ -21667,7 +21667,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1767540219
 Transform:
   m_ObjectHideFlags: 0
@@ -27190,7 +27190,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &919132148085967515
 GameObject:
   m_ObjectHideFlags: 0
@@ -27226,7 +27226,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &919132149227026676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34800,7 +34800,7 @@ MonoBehaviour:
   player: {fileID: 1606365003}
   chainShoot: {fileID: 1606365000}
   aimRig: {fileID: 736439319}
-  anim: {fileID: 5866666019919417843}
+  anim: {fileID: 5866666021839763507}
   playerInput: {fileID: 1606365002}
   lerpDuration: 0.3
   startValue: 0
@@ -41427,7 +41427,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7831275224780033234}
   m_LocalRotation: {x: 0.02616798, y: 0.02616798, z: -0.0006852327, w: 0.9993148}
-  m_LocalPosition: {x: 0.66226184, y: 1.7656513, z: -2.8360472}
+  m_LocalPosition: {x: 0.662222, y: 1.7656513, z: -2.836045}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7831275224449201528}
