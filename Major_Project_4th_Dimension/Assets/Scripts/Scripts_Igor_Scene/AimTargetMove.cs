@@ -7,8 +7,6 @@ Purpose:	        Draws a line in scene view to show the ray from the player
                     which has its position lerped to make aiming movement smooth
 */
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
