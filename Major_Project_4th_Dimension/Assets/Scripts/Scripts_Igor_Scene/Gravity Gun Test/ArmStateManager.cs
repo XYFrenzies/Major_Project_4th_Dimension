@@ -9,14 +9,15 @@ public class ArmStateManager : MonoBehaviour
 
 
     ArmBaseState currentState;
+    public Vector3 hitPoint;
     public Camera cam;
-    public float hookShotRange = 50f;
+    public float shootRange = 50f;
     public LayerMask layerMask;
     public PlayerControllerCinemachineLook2 pc;
 
     // States
     public ArmShootState shootState = null;
-    public ArmGrappleState grapplestate = null;
+    public ArmGrappleState grappleState = null;
     public ArmPickUpState pickUpState = null;
     public ArmPullState pullState = null;
     public ArmPutDownState putDownState = null;
@@ -31,26 +32,21 @@ public class ArmStateManager : MonoBehaviour
 
         pc = GetComponent<PlayerControllerCinemachineLook2>();
 
-
         shootState = new ArmShootState(this);
-        grapplestate = new ArmGrappleState(this);
+        grappleState = new ArmGrappleState(this);
         pickUpState = new ArmPickUpState(this);
         pullState = new ArmPullState(this);
         putDownState = new ArmPutDownState(this);
-        //currentState = shootState;
-        //currentState.AwakeState(this);
+
     }
 
     public void OnEnable()
     {
 
-        
     }
 
     public void OnDisable()
     {
-
-        
 
     }
 
@@ -59,6 +55,7 @@ public class ArmStateManager : MonoBehaviour
     public void Start()
     {
         SwitchState(shootState);
+        Debug.Log("enter state test");
     }
 
     // Update is called once per frame
