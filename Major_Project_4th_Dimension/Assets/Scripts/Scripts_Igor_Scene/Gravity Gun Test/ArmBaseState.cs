@@ -1,15 +1,22 @@
 using UnityEngine;
 
-public abstract class ArmBaseState : MonoBehaviour
+public abstract class ArmBaseState
 {
-    public abstract void AwakeState(ArmStateManager arm);
 
-    public abstract void EnterState(ArmStateManager arm);
+    protected ArmStateManager armStateMan;
 
-    public abstract void UpdateState(ArmStateManager arm);
+    public ArmBaseState(ArmStateManager arm)
+    {
+        armStateMan = arm;
+    }
 
-    public abstract void OnEnableState(ArmStateManager arm);
+    
 
-    public abstract void OnDisableState(ArmStateManager arm);
+    public abstract void EnterState();
+
+    public abstract void ExitState();
+
+    public abstract void UpdateState();
+
 
 }

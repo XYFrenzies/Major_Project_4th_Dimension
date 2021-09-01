@@ -5,15 +5,17 @@ using UnityEngine.InputSystem;
 
 public class ArmStateManager : MonoBehaviour
 {
-    private PlayerInput playerInput;
-    private InputAction hookshotAction;
+
 
 
     ArmBaseState currentState;
     
-    public ArmShootState shootState;
-    //[HideInInspector]
-    //public ArmGrappleState grapplestate = new ArmGrappleState();
+    public ArmShootState shootState = null;
+    public ArmGrappleState grapplestate = null;
+
+    public PlayerControllerCinemachineLook2 pc;
+
+
     //[HideInInspector]
     //public ArmPickUpState pickUpState = new ArmPickUpState();
     //[HideInInspector]
@@ -25,26 +27,29 @@ public class ArmStateManager : MonoBehaviour
 
     public void Awake()
     {
-        playerInput = GetComponent<PlayerInput>();
 
-        hookshotAction = playerInput.actions["HookShot"];
+        pc = GetComponent<PlayerControllerCinemachineLook2>();
 
-        currentState = shootState;
-        currentState.AwakeState(this);
+
+        shootState = new ArmShootState(this);
+        grapplestate = new ArmGrappleState(this);
+
+        
+
+        //currentState = shootState;
+        //currentState.AwakeState(this);
     }
 
     public void OnEnable()
     {
-        hookshotAction.performed += context => ThrowHookShot(context);
 
-        currentState.OnEnableState(this);
+        
     }
 
     public void OnDisable()
     {
-        hookshotAction.performed -= context => ThrowHookShot(context);
 
-        currentState.OnDisableState(this);
+        
 
     }
 
@@ -52,28 +57,24 @@ public class ArmStateManager : MonoBehaviour
     // Start is called before the first frame update
     public void Start()
     {
-        currentState.EnterState(this);
+        SwitchState(shootState);
     }
 
     // Update is called once per frame
     void Update()
     {
-        currentState.UpdateState(this);
+        currentState.UpdateState();
     }
 
     public void SwitchState(ArmBaseState state)
     {
+        if (currentState != null)
+            currentState.ExitState();
+
         currentState = state;
-        state.EnterState(this);
+        
+        if(currentState != null)
+            currentState.EnterState();
     }
 
-    public void ThrowHookShot(InputAction.CallbackContext context)
-    {
-        Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAA");
-    }
-
-    public void OnHookShot()
-    {
-        Debug.Log("BBBBBBBBBBBBBB");
-    }
 }
