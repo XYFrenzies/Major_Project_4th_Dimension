@@ -42,6 +42,7 @@ public class ArmShootState : ArmBaseState
         if (shootAction.triggered)
         {
             ThrowHookShot();
+            Debug.Log("shot triggered");
         }
 
     }

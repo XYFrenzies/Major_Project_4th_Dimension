@@ -7,7 +7,8 @@ using UnityEngine.InputSystem;
 public class PlayerControllerCinemachineLook2 : MonoBehaviour
 {
     private PlayerInput playerInput;
-
+    [HideInInspector]
+    public bool isFlying = false;
 
     [Header("Movement")]
     public float moveSpeed = 10.0f;
@@ -37,8 +38,8 @@ public class PlayerControllerCinemachineLook2 : MonoBehaviour
     [HideInInspector]
     public State currentState;
 
-    [HideInInspector]
-    public GravArm chainShoot;
+    //[HideInInspector]
+    //public GravArm chainShoot;
     [HideInInspector]
     public Vector3 flyToTarget;
 
@@ -59,7 +60,7 @@ public class PlayerControllerCinemachineLook2 : MonoBehaviour
         cam = Camera.main;
         currentState = State.Normal;
         Cursor.lockState = CursorLockMode.Locked;
-        chainShoot = GetComponent<GravArm>();
+        //chainShoot = GetComponent<GravArm>();
         playerInput = GetComponent<PlayerInput>();
         moveAction = playerInput.actions["Move"];
 
@@ -165,6 +166,7 @@ public class PlayerControllerCinemachineLook2 : MonoBehaviour
 
     public void Fly(Vector3 target)
     {
+        isFlying = true;
         rb.useGravity = false;
         animator.SetBool("IsFlying", true);
         flyingSpeed = Mathf.Clamp(Vector3.Distance(transform.position, target), hookShotMinSpeed, hookShotMaxSpeed);
@@ -174,10 +176,11 @@ public class PlayerControllerCinemachineLook2 : MonoBehaviour
         {
             animator.SetBool("IsFlying", false);
             rb.useGravity = true;
-            chainShoot.fly = false;
-            chainShoot.ReturnHand();
+            //chainShoot.fly = false;
+            //chainShoot.ReturnHand();
             currentState = State.Normal;
-            Debug.Log(chainShoot.currentHookShotState);
+            isFlying = false;
+            //Debug.Log(chainShoot.currentHookShotState);
 
         }
     }
