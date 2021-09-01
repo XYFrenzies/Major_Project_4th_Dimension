@@ -36,7 +36,7 @@ public class PlayerControllerCinemachineLook : MonoBehaviour
     public State currentState;
 
     [HideInInspector]
-    public ChainShootStartAgainNew chainShoot;
+    public ChainShootStartAgain chainShoot;
     [HideInInspector]
     public Vector3 flyToTarget;
 
@@ -57,7 +57,7 @@ public class PlayerControllerCinemachineLook : MonoBehaviour
         cam = Camera.main;
         currentState = State.Normal;
         Cursor.lockState = CursorLockMode.Locked;
-        chainShoot = GetComponent<ChainShootStartAgainNew>();
+        chainShoot = GetComponent<ChainShootStartAgain>();
         playerInput = GetComponent<PlayerInput>();
         moveAction = playerInput.actions["Move"];
 
