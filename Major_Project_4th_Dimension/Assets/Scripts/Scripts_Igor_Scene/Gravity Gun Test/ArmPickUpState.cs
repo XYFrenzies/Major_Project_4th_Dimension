@@ -4,26 +4,22 @@ using UnityEngine;
 
 public class ArmPickUpState : ArmBaseState
 {
-    public override void AwakeState(ArmStateManager arm)
+    public ArmPickUpState(ArmStateManager arm) : base(arm)
     {
 
     }
 
-    public override void OnEnableState(ArmStateManager arm)
+    public override void EnterState()
+    {
+        Debug.Log("Entered Pickup state");
+    }
+
+    public override void ExitState()
     {
 
     }
 
-    public override void OnDisableState(ArmStateManager arm)
-    {
-
-    }
-    public override void EnterState(ArmStateManager arm)
-    {
-
-    }
-
-    public override void UpdateState(ArmStateManager arm)
+    public override void UpdateState()
     {
 
     }
