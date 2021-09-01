@@ -5,37 +5,53 @@ using UnityEngine.InputSystem;
 
 public class ArmShootState : ArmBaseState
 {
+    private PlayerInput playerInput;
+    private InputAction hookshotAction;
+    
 
-    public override void AwakeState(ArmStateManager arm)
+    public ArmShootState(ArmStateManager arm) : base(arm)
     {
-        Debug.Log("Shoot awake");
-
+        
     }
 
 
-    public override void OnEnableState(ArmStateManager arm)
+    public override void EnterState()
     {
-        Debug.Log("Shoot enable");
+        playerInput = armStateMan.GetComponent<PlayerInput>();
 
-
-    }
-
-    public override void OnDisableState(ArmStateManager arm)
-    {
-
-        Debug.Log("Shoot disable");
-
-    }
-
-    public override void EnterState(ArmStateManager arm)
-    {
+        hookshotAction = playerInput.actions["HookShot"];
+        hookshotAction.performed += context => ThrowHookShot(context);
+        // called once when switch from some other state to this state.
 
         Debug.Log("Shoot enter");
-
+        
     }
 
-    public override void UpdateState(ArmStateManager arm)
+    public override void ExitState()
     {
+        Debug.Log("Shoot state exited");
+        // called once when switching from this state to another state
+        hookshotAction.performed -= context => ThrowHookShot(context);
 
     }
+
+    public override void UpdateState()
+    {
+        // armStateMan.pc.look()
+    }
+
+
+    public void ThrowHookShot(InputAction.CallbackContext context)
+    {
+        Debug.Log("Fired hook shot");
+        //armStateMan.SwitchState(armStateMan.shootState);
+        OnHookShotGrab();
+    }
+
+
+    public void OnHookShotGrab()
+    {
+        armStateMan.SwitchState(armStateMan.grapplestate);
+    }
+
 }

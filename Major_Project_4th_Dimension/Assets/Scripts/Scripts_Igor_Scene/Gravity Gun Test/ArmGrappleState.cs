@@ -4,27 +4,27 @@ using UnityEngine;
 
 public class ArmGrappleState : ArmBaseState
 {
-    public override void AwakeState(ArmStateManager arm)
+
+    public ArmGrappleState(ArmStateManager arm) : base(arm)
+    {
+
+    }
+        
+    public override void EnterState()
+    {
+        Debug.Log("Entered grapple state");
+    }
+
+    public override void ExitState()
+    {
+        
+    }
+
+    public override void UpdateState()
     {
 
     }
 
-    public override void OnEnableState(ArmStateManager arm)
-    {
 
-    }
 
-    public override void OnDisableState(ArmStateManager arm)
-    {
-
-    }
-    public override void EnterState(ArmStateManager arm)
-    {
-
-    }
-
-    public override void UpdateState(ArmStateManager arm)
-    {
-
-    }
 }
