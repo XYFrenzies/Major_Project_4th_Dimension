@@ -9,33 +9,34 @@ public class ArmStateManager : MonoBehaviour
 
 
     ArmBaseState currentState;
-    
-    public ArmShootState shootState = null;
-    public ArmGrappleState grapplestate = null;
-
+    public Camera cam;
+    public float hookShotRange = 50f;
+    public LayerMask layerMask;
     public PlayerControllerCinemachineLook2 pc;
 
+    // States
+    public ArmShootState shootState = null;
+    public ArmGrappleState grapplestate = null;
+    public ArmPickUpState pickUpState = null;
+    public ArmPullState pullState = null;
+    public ArmPutDownState putDownState = null;
 
-    //[HideInInspector]
-    //public ArmPickUpState pickUpState = new ArmPickUpState();
-    //[HideInInspector]
-    //public ArmPutDownState putDownState = new ArmPutDownState();
-    //[HideInInspector]
-    //public ArmPullState pullState = new ArmPullState();
+
     //[HideInInspector]
     //public ArmThrowObjectState throwObjectState = new ArmThrowObjectState();
 
     public void Awake()
     {
+        cam = Camera.main;
 
         pc = GetComponent<PlayerControllerCinemachineLook2>();
 
 
         shootState = new ArmShootState(this);
         grapplestate = new ArmGrappleState(this);
-
-        
-
+        pickUpState = new ArmPickUpState(this);
+        pullState = new ArmPullState(this);
+        putDownState = new ArmPutDownState(this);
         //currentState = shootState;
         //currentState.AwakeState(this);
     }
