@@ -71,11 +71,11 @@
                 },
                 {
                     "name": "PauseMoveController",
-                    "type": "Value",
+                    "type": "Button",
                     "id": "515ab485-629b-4eea-938a-f28418268724",
-                    "expectedControlType": "Vector2",
+                    "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "Press"
                 },
                 {
                     "name": "MousePosition",
@@ -341,61 +341,6 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "Left Stick",
-                    "id": "de71bab7-f406-494f-8049-b4278a526782",
-                    "path": "2DVector",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "PauseMoveController",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "up",
-                    "id": "978b7957-b8f6-42fc-8054-1feb11ac196e",
-                    "path": "<Gamepad>/leftStick/up",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "PauseMoveController",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "fdf7495d-bc44-4fd7-978a-023623d01451",
-                    "path": "<Gamepad>/leftStick/down",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "PauseMoveController",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "8da1630e-d156-44ac-9fe4-fcc95c5d404d",
-                    "path": "<Gamepad>/leftStick/left",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "PauseMoveController",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "51b45146-7bc7-492c-9fbd-fe63b0bf400c",
-                    "path": "<Gamepad>/leftStick/right",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "PauseMoveController",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
                     "name": "",
                     "id": "8a450ad3-c1d0-4791-af96-5354939ecf3d",
                     "path": "<VirtualMouse>/position",
@@ -403,6 +348,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "MousePosition",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7e0d45e2-ef5e-4bf7-bdc7-8eec2cbe532a",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PauseMoveController",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

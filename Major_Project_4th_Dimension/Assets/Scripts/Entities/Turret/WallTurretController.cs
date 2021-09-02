@@ -31,7 +31,7 @@ public class WallTurretController : MonoBehaviour
         currentColourLight = m_spotLight.color;
     }
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         //If the player is within the radius of the turret (need to have a trigger check for the player)
         if (m_player && !isShooting && playerInArea)
