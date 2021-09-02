@@ -8,6 +8,7 @@ using System;
 public class CustomEditorInspector : Editor
 {
     TurretRotationalAI turretAI;
+    int objvalue;
     public override void OnInspectorGUI()
     {
         serializedObject.Update();
@@ -31,8 +32,16 @@ public class CustomEditorInspector : Editor
 
             if (turretAI.m_turretMovement == TurretMovement.GameObjectToGameObject)
             {
-                for (int i = 0; i < turretAI.m_posToGoTo.Count; i++)
+                objvalue = EditorGUILayout.IntField(objvalue);
+                for (int i = 0; i < objvalue; i++)
                 {
+                    while (objvalue != turretAI.m_posToGoTo.Count) 
+                    {
+                        if(objvalue < turretAI.m_posToGoTo.Count)
+                            turretAI.m_posToGoTo.RemoveAt(turretAI.m_posToGoTo.Count - 1);
+                        else if(objvalue > turretAI.m_posToGoTo.Count)
+                            turretAI.m_posToGoTo.Add(new GameObject());
+                    }
                     int value = i + 1;
                     turretAI.m_posToGoTo[i] = 
                         (GameObject)EditorGUILayout.ObjectField("Position " + value, turretAI.m_posToGoTo[i],
