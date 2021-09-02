@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField]private PlayerInput playerInput;
@@ -12,12 +13,15 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject m_gameUI = null;
     [SerializeField] private GameObject m_optionsUI = null;
     [SerializeField] private GameObject m_fsOptionsMenu = null;
+    [SerializeField] private GameObject m_fsPauseMenu = null;
     [SerializeField] private float gamepadSpeed = 0.2f;
     private InputAction pauseMenuAction;
+    private InputAction pauseGamepad;
     private bool isPaused = false;
     private void Awake()
     {
         pauseMenuAction = playerInput.actions["PauseMenu"];
+        pauseGamepad = playerInput.actions["PauseMoveController"];
         m_pauseMenu.SetActive(false);
     }
     private void OnEnable()
@@ -39,6 +43,25 @@ public class PauseMenu : MonoBehaviour
             PauseGame();
         }
     }
+    private void Update()
+    {
+        if (isPaused)
+        {
+            pauseGamepad.started += ctx => Back();
+            
+        }
+    }
+    private void Back() 
+    {
+        if (m_pauseMenu.activeSelf)
+        {
+            ResumeGame();
+        }
+        else if (m_optionsUI.activeSelf)
+        {
+            OptionsMenuBack();
+        }
+    }
     private void PauseGame()
     {
         Time.timeScale = 0;
@@ -46,6 +69,7 @@ public class PauseMenu : MonoBehaviour
         m_pauseMenu.SetActive(true);
         m_gameUI.SetActive(false);
         isPaused = true;
+        EventSystem.current.SetSelectedGameObject(m_fsPauseMenu);
     }
     public void ResumeGame()
     {
@@ -59,13 +83,14 @@ public class PauseMenu : MonoBehaviour
     {
         m_optionsUI.SetActive(false);
         m_pauseMenu.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(m_fsPauseMenu);
         //Need to fill this in when the options menu is ready to be used.
     }
     public void OptionsMenu()
     {
         m_optionsUI.SetActive(true);
         m_pauseMenu.SetActive(false);
-        UnityEngine.EventSystems.EventSystem.current.firstSelectedGameObject = m_fsOptionsMenu;
+        EventSystem.current.SetSelectedGameObject(m_fsOptionsMenu);
         //Need to fill this in when the options menu is ready to be used.
     }
     public void ReturnToMenu(string nameOfScene)
