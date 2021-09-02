@@ -24,12 +24,12 @@ public class ArmPullState : ArmBaseState
         armStateMan.newGrappleHandle.GetComponent<FixedJoint>().connectedBody = armStateMan.hitObject.GetComponent<Rigidbody>();
         //hand.transform.SetParent(armStateMan.newGrappleHandle.transform);
         //hand.transform.localPosition = Vector3.zero;
+        armStateMan.hitPoint = armStateMan.newGrappleHandle.transform.position;
         armStateMan.springJoint.connectedBody = armStateMan.newGrappleHandle.GetComponent<Rigidbody>();
         armStateMan.springJoint.connectedAnchor = Vector3.zero;
         float distance = Vector3.Distance(armStateMan.transform.position, armStateMan.newGrappleHandle.transform.position);
         armStateMan.springJoint.minDistance = 2.5f;
         armStateMan.springJoint.maxDistance = 2.5f;
-        armStateMan.hitPoint = armStateMan.newGrappleHandle.transform.position;
         armStateMan.lineRenderer.enabled = true;
 
         //currentHookShotState = HookShotState.Pull;
@@ -59,8 +59,8 @@ public class ArmPullState : ArmBaseState
             armStateMan.SwitchState(armStateMan.shootState);
 
         }
-        armStateMan.hitPoint = armStateMan.newGrappleHandle.transform.position;
 
-        armStateMan.DrawLineRenderer();
+        //armStateMan.DrawLineRenderer();
+        armStateMan.hitPoint = armStateMan.newGrappleHandle.transform.position;
     }
 }

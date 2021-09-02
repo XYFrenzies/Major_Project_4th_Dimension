@@ -8,7 +8,10 @@ public class ArmStateManager : MonoBehaviour
 
     [HideInInspector]
     public LineRenderer lineRenderer;
-
+    public float initialBeamSpeed = 1f;
+    public float beamSpeedAccelModifier = 0.1f;
+    [HideInInspector]
+    public float holdInitialBeamSpeedValue;
     ArmBaseState currentState;
     [HideInInspector]
     public Vector3 hitPoint;
@@ -50,9 +53,9 @@ public class ArmStateManager : MonoBehaviour
         cam = Camera.main;
         lineRenderer = GetComponent<LineRenderer>();
         springJoint = GetComponent<SpringJoint>();
-
+        holdInitialBeamSpeedValue = initialBeamSpeed;
         player = GetComponent<PlayerControllerCinemachineLook2>();
-
+        lineRenderer.enabled = false;
         shootState = new ArmShootState(this);
         grappleState = new ArmGrappleState(this);
         pickUpState = new ArmPickUpState(this);
@@ -83,6 +86,8 @@ public class ArmStateManager : MonoBehaviour
     void Update()
     {
         currentState.UpdateState();
+        if (lineRenderer.enabled)
+            DrawLineRenderer();
     }
 
     public void SwitchState(ArmBaseState state)
@@ -91,8 +96,8 @@ public class ArmStateManager : MonoBehaviour
             currentState.ExitState();
 
         currentState = state;
-        
-        if(currentState != null)
+
+        if (currentState != null)
             currentState.EnterState();
     }
 
@@ -100,6 +105,12 @@ public class ArmStateManager : MonoBehaviour
     {
         lineRenderer.positionCount = 2;
         lineRenderer.SetPosition(0, shootPoint.position);
-        lineRenderer.SetPosition(1, hitPoint);
+        if (!isObjectHeld)
+            lineRenderer.SetPosition(1, hitPoint);
+        else
+        {
+            lineRenderer.SetPosition(1, hitObject.transform.position);
+
+        }
     }
 }

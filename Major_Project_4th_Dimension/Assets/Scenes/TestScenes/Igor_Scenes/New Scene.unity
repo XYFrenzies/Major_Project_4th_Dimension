@@ -13161,7 +13161,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1123040563}
   m_LocalRotation: {x: 0.02616798, y: 0.02616798, z: -0.0006852327, w: 0.9993148}
-  m_LocalPosition: {x: 0.6625656, y: 1.7656513, z: -2.8360631}
+  m_LocalPosition: {x: 0.6623616, y: 1.7656513, z: -2.8360524}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1080433557}
@@ -14565,6 +14565,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: facc9b99a1874874184f9efd961c56ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lineRenderer: {fileID: 0}
+  initialBeamSpeed: 1
+  beamSpeedAccelModifier: 0.5
+  holdInitialBeamSpeedValue: 0
   hitPoint: {x: 0, y: 0, z: 0}
   hitObject: {fileID: 0}
   shootPoint: {fileID: 60720933}
