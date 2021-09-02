@@ -6,15 +6,34 @@ using UnityEngine.InputSystem;
 public class ArmStateManager : MonoBehaviour
 {
 
-
+    [HideInInspector]
+    public LineRenderer lineRenderer;
 
     ArmBaseState currentState;
+    [HideInInspector]
     public Vector3 hitPoint;
+    [HideInInspector]
+    public GameObject hitObject;
+    public Transform shootPoint;
+    public Transform holdPoint;
+    [HideInInspector]
     public Camera cam;
     public float shootRange = 50f;
     public LayerMask layerMask;
-    public PlayerControllerCinemachineLook2 pc;
-
+    [HideInInspector]
+    public PlayerControllerCinemachineLook2 player;
+    [HideInInspector]
+    public bool isObjectHeld = false;
+    [HideInInspector]
+    public Vector3 localPoint;
+    [HideInInspector]
+    public bool pullCheck = false;
+    [HideInInspector]
+    public bool pull = false;
+    public GameObject grappleHandle;
+    public SpringJoint springJoint;
+    [HideInInspector]
+    public GameObject newGrappleHandle;
     // States
     public ArmShootState shootState = null;
     public ArmGrappleState grappleState = null;
@@ -29,8 +48,10 @@ public class ArmStateManager : MonoBehaviour
     public void Awake()
     {
         cam = Camera.main;
+        lineRenderer = GetComponent<LineRenderer>();
+        springJoint = GetComponent<SpringJoint>();
 
-        pc = GetComponent<PlayerControllerCinemachineLook2>();
+        player = GetComponent<PlayerControllerCinemachineLook2>();
 
         shootState = new ArmShootState(this);
         grappleState = new ArmGrappleState(this);
@@ -75,4 +96,10 @@ public class ArmStateManager : MonoBehaviour
             currentState.EnterState();
     }
 
+    public void DrawLineRenderer()
+    {
+        lineRenderer.positionCount = 2;
+        lineRenderer.SetPosition(0, shootPoint.position);
+        lineRenderer.SetPosition(1, hitPoint);
+    }
 }
