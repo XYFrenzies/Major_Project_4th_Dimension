@@ -15,6 +15,8 @@ public class ArmPickUpState : ArmBaseState
         Rigidbody rb = armStateMan.hitObject.GetComponent<Rigidbody>();
         rb.velocity = Vector3.zero;
         rb.useGravity = false;
+        armStateMan.lineRenderer.enabled = true;
+
     }
 
     public override void ExitState()
@@ -24,12 +26,14 @@ public class ArmPickUpState : ArmBaseState
         armStateMan.hitObject.GetComponent<Rigidbody>().isKinematic = true;
         armStateMan.hitObject.transform.SetParent(armStateMan.holdPoint);
         armStateMan.isObjectHeld = true;
+        armStateMan.lineRenderer.enabled = false;
 
         armStateMan.player.currentState = PlayerControllerCinemachineLook2.State.Normal;
     }
 
     public override void UpdateState()
     {
+        armStateMan.hitPoint = armStateMan.hitObject.transform.position;
         armStateMan.hitObject.transform.position = Vector3.MoveTowards(armStateMan.hitObject.transform.position, armStateMan.holdPoint.position, 50f * Time.deltaTime);
         //ReturnHand();
         if (Vector3.Distance(armStateMan.hitObject.transform.position, armStateMan.holdPoint.position) <= 2f)

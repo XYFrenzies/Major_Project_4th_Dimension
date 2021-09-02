@@ -52,7 +52,7 @@ public class ArmStateManager : MonoBehaviour
         springJoint = GetComponent<SpringJoint>();
 
         player = GetComponent<PlayerControllerCinemachineLook2>();
-
+        lineRenderer.enabled = false;
         shootState = new ArmShootState(this);
         grappleState = new ArmGrappleState(this);
         pickUpState = new ArmPickUpState(this);
@@ -83,6 +83,8 @@ public class ArmStateManager : MonoBehaviour
     void Update()
     {
         currentState.UpdateState();
+        if (lineRenderer.enabled)
+            DrawLineRenderer();
     }
 
     public void SwitchState(ArmBaseState state)
@@ -91,8 +93,8 @@ public class ArmStateManager : MonoBehaviour
             currentState.ExitState();
 
         currentState = state;
-        
-        if(currentState != null)
+
+        if (currentState != null)
             currentState.EnterState();
     }
 
@@ -100,6 +102,12 @@ public class ArmStateManager : MonoBehaviour
     {
         lineRenderer.positionCount = 2;
         lineRenderer.SetPosition(0, shootPoint.position);
-        lineRenderer.SetPosition(1, hitPoint);
+        if (!isObjectHeld)
+            lineRenderer.SetPosition(1, hitPoint);
+        else
+        {
+            lineRenderer.SetPosition(1, hitObject.transform.position);
+
+        }
     }
 }

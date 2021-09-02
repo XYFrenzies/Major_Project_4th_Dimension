@@ -134,6 +134,7 @@ public class ArmShootState : ArmBaseState
         else
         {
             Debug.Log("missed");
+            //armStateMan.hitPoint = ray.origin + (armStateMan.cam.transform.forward * armStateMan.shootRange);
         }
 
         //armStateMan.player.currentState = PlayerControllerCinemachineLook2.State.HookShotThrown;
