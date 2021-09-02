@@ -30,6 +30,7 @@ public class ArmPutDownState : ArmBaseState
 
         armStateMan.hitObject = null;
         armStateMan.lineRenderer.enabled = false;
+        armStateMan.initialBeamSpeed = armStateMan.holdInitialBeamSpeedValue;
 
         //place = false;
         //currentHookShotState = HookShotState.ReturnHand;
@@ -45,7 +46,8 @@ public class ArmPutDownState : ArmBaseState
         //ShootHand();
         //armStateMan.hitPoint = armStateMan.hitObject.transform.position;
 
-        armStateMan.hitObject.transform.position = Vector3.MoveTowards(armStateMan.hitObject.transform.position, armStateMan.hitPoint, 50f * Time.deltaTime);
+        armStateMan.hitObject.transform.position = Vector3.MoveTowards(armStateMan.hitObject.transform.position, armStateMan.hitPoint, armStateMan.initialBeamSpeed * Time.deltaTime);
+        armStateMan.initialBeamSpeed += armStateMan.beamSpeedAccelModifier;
         //rb.MovePosition(target * 5f * Time.deltaTime);
         if (Vector3.Distance(armStateMan.hitObject.transform.position, armStateMan.hitPoint) <= 2f)
         {

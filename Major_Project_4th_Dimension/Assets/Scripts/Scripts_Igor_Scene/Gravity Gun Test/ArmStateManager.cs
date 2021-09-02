@@ -8,7 +8,10 @@ public class ArmStateManager : MonoBehaviour
 
     [HideInInspector]
     public LineRenderer lineRenderer;
-
+    public float initialBeamSpeed = 1f;
+    public float beamSpeedAccelModifier = 0.1f;
+    [HideInInspector]
+    public float holdInitialBeamSpeedValue;
     ArmBaseState currentState;
     [HideInInspector]
     public Vector3 hitPoint;
@@ -50,7 +53,7 @@ public class ArmStateManager : MonoBehaviour
         cam = Camera.main;
         lineRenderer = GetComponent<LineRenderer>();
         springJoint = GetComponent<SpringJoint>();
-
+        holdInitialBeamSpeedValue = initialBeamSpeed;
         player = GetComponent<PlayerControllerCinemachineLook2>();
         lineRenderer.enabled = false;
         shootState = new ArmShootState(this);

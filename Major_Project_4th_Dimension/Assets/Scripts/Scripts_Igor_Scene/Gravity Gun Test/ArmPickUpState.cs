@@ -27,6 +27,7 @@ public class ArmPickUpState : ArmBaseState
         armStateMan.hitObject.transform.SetParent(armStateMan.holdPoint);
         armStateMan.isObjectHeld = true;
         armStateMan.lineRenderer.enabled = false;
+        armStateMan.initialBeamSpeed = armStateMan.holdInitialBeamSpeedValue;
 
         armStateMan.player.currentState = PlayerControllerCinemachineLook2.State.Normal;
     }
@@ -34,8 +35,8 @@ public class ArmPickUpState : ArmBaseState
     public override void UpdateState()
     {
         armStateMan.hitPoint = armStateMan.hitObject.transform.position;
-        armStateMan.hitObject.transform.position = Vector3.MoveTowards(armStateMan.hitObject.transform.position, armStateMan.holdPoint.position, 50f * Time.deltaTime);
-        //ReturnHand();
+        armStateMan.hitObject.transform.position = Vector3.MoveTowards(armStateMan.hitObject.transform.position, armStateMan.holdPoint.position, armStateMan.initialBeamSpeed * Time.deltaTime);
+        armStateMan.initialBeamSpeed += armStateMan.beamSpeedAccelModifier;
         if (Vector3.Distance(armStateMan.hitObject.transform.position, armStateMan.holdPoint.position) <= 2f)
         {
             armStateMan.SwitchState(armStateMan.shootState);
