@@ -7,24 +7,17 @@ using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.UI;
 public class PauseMenu : MonoBehaviour
 {
-    public PlayerInput playerInput;
-    private InputAction pauseMenuAction;
-    private InputAction moveAction;
-    private InputAction mouseControl;
+    [SerializeField]private PlayerInput playerInput;
     [SerializeField] private GameObject m_pauseMenu = null;
     [SerializeField] private GameObject m_gameUI = null;
     [SerializeField] private GameObject m_optionsUI = null;
-    [SerializeField] private Texture img;
-    private bool isPaused = false;
-    private Vector2 screenPos;
-    private bool isGamePadActive = false;
-    private bool isMouseActive = true;
+    [SerializeField] private GameObject m_fsOptionsMenu = null;
     [SerializeField] private float gamepadSpeed = 0.2f;
+    private InputAction pauseMenuAction;
+    private bool isPaused = false;
     private void Awake()
     {
         pauseMenuAction = playerInput.actions["PauseMenu"];
-        moveAction = playerInput.actions["PauseMoveController"];
-        mouseControl = playerInput.actions["MousePosition"];
         m_pauseMenu.SetActive(false);
     }
     private void OnEnable()
@@ -72,6 +65,7 @@ public class PauseMenu : MonoBehaviour
     {
         m_optionsUI.SetActive(true);
         m_pauseMenu.SetActive(false);
+        UnityEngine.EventSystems.EventSystem.current.firstSelectedGameObject = m_fsOptionsMenu;
         //Need to fill this in when the options menu is ready to be used.
     }
     public void ReturnToMenu(string nameOfScene)
