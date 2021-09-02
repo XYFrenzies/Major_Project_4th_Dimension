@@ -120,6 +120,7 @@ public class ArmShootState : ArmBaseState
                 Debug.Log("can pull to me");
 
                 armStateMan.localPoint = armStateMan.hitObject.transform.InverseTransformPoint(hit.point);
+
                 //armStateMan.pullCheck = true;
                 //armStateMan.pull = true;
                 OnHookShotHit(armStateMan.pullState);

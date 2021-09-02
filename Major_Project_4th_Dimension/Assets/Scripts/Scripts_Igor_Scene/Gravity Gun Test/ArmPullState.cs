@@ -29,6 +29,7 @@ public class ArmPullState : ArmBaseState
         float distance = Vector3.Distance(armStateMan.transform.position, armStateMan.newGrappleHandle.transform.position);
         armStateMan.springJoint.minDistance = 2.5f;
         armStateMan.springJoint.maxDistance = 2.5f;
+        armStateMan.hitPoint = armStateMan.newGrappleHandle.transform.position;
         armStateMan.lineRenderer.enabled = true;
 
         //currentHookShotState = HookShotState.Pull;

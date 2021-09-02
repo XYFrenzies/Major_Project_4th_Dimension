@@ -12,39 +12,39 @@ public class ArmPutDownState : ArmBaseState
     public override void EnterState()
     {
         Debug.Log("Entered Putdown state");
+        armStateMan.hitObject.GetComponent<Rigidbody>().isKinematic = false;
+        armStateMan.hitObject.transform.SetParent(null);
     }
 
     public override void ExitState()
     {
+        armStateMan.hitObject.layer = LayerMask.NameToLayer("Default");
+        Rigidbody rb = armStateMan.hitObject.GetComponent<Rigidbody>();
+        armStateMan.hitObject.GetComponent<Rigidbody>().isKinematic = false;
+        rb.useGravity = true;
+        armStateMan.isObjectHeld = false;
+
+        armStateMan.hitObject = null;
+        //place = false;
+        //currentHookShotState = HookShotState.ReturnHand;
+        armStateMan.player.currentState = PlayerControllerCinemachineLook2.State.Normal;
+
 
     }
 
     public override void UpdateState()
     {
-        if (armStateMan.hitObject != null)
+        //if (armStateMan.hitObject != null)
+        //{
+        //ShootHand();
+        armStateMan.hitObject.transform.position = Vector3.MoveTowards(armStateMan.hitObject.transform.position, armStateMan.hitPoint, 50f * Time.deltaTime);
+        //rb.MovePosition(target * 5f * Time.deltaTime);
+        if (Vector3.Distance(armStateMan.hitObject.transform.position, armStateMan.hitPoint) <= 2f)
         {
-            armStateMan.hitObject.GetComponent<Rigidbody>().isKinematic = false;
-            armStateMan.hitObject.transform.SetParent(null);
-            //ShootHand();
-            armStateMan.hitObject.transform.position = Vector3.MoveTowards(armStateMan.hitObject.transform.position, armStateMan.hitPoint, 50f * Time.deltaTime);
-            //rb.MovePosition(target * 5f * Time.deltaTime);
-            if (Vector3.Distance(armStateMan.hitObject.transform.position, armStateMan.hitPoint) <= 2f)
-            {
-                
-                armStateMan.hitObject.layer = LayerMask.NameToLayer("Default");
-                Rigidbody rb = armStateMan.hitObject.GetComponent<Rigidbody>();
-                armStateMan.hitObject.GetComponent<Rigidbody>().isKinematic = false;
-                rb.useGravity = true;
-                armStateMan.isObjectHeld = false;
 
-                armStateMan.hitObject = null;
-                //place = false;
-                //currentHookShotState = HookShotState.ReturnHand;
-                armStateMan.player.currentState = PlayerControllerCinemachineLook2.State.Normal;
+            armStateMan.SwitchState(armStateMan.shootState);
 
-                armStateMan.SwitchState(armStateMan.shootState);
-
-            }
         }
+        //  }
     }
 }
