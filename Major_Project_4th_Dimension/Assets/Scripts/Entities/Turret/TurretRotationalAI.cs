@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public enum TurretMovement 
 {
@@ -8,14 +9,15 @@ public enum TurretMovement
 }
 public class TurretRotationalAI : Singleton<TurretRotationalAI>
 {
-    [SerializeField] private GameObject m_baseTurret = null;
-    [SerializeField] private GameObject m_bodyTurret = null;
-    [SerializeField] private GameObject m_faceTurret = null;
-    [SerializeField] private TurretMovement m_turretMovement = TurretMovement.RotatingAround;
-    [SerializeField] private Vector3 m_minBaseRotation = Vector3.zero;
-    [SerializeField] private Vector3 m_maxBaseRotation = Vector3.zero;
-    [SerializeField] private Vector3 m_minBodyRotation = Vector3.zero;
-    [SerializeField] private Vector3 m_maxBodyRotation = Vector3.zero;
+    public GameObject m_baseTurret = null;
+    public GameObject m_bodyTurret = null;
+    public GameObject m_faceTurret = null;
+    public TurretMovement m_turretMovement = TurretMovement.RotatingAround;
+    public Vector3 m_minBaseRotation = Vector3.zero;
+    public Vector3 m_maxBaseRotation = Vector3.zero;
+    public Vector3 m_minBodyRotation = Vector3.zero;
+    public Vector3 m_maxBodyRotation = Vector3.zero;
+    public List<GameObject> m_posToGoTo;
     private bool m_cantRotate = false;
     [HideInInspector] public bool stopRotating = false;
     private void Awake()

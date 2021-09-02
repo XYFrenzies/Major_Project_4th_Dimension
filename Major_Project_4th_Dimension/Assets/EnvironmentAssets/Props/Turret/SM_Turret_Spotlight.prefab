@@ -216,6 +216,28 @@ MonoBehaviour:
   m_AreaLightEmissiveMeshShadowCastingMode: 0
   m_AreaLightEmissiveMeshMotionVectorGenerationMode: 0
   m_AreaLightEmissiveMeshLayer: -1
+--- !u!114 &5197098804103494980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4755373010504424522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fffc4b43842e49247a02f4f3267219f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_baseTurret: {fileID: 3032815941969250624}
+  m_bodyTurret: {fileID: 4104627523912449716}
+  m_faceTurret: {fileID: 8346814729354860828}
+  m_turretMovement: 0
+  m_minBaseRotation: {x: 0, y: -200, z: 0}
+  m_maxBaseRotation: {x: 0, y: -280, z: 0}
+  m_minBodyRotation: {x: 0, y: 0, z: 0}
+  m_maxBodyRotation: {x: 0, y: 0, z: 0}
+  m_posToGoTo: []
+  stopRotating: 0
 --- !u!1001 &5566188964229259547
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -301,7 +323,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5ddaa93b31eff4f4eacb1f3a801979d5, type: 3}
       propertyPath: m_Name
-      value: SM_Turret (1)
+      value: SM_Turret_Spotlight
       objectReference: {fileID: 0}
     - target: {fileID: 7345042227248806650, guid: 5ddaa93b31eff4f4eacb1f3a801979d5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -321,6 +343,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ddaa93b31eff4f4eacb1f3a801979d5, type: 3}
+--- !u!1 &4755373010504424522 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5ddaa93b31eff4f4eacb1f3a801979d5, type: 3}
+  m_PrefabInstance: {fileID: 5566188964229259547}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3032815941969250624 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -1789713177593927589, guid: 5ddaa93b31eff4f4eacb1f3a801979d5, type: 3}
+  m_PrefabInstance: {fileID: 5566188964229259547}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4104627523912449716 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -735912326258876497, guid: 5ddaa93b31eff4f4eacb1f3a801979d5, type: 3}
+  m_PrefabInstance: {fileID: 5566188964229259547}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8346814729354860828 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -4689719892614285305, guid: 5ddaa93b31eff4f4eacb1f3a801979d5, type: 3}
+  m_PrefabInstance: {fileID: 5566188964229259547}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7219479893071226185 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -6264597338732346286, guid: 5ddaa93b31eff4f4eacb1f3a801979d5, type: 3}
