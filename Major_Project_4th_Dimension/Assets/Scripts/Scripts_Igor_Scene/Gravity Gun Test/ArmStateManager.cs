@@ -72,16 +72,11 @@ public class ArmStateManager : MonoBehaviour
 
     public void OnEnable()
     {
-        aimAction.performed += _ => StartAimZoom();
-        aimAction.canceled += _ => StopAimZoom();
 
     }
 
     public void OnDisable()
     {
-        aimAction.performed -= _ => StartAimZoom();
-        aimAction.canceled -= _ => StopAimZoom();
-
 
     }
 
@@ -127,13 +122,5 @@ public class ArmStateManager : MonoBehaviour
         }
     }
 
-    public void StartAimZoom()
-    {
-        
-    }
 
-    public void StopAimZoom()
-    {
-        
-    }
 }

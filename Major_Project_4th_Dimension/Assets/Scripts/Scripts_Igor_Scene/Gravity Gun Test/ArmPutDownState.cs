@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ArmPutDownState : ArmBaseState
 {
+    private PlayerInput playerInput;
+    private InputAction shootAction;
     Rigidbody rb;
 
     public ArmPutDownState(ArmStateManager arm) : base(arm)
@@ -14,6 +17,9 @@ public class ArmPutDownState : ArmBaseState
     public override void EnterState()
     {
         Debug.Log("Entered Putdown state");
+        playerInput = armStateMan.GetComponent<PlayerInput>();
+
+        shootAction = playerInput.actions["HookShot"];
         rb = armStateMan.hitObject.GetComponent<Rigidbody>();
         rb.isKinematic = false;
         armStateMan.hitObject.transform.SetParent(null);
@@ -26,16 +32,10 @@ public class ArmPutDownState : ArmBaseState
         armStateMan.hitObject.layer = LayerMask.NameToLayer("Default");
         rb.isKinematic = false;
         rb.useGravity = true;
-        //rb.velocity = Vector3.zero;
-
         armStateMan.isObjectHeld = false;
-
         armStateMan.hitObject = null;
         armStateMan.lineRenderer.enabled = false;
         armStateMan.initialBeamSpeed = armStateMan.holdInitialBeamSpeedValue;
-
-        //place = false;
-        //currentHookShotState = HookShotState.ReturnHand;
         armStateMan.player.currentState = PlayerControllerCinemachineLook2.State.Normal;
 
 
@@ -58,5 +58,9 @@ public class ArmPutDownState : ArmBaseState
 
         }
         //  }
+        if (shootAction.triggered)
+        {
+            armStateMan.SwitchState(armStateMan.shootState);
+        }
     }
 }
