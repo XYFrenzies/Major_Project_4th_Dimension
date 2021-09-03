@@ -1,8 +1,7 @@
-using UnityEngine;
 using System.Collections.Generic;
-public enum TurretMovement 
+using UnityEngine;
+public enum TurretMovement
 {
-    RotatingAround,
     PositionToPosition,
     GameObjectToGameObject,
     Stopped
@@ -12,45 +11,51 @@ public class TurretRotationalAI : Singleton<TurretRotationalAI>
     public GameObject m_baseTurret = null;
     public GameObject m_bodyTurret = null;
     public GameObject m_faceTurret = null;
-    public TurretMovement m_turretMovement = TurretMovement.RotatingAround;
-    public Vector3 m_minBaseRotation = Vector3.zero;
-    public Vector3 m_maxBaseRotation = Vector3.zero;
-    public Vector3 m_minBodyRotation = Vector3.zero;
-    public Vector3 m_maxBodyRotation = Vector3.zero;
-    public List<GameObject> m_posToGoTo;
+    public TurretMovement m_turretMovement = TurretMovement.PositionToPosition;
+    public List<Vector3> m_positionsToGoTo;
+    public List<GameObject> m_objPosToGoTo;
+    public float m_turretSearchSpeed = 2.0f;
     private bool m_cantRotate = false;
-
-    private Quaternion m_baseLookRotation;
-    private Quaternion m_bodyLookRotation;
-    private Quaternion m_faceLookRotation;
+    private int positionThatsNext = 0;
+    private Quaternion m_lookRotation;
+    private List<Vector3> m_objectPositions;
     private void Awake()
     {
         if (m_bodyTurret == null || m_baseTurret == null || m_faceTurret == null)
             m_cantRotate = true;
+        foreach (var item in m_objPosToGoTo)
+        {
+            m_objectPositions.Add(item.transform.position);
+        }
     }
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (!m_cantRotate || m_turretMovement == TurretMovement.Stopped)
         {
-            if (m_turretMovement == TurretMovement.PositionToPosition)
-                PositionToPosition();
-            else if (m_turretMovement == TurretMovement.RotatingAround)
-                RotatingAround();
-            else if (m_turretMovement == TurretMovement.GameObjectToGameObject)
-                ObjectToObject();
+            switch (m_turretMovement)
+            {
+                case TurretMovement.PositionToPosition:
+                    ObjectToObject(m_positionsToGoTo);
+                    break;
+                case TurretMovement.GameObjectToGameObject:
+                    ObjectToObject(m_objectPositions);
+                    break;
+            }
+
         }
     }
-    private void RotatingAround() 
+    private void ObjectToObject(List<Vector3> positions)
     {
-        //lookRotation = Quaternion.LookRotation();
-    }
-    private void PositionToPosition() 
-    {
-
-    }
-    private void ObjectToObject() 
-    {
-
+        if (positions != null && positions.Count > 1)
+        {
+            m_lookRotation = Quaternion.LookRotation(positions[positionThatsNext]);
+            if (m_baseTurret.transform.rotation != m_lookRotation)
+                m_baseTurret.transform.rotation = Quaternion.RotateTowards(m_baseTurret.transform.rotation, new Quaternion(0, m_lookRotation.y, 0, 1), Time.deltaTime * m_turretSearchSpeed);
+            else if (positionThatsNext >= m_objPosToGoTo.Count)
+                positionThatsNext = 0;
+            else if (positionThatsNext < m_objPosToGoTo.Count)
+                positionThatsNext += 1;
+        }
     }
 }
