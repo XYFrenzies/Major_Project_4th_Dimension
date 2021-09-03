@@ -1,9 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ArmPutDownState : ArmBaseState
 {
+    private PlayerInput playerInput;
+    private InputAction shootAction;
+    Rigidbody rb;
+
     public ArmPutDownState(ArmStateManager arm) : base(arm)
     {
 
@@ -12,7 +17,11 @@ public class ArmPutDownState : ArmBaseState
     public override void EnterState()
     {
         Debug.Log("Entered Putdown state");
-        armStateMan.hitObject.GetComponent<Rigidbody>().isKinematic = false;
+        playerInput = armStateMan.GetComponent<PlayerInput>();
+
+        shootAction = playerInput.actions["HookShot"];
+        rb = armStateMan.hitObject.GetComponent<Rigidbody>();
+        rb.isKinematic = false;
         armStateMan.hitObject.transform.SetParent(null);
         armStateMan.lineRenderer.enabled = true;
 
@@ -21,19 +30,12 @@ public class ArmPutDownState : ArmBaseState
     public override void ExitState()
     {
         armStateMan.hitObject.layer = LayerMask.NameToLayer("Default");
-        Rigidbody rb = armStateMan.hitObject.GetComponent<Rigidbody>();
-        armStateMan.hitObject.GetComponent<Rigidbody>().isKinematic = false;
+        rb.isKinematic = false;
         rb.useGravity = true;
-        //rb.velocity = Vector3.zero;
-
         armStateMan.isObjectHeld = false;
-
         armStateMan.hitObject = null;
         armStateMan.lineRenderer.enabled = false;
         armStateMan.initialBeamSpeed = armStateMan.holdInitialBeamSpeedValue;
-
-        //place = false;
-        //currentHookShotState = HookShotState.ReturnHand;
         armStateMan.player.currentState = PlayerControllerCinemachineLook2.State.Normal;
 
 
@@ -47,7 +49,7 @@ public class ArmPutDownState : ArmBaseState
         //armStateMan.hitPoint = armStateMan.hitObject.transform.position;
 
         armStateMan.hitObject.transform.position = Vector3.MoveTowards(armStateMan.hitObject.transform.position, armStateMan.hitPoint, armStateMan.initialBeamSpeed * Time.deltaTime);
-        armStateMan.initialBeamSpeed += armStateMan.beamSpeedAccelModifier;
+        armStateMan.initialBeamSpeed += armStateMan.beamSpeedAccelModifier / rb.mass;
         //rb.MovePosition(target * 5f * Time.deltaTime);
         if (Vector3.Distance(armStateMan.hitObject.transform.position, armStateMan.hitPoint) <= 2f)
         {
@@ -56,5 +58,9 @@ public class ArmPutDownState : ArmBaseState
 
         }
         //  }
+        if (shootAction.triggered)
+        {
+            armStateMan.SwitchState(armStateMan.shootState);
+        }
     }
 }

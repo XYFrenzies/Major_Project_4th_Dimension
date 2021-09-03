@@ -55,12 +55,6 @@ public class ArmShootState : ArmBaseState
 
         Ray ray = armStateMan.cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
 
-        //if (armStateMan.pull)
-        //{
-        //    armStateMan.pullCheck = false;
-
-        //    return;
-        //}
 
         if (armStateMan.isObjectHeld)
         {
@@ -79,9 +73,6 @@ public class ArmShootState : ArmBaseState
 
             }
 
-            //pickup = false;
-            //place = true;
-            //currentHookShotState = HookShotState.Place;
             OnHookShotHit(armStateMan.putDownState);
 
             armStateMan.player.currentState = PlayerControllerCinemachineLook2.State.HookShotThrown;
@@ -121,8 +112,6 @@ public class ArmShootState : ArmBaseState
 
                 armStateMan.localPoint = armStateMan.hitObject.transform.InverseTransformPoint(hit.point);
 
-                //armStateMan.pullCheck = true;
-                //armStateMan.pull = true;
                 OnHookShotHit(armStateMan.pullState);
             }
             else // hit object but cant pick up, pull or grapple
