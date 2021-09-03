@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ArmPutDownState : ArmBaseState
 {
+    Rigidbody rb;
+
     public ArmPutDownState(ArmStateManager arm) : base(arm)
     {
 
@@ -12,7 +14,8 @@ public class ArmPutDownState : ArmBaseState
     public override void EnterState()
     {
         Debug.Log("Entered Putdown state");
-        armStateMan.hitObject.GetComponent<Rigidbody>().isKinematic = false;
+        rb = armStateMan.hitObject.GetComponent<Rigidbody>();
+        rb.isKinematic = false;
         armStateMan.hitObject.transform.SetParent(null);
         armStateMan.lineRenderer.enabled = true;
 
@@ -21,8 +24,7 @@ public class ArmPutDownState : ArmBaseState
     public override void ExitState()
     {
         armStateMan.hitObject.layer = LayerMask.NameToLayer("Default");
-        Rigidbody rb = armStateMan.hitObject.GetComponent<Rigidbody>();
-        armStateMan.hitObject.GetComponent<Rigidbody>().isKinematic = false;
+        rb.isKinematic = false;
         rb.useGravity = true;
         //rb.velocity = Vector3.zero;
 
@@ -47,7 +49,7 @@ public class ArmPutDownState : ArmBaseState
         //armStateMan.hitPoint = armStateMan.hitObject.transform.position;
 
         armStateMan.hitObject.transform.position = Vector3.MoveTowards(armStateMan.hitObject.transform.position, armStateMan.hitPoint, armStateMan.initialBeamSpeed * Time.deltaTime);
-        armStateMan.initialBeamSpeed += armStateMan.beamSpeedAccelModifier;
+        armStateMan.initialBeamSpeed += armStateMan.beamSpeedAccelModifier / rb.mass;
         //rb.MovePosition(target * 5f * Time.deltaTime);
         if (Vector3.Distance(armStateMan.hitObject.transform.position, armStateMan.hitPoint) <= 2f)
         {
