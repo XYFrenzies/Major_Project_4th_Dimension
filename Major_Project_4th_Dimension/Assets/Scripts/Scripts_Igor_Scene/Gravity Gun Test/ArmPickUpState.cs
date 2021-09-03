@@ -6,6 +6,8 @@ using UnityEngine.InputSystem;
 public class ArmPickUpState : ArmBaseState
 {
     Rigidbody rb;
+    Renderer rend;
+    float radius;
     bool cancelPickUp = false;
     private PlayerInput playerInput;
     private InputAction shootAction;
@@ -22,6 +24,8 @@ public class ArmPickUpState : ArmBaseState
         shootAction = playerInput.actions["HookShot"];
         cancelPickUp = false;
         rb = armStateMan.hitObject.GetComponent<Rigidbody>();
+        rend = armStateMan.hitObject.GetComponent<Renderer>();
+        radius = rend.bounds.extents.magnitude;
         rb.velocity = Vector3.zero;
         rb.useGravity = false;
         armStateMan.lineRenderer.enabled = true;
@@ -63,7 +67,7 @@ public class ArmPickUpState : ArmBaseState
 
         armStateMan.initialBeamSpeed += armStateMan.beamSpeedAccelModifier / rb.mass;
 
-        if (Vector3.Distance(armStateMan.hitObject.transform.position, armStateMan.holdPoint.position) <= 2f)
+        if (Vector3.Distance(armStateMan.hitObject.transform.position, armStateMan.holdPoint.position) <= 1f + radius)
         {
             armStateMan.SwitchState(armStateMan.shootState);
 
