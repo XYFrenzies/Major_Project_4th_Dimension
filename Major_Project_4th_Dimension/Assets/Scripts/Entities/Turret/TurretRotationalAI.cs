@@ -35,7 +35,7 @@ public class TurretRotationalAI : Singleton<TurretRotationalAI>
         }
     }
     // Update is called once per frame
-    private void Update()
+    private void FixedUpdate()
     {
         if (!m_cantRotate || m_turretMovement == TurretMovement.Stopped)
         {
@@ -55,20 +55,20 @@ public class TurretRotationalAI : Singleton<TurretRotationalAI>
     {
         if (positions != null && positions.Count > 1)
         {
-            Vector3 dir = positions[positionThatsNext] - transform.position;
-            Quaternion m_lookRotation = Quaternion.LookRotation(dir);
-            double posRot = Math.Round(m_lookRotation.y, 2);
-            double baseRot = Math.Round(m_baseTurret.transform.rotation.y, 2);
-            if (posRot != baseRot)
+            for (int i = positionThatsNext; i < positions.Count; i++)
             {
-                Quaternion rotation = Quaternion.Lerp(
-                    m_baseTurret.transform.rotation, m_lookRotation, Time.deltaTime * m_turretSearchSpeed);
-                m_baseTurret.transform.rotation = new Quaternion(0f, rotation.y, 0f,1f);
+                Vector3 dir = positions[i] - transform.position;
+                Quaternion m_lookRotation = Quaternion.LookRotation(dir);
+
+                Vector3 rotation = Quaternion.Lerp(m_baseTurret.transform.rotation,
+                    m_lookRotation, Time.deltaTime * m_turretSearchSpeed * 0.02f).eulerAngles;
+                m_baseTurret.transform.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+                return;
+                //else if (positionThatsNext >= m_objPosToGoTo.Count - 1)
+                //    positionThatsNext = 0;
+                //else if (positionThatsNext < m_objPosToGoTo.Count - 1)
+                //    positionThatsNext += 1;
             }
-            else if (positionThatsNext >= m_objPosToGoTo.Count - 1)
-                positionThatsNext = 0;
-            else if (positionThatsNext < m_objPosToGoTo.Count - 1)
-                positionThatsNext += 1;
         }
     }
 }
