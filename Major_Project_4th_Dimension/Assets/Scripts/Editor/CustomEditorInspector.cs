@@ -8,8 +8,6 @@ using System;
 public class CustomEditorInspector : Editor
 {
     TurretRotationalAI turretAI;
-    private int gameObjValue;
-    private int positionValue;
     public override void OnInspectorGUI()
     {
         serializedObject.Update();
@@ -35,32 +33,32 @@ public class CustomEditorInspector : Editor
 
             if (turretAI.m_turretMovement == TurretMovement.GameObjectToGameObject)
             {
-                gameObjValue = EditorGUILayout.IntField("Amount of Objects", gameObjValue);
-                for (int i = 0; i < gameObjValue; i++)
+                turretAI.gameObjValue = EditorGUILayout.IntField("Amount of Objects", turretAI.gameObjValue);
+                for (int i = 0; i < turretAI.gameObjValue; i++)
                 {
-                    while (gameObjValue != turretAI.m_objPosToGoTo.Count) 
+                    while (turretAI.gameObjValue != turretAI.m_objPosToGoTo.Count) 
                     {
-                        if(gameObjValue < turretAI.m_objPosToGoTo.Count)
+                        if(turretAI.gameObjValue < turretAI.m_objPosToGoTo.Count)
                             turretAI.m_objPosToGoTo.RemoveAt(turretAI.m_objPosToGoTo.Count - 1);
-                        else if(gameObjValue > turretAI.m_objPosToGoTo.Count)
-                            turretAI.m_objPosToGoTo.Add(new GameObject());
+                        else if(turretAI.gameObjValue > turretAI.m_objPosToGoTo.Count)
+                            turretAI.m_objPosToGoTo.Add(null);
                     }
                     int value = i + 1;
                     turretAI.m_objPosToGoTo[i] = 
                         (GameObject)EditorGUILayout.ObjectField("Position " + value, turretAI.m_objPosToGoTo[i],
-                        typeof(GameObject), false);
+                        typeof(GameObject), true);
                 }
             }
             else if (turretAI.m_turretMovement == TurretMovement.PositionToPosition)
             {
-                positionValue = EditorGUILayout.IntField("Amount of Positions", positionValue);
-                for (int i = 0; i < positionValue; i++)
+                turretAI.positionValue = EditorGUILayout.IntField("Amount of Positions", turretAI.positionValue);
+                for (int i = 0; i < turretAI.positionValue; i++)
                 {
-                    while (positionValue != turretAI.m_positionsToGoTo.Count)
+                    while (turretAI.positionValue != turretAI.m_positionsToGoTo.Count)
                     {
-                        if (positionValue < turretAI.m_positionsToGoTo.Count)
+                        if (turretAI.positionValue < turretAI.m_positionsToGoTo.Count)
                             turretAI.m_positionsToGoTo.RemoveAt(turretAI.m_positionsToGoTo.Count - 1);
-                        else if (positionValue > turretAI.m_positionsToGoTo.Count)
+                        else if (turretAI.positionValue > turretAI.m_positionsToGoTo.Count)
                             turretAI.m_positionsToGoTo.Add(new Vector3());
                     }
                     int value = i + 1;
@@ -69,6 +67,8 @@ public class CustomEditorInspector : Editor
                 }
             }
         }
+        if(EditorApplication.isPlayingOrWillChangePlaymode)
+            EditorUtility.SetDirty(turretAI);
     }
 
 
