@@ -53,22 +53,19 @@ public class TurretRotationalAI : Singleton<TurretRotationalAI>
     }
     private void ObjectToObject(List<Vector3> positions)
     {
-        if (positions != null && positions.Count > 1)
+        while (positions != null && positions.Count > 1)
         {
-            for (int i = positionThatsNext; i < positions.Count; i++)
-            {
-                Vector3 dir = positions[i] - transform.position;
-                Quaternion m_lookRotation = Quaternion.LookRotation(dir);
-
-                Vector3 rotation = Quaternion.Lerp(m_baseTurret.transform.rotation,
-                    m_lookRotation, Time.deltaTime * m_turretSearchSpeed * 0.02f).eulerAngles;
-                m_baseTurret.transform.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+            Vector3 dir = positions[positionThatsNext] - transform.position;
+            Quaternion m_lookRotation = Quaternion.LookRotation(dir, m_baseTurret.transform.right);
+            Vector3 rotation = Quaternion.RotateTowards(m_baseTurret.transform.rotation,
+                m_lookRotation, Time.deltaTime * m_turretSearchSpeed).eulerAngles;
+            m_baseTurret.transform.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+            //if(rotation.y != m_baseTurret.transform.rotation.y)
                 return;
-                //else if (positionThatsNext >= m_objPosToGoTo.Count - 1)
-                //    positionThatsNext = 0;
-                //else if (positionThatsNext < m_objPosToGoTo.Count - 1)
-                //    positionThatsNext += 1;
-            }
+            //else if (positionThatsNext >= m_objPosToGoTo.Count - 1)
+            //    positionThatsNext = 0;
+            //else if (positionThatsNext < m_objPosToGoTo.Count - 1)
+            //    positionThatsNext += 1;
         }
     }
 }
