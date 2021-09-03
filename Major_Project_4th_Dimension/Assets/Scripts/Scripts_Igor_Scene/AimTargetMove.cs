@@ -21,6 +21,7 @@ public class AimTargetMove : MonoBehaviour
     RaycastHit hit;
     public GameObject target;
     public float lerpSpeed = 10.0f;
+    public LayerMask layerMask;
 
     // Start is called before the first frame update
     void Awake()
@@ -42,7 +43,7 @@ public class AimTargetMove : MonoBehaviour
         Debug.DrawRay(lineOrigin, cam.transform.forward * weaponRange, Color.green);
 
         // Make the target sphere move to the point where the ray hits
-        if (Physics.Raycast(rayOrigin, cam.transform.forward, out hit, weaponRange))
+        if (Physics.Raycast(rayOrigin, cam.transform.forward, out hit, weaponRange, ~layerMask))
         {
             target.transform.position = Vector3.Lerp(lastPos, hit.point, lerpSpeed * Time.fixedDeltaTime);
         }
