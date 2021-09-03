@@ -2,10 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Cinemachine;
 
 public class ArmStateManager : MonoBehaviour
 {
-
+    public Cinemachine3rdPersonAim cineAimCam;
+    public float aimZoomAmount = 2f;
+    private PlayerInput playerInput;
+    private InputAction aimAction;
     [HideInInspector]
     public LineRenderer lineRenderer;
     public float initialBeamSpeed = 1f;
@@ -55,6 +59,8 @@ public class ArmStateManager : MonoBehaviour
         springJoint = GetComponent<SpringJoint>();
         holdInitialBeamSpeedValue = initialBeamSpeed;
         player = GetComponent<PlayerControllerCinemachineLook2>();
+        playerInput = GetComponent<PlayerInput>();
+        aimAction = playerInput.actions["Aim"];
         lineRenderer.enabled = false;
         shootState = new ArmShootState(this);
         grappleState = new ArmGrappleState(this);
@@ -88,6 +94,8 @@ public class ArmStateManager : MonoBehaviour
         currentState.UpdateState();
         if (lineRenderer.enabled)
             DrawLineRenderer();
+
+        
     }
 
     public void SwitchState(ArmBaseState state)
@@ -113,4 +121,6 @@ public class ArmStateManager : MonoBehaviour
 
         }
     }
+
+
 }
