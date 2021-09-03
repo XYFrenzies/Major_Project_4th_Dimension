@@ -8,7 +8,8 @@ using System;
 public class CustomEditorInspector : Editor
 {
     TurretRotationalAI turretAI;
-    int objvalue;
+    private int gameObjValue;
+    private int positionValue;
     public override void OnInspectorGUI()
     {
         serializedObject.Update();
@@ -30,30 +31,42 @@ public class CustomEditorInspector : Editor
                 (GameObject)EditorGUILayout.ObjectField("Face of the Turret", turretAI.m_faceTurret,
                 typeof(GameObject), false);
 
+            turretAI.m_turretSearchSpeed = EditorGUILayout.FloatField("Search Speed", turretAI.m_turretSearchSpeed);
+
             if (turretAI.m_turretMovement == TurretMovement.GameObjectToGameObject)
             {
-                objvalue = EditorGUILayout.IntField(objvalue);
-                for (int i = 0; i < objvalue; i++)
+                gameObjValue = EditorGUILayout.IntField("Amount of Objects", gameObjValue);
+                for (int i = 0; i < gameObjValue; i++)
                 {
-                    while (objvalue != turretAI.m_posToGoTo.Count) 
+                    while (gameObjValue != turretAI.m_objPosToGoTo.Count) 
                     {
-                        if(objvalue < turretAI.m_posToGoTo.Count)
-                            turretAI.m_posToGoTo.RemoveAt(turretAI.m_posToGoTo.Count - 1);
-                        else if(objvalue > turretAI.m_posToGoTo.Count)
-                            turretAI.m_posToGoTo.Add(new GameObject());
+                        if(gameObjValue < turretAI.m_objPosToGoTo.Count)
+                            turretAI.m_objPosToGoTo.RemoveAt(turretAI.m_objPosToGoTo.Count - 1);
+                        else if(gameObjValue > turretAI.m_objPosToGoTo.Count)
+                            turretAI.m_objPosToGoTo.Add(new GameObject());
                     }
                     int value = i + 1;
-                    turretAI.m_posToGoTo[i] = 
-                        (GameObject)EditorGUILayout.ObjectField("Position " + value, turretAI.m_posToGoTo[i],
+                    turretAI.m_objPosToGoTo[i] = 
+                        (GameObject)EditorGUILayout.ObjectField("Position " + value, turretAI.m_objPosToGoTo[i],
                         typeof(GameObject), false);
                 }
             }
-            else if (turretAI.m_turretMovement == TurretMovement.PositionToPosition || turretAI.m_turretMovement == TurretMovement.RotatingAround)
+            else if (turretAI.m_turretMovement == TurretMovement.PositionToPosition)
             {
-                turretAI.m_minBaseRotation = EditorGUILayout.Vector3Field("Minimum Base Rotation Position", turretAI.m_minBaseRotation);
-                turretAI.m_maxBaseRotation = EditorGUILayout.Vector3Field("Maximum Base Rotation Position", turretAI.m_maxBaseRotation);
-                turretAI.m_minBodyRotation = EditorGUILayout.Vector3Field("Minimum Body Rotation Position", turretAI.m_minBodyRotation);
-                turretAI.m_maxBodyRotation = EditorGUILayout.Vector3Field("Maximum Body Rotation Position", turretAI.m_maxBodyRotation);
+                positionValue = EditorGUILayout.IntField("Amount of Positions", positionValue);
+                for (int i = 0; i < positionValue; i++)
+                {
+                    while (positionValue != turretAI.m_positionsToGoTo.Count)
+                    {
+                        if (positionValue < turretAI.m_positionsToGoTo.Count)
+                            turretAI.m_positionsToGoTo.RemoveAt(turretAI.m_positionsToGoTo.Count - 1);
+                        else if (positionValue > turretAI.m_positionsToGoTo.Count)
+                            turretAI.m_positionsToGoTo.Add(new Vector3());
+                    }
+                    int value = i + 1;
+                    turretAI.m_positionsToGoTo[i] =
+                        EditorGUILayout.Vector3Field("Position " + value, turretAI.m_positionsToGoTo[i]);
+                }
             }
         }
     }
