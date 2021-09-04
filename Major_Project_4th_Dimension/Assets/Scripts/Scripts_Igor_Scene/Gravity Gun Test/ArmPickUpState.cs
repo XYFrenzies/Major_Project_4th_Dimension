@@ -19,6 +19,7 @@ public class ArmPickUpState : ArmBaseState
     public override void EnterState()
     {
         Debug.Log("Entered Pickup state");
+        armStateMan.player.currentState = PlayerControllerCinemachineLook2.State.HookShotThrown;
         playerInput = armStateMan.GetComponent<PlayerInput>();
 
         shootAction = playerInput.actions["HookShot"];

@@ -13449,7 +13449,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1123040563}
   m_LocalRotation: {x: 0.02616798, y: 0.02616798, z: -0.0006852327, w: 0.9993148}
-  m_LocalPosition: {x: 0.66243386, y: 1.7656513, z: -2.8360562}
+  m_LocalPosition: {x: 0.6623057, y: 1.7656513, z: -2.8360496}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1080433557}
@@ -14969,7 +14969,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cineAimCam: {fileID: 0}
-  aimZoomAmount: 2
   lineRenderer: {fileID: 0}
   initialBeamSpeed: 1
   beamSpeedAccelModifier: 0.5
@@ -15005,6 +15004,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFlying: 0
   moveSpeed: 10
+  cin: {fileID: 0}
   hookShotRange: 50
   hookShotThrowSpeed: 70
   flyingSpeedMultiplier: 2

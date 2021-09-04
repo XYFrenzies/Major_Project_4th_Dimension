@@ -7,9 +7,9 @@ using Cinemachine;
 public class ArmStateManager : MonoBehaviour
 {
     public Cinemachine3rdPersonAim cineAimCam;
-    public float aimZoomAmount = 2f;
+    //public float aimZoomAmount = 2f;
     private PlayerInput playerInput;
-    private InputAction aimAction;
+    //private InputAction aimAction;
     [HideInInspector]
     public LineRenderer lineRenderer;
     public float initialBeamSpeed = 1f;
@@ -60,7 +60,7 @@ public class ArmStateManager : MonoBehaviour
         holdInitialBeamSpeedValue = initialBeamSpeed;
         player = GetComponent<PlayerControllerCinemachineLook2>();
         playerInput = GetComponent<PlayerInput>();
-        aimAction = playerInput.actions["Aim"];
+        //aimAction = playerInput.actions["Aim"];
         lineRenderer.enabled = false;
         shootState = new ArmShootState(this);
         grappleState = new ArmGrappleState(this);

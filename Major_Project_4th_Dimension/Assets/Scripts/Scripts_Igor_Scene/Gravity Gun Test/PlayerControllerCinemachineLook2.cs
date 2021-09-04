@@ -13,13 +13,14 @@ public class PlayerControllerCinemachineLook2 : MonoBehaviour
     [Header("Movement")]
     public float moveSpeed = 10.0f;
 
-
+    public CinemachineTouchInputMapper cin;
     private Rigidbody rb;
 
     private Camera cam;
     private Vector3 direction = Vector3.zero;
     private Vector2 inputs;
     private InputAction moveAction;
+    private InputAction lookAction;
 
     [Header("Hook Shot")]
     public float hookShotRange = 50f;
@@ -63,6 +64,7 @@ public class PlayerControllerCinemachineLook2 : MonoBehaviour
         //chainShoot = GetComponent<GravArm>();
         playerInput = GetComponent<PlayerInput>();
         moveAction = playerInput.actions["Move"];
+        lookAction = playerInput.actions["Look"];
 
 
     }
@@ -74,14 +76,17 @@ public class PlayerControllerCinemachineLook2 : MonoBehaviour
         {
             default:
             case State.Normal:
+                moveAction.Enable();
                 Look();
                 isHookThrown = false;
                 break;
 
             case State.HookShotThrown:
                 rb.velocity = Vector3.zero; // If player is moving while firing, player will continue to move for a short time.
-                                            // This stops player from moving while hookshot if firing
-                                            //chainShoot.HandleHookShotThrow();
+                moveAction.Disable();
+                lookAction.Disable();
+                // This stops player from moving while hookshot if firing
+                //chainShoot.HandleHookShotThrow();
                 isHookThrown = true;
                 break;
 
@@ -96,10 +101,17 @@ public class PlayerControllerCinemachineLook2 : MonoBehaviour
         {
             default:
             case State.Normal:
+                moveAction.Enable();
+
                 Move();
+                isHookThrown = false;
                 break;
             case State.HookShotThrown:
                 rb.velocity = Vector3.zero;
+                lookAction.Disable();
+                moveAction.Disable();
+                isHookThrown = true;
+
                 break;
             case State.HookShotFlying:
                 Fly(flyToTarget);
@@ -134,8 +146,10 @@ public class PlayerControllerCinemachineLook2 : MonoBehaviour
 
     public void Look()
     {
-        if (!isHookThrown)
+        if (isHookThrown == false)
             transform.rotation = Quaternion.Euler(0, cam.transform.eulerAngles.y, 0);
+
+
 
 
         Vector3 rayOrigin = cam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));

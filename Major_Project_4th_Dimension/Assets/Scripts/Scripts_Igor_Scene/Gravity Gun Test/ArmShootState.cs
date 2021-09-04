@@ -119,6 +119,8 @@ public class ArmShootState : ArmBaseState
                 Debug.Log("Hit other thing");
 
             }
+            
+
         }
         else
         {
