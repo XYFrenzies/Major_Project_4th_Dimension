@@ -21,13 +21,13 @@ public class CustomEditorInspector : Editor
 
             turretAI.m_baseTurret =
                 (GameObject)EditorGUILayout.ObjectField("Base of the Turret", turretAI.m_baseTurret,
-                typeof(GameObject), false);
+                typeof(GameObject), true);
             turretAI.m_bodyTurret =
                 (GameObject)EditorGUILayout.ObjectField("Body of the Turret", turretAI.m_bodyTurret,
-                typeof(GameObject), false);
+                typeof(GameObject), true);
             turretAI.m_faceTurret =
                 (GameObject)EditorGUILayout.ObjectField("Face of the Turret", turretAI.m_faceTurret,
-                typeof(GameObject), false);
+                typeof(GameObject), true);
 
             turretAI.m_turretSearchSpeed = EditorGUILayout.FloatField("Search Speed", turretAI.m_turretSearchSpeed);
 
