@@ -85,11 +85,6 @@ public class PlayerControllerCinemachineLook2 : MonoBehaviour
                 isHookThrown = true;
                 break;
 
-            case State.HookShotFlying:
-                Fly(flyToTarget);
-
-                break;
-
         }
 
     }
@@ -106,6 +101,11 @@ public class PlayerControllerCinemachineLook2 : MonoBehaviour
             case State.HookShotThrown:
                 rb.velocity = Vector3.zero;
                 break;
+            case State.HookShotFlying:
+                Fly(flyToTarget);
+
+                break;
+
         }
 
     }
