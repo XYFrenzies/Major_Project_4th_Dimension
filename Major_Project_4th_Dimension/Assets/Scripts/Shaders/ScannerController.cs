@@ -6,7 +6,7 @@ using UnityEngine.Rendering;
 using UnityEngine.Rendering.HighDefinition;
 public class ScannerController : MonoBehaviour
 {
-    [SerializeField]private PlayerInput playerInput;
+    [SerializeField] private PlayerInput playerInput;
     [SerializeField] private Transform m_scanLocation = null;
     [SerializeField] private Material material = null;
     [SerializeField] private Volume volume = null;
@@ -134,12 +134,9 @@ public class ScannerController : MonoBehaviour
     {
         foreach (var item in gameObjects)
         {
-            if (!changeToDefaultLayer)
+            if (!changeToDefaultLayer && Vector3.Distance(m_scanLocation.position, item.transform.position) <= m_scanDistance)
             {
-                if (Vector3.Distance(m_scanLocation.position, item.transform.position) <= m_scanDistance)
-                {
-                    item.layer = LayerMask.NameToLayer(layorChange);
-                }
+                item.layer = LayerMask.NameToLayer(layorChange);
             }
             else
             {
@@ -147,7 +144,7 @@ public class ScannerController : MonoBehaviour
             }
         }
     }
-    private void SetScanner(bool setActive) 
+    private void SetScanner(bool setActive)
     {
         for (int i = 0; i < m_passVolume.customPasses.Count; i++)
         {
