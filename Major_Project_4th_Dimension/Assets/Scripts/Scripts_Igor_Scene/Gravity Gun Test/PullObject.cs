@@ -6,8 +6,10 @@ using UnityEngine;
 public class PullObject : MonoBehaviour
 {
     public int id;
+    public float speed = 15f;
     public Transform holdPoint;
-    bool isPulling = false;
+    public bool isPulling = false;
+    public bool isPushing = false;
     public ArmStateManager arm;
     Rigidbody rb;
 
@@ -28,7 +30,23 @@ public class PullObject : MonoBehaviour
     {
         if (isPulling)
         {
-            transform.position = Vector3.MoveTowards(transform.position, holdPoint.position, 5f * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, holdPoint.position, speed * Time.deltaTime);
+            if(Vector3.Distance(transform.position, holdPoint.position) <= 2f)
+            {
+                arm.SwitchState(arm.holdState);
+            }
+        }
+
+        if (isPushing)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, arm.hitPoint, speed * Time.deltaTime);
+            if (Vector3.Distance(transform.position, arm.hitPoint) <= 2f)
+            {
+                arm.SwitchState(arm.shootState);
+                isPushing = false;
+                rb.isKinematic = false;
+                rb.useGravity = true;
+            }
         }
     }
 

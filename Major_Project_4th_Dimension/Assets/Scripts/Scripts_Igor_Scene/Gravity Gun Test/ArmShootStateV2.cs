@@ -23,8 +23,8 @@ public class ArmShootStateV2 : ArmBaseState
 
         shootAction = playerInput.actions["HookShot"];
         shotAction = playerInput.actions["Test"];
-        shootAction.performed += context => ShootArm();
-        shootAction.canceled += context => UnShootArm();
+        //shootAction.performed += context => ShootArm();
+        //shootAction.canceled += context => UnShootArm();
         // called once when switch from some other state to this state.
 
         Debug.Log("Shoot enter");
@@ -36,13 +36,16 @@ public class ArmShootStateV2 : ArmBaseState
     {
         Debug.Log("Shoot state exited");
         // called once when switching from this state to another state
-        shootAction.performed -= context => ShootArm();
+        //shootAction.performed -= context => ShootArm();
 
     }
 
     public override void UpdateState()
     {
-
+        if (Mouse.current.leftButton.isPressed)
+            ShootArm();
+        else
+            UnShootArm();
         //if (Keyboard.current.gKey.isPressed)
         //{
         //    //ThrowHookShot();
@@ -52,7 +55,7 @@ public class ArmShootStateV2 : ArmBaseState
         {
             Shooting();
         }
-        
+
     }
 
 
@@ -127,7 +130,7 @@ public class ArmShootStateV2 : ArmBaseState
                 Debug.Log("Hit other thing");
 
             }
-            
+
 
         }
         else

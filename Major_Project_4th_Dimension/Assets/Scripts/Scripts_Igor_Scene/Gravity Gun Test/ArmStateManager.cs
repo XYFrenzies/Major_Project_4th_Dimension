@@ -9,6 +9,7 @@ public class ArmStateManager : MonoBehaviour
     //public Cinemachine3rdPersonAim cineAimCam;
     //public float aimZoomAmount = 2f;
     private PlayerInput playerInput;
+    public Transform aimTarget;
     //private InputAction aimAction;
     [HideInInspector]
     public LineRenderer lineRenderer;
@@ -47,6 +48,7 @@ public class ArmStateManager : MonoBehaviour
     public ArmPickUpState pickUpState = null;
     public ArmPullState pullState = null;
     public ArmPutDownState putDownState = null;
+    public ArmHoldState holdState = null;
 
 
     //[HideInInspector]
@@ -67,7 +69,8 @@ public class ArmStateManager : MonoBehaviour
         pickUpState = new ArmPickUpState(this);
         pullState = new ArmPullState(this);
         putDownState = new ArmPutDownState(this);
-
+        holdState = new ArmHoldState(this);
+        aimTarget = GetComponent<AimTargetMove>().target.transform;
     }
 
     public void OnEnable()
