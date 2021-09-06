@@ -13,7 +13,7 @@ public class PlayerControllerCinemachineLook2 : MonoBehaviour
     [Header("Movement")]
     public float moveSpeed = 10.0f;
 
-    public CinemachineTouchInputMapper cin;
+    //public CinemachineTouchInputMapper cin;
     private Rigidbody rb;
 
     private Camera cam;
@@ -33,7 +33,7 @@ public class PlayerControllerCinemachineLook2 : MonoBehaviour
 
     [Header("Other Stuff")]
     public Animator animator;
-    private Vector2 m_Move;
+    //private Vector2 m_Move;
 
 
     [HideInInspector]

@@ -4,13 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class ArmShootState : ArmBaseState
+public class ArmShootStateV2 : ArmBaseState
 {
     private PlayerInput playerInput;
     private InputAction shootAction;
+    private InputAction shotAction;
+    public bool shooting = false;
 
-
-    public ArmShootState(ArmStateManager arm) : base(arm)
+    public ArmShootStateV2(ArmStateManager arm) : base(arm)
     {
 
     }
@@ -21,9 +22,9 @@ public class ArmShootState : ArmBaseState
         playerInput = armStateMan.GetComponent<PlayerInput>();
 
         shootAction = playerInput.actions["HookShot"];
-   
-        //shootAction.performed += context => Shot();
-        //shootAction.canceled += context => UnShot();
+        shotAction = playerInput.actions["Test"];
+        shootAction.performed += context => ShootArm();
+        shootAction.canceled += context => UnShootArm();
         // called once when switch from some other state to this state.
 
         Debug.Log("Shoot enter");
@@ -35,19 +36,23 @@ public class ArmShootState : ArmBaseState
     {
         Debug.Log("Shoot state exited");
         // called once when switching from this state to another state
-        //shootAction.performed -= context => Shot();
+        shootAction.performed -= context => ShootArm();
 
     }
 
     public override void UpdateState()
     {
 
-        if (shootAction.triggered)
+        //if (Keyboard.current.gKey.isPressed)
+        //{
+        //    //ThrowHookShot();
+        //    Shot();
+        //}
+        if (shooting)
         {
-            ThrowHookShot();
+            Shooting();
         }
-
-
+        
     }
 
 
@@ -142,4 +147,67 @@ public class ArmShootState : ArmBaseState
         armStateMan.SwitchState(state);
     }
 
+    public void ShootArm()
+    {
+        shooting = true;
+        armStateMan.lineRenderer.enabled = true;
+        Debug.Log("Shooting arm");
+    }
+    private void UnShootArm()
+    {
+        shooting = false;
+        armStateMan.lineRenderer.enabled = false;
+        GameEvents.current.StopPullObject();
+
+    }
+
+    public void Shooting()
+    {
+        RaycastHit hit;
+
+        Ray ray = armStateMan.cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+
+        if (Physics.Raycast(ray, out hit, armStateMan.shootRange, ~armStateMan.layerMask))
+        {
+            armStateMan.hitPoint = hit.point;
+            armStateMan.hitObject = hit.collider.gameObject;
+
+            if (hit.transform.CompareTag("CanHookShotTowards")) // hit grapple point
+            {
+
+                Debug.Log("Can hook shot towards");
+                OnHookShotHit(armStateMan.grappleState);
+
+            }
+            else if (hit.transform.CompareTag("MoveableToMe")) // pick up object
+            {
+                Debug.Log("can pick up");
+                GameEvents.current.PullObject(hit.collider.GetComponent<PullObject>().id);
+                //OnHookShotHit(armStateMan.pickUpState);
+
+            }
+            else if (hit.transform.CompareTag("BigPullObject")) // pull object towards me
+            {
+                Debug.Log("can pull to me");
+
+                armStateMan.localPoint = armStateMan.hitObject.transform.InverseTransformPoint(hit.point);
+
+                OnHookShotHit(armStateMan.pullState);
+            }
+            else // hit object but cant pick up, pull or grapple
+            {
+                Debug.Log("Hit other thing");
+                GameEvents.current.StopPullObject();
+            }
+
+
+        }
+        else
+        {
+            Debug.Log("missed");
+            armStateMan.hitPoint = ray.origin + (armStateMan.cam.transform.forward * armStateMan.shootRange);
+            GameEvents.current.StopPullObject();
+
+        }
+    }
 }

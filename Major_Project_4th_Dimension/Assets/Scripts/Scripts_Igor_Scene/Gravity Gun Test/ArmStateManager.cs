@@ -6,7 +6,7 @@ using Cinemachine;
 
 public class ArmStateManager : MonoBehaviour
 {
-    public Cinemachine3rdPersonAim cineAimCam;
+    //public Cinemachine3rdPersonAim cineAimCam;
     //public float aimZoomAmount = 2f;
     private PlayerInput playerInput;
     //private InputAction aimAction;
@@ -42,7 +42,7 @@ public class ArmStateManager : MonoBehaviour
     [HideInInspector]
     public GameObject newGrappleHandle;
     // States
-    public ArmShootState shootState = null;
+    public ArmShootStateV2 shootState = null; // Remove V2 to go back to original
     public ArmGrappleState grappleState = null;
     public ArmPickUpState pickUpState = null;
     public ArmPullState pullState = null;
@@ -62,7 +62,7 @@ public class ArmStateManager : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         //aimAction = playerInput.actions["Aim"];
         lineRenderer.enabled = false;
-        shootState = new ArmShootState(this);
+        shootState = new ArmShootStateV2(this); // Remove V2 to go back to original
         grappleState = new ArmGrappleState(this);
         pickUpState = new ArmPickUpState(this);
         pullState = new ArmPullState(this);
@@ -121,6 +121,4 @@ public class ArmStateManager : MonoBehaviour
 
         }
     }
-
-
 }
