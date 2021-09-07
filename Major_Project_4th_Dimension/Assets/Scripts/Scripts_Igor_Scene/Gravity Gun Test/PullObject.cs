@@ -33,7 +33,8 @@ public class PullObject : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, holdPoint.position, speed * Time.deltaTime);
             if(Vector3.Distance(transform.position, holdPoint.position) <= 2f)
             {
-                arm.SwitchState(arm.holdState);
+                isPulling = false;
+                arm.SwitchState(arm.pauseState);
             }
         }
 
@@ -42,10 +43,8 @@ public class PullObject : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, arm.hitPoint, speed * Time.deltaTime);
             if (Vector3.Distance(transform.position, arm.hitPoint) <= 2f)
             {
-                arm.SwitchState(arm.shootState);
-                isPushing = false;
-                rb.isKinematic = false;
-                rb.useGravity = true;
+                arm.isPutDown = true;
+                arm.SwitchState(arm.pauseState);
             }
         }
     }

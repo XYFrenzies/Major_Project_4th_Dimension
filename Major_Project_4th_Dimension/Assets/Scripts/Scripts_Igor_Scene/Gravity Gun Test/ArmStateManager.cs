@@ -6,6 +6,7 @@ using Cinemachine;
 
 public class ArmStateManager : MonoBehaviour
 {
+    public bool isPutDown = false;
     //public Cinemachine3rdPersonAim cineAimCam;
     //public float aimZoomAmount = 2f;
     private PlayerInput playerInput;
@@ -43,12 +44,12 @@ public class ArmStateManager : MonoBehaviour
     [HideInInspector]
     public GameObject newGrappleHandle;
     // States
-    public ArmShootStateV2 shootState = null; // Remove V2 to go back to original
+    public ArmShootState shootState = null; // Remove V2 to go back to original
     public ArmGrappleState grappleState = null;
     public ArmPickUpState pickUpState = null;
     public ArmPullState pullState = null;
     public ArmPutDownState putDownState = null;
-    public ArmHoldState holdState = null;
+    public ArmPauseState pauseState = null;
 
 
     //[HideInInspector]
@@ -64,12 +65,12 @@ public class ArmStateManager : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         //aimAction = playerInput.actions["Aim"];
         lineRenderer.enabled = false;
-        shootState = new ArmShootStateV2(this); // Remove V2 to go back to original
+        shootState = new ArmShootState(this); // Remove V2 to go back to original
         grappleState = new ArmGrappleState(this);
         pickUpState = new ArmPickUpState(this);
         pullState = new ArmPullState(this);
         putDownState = new ArmPutDownState(this);
-        holdState = new ArmHoldState(this);
+        pauseState = new ArmPauseState(this);
         aimTarget = GetComponent<AimTargetMove>().target.transform;
     }
 

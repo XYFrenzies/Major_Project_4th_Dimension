@@ -87,16 +87,7 @@ public class ArmShootStateV2 : ArmBaseState
             OnHookShotHit(armStateMan.putDownState);
 
             armStateMan.player.currentState = PlayerControllerCinemachineLook2.State.HookShotThrown;
-            //if (switchCam.isAimOn) // arm already up
-            //{
-            //    player.currentState = PlayerControllerCinemachineLook2.State.HookShotThrown;
-            //    currentHookShotState = HookShotState.Place;
-            //}
-            //else // arm is down. Needs to go up first to then be able to fire hookshot
-            //{
 
-            //    switchCam.StartShoot();
-            //}
             return;
         }
         if (Physics.Raycast(ray, out hit, armStateMan.shootRange, ~armStateMan.layerMask))
@@ -160,8 +151,13 @@ public class ArmShootStateV2 : ArmBaseState
     {
         shooting = false;
         armStateMan.lineRenderer.enabled = false;
-        GameEvents.current.StopPullObject();
-
+        if (!armStateMan.isObjectHeld)
+            GameEvents.current.StopPullObject();
+        //if(armStateMan.isObjectHeld)
+        //{
+        //    armStateMan.isPutDown = true;
+        //    OnHookShotHit(armStateMan.pauseState);
+        //}
     }
 
     public void Shooting()
@@ -169,6 +165,27 @@ public class ArmShootStateV2 : ArmBaseState
         RaycastHit hit;
 
         Ray ray = armStateMan.cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+
+        if (armStateMan.isObjectHeld)
+        {
+
+            if (Physics.Raycast(ray, out hit, armStateMan.shootRange, ~armStateMan.layerMask))
+            {
+
+                armStateMan.hitPoint = hit.point;
+
+
+            }
+            else // put back at point of chain's full length
+            {
+
+                armStateMan.hitPoint = ray.origin + (armStateMan.cam.transform.forward * armStateMan.shootRange);
+
+            }
+            armStateMan.hitObject.GetComponent<PullObject>().isPushing = true;
+
+            return;
+        }
 
         if (Physics.Raycast(ray, out hit, armStateMan.shootRange, ~armStateMan.layerMask))
         {
@@ -185,6 +202,7 @@ public class ArmShootStateV2 : ArmBaseState
             else if (hit.transform.CompareTag("MoveableToMe")) // pick up object
             {
                 Debug.Log("can pick up");
+
                 GameEvents.current.PullObject(hit.collider.GetComponent<PullObject>().id);
                 //OnHookShotHit(armStateMan.pickUpState);
 
