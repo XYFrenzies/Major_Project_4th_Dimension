@@ -74,7 +74,7 @@ public class ArmPickUpState : ArmBaseState
 
         }
 
-        if (shootAction.triggered)
+        if (!Mouse.current.leftButton.isPressed)
         {
             cancelPickUp = true;
             armStateMan.SwitchState(armStateMan.shootState);

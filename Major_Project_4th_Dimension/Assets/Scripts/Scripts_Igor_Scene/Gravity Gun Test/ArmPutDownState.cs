@@ -59,7 +59,7 @@ public class ArmPutDownState : ArmBaseState
 
         }
         //  }
-        if (shootAction.triggered) // interrupt put down action and exit before object reaches target point
+        if (!Mouse.current.leftButton.isPressed) // interrupt put down action and exit before object reaches target point
         {
             armStateMan.SwitchState(armStateMan.shootState);
         }
