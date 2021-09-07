@@ -8,7 +8,7 @@ public class ArmShootState : ArmBaseState
 {
     private PlayerInput playerInput;
     private InputAction shootAction;
-
+    private bool shooting;
 
     public ArmShootState(ArmStateManager arm) : base(arm)
     {
@@ -22,8 +22,8 @@ public class ArmShootState : ArmBaseState
 
         shootAction = playerInput.actions["HookShot"];
    
-        //shootAction.performed += context => Shot();
-        //shootAction.canceled += context => UnShot();
+        shootAction.performed += context => ShootingArm();
+        shootAction.canceled += context => UnShootingArm();
         // called once when switch from some other state to this state.
 
         Debug.Log("Shoot enter");
@@ -35,19 +35,20 @@ public class ArmShootState : ArmBaseState
     {
         Debug.Log("Shoot state exited");
         // called once when switching from this state to another state
-        //shootAction.performed -= context => Shot();
+        shootAction.performed -= context => ShootingArm();
+        shootAction.canceled -= context => UnShootingArm();
 
     }
 
     public override void UpdateState()
     {
 
-        if (shootAction.triggered)
-        {
+        //if (shootAction.triggered)
+        //{
+        //    ThrowHookShot();
+        //}
+        if (shooting)
             ThrowHookShot();
-        }
-
-
     }
 
 
@@ -136,6 +137,19 @@ public class ArmShootState : ArmBaseState
 
     }
 
+
+    public void ShootingArm()
+    {
+        shooting = true;
+        armStateMan.lineRenderer.enabled = true;
+        Debug.Log("Shooting arm");
+    }
+    private void UnShootingArm()
+    {
+        shooting = false;
+        armStateMan.lineRenderer.enabled = false;
+
+    }
 
     public void OnHookShotHit(ArmBaseState state)
     {
