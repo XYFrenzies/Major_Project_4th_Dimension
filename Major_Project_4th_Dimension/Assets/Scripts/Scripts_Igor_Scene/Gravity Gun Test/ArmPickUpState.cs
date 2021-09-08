@@ -9,6 +9,8 @@ public class ArmPickUpState : ArmBaseState
     Renderer rend;
     float radius;
     bool cancelPickUp = false;
+    bool isShooting = false;
+
     private PlayerInput playerInput;
     private InputAction shootAction;
     public ArmPickUpState(ArmStateManager arm) : base(arm)
@@ -19,10 +21,14 @@ public class ArmPickUpState : ArmBaseState
     public override void EnterState()
     {
         Debug.Log("Entered Pickup state");
-        armStateMan.player.currentState = PlayerControllerCinemachineLook2.State.HookShotThrown;
-        playerInput = armStateMan.GetComponent<PlayerInput>();
 
+        playerInput = armStateMan.GetComponent<PlayerInput>();
         shootAction = playerInput.actions["HookShot"];
+
+        shootAction.performed += context => Shoot();
+        shootAction.canceled += context => NotShoot();
+
+        armStateMan.player.currentState = PlayerControllerCinemachineLook2.State.HookShotThrown;
         cancelPickUp = false;
         rb = armStateMan.hitObject.GetComponent<Rigidbody>();
         rend = armStateMan.hitObject.GetComponent<Renderer>();
@@ -35,7 +41,10 @@ public class ArmPickUpState : ArmBaseState
 
     public override void ExitState()
     {
-        if (!cancelPickUp)
+        shootAction.performed -= context => Shoot();
+        shootAction.canceled -= context => NotShoot();
+        Debug.Log("Exited pick up state");
+        if (!cancelPickUp) // grab object
         {
             armStateMan.hitObject.layer = LayerMask.NameToLayer("Hold");
             rb.isKinematic = true;
@@ -46,7 +55,7 @@ public class ArmPickUpState : ArmBaseState
             rb = null;
 
         }
-        else
+        else // let go of mouse button before grabbing object
         {
             armStateMan.hitObject.layer = LayerMask.NameToLayer("Default");
             rb.isKinematic = false;
@@ -70,14 +79,23 @@ public class ArmPickUpState : ArmBaseState
 
         if (Vector3.Distance(armStateMan.hitObject.transform.position, armStateMan.holdPoint.position) <= 1f + radius)
         {
-            armStateMan.SwitchState(armStateMan.shootState);
+            armStateMan.SwitchState(armStateMan.pauseState);
 
         }
 
         if (!Mouse.current.leftButton.isPressed)
         {
             cancelPickUp = true;
-            armStateMan.SwitchState(armStateMan.shootState);
+            armStateMan.SwitchState(armStateMan.pauseState);
         }
+    }
+
+    public void Shoot()
+    {
+        isShooting = true;
+    }
+    private void NotShoot()
+    {
+        isShooting = false;
     }
 }

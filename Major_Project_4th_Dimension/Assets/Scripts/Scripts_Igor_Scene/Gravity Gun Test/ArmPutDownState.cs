@@ -55,13 +55,13 @@ public class ArmPutDownState : ArmBaseState
         if (Vector3.Distance(armStateMan.hitObject.transform.position, armStateMan.hitPoint) <= 2f)
         {
 
-            armStateMan.SwitchState(armStateMan.shootState);
+            armStateMan.SwitchState(armStateMan.pauseState);
 
         }
         //  }
         if (!Mouse.current.leftButton.isPressed) // interrupt put down action and exit before object reaches target point
         {
-            armStateMan.SwitchState(armStateMan.shootState);
+            armStateMan.SwitchState(armStateMan.pauseState);
         }
     }
 }

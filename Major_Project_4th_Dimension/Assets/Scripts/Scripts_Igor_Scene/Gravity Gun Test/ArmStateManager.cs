@@ -6,10 +6,10 @@ using Cinemachine;
 
 public class ArmStateManager : MonoBehaviour
 {
-    public bool isPutDown = false;
+    public bool isPutDown = false; // to delete
     //public Cinemachine3rdPersonAim cineAimCam;
     //public float aimZoomAmount = 2f;
-    private PlayerInput playerInput;
+    //private PlayerInput playerInput;
     public Transform aimTarget;
     //private InputAction aimAction;
     [HideInInspector]
@@ -29,6 +29,7 @@ public class ArmStateManager : MonoBehaviour
     public Camera cam;
     public float shootRange = 50f;
     public LayerMask layerMask;
+    public float armCoolDownTime = 1f;
     [HideInInspector]
     public PlayerControllerCinemachineLook2 player;
     [HideInInspector]
@@ -62,7 +63,7 @@ public class ArmStateManager : MonoBehaviour
         springJoint = GetComponent<SpringJoint>();
         holdInitialBeamSpeedValue = initialBeamSpeed;
         player = GetComponent<PlayerControllerCinemachineLook2>();
-        playerInput = GetComponent<PlayerInput>();
+        //playerInput = GetComponent<PlayerInput>();
         //aimAction = playerInput.actions["Aim"];
         lineRenderer.enabled = false;
         shootState = new ArmShootState(this); // Remove V2 to go back to original
