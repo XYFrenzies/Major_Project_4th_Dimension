@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fffc4b43842e49247a02f4f3267219f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_player: {fileID: 0}
   m_baseTurret: {fileID: 4755373010504424522}
   m_bodyTurret: {fileID: 512238952664502685}
   m_faceTurret: {fileID: 7570137605399491229}
+  m_takeDamage: {fileID: 11400000, guid: 55f6c2d7777578747aa2e03680d92b13, type: 2}
   m_turretMovement: 1
   m_positionsToGoTo:
   - {x: 0, y: 0, z: 0}
@@ -24,7 +26,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  m_turretSearchSpeed: 100
+  m_turretSearchSpeed: 20
   gameObjValue: 3
   positionValue: 3
 --- !u!1 &8057756164816039490
