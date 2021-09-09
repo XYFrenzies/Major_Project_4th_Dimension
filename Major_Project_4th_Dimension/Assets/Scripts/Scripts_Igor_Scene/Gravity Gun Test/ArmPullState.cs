@@ -59,7 +59,7 @@ public class ArmPullState : ArmBaseState
     public override void UpdateState()
     {
 
-        if (!Mouse.current.leftButton.isPressed)
+        if (!Mouse.current.leftButton.isPressed/*isShooting*/)
         {
             armStateMan.SwitchState(armStateMan.shootState);
 

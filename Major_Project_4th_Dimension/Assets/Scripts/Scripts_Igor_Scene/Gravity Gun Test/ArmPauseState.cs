@@ -27,7 +27,7 @@ public class ArmPauseState : ArmBaseState
     public override void UpdateState()
     {
         timer += Time.deltaTime;
-        Debug.Log(timer);
+        //Debug.Log(timer);
         if (timer >= armStateMan.armCoolDownTime)
         {
             timer = 0;
