@@ -8,6 +8,7 @@ using System;
 public class CustomEditorInspector : Editor
 {
     TurretRotationalAI turretAI;
+
     public override void OnInspectorGUI()
     {
         serializedObject.Update();
@@ -19,6 +20,10 @@ public class CustomEditorInspector : Editor
             turretAI.m_turretMovement =
                 (TurretMovement)EditorGUILayout.EnumPopup("Turret movement", turretAI.m_turretMovement);
 
+            turretAI.m_player = (GameObject)EditorGUILayout.ObjectField("Player", turretAI.m_player,
+                typeof(GameObject), true);
+            turretAI.m_takeDamage = (GameEvent)EditorGUILayout.ObjectField("Player", turretAI.m_takeDamage,
+    typeof(GameEvent), true);
             turretAI.m_baseTurret =
                 (GameObject)EditorGUILayout.ObjectField("Base of the Turret", turretAI.m_baseTurret,
                 typeof(GameObject), true);
@@ -67,9 +72,9 @@ public class CustomEditorInspector : Editor
                 }
             }
         }
-        if(EditorApplication.isPlayingOrWillChangePlaymode)
+        if (GUILayout.Button("Save"))
+        {
             EditorUtility.SetDirty(turretAI);
+        }
     }
-
-
 }
