@@ -67,9 +67,9 @@ public class CustomEditorInspector : Editor
                 }
             }
         }
-        if(EditorApplication.isPlayingOrWillChangePlaymode)
+        if (GUILayout.Button("Save"))
+        {
             EditorUtility.SetDirty(turretAI);
+        }
     }
-
-
 }
