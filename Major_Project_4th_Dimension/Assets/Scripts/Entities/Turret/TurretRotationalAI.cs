@@ -57,11 +57,25 @@ public class TurretRotationalAI : Singleton<TurretRotationalAI>
         {
             Vector3 dir = positions[positionThatsNext] - transform.position;
             Quaternion m_lookRotation = Quaternion.LookRotation(dir, m_baseTurret.transform.right);
+
+            Quaternion m_faceRot = Quaternion.LookRotation(dir, m_faceTurret.transform.forward);
+
+            Vector3 m_rotationHead = Quaternion.RotateTowards(m_faceTurret.transform.rotation,
+    m_faceRot, Time.deltaTime * m_turretSearchSpeed / 10).eulerAngles;
+
             Vector3 rotation = Quaternion.RotateTowards(m_baseTurret.transform.rotation,
                 m_lookRotation, Time.deltaTime * m_turretSearchSpeed).eulerAngles;
+
+            float faceRot = Mathf.Clamp(m_rotationHead.x, 0f, 50f);
             m_baseTurret.transform.rotation = Quaternion.Euler(0f, rotation.y, 0f);
-            //if(rotation.y != m_baseTurret.transform.rotation.y)
-                return;
+            m_faceTurret.transform.rotation = Quaternion.Euler(faceRot, rotation.y, 0f);
+            
+            double lRRound = Math.Round(m_lookRotation.y, 2);
+            double turRRound = Math.Round(m_baseTurret.transform.rotation.y, 2);
+            if (lRRound == turRRound)
+                Debug.Log("Reached position");
+
+            return;
             //else if (positionThatsNext >= m_objPosToGoTo.Count - 1)
             //    positionThatsNext = 0;
             //else if (positionThatsNext < m_objPosToGoTo.Count - 1)
