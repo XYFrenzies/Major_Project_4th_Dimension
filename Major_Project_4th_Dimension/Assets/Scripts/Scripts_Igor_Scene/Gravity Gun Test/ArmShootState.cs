@@ -8,6 +8,8 @@ public class ArmShootState : ArmBaseState
 {
     private PlayerInput playerInput;
     private InputAction shootAction;
+    private InputAction throwAction;
+
     private bool shooting;
 
     public ArmShootState(ArmStateManager arm) : base(arm)
@@ -21,9 +23,12 @@ public class ArmShootState : ArmBaseState
         playerInput = armStateMan.GetComponent<PlayerInput>();
 
         shootAction = playerInput.actions["HookShot"];
-   
+        throwAction = playerInput.actions["ThrowObject"];
+
         shootAction.performed += context => ShootingArm();
         shootAction.canceled += context => UnShootingArm();
+
+        throwAction.performed += context => ThrowObject();
         // called once when switch from some other state to this state.
 
         Debug.Log("Shoot enter");
@@ -37,6 +42,7 @@ public class ArmShootState : ArmBaseState
         // called once when switching from this state to another state
         shootAction.performed -= context => ShootingArm();
         shootAction.canceled -= context => UnShootingArm();
+        throwAction.performed -= context => ThrowObject();
 
     }
 
@@ -65,16 +71,11 @@ public class ArmShootState : ArmBaseState
 
             if (Physics.Raycast(ray, out hit, armStateMan.shootRange, ~armStateMan.layerMask))
             {
-
                 armStateMan.hitPoint = hit.point;
-
-
             }
             else // put back at point of chain's full length
             {
-
                 armStateMan.hitPoint = ray.origin + (armStateMan.cam.transform.forward * armStateMan.shootRange);
-
             }
 
             OnHookShotHit(armStateMan.putDownState);
@@ -123,7 +124,7 @@ public class ArmShootState : ArmBaseState
                 Debug.Log("Hit other thing");
 
             }
-            
+
 
         }
         else
@@ -149,6 +150,35 @@ public class ArmShootState : ArmBaseState
         shooting = false;
         armStateMan.lineRenderer.enabled = false;
 
+    }
+
+    public void ThrowObject()
+    {
+        Debug.Log("Throwing object");
+        if (armStateMan.isObjectHeld)
+        {
+            RaycastHit hit;
+
+            Ray ray = armStateMan.cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+
+            if (Physics.Raycast(ray, out hit, armStateMan.shootRange, ~armStateMan.layerMask))
+            {
+                armStateMan.hitPoint = hit.point;
+            }
+            else // put back at point of chain's full length
+            {
+                armStateMan.hitPoint = ray.origin + (armStateMan.cam.transform.forward * armStateMan.shootRange);
+            }
+
+            Vector3 dir = armStateMan.hitPoint - armStateMan.holdPoint.position;
+            armStateMan.hitObject.layer = LayerMask.NameToLayer("Default");
+            armStateMan.hitObject.GetComponent<Rigidbody>().isKinematic = false;
+            armStateMan.hitObject.transform.SetParent(null);
+            armStateMan.isObjectHeld = false;
+            Rigidbody rb = armStateMan.hitObject.GetComponent<Rigidbody>();
+            rb.useGravity = true;
+            rb.AddForce(dir.normalized * armStateMan.throwForce, ForceMode.Impulse);
+        }
     }
 
     public void OnHookShotHit(ArmBaseState state)

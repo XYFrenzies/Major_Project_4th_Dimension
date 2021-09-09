@@ -27,6 +27,7 @@ public class ArmStateManager : MonoBehaviour
     public Transform holdPoint;
     [HideInInspector]
     public Camera cam;
+    public float throwForce = 30f;
     public float shootRange = 50f;
     public LayerMask layerMask;
     public float armCoolDownTime = 1f;
@@ -53,8 +54,6 @@ public class ArmStateManager : MonoBehaviour
     public ArmPauseState pauseState = null;
 
 
-    //[HideInInspector]
-    //public ArmThrowObjectState throwObjectState = new ArmThrowObjectState();
 
     public void Awake()
     {
@@ -63,8 +62,6 @@ public class ArmStateManager : MonoBehaviour
         springJoint = GetComponent<SpringJoint>();
         holdInitialBeamSpeedValue = initialBeamSpeed;
         player = GetComponent<PlayerControllerCinemachineLook2>();
-        //playerInput = GetComponent<PlayerInput>();
-        //aimAction = playerInput.actions["Aim"];
         lineRenderer.enabled = false;
         shootState = new ArmShootState(this); // Remove V2 to go back to original
         grappleState = new ArmGrappleState(this);
