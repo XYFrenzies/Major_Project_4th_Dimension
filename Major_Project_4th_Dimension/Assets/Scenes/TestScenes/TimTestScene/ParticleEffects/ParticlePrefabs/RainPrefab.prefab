@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9200833199192747189}
   m_Layer: 0
-  m_Name: RainPrefab 1
+  m_Name: RainPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87,12 +87,32 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 795291243807361838, guid: b3684b903475b81429f9bb2fa9539c1d, type: 3}
+      propertyPath: InitialModule.startSizeY.scalar
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 795291243807361838, guid: b3684b903475b81429f9bb2fa9539c1d, type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 795291243807361838, guid: b3684b903475b81429f9bb2fa9539c1d, type: 3}
+      propertyPath: InitialModule.startSizeY.minScalar
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 795291243807361838, guid: b3684b903475b81429f9bb2fa9539c1d, type: 3}
+      propertyPath: InitialModule.startSizeZ.minScalar
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 795291243807361838, guid: b3684b903475b81429f9bb2fa9539c1d, type: 3}
       propertyPath: SubModule.subEmitters.Array.data[0].emitter
       value: 
       objectReference: {fileID: 9200833197515323618}
     - target: {fileID: 3570838276078625035, guid: b3684b903475b81429f9bb2fa9539c1d, type: 3}
       propertyPath: m_Name
       value: Rain
+      objectReference: {fileID: 0}
+    - target: {fileID: 3988899090014283609, guid: b3684b903475b81429f9bb2fa9539c1d, type: 3}
+      propertyPath: m_RenderMode
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3684b903475b81429f9bb2fa9539c1d, type: 3}
@@ -111,6 +131,10 @@ PrefabInstance:
     - target: {fileID: 3353897796965537821, guid: c3d9810d1f7be664cbf721d02e474b0b, type: 3}
       propertyPath: m_Name
       value: Splash
+      objectReference: {fileID: 0}
+    - target: {fileID: 3353897796965538016, guid: c3d9810d1f7be664cbf721d02e474b0b, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 3353897796965538016, guid: c3d9810d1f7be664cbf721d02e474b0b, type: 3}
       propertyPath: SubModule.subEmitters.Array.data[0].emitter
@@ -183,6 +207,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 9200833197515323616}
     m_Modifications:
+    - target: {fileID: 2246933879631648460, guid: f68ce45fabebe2243aa2ec98bd60253f, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2246933879631648460, guid: f68ce45fabebe2243aa2ec98bd60253f, type: 3}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2246933879631648460, guid: f68ce45fabebe2243aa2ec98bd60253f, type: 3}
+      propertyPath: InitialModule.startSpeed.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2246933879631648460, guid: f68ce45fabebe2243aa2ec98bd60253f, type: 3}
       propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.minScalar
       value: 5
@@ -312,6 +348,10 @@ PrefabInstance:
     - target: {fileID: 695222028460869235, guid: 1ef421d7c25e1ba47a98d01abee5810e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 695222028460869237, guid: 1ef421d7c25e1ba47a98d01abee5810e, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ef421d7c25e1ba47a98d01abee5810e, type: 3}
