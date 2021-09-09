@@ -70,7 +70,7 @@ public class TurretRotationalGroundAI : Singleton<TurretRotationalGroundAI>
     {
         while (positions != null && positions.Count > 1)
         {
-            Vector3 dir = (positions[positionThatsNext] - transform.position).normalized;
+            Vector3 dir = positions[positionThatsNext] - transform.position;
             m_bodyLookDirection = Quaternion.LookRotation(dir);
             Vector3 rotation = Quaternion.RotateTowards(m_baseTurret.transform.rotation,
     m_bodyLookDirection, Time.deltaTime * m_turretSearchSpeed).eulerAngles;

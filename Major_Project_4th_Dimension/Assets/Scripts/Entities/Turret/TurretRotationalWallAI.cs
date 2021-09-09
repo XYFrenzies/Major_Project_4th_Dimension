@@ -25,6 +25,7 @@ public class TurretRotationalWallAI : Singleton<TurretRotationalWallAI>
     private int positionThatsNext = 0;
     private List<Vector3> m_objectPositions;
     private float spotLightRCRadius = 1.5f;
+    private Quaternion m_headLookDirection;
     private void Awake()
     {
         if (m_faceTurret == null)
@@ -66,11 +67,11 @@ public class TurretRotationalWallAI : Singleton<TurretRotationalWallAI>
     {
         while (positions != null && positions.Count > 1)
         {
-            Vector3 dir = (positions[positionThatsNext] - transform.position).normalized;
-                Quaternion m_headLookDirection = Quaternion.LookRotation(dir, m_faceTurret.transform.right);
-            Vector3 m_rotationHead = Quaternion.RotateTowards(m_faceTurret.transform.rotation,
+            Vector3 dir = positions[positionThatsNext] - transform.position;
+            m_headLookDirection = Quaternion.LookRotation(dir, m_faceTurret.transform.up);
+            Vector3 rotation = Quaternion.RotateTowards(m_faceTurret.transform.localRotation,
     m_headLookDirection, Time.deltaTime * m_turretSearchSpeed).eulerAngles;
-            m_faceTurret.transform.rotation = Quaternion.Euler( m_rotationHead.x, 0f, 180f);
+            m_faceTurret.transform.localRotation = Quaternion.Euler(rotation.x, 0f, 0f);
 
             double lRRound = Math.Round(m_headLookDirection.eulerAngles.x);
             double turRRound = Math.Round(m_faceTurret.transform.localEulerAngles.x);
