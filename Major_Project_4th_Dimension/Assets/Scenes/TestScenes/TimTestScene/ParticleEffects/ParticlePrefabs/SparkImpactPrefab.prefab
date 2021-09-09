@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6904357843923840483}
   - component: {fileID: 7148972780493108887}
   m_Layer: 0
-  m_Name: SparkImpact
+  m_Name: SparkImpactPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -169,7 +169,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 6
+      scalar: 3
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -285,7 +285,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.2
+      scalar: 0.05
       minScalar: 0.02
       maxCurve:
         serializedVersion: 2
@@ -4962,7 +4962,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: -2.1438895e-25, y: 5.1820573e+37, z: 452.3791, w: 9.23943e-32}
+  m_BoundingSphereOverride: {x: 0, y: 6.6124e-41, z: 0, w: -0.0000003774453}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
