@@ -48,11 +48,11 @@ public class ArmShootState : ArmBaseState
         //    ThrowHookShot();
         //}
         if (shooting)
-            ThrowHookShot();
+            ShootArm();
     }
 
 
-    public void ThrowHookShot(/*InputAction.CallbackContext context*/)
+    public void ShootArm(/*InputAction.CallbackContext context*/)
     {
         Debug.Log("Fired hook shot");
         RaycastHit hit;
