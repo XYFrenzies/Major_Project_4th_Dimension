@@ -8928,14 +8928,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerGravityGunTestWithoutMainCamera
       objectReference: {fileID: 0}
-    - target: {fileID: 5804269354966839709, guid: b22f7c45c4c7e524494ea2bd2d2853e9, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.66222453
-      objectReference: {fileID: 0}
-    - target: {fileID: 5804269354966839709, guid: b22f7c45c4c7e524494ea2bd2d2853e9, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -2.8360453
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b22f7c45c4c7e524494ea2bd2d2853e9, type: 3}
 --- !u!1 &580791123
@@ -48231,6 +48223,63 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1001 &6640855606598645469
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6640855606629399315, guid: 8ae51393a6f3f2249aef5174ff6d59f8, type: 3}
+      propertyPath: m_RootOrder
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 6640855606629399315, guid: 8ae51393a6f3f2249aef5174ff6d59f8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6640855606629399315, guid: 8ae51393a6f3f2249aef5174ff6d59f8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6640855606629399315, guid: 8ae51393a6f3f2249aef5174ff6d59f8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6640855606629399315, guid: 8ae51393a6f3f2249aef5174ff6d59f8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6640855606629399315, guid: 8ae51393a6f3f2249aef5174ff6d59f8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6640855606629399315, guid: 8ae51393a6f3f2249aef5174ff6d59f8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6640855606629399315, guid: 8ae51393a6f3f2249aef5174ff6d59f8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6640855606629399315, guid: 8ae51393a6f3f2249aef5174ff6d59f8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6640855606629399315, guid: 8ae51393a6f3f2249aef5174ff6d59f8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6640855606629399315, guid: 8ae51393a6f3f2249aef5174ff6d59f8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6640855606629399319, guid: 8ae51393a6f3f2249aef5174ff6d59f8, type: 3}
+      propertyPath: m_Name
+      value: TurretWithAimAtTarget
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8ae51393a6f3f2249aef5174ff6d59f8, type: 3}
 --- !u!4 &6655383507486528469
 Transform:
   m_ObjectHideFlags: 0
