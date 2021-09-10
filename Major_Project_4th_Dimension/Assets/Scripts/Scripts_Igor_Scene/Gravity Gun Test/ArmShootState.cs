@@ -48,7 +48,7 @@ public class ArmShootState : ArmBaseState
 
     public override void UpdateState()
     {
-
+        Debug.DrawRay(armStateMan.shootPoint.position, armStateMan.shootPoint.forward, Color.green);
         //if (shootAction.triggered)
         //{
         //    ThrowHookShot();
