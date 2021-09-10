@@ -1130,7 +1130,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1068909249}
-  m_LocalRotation: {x: 0.47185794, y: 1e-45, z: -0, w: 0.88167465}
+  m_LocalRotation: {x: 0.47185794, y: -1e-45, z: -0, w: 0.88167465}
   m_LocalPosition: {x: -1.7013159, y: 10.498726, z: -13.1332655}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1148,6 +1148,10 @@ PrefabInstance:
     - target: {fileID: 6011499546020954060, guid: 66ce9519cbb50dd439cfdceec46854a3, type: 3}
       propertyPath: m_Name
       value: DustAmbient
+      objectReference: {fileID: 0}
+    - target: {fileID: 6011499546020954060, guid: 66ce9519cbb50dd439cfdceec46854a3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9096036814530943119, guid: 66ce9519cbb50dd439cfdceec46854a3, type: 3}
       propertyPath: m_RootOrder
@@ -1911,6 +1915,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DripPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 7085160759839619666, guid: bc856f6bfc8d83145ae2593039f69a9b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc856f6bfc8d83145ae2593039f69a9b, type: 3}
 --- !u!1001 &1762468165061096259
@@ -1923,6 +1931,10 @@ PrefabInstance:
     - target: {fileID: 3412454778152390313, guid: 45da0a49ab93d314ca50547e32c40034, type: 3}
       propertyPath: m_Name
       value: FogPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 3412454778152390313, guid: 45da0a49ab93d314ca50547e32c40034, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4552865859704329703, guid: 45da0a49ab93d314ca50547e32c40034, type: 3}
       propertyPath: m_RootOrder
@@ -2004,6 +2016,10 @@ PrefabInstance:
     - target: {fileID: 5998866022165647784, guid: f248378dcdedb69468ca4cf198f0da99, type: 3}
       propertyPath: m_Name
       value: LandingParticlePrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 5998866022165647784, guid: f248378dcdedb69468ca4cf198f0da99, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6553557091521830990, guid: f248378dcdedb69468ca4cf198f0da99, type: 3}
       propertyPath: m_RootOrder
@@ -2110,6 +2126,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SparkDrag
       objectReference: {fileID: 0}
+    - target: {fileID: 2082767848098116150, guid: bacadaa31efff0745a06acc34aba6c74, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bacadaa31efff0745a06acc34aba6c74, type: 3}
 --- !u!1001 &3159831232804056318
@@ -2212,6 +2232,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SparkImpact
       objectReference: {fileID: 0}
+    - target: {fileID: 6350713953532003958, guid: 3bdef0761e2299545816ecf4597136bd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6663284184853389210, guid: 3bdef0761e2299545816ecf4597136bd, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -2268,6 +2292,10 @@ PrefabInstance:
     - target: {fileID: 4747621468438971028, guid: aaf4daa85b4d14f4f9a3a825f56b421b, type: 3}
       propertyPath: m_Name
       value: RustImpactPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 4747621468438971028, guid: aaf4daa85b4d14f4f9a3a825f56b421b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4789928866971542527, guid: aaf4daa85b4d14f4f9a3a825f56b421b, type: 3}
       propertyPath: m_RootOrder
@@ -2445,6 +2473,10 @@ PrefabInstance:
     - target: {fileID: 9200833199192747188, guid: 9fe07b6c287ced24083e357268433019, type: 3}
       propertyPath: m_Name
       value: RainPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200833199192747188, guid: 9fe07b6c287ced24083e357268433019, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9200833199192747189, guid: 9fe07b6c287ced24083e357268433019, type: 3}
       propertyPath: m_RootOrder

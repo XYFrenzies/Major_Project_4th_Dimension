@@ -6,16 +6,23 @@ using Cinemachine;
 
 public class ArmStateManager : MonoBehaviour
 {
-    public bool isPutDown = false; // to delete
-    //public Cinemachine3rdPersonAim cineAimCam;
-    //public float aimZoomAmount = 2f;
-    //private PlayerInput playerInput;
-    public Transform aimTarget;
-    //private InputAction aimAction;
-    [HideInInspector]
-    public LineRenderer lineRenderer;
+    // Exposed properties
+    public float throwForce = 30f;
+    public float shootRange = 50f;
+    public float armCoolDownTime = 1f;
+    public LayerMask holdObjectLayerMask;
     public float initialBeamSpeed = 1f;
     public float beamSpeedAccelModifier = 0.1f;
+    [Space]
+    public Transform shootPoint;
+    public Transform holdPoint;
+    public GameObject grappleHandle;
+    public SpringJoint springJoint;
+
+    [HideInInspector]
+    public Transform aimTarget;
+    [HideInInspector]
+    public LineRenderer lineRenderer;
     [HideInInspector]
     public float holdInitialBeamSpeedValue;
     ArmBaseState currentState;
@@ -23,14 +30,8 @@ public class ArmStateManager : MonoBehaviour
     public Vector3 hitPoint;
     [HideInInspector]
     public GameObject hitObject;
-    public Transform shootPoint;
-    public Transform holdPoint;
     [HideInInspector]
     public Camera cam;
-    public float throwForce = 30f;
-    public float shootRange = 50f;
-    public LayerMask layerMask;
-    public float armCoolDownTime = 1f;
     [HideInInspector]
     public PlayerControllerCinemachineLook2 player;
     [HideInInspector]
@@ -41,8 +42,6 @@ public class ArmStateManager : MonoBehaviour
     public bool pullCheck = false;
     [HideInInspector]
     public bool pull = false;
-    public GameObject grappleHandle;
-    public SpringJoint springJoint;
     [HideInInspector]
     public GameObject newGrappleHandle;
     // States
