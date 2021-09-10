@@ -70,7 +70,7 @@ public class ArmShootStateV2 : ArmBaseState
         if (armStateMan.isObjectHeld)
         {
 
-            if (Physics.Raycast(ray, out hit, armStateMan.shootRange, ~armStateMan.layerMask))
+            if (Physics.Raycast(ray, out hit, armStateMan.shootRange, ~armStateMan.holdObjectLayerMask))
             {
 
                 armStateMan.hitPoint = hit.point;
@@ -90,7 +90,7 @@ public class ArmShootStateV2 : ArmBaseState
 
             return;
         }
-        if (Physics.Raycast(ray, out hit, armStateMan.shootRange, ~armStateMan.layerMask))
+        if (Physics.Raycast(ray, out hit, armStateMan.shootRange, ~armStateMan.holdObjectLayerMask))
         {
             armStateMan.hitPoint = hit.point;
             armStateMan.hitObject = hit.collider.gameObject;
@@ -169,7 +169,7 @@ public class ArmShootStateV2 : ArmBaseState
         if (armStateMan.isObjectHeld)
         {
 
-            if (Physics.Raycast(ray, out hit, armStateMan.shootRange, ~armStateMan.layerMask))
+            if (Physics.Raycast(ray, out hit, armStateMan.shootRange, ~armStateMan.holdObjectLayerMask))
             {
 
                 armStateMan.hitPoint = hit.point;
@@ -182,12 +182,12 @@ public class ArmShootStateV2 : ArmBaseState
                 armStateMan.hitPoint = ray.origin + (armStateMan.cam.transform.forward * armStateMan.shootRange);
 
             }
-            armStateMan.hitObject.GetComponent<PullObject>().isPushing = true;
+            //armStateMan.hitObject.GetComponent<PullObject>().isPushing = true;
 
             return;
         }
 
-        if (Physics.Raycast(ray, out hit, armStateMan.shootRange, ~armStateMan.layerMask))
+        if (Physics.Raycast(ray, out hit, armStateMan.shootRange, ~armStateMan.holdObjectLayerMask))
         {
             armStateMan.hitPoint = hit.point;
             armStateMan.hitObject = hit.collider.gameObject;
@@ -203,7 +203,7 @@ public class ArmShootStateV2 : ArmBaseState
             {
                 Debug.Log("can pick up");
 
-                GameEvents.current.PullObject(hit.collider.GetComponent<PullObject>().id);
+                //GameEvents.current.PullObject(hit.collider.GetComponent<PullObject>().id);
                 //OnHookShotHit(armStateMan.pickUpState);
 
             }

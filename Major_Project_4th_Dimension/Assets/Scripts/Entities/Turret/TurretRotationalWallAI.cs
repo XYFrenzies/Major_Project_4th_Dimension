@@ -5,7 +5,6 @@ using UnityEngine;
 public enum TurretMovementWall
 {
     PositionToPosition,
-    GameObjectToGameObject,
     Stopped
 }
 [System.Serializable]
@@ -15,29 +14,22 @@ public class TurretRotationalWallAI : Singleton<TurretRotationalWallAI>
     public GameObject m_faceTurret = null;
     public GameEvent m_takeDamage = null;
     public TurretMovementWall m_turretMovement;
-    public List<Vector3> m_positionsToGoTo;
-    public List<GameObject> m_objPosToGoTo;
+    public List<Vector3> m_rotationOfTurret;
     public float m_turretSearchSpeed = 2.0f;
     public int gameObjValue;
     public int positionValue;
     public Light m_spotLight;
     private bool m_cantRotate = false;
     private int positionThatsNext = 0;
-    private List<Vector3> m_objectPositions;
     private float spotLightRCRadius = 1.5f;
-    private Quaternion m_headLookDirection;
+    private Quaternion quat;
     private void Awake()
     {
         if (m_faceTurret == null)
             m_cantRotate = true;
-        m_objectPositions = new List<Vector3>();
         if (m_player == null)
         {
             m_player = GameObject.FindGameObjectWithTag("Player");
-        }
-        foreach (var item in m_objPosToGoTo)
-        {
-            m_objectPositions.Add(item.transform.position);
         }
     }
     // Update is called once per frame
@@ -48,10 +40,7 @@ public class TurretRotationalWallAI : Singleton<TurretRotationalWallAI>
             switch (m_turretMovement)
             {
                 case TurretMovementWall.PositionToPosition:
-                    ObjectToObject(m_positionsToGoTo);
-                    break;
-                case TurretMovementWall.GameObjectToGameObject:
-                    ObjectToObject(m_objectPositions);
+                    ObjectToObject();
                     break;
             }
 
@@ -63,28 +52,22 @@ public class TurretRotationalWallAI : Singleton<TurretRotationalWallAI>
             m_takeDamage.Raise();
         }
     }
-    private void ObjectToObject(List<Vector3> positions)
+    private void ObjectToObject()
     {
-        while (positions != null && positions.Count > 1)
+        while (m_rotationOfTurret != null && m_rotationOfTurret.Count > 1)
         {
-            Vector3 dir = positions[positionThatsNext] - transform.position;
-            m_headLookDirection = Quaternion.LookRotation(dir, m_faceTurret.transform.up);
+            quat = Quaternion.Euler(m_rotationOfTurret[positionThatsNext].x, 0f, 0f);
             Vector3 rotation = Quaternion.RotateTowards(m_faceTurret.transform.localRotation,
-    m_headLookDirection, Time.deltaTime * m_turretSearchSpeed).eulerAngles;
+    quat, Time.deltaTime * m_turretSearchSpeed).eulerAngles;
             m_faceTurret.transform.localRotation = Quaternion.Euler(rotation.x, 0f, 0f);
-
-            double lRRound = Math.Round(m_headLookDirection.eulerAngles.x);
+            double lRRound = Math.Round(m_rotationOfTurret[positionThatsNext].x);
             double turRRound = Math.Round(m_faceTurret.transform.localEulerAngles.x);
-            if ((turRRound - 3f) == lRRound || lRRound == turRRound || (turRRound + 3f) == lRRound)
+            if (lRRound == turRRound)
             {
-                if (positionThatsNext >= positions.Count - 1)
-                {
+                if (positionThatsNext >= m_rotationOfTurret.Count - 1)
                     positionThatsNext = 0;
-                }
-                else if (positionThatsNext < positions.Count - 1)
-                {
+                else if (positionThatsNext < m_rotationOfTurret.Count - 1)
                     positionThatsNext += 1;
-                }
             }
             return;
         }
