@@ -1312,6 +1312,17 @@ Transform:
   m_Father: {fileID: 1287181705}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &82700593 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5804269355457172852, guid: b22f7c45c4c7e524494ea2bd2d2853e9, type: 3}
+  m_PrefabInstance: {fileID: 574934381}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &82948646
 GameObject:
   m_ObjectHideFlags: 0
@@ -8917,9 +8928,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerGravityGunTestWithoutMainCamera
       objectReference: {fileID: 0}
-    - target: {fileID: 5804269353501315391, guid: b22f7c45c4c7e524494ea2bd2d2853e9, type: 3}
-      propertyPath: m_IsActive
-      value: 1
+    - target: {fileID: 5804269354966839709, guid: b22f7c45c4c7e524494ea2bd2d2853e9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.66222453
+      objectReference: {fileID: 0}
+    - target: {fileID: 5804269354966839709, guid: b22f7c45c4c7e524494ea2bd2d2853e9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.8360453
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b22f7c45c4c7e524494ea2bd2d2853e9, type: 3}
@@ -14532,6 +14547,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7006184331258243259, guid: 0a5ea3154b66cb74997d3c5f744eff19, type: 3}
+      propertyPath: holdObjectLayerMask.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a5ea3154b66cb74997d3c5f744eff19, type: 3}
 --- !u!1 &930379973
@@ -19183,30 +19202,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: facc9b99a1874874184f9efd961c56ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPutDown: 0
-  aimTarget: {fileID: 0}
-  lineRenderer: {fileID: 0}
+  throwForce: 30
+  shootRange: 50
+  armCoolDownTime: 1
+  holdObjectLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
   initialBeamSpeed: 1
   beamSpeedAccelModifier: 0.5
+  shootPoint: {fileID: 60720933}
+  holdPoint: {fileID: 780423475}
+  grappleHandle: {fileID: 4420089562460233718, guid: 6f03739fc8325224b9481ec4268df3d6, type: 3}
+  springJoint: {fileID: 1174014377}
+  aimTarget: {fileID: 0}
+  lineRenderer: {fileID: 0}
   holdInitialBeamSpeedValue: 0
   hitPoint: {x: 0, y: 0, z: 0}
   hitObject: {fileID: 0}
-  shootPoint: {fileID: 60720933}
-  holdPoint: {fileID: 780423475}
   cam: {fileID: 0}
-  throwForce: 30
-  shootRange: 50
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 64
-  armCoolDownTime: 1
   player: {fileID: 1174014383}
   isObjectHeld: 0
   localPoint: {x: 0, y: 0, z: 0}
   pullCheck: 0
   pull: 0
-  grappleHandle: {fileID: 4420089562460233718, guid: 6f03739fc8325224b9481ec4268df3d6, type: 3}
-  springJoint: {fileID: 1174014377}
   newGrappleHandle: {fileID: 0}
 --- !u!114 &1174014383
 MonoBehaviour:
@@ -22082,30 +22100,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: facc9b99a1874874184f9efd961c56ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPutDown: 0
-  aimTarget: {fileID: 0}
-  lineRenderer: {fileID: 0}
+  throwForce: 30
+  shootRange: 50
+  armCoolDownTime: 1
+  holdObjectLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
   initialBeamSpeed: 1
   beamSpeedAccelModifier: 0.5
+  shootPoint: {fileID: 62815682}
+  holdPoint: {fileID: 587198650}
+  grappleHandle: {fileID: 4420089562460233718, guid: 6f03739fc8325224b9481ec4268df3d6, type: 3}
+  springJoint: {fileID: 1309525788}
+  aimTarget: {fileID: 0}
+  lineRenderer: {fileID: 0}
   holdInitialBeamSpeedValue: 0
   hitPoint: {x: 0, y: 0, z: 0}
   hitObject: {fileID: 0}
-  shootPoint: {fileID: 62815682}
-  holdPoint: {fileID: 587198650}
   cam: {fileID: 0}
-  throwForce: 30
-  shootRange: 50
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 64
-  armCoolDownTime: 1
   player: {fileID: 1309525790}
   isObjectHeld: 0
   localPoint: {x: 0, y: 0, z: 0}
   pullCheck: 0
   pull: 0
-  grappleHandle: {fileID: 4420089562460233718, guid: 6f03739fc8325224b9481ec4268df3d6, type: 3}
-  springJoint: {fileID: 1309525788}
   newGrappleHandle: {fileID: 0}
 --- !u!114 &1309525790
 MonoBehaviour:
@@ -26861,12 +26878,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e56460df3a6e99840afc79b060a9c19c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
-  speed: 15
-  holdPoint: {fileID: 780423475}
-  isPulling: 0
-  isPushing: 0
-  arm: {fileID: 1174014382}
 --- !u!54 &1631490300
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -41666,7 +41677,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a722de65737adf4fbd0e586a6a8d399, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerInput: {fileID: 0}
+  playerInput: {fileID: 82700593}
   m_scanLocation: {fileID: 0}
   material: {fileID: 2100000, guid: c63b4af3b1d7f8046a2c7d9e023c70a8, type: 2}
   volume: {fileID: 0}
@@ -48220,6 +48231,63 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1001 &6640855606598645469
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6640855606629399315, guid: 8ae51393a6f3f2249aef5174ff6d59f8, type: 3}
+      propertyPath: m_RootOrder
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 6640855606629399315, guid: 8ae51393a6f3f2249aef5174ff6d59f8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6640855606629399315, guid: 8ae51393a6f3f2249aef5174ff6d59f8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6640855606629399315, guid: 8ae51393a6f3f2249aef5174ff6d59f8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6640855606629399315, guid: 8ae51393a6f3f2249aef5174ff6d59f8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6640855606629399315, guid: 8ae51393a6f3f2249aef5174ff6d59f8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6640855606629399315, guid: 8ae51393a6f3f2249aef5174ff6d59f8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6640855606629399315, guid: 8ae51393a6f3f2249aef5174ff6d59f8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6640855606629399315, guid: 8ae51393a6f3f2249aef5174ff6d59f8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6640855606629399315, guid: 8ae51393a6f3f2249aef5174ff6d59f8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6640855606629399315, guid: 8ae51393a6f3f2249aef5174ff6d59f8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6640855606629399319, guid: 8ae51393a6f3f2249aef5174ff6d59f8, type: 3}
+      propertyPath: m_Name
+      value: TurretWithAimAtTarget
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8ae51393a6f3f2249aef5174ff6d59f8, type: 3}
 --- !u!4 &6655383507486528469
 Transform:
   m_ObjectHideFlags: 0

@@ -69,7 +69,7 @@ public class ArmShootState : ArmBaseState
         if (armStateMan.isObjectHeld)
         {
 
-            if (Physics.Raycast(ray, out hit, armStateMan.shootRange, ~armStateMan.layerMask))
+            if (Physics.Raycast(ray, out hit, armStateMan.shootRange, ~armStateMan.holdObjectLayerMask))
             {
                 armStateMan.hitPoint = hit.point;
             }
@@ -93,7 +93,7 @@ public class ArmShootState : ArmBaseState
             //}
             return;
         }
-        if (Physics.Raycast(ray, out hit, armStateMan.shootRange, ~armStateMan.layerMask))
+        if (Physics.Raycast(ray, out hit, armStateMan.shootRange, ~armStateMan.holdObjectLayerMask))
         {
             armStateMan.hitPoint = hit.point;
             armStateMan.hitObject = hit.collider.gameObject;
@@ -161,7 +161,7 @@ public class ArmShootState : ArmBaseState
 
             Ray ray = armStateMan.cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
 
-            if (Physics.Raycast(ray, out hit, armStateMan.shootRange, ~armStateMan.layerMask))
+            if (Physics.Raycast(ray, out hit, armStateMan.shootRange, ~armStateMan.holdObjectLayerMask))
             {
                 armStateMan.hitPoint = hit.point;
             }
