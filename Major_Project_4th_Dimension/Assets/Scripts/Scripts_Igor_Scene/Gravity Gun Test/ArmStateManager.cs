@@ -6,50 +6,68 @@ using UnityEngine.InputSystem;
 public class ArmStateManager : MonoBehaviour
 {
 
-
+    [HideInInspector]
+    public LineRenderer lineRenderer;
 
     ArmBaseState currentState;
-    
+    [HideInInspector]
+    public Vector3 hitPoint;
+    [HideInInspector]
+    public GameObject hitObject;
+    public Transform shootPoint;
+    public Transform holdPoint;
+    [HideInInspector]
+    public Camera cam;
+    public float shootRange = 50f;
+    public LayerMask layerMask;
+    [HideInInspector]
+    public PlayerControllerCinemachineLook2 player;
+    [HideInInspector]
+    public bool isObjectHeld = false;
+    [HideInInspector]
+    public Vector3 localPoint;
+    [HideInInspector]
+    public bool pullCheck = false;
+    [HideInInspector]
+    public bool pull = false;
+    public GameObject grappleHandle;
+    public SpringJoint springJoint;
+    [HideInInspector]
+    public GameObject newGrappleHandle;
+    // States
     public ArmShootState shootState = null;
-    public ArmGrappleState grapplestate = null;
+    public ArmGrappleState grappleState = null;
+    public ArmPickUpState pickUpState = null;
+    public ArmPullState pullState = null;
+    public ArmPutDownState putDownState = null;
 
-    public PlayerControllerCinemachineLook2 pc;
 
-
-    //[HideInInspector]
-    //public ArmPickUpState pickUpState = new ArmPickUpState();
-    //[HideInInspector]
-    //public ArmPutDownState putDownState = new ArmPutDownState();
-    //[HideInInspector]
-    //public ArmPullState pullState = new ArmPullState();
     //[HideInInspector]
     //public ArmThrowObjectState throwObjectState = new ArmThrowObjectState();
 
     public void Awake()
     {
+        cam = Camera.main;
+        lineRenderer = GetComponent<LineRenderer>();
+        springJoint = GetComponent<SpringJoint>();
 
-        pc = GetComponent<PlayerControllerCinemachineLook2>();
-
+        player = GetComponent<PlayerControllerCinemachineLook2>();
 
         shootState = new ArmShootState(this);
-        grapplestate = new ArmGrappleState(this);
+        grappleState = new ArmGrappleState(this);
+        pickUpState = new ArmPickUpState(this);
+        pullState = new ArmPullState(this);
+        putDownState = new ArmPutDownState(this);
 
-        
-
-        //currentState = shootState;
-        //currentState.AwakeState(this);
     }
 
     public void OnEnable()
     {
 
-        
     }
 
     public void OnDisable()
     {
-
-        
 
     }
 
@@ -58,6 +76,7 @@ public class ArmStateManager : MonoBehaviour
     public void Start()
     {
         SwitchState(shootState);
+        Debug.Log("enter state test");
     }
 
     // Update is called once per frame
@@ -77,4 +96,10 @@ public class ArmStateManager : MonoBehaviour
             currentState.EnterState();
     }
 
+    public void DrawLineRenderer()
+    {
+        lineRenderer.positionCount = 2;
+        lineRenderer.SetPosition(0, shootPoint.position);
+        lineRenderer.SetPosition(1, hitPoint);
+    }
 }
