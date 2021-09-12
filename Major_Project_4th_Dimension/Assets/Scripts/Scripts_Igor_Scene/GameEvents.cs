@@ -30,4 +30,21 @@ public class GameEvents : MonoBehaviour
         }
     }
 
+    public event Action<int> onPullObject;
+    public void PullObject(int id)
+    {
+        if (onPullObject != null)
+        {
+            onPullObject(id);
+        }
+    }
+
+    public event Action onStopPullObject;
+    public void StopPullObject()
+    {
+        if (onStopPullObject != null)
+        {
+            onStopPullObject();
+        }
+    }
 }

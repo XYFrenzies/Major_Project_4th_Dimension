@@ -84,6 +84,14 @@
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Test",
+                    "type": "Button",
+                    "id": "2277f4a8-b05f-4e6e-91ee-f0e29876b452",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -359,6 +367,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "PauseMoveController",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d2c222fb-0664-4093-88e2-55a66ac3eac3",
+                    "path": "<Keyboard>/g",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Test",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -6,7 +6,7 @@ using UnityEngine.Rendering;
 using UnityEngine.Rendering.HighDefinition;
 public class ScannerController : MonoBehaviour
 {
-    [SerializeField]private PlayerInput playerInput;
+    [SerializeField] private PlayerInput playerInput;
     [SerializeField] private Transform m_scanLocation = null;
     [SerializeField] private Material material = null;
     [SerializeField] private Volume volume = null;
@@ -15,6 +15,7 @@ public class ScannerController : MonoBehaviour
     [SerializeField] private float m_speed = 40.0f;
     [SerializeField] private float m_timeToScan = 5.0f;
     [SerializeField] private bool m_scanGreyScale = false;
+    private CustomPassVolume m_passVolume;
     private VolumeProfile profile;
     private TextureCurve originalTex;
     private TextureCurve newTex;
@@ -28,6 +29,7 @@ public class ScannerController : MonoBehaviour
     private readonly Keyframe[] originalKeyTex = { new Keyframe(0, 0.5f), new Keyframe(1, 0.5f) };
     private void Awake()
     {
+        m_passVolume = GetComponent<CustomPassVolume>();
         scannerAction = playerInput.actions["Scanner"];
         profile = volume.sharedProfile;
         Keyframe[] frame = {new Keyframe(m_colourValueStart.x, m_colourValueStart.y),
@@ -35,6 +37,9 @@ public class ScannerController : MonoBehaviour
         newTex = new TextureCurve(frame, 0, false, new Vector2(0, 1));
         m_camera = Camera.main;
         alpha.AddRange(alphabet);
+        SetScanner(false);
+
+
     }
 
     private void OnEnable()
@@ -46,6 +51,7 @@ public class ScannerController : MonoBehaviour
     {
         if (!m_scanning)
         {
+            SetScanner(true);
             Debug.Log("Scanning");
             m_scanning = true;
             m_scanDistance = 3;
@@ -107,6 +113,7 @@ public class ScannerController : MonoBehaviour
         }
         if (Indicator.Instance != null && !isOnDisable)
         {
+            SetScanner(false);
             IndicatorChangeLayor(Indicator.Instance.objCanMoveAround, true, "SeeThroughWallsObjects");
             IndicatorChangeLayor(Indicator.Instance.objCanHookTo, true, "SeeThroughWallsHook");
             foreach (var indicator in Indicator.Instance.objCanMoveAround)
@@ -127,17 +134,21 @@ public class ScannerController : MonoBehaviour
     {
         foreach (var item in gameObjects)
         {
-            if (!changeToDefaultLayer)
+            if (!changeToDefaultLayer && Vector3.Distance(m_scanLocation.position, item.transform.position) <= m_scanDistance)
             {
-                if (Vector3.Distance(m_scanLocation.position, item.transform.position) <= m_scanDistance)
-                {
-                    item.layer = LayerMask.NameToLayer(layorChange);
-                }
+                item.layer = LayerMask.NameToLayer(layorChange);
             }
             else
             {
                 item.layer = LayerMask.NameToLayer("Default");
             }
+        }
+    }
+    private void SetScanner(bool setActive)
+    {
+        for (int i = 0; i < m_passVolume.customPasses.Count; i++)
+        {
+            m_passVolume.customPasses[i].enabled = setActive;
         }
     }
 }
