@@ -17,7 +17,7 @@ public class ArmPutDownState : ArmBaseState
     public override void EnterState()
     {
         armStateMan.player.currentState = PlayerControllerCinemachineLook2.State.HookShotThrown;
-        Debug.Log("Entered Putdown state");
+        //Debug.Log("Entered Putdown state");
         playerInput = armStateMan.GetComponent<PlayerInput>();
 
         shootAction = playerInput.actions["HookShot"];

@@ -11,8 +11,8 @@ public class ArmPickUpState : ArmBaseState
     bool cancelPickUp = false;
     bool isShooting = false;
 
-    private PlayerInput playerInput;
-    private InputAction shootAction;
+    //private PlayerInput playerInput;
+    //private InputAction shootAction;
     public ArmPickUpState(ArmStateManager arm) : base(arm)
     {
 
@@ -20,13 +20,13 @@ public class ArmPickUpState : ArmBaseState
 
     public override void EnterState()
     {
-        Debug.Log("Entered Pickup state");
+        //Debug.Log("Entered Pickup state");
 
-        playerInput = armStateMan.GetComponent<PlayerInput>();
-        shootAction = playerInput.actions["HookShot"];
+        //playerInput = armStateMan.GetComponent<PlayerInput>();
+        //shootAction = playerInput.actions["HookShot"];
 
-        shootAction.performed += context => Shoot();
-        shootAction.canceled += context => NotShoot();
+        armStateMan.shootAction.performed += Shoot;
+        armStateMan.shootAction.canceled += NotShoot;
 
         armStateMan.player.currentState = PlayerControllerCinemachineLook2.State.HookShotThrown;
         cancelPickUp = false;
@@ -41,9 +41,9 @@ public class ArmPickUpState : ArmBaseState
 
     public override void ExitState()
     {
-        shootAction.performed -= context => Shoot();
-        shootAction.canceled -= context => NotShoot();
-        Debug.Log("Exited pick up state");
+        armStateMan.shootAction.performed -= Shoot;
+        armStateMan.shootAction.canceled -= NotShoot;
+        //Debug.Log("Exited pick up state");
         if (!cancelPickUp) // grab object
         {
             armStateMan.hitObject.layer = LayerMask.NameToLayer("Hold");
@@ -90,11 +90,11 @@ public class ArmPickUpState : ArmBaseState
         }
     }
 
-    public void Shoot()
+    public void Shoot(InputAction.CallbackContext context)
     {
         isShooting = true;
     }
-    private void NotShoot()
+    private void NotShoot(InputAction.CallbackContext context)
     {
         isShooting = false;
     }
