@@ -15,13 +15,13 @@ public class ArmPullState : ArmBaseState
 
     public override void EnterState()
     {
-        Debug.Log("Entered Pull state");
+        //Debug.Log("Entered Pull state");
 
         playerInput = armStateMan.GetComponent<PlayerInput>();
         shootAction = playerInput.actions["HookShot"];
 
-        shootAction.performed += context => Shoot();
-        shootAction.canceled += context => NotShoot();
+        shootAction.performed += Shoot;
+        shootAction.canceled += NotShoot;
 
         armStateMan.newGrappleHandle = Object.Instantiate(armStateMan.grappleHandle, armStateMan.hitObject.transform);
         armStateMan.newGrappleHandle.transform.localPosition = armStateMan.localPoint;
@@ -42,8 +42,8 @@ public class ArmPullState : ArmBaseState
 
     public override void ExitState()
     {
-        shootAction.performed -= context => Shoot();
-        shootAction.canceled -= context => NotShoot();
+        shootAction.performed -= Shoot;
+        shootAction.canceled -= NotShoot;
         //hand.transform.SetParent(armStateMan.transform);
         Object.Destroy(armStateMan.newGrappleHandle);
         armStateMan.springJoint.connectedAnchor = Vector3.zero;
@@ -68,11 +68,11 @@ public class ArmPullState : ArmBaseState
         armStateMan.hitPoint = armStateMan.newGrappleHandle.transform.position;
     }
 
-    public void Shoot()
+    public void Shoot(InputAction.CallbackContext context)
     {
         isShooting = true;
     }
-    private void NotShoot()
+    private void NotShoot(InputAction.CallbackContext context)
     {
         isShooting = false;
     }

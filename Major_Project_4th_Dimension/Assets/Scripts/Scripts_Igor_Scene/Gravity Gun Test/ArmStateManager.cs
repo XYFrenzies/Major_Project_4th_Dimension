@@ -44,6 +44,10 @@ public class ArmStateManager : MonoBehaviour
     public bool pull = false;
     [HideInInspector]
     public GameObject newGrappleHandle;
+    public PlayerInput playerInput;
+    public InputAction shootAction;
+    public InputAction throwAction;
+
     // States
     public ArmShootState shootState = null; // Remove V2 to go back to original
     public ArmGrappleState grappleState = null;
@@ -57,6 +61,9 @@ public class ArmStateManager : MonoBehaviour
     public void Awake()
     {
         cam = Camera.main;
+        playerInput = GetComponent<PlayerInput>();
+        shootAction = playerInput.actions["HookShot"];
+        throwAction = playerInput.actions["ThrowObject"];
         lineRenderer = GetComponent<LineRenderer>();
         springJoint = GetComponent<SpringJoint>();
         holdInitialBeamSpeedValue = initialBeamSpeed;
@@ -86,7 +93,7 @@ public class ArmStateManager : MonoBehaviour
     public void Start()
     {
         SwitchState(shootState);
-        Debug.Log("enter state test");
+        //Debug.Log("enter state test");
     }
 
     // Update is called once per frame
@@ -114,11 +121,11 @@ public class ArmStateManager : MonoBehaviour
     {
         lineRenderer.positionCount = 2;
         lineRenderer.SetPosition(0, shootPoint.position);
-        if (!isObjectHeld)
-            lineRenderer.SetPosition(1, hitPoint);
+        if (isObjectHeld)
+            lineRenderer.SetPosition(1, hitObject.transform.position);
         else
         {
-            lineRenderer.SetPosition(1, hitObject.transform.position);
+            lineRenderer.SetPosition(1, hitPoint);
 
         }
     }
