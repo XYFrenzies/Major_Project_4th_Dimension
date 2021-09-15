@@ -10,7 +10,8 @@ public class ArmPickUpState : ArmBaseState
     float radius;
     bool cancelPickUp = false;
     bool isShooting = false;
-
+    float distanceBetweenPoints = 0f;
+    int changePoint = 0;
     //private PlayerInput playerInput;
     //private InputAction shootAction;
     public ArmPickUpState(ArmStateManager arm) : base(arm)
@@ -24,7 +25,9 @@ public class ArmPickUpState : ArmBaseState
 
         //playerInput = armStateMan.GetComponent<PlayerInput>();
         //shootAction = playerInput.actions["HookShot"];
-
+        distanceBetweenPoints = Vector3.Distance(armStateMan.hitObject.transform.position, armStateMan.holdPoint.position);
+        Debug.Log(distanceBetweenPoints);
+        changePoint = (int)(distanceBetweenPoints / armStateMan.lights.Count);
         armStateMan.shootAction.performed += Shoot;
         armStateMan.shootAction.canceled += NotShoot;
 
@@ -88,14 +91,41 @@ public class ArmPickUpState : ArmBaseState
             cancelPickUp = true;
             armStateMan.SwitchState(armStateMan.pauseState);
         }
+
+        if (Vector3.Distance(armStateMan.hitObject.transform.position, armStateMan.holdPoint.position) <= (distanceBetweenPoints - changePoint))
+        {
+            int numba = 0;
+            changePoint += changePoint;
+            Debug.Log(distanceBetweenPoints - changePoint);
+            armStateMan.lights[(armStateMan.lights.Count - 1) - numba].SetActive(false);
+            numba++;
+            armStateMan.lights[(armStateMan.lights.Count - 1) - numba].SetActive(true);
+        }
+
     }
 
     public void Shoot(InputAction.CallbackContext context)
     {
-        isShooting = true;
+        if (context.phase != InputActionPhase.Performed)
+        {
+            return;
+        }
+        else
+        {
+
+            isShooting = true;
+        }
     }
     private void NotShoot(InputAction.CallbackContext context)
     {
-        isShooting = false;
+        if (context.phase != InputActionPhase.Canceled)
+        {
+            return;
+        }
+        else
+        {
+
+            isShooting = false;
+        }
     }
 }

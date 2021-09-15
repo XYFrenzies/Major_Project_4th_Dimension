@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum TurretState 
+public enum TurretState
 {
     Inactive,
     Startup,
@@ -49,6 +49,7 @@ public class TurretStateManager : MonoBehaviour
     [SerializeField] private GameObject m_leftSight;
     [SerializeField] private GameObject m_rightSight;
     [SerializeField] private GameObject m_raycastChecker;
+    private bool m_playerInArea = false;
     #endregion
     // Start is called before the first frame update
     private void Start()
@@ -85,18 +86,18 @@ public class TurretStateManager : MonoBehaviour
         m_turretState = TurretState.Startup;
         m_animateTurretStartUp.Play();
     }
-    public void IsSettingInActiveTurret() 
+    public void IsSettingInActiveTurret()
     {
         m_turretState = TurretState.StartDown;
         m_animationStartDown.Play();
     }
-    private void PlayStartDownAni() 
+    private void PlayStartDownAni()
     {
         if (!m_animationStartDown.isPlaying)
             m_turretState = TurretState.Inactive;
     }
     //Plays animation of the turret starting up.
-    private void PlayStartUpAnimation() 
+    private void PlayStartUpAnimation()
     {
         if (!m_animateTurretStartUp.isPlaying)
             m_turretState = TurretState.Searching;
@@ -124,14 +125,16 @@ public class TurretStateManager : MonoBehaviour
         gizmos.transform.position = Vector3.MoveTowards(gizmos.transform.position, GameObject.FindGameObjectWithTag("Player").transform.position, m_rotationSpeed * Time.deltaTime);
         //if(!m_animationFiring.isPlaying)
         //    m_animationFiring.Play();
+        if (StopCheck())
+            return;
         m_deltaTimeTimer += Time.deltaTime;
         if (m_deltaTimeTimer >= m_gracePeriodTimer)
         {
-            RaycastAttackCheck(m_raycastChecker);
+            RaycastAttackCheck();
             m_deltaTimeTimer = 0;
         }
     }
-    private void RaycastSearchCheck() 
+    private void RaycastSearchCheck()
     {
         RaycastHit hit;
         if (Physics.SphereCast(m_spotLight.gameObject.transform.position, m_spotLightRCRadius, m_spotLight.gameObject.transform.forward, out hit, m_turretRange)
@@ -143,18 +146,41 @@ public class TurretStateManager : MonoBehaviour
             m_rightSight.SetActive(true);
         }
     }
-    private void RaycastAttackCheck(GameObject obj) 
+    private void RaycastAttackCheck()
     {
         RaycastHit hit;
-        if (Physics.Raycast(obj.transform.position, obj.transform.forward, out hit)
+        if (Physics.Raycast(m_raycastChecker.transform.position, m_raycastChecker.transform.forward, out hit)
             && hit.transform.gameObject == hit.transform.CompareTag("Player"))
-        {
             m_restartLevel.Raise();
-        }
 
         m_turretState = TurretState.Searching;
         m_spotLight.color = m_baseColourSpotLight;
 
     }
-
+    private bool StopCheck()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(m_raycastChecker.transform.position, m_raycastChecker.transform.forward, out hit)
+            && hit.transform.gameObject == hit.transform.CompareTag("StopSearch") && !m_playerInArea)
+        {
+            m_turretState = TurretState.Searching;
+            m_spotLight.color = m_baseColourSpotLight;
+            return true;
+        }
+        return false;
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            m_playerInArea = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            m_playerInArea = false;
+        }
+    }
 }
