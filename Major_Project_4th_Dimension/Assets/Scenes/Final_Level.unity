@@ -2044,6 +2044,7 @@ GameObject:
   m_Component:
   - component: {fileID: 41208160}
   - component: {fileID: 41208159}
+  - component: {fileID: 41208161}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -2077,6 +2078,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &41208161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 41208158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cf59e4a8362b264a97247a5ffaa909f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_powerOn: {fileID: 11400000, guid: 2397d870edee9c442ac6de18b6c7e015, type: 2}
+  m_powerOff: {fileID: 11400000, guid: 12bf329afe5cbb240a8a14e739a2f330, type: 2}
+  m_powerIsOn: 0
 --- !u!1001 &41663638
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4442,6 +4458,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ae51393a6f3f2249aef5174ff6d59f8, type: 3}
+--- !u!114 &96289703 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1331832020351349507, guid: 8ae51393a6f3f2249aef5174ff6d59f8, type: 3}
+  m_PrefabInstance: {fileID: 96289702}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28510c36e8ee29246b937913aeae67bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &100004495 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5969704967236413532, guid: faf030f94b6bc3c4bbe484f7d3d94cea, type: 3}
@@ -18307,6 +18334,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ae51393a6f3f2249aef5174ff6d59f8, type: 3}
+--- !u!114 &425615445 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1331832020351349507, guid: 8ae51393a6f3f2249aef5174ff6d59f8, type: 3}
+  m_PrefabInstance: {fileID: 425615444}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28510c36e8ee29246b937913aeae67bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &426394193 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 0ce7ad43e83cd664d92044f2b2d6b560, type: 3}
@@ -63880,7 +63918,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5804269354966839709, guid: b22f7c45c4c7e524494ea2bd2d2853e9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.54268056
+      value: 0.7600602
       objectReference: {fileID: 0}
     - target: {fileID: 5804269354966839709, guid: b22f7c45c4c7e524494ea2bd2d2853e9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -63888,7 +63926,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5804269354966839709, guid: b22f7c45c4c7e524494ea2bd2d2853e9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.8297865
+      value: -2.8411794
       objectReference: {fileID: 0}
     - target: {fileID: 5804269354966839709, guid: b22f7c45c4c7e524494ea2bd2d2853e9, type: 3}
       propertyPath: m_LocalRotation.x
@@ -78976,6 +79014,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2004226061}
   - component: {fileID: 2004226060}
+  - component: {fileID: 2004226063}
+  - component: {fileID: 2004226062}
   m_Layer: 0
   m_Name: EventsManager
   m_TagString: Untagged
@@ -79023,8 +79063,88 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2004226062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2004226059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48be2ea0f33e0194caf93c70cfde9568, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 12bf329afe5cbb240a8a14e739a2f330, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 425615445}
+        m_TargetAssemblyTypeName: TurretStateManager, Assembly-CSharp
+        m_MethodName: IsSettingInActiveTurret
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 96289703}
+        m_TargetAssemblyTypeName: TurretStateManager, Assembly-CSharp
+        m_MethodName: IsSettingInActiveTurret
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2004226063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2004226059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48be2ea0f33e0194caf93c70cfde9568, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 2397d870edee9c442ac6de18b6c7e015, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 425615445}
+        m_TargetAssemblyTypeName: TurretStateManager, Assembly-CSharp
+        m_MethodName: IsActiveTurret
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 96289703}
+        m_TargetAssemblyTypeName: TurretStateManager, Assembly-CSharp
+        m_MethodName: IsActiveTurret
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &2004419029
 PrefabInstance:
   m_ObjectHideFlags: 0
