@@ -46,10 +46,7 @@ public class PauseMenu : MonoBehaviour
     private void Update()
     {
         if (isPaused)
-        {
             pauseGamepad.started += ctx => Back();
-            
-        }
     }
     private void Back() 
     {
@@ -104,6 +101,11 @@ public class PauseMenu : MonoBehaviour
 #else
         Application.Quit();
 #endif
+    }
+    public void RestartLevel() 
+    {
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name);
     }
 
 }

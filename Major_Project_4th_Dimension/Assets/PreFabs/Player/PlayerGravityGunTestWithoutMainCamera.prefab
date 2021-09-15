@@ -1150,7 +1150,7 @@ MonoBehaviour:
   m_LookaheadIgnoreY: 0
   m_XDamping: 0.2
   m_YDamping: 0.2
-  m_ZDamping: 0.7
+  m_ZDamping: 0.2
   m_TargetMovementOnly: 1
   m_ScreenX: 0.3
   m_ScreenY: 0.07
@@ -1716,7 +1716,7 @@ MonoBehaviour:
   m_LookaheadIgnoreY: 0
   m_XDamping: 0.2
   m_YDamping: 0.2
-  m_ZDamping: 0.7
+  m_ZDamping: 0.2
   m_TargetMovementOnly: 1
   m_ScreenX: 0.25
   m_ScreenY: -0.2
@@ -7716,6 +7716,23 @@ MonoBehaviour:
   pullCheck: 0
   pull: 0
   newGrappleHandle: {fileID: 0}
+  playerInput: {fileID: 0}
+  shootAction:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+  throwAction:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
 --- !u!145 &5804269355457172855
 SpringJoint:
   m_ObjectHideFlags: 0
