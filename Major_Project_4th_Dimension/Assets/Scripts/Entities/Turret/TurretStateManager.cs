@@ -38,12 +38,12 @@ public class TurretStateManager : MonoBehaviour
 
     //Find Player system
     [SerializeField] private Light m_spotLight;
-    [SerializeField] private GameObject m_player;
 
     //Spotlight
     [SerializeField] private Color m_baseColourSpotLight;
     [SerializeField] private Color m_shootColourSpotLight;
-    private float m_spotLightRCRadius = 1.5f;
+    [SerializeField] private float m_spotLightRCRadius = 1.5f;
+    [SerializeField] private float m_turretRange = 10f;
 
     //AimingSystem for attacking Player
     [SerializeField] private GameObject m_leftSight;
@@ -53,10 +53,6 @@ public class TurretStateManager : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        if (m_player == null)
-        {
-            m_player = GameObject.FindGameObjectWithTag("Player");
-        }
         m_spotLight.color = m_baseColourSpotLight;
         m_positionMove = m_startingPosition - 1;
     }
@@ -125,20 +121,21 @@ public class TurretStateManager : MonoBehaviour
     }
     private void FindPlayer()
     {
-        gizmos.transform.position = m_player.transform.position;
-        if(!m_animationFiring.isPlaying)
-            m_animationFiring.Play();
+        gizmos.transform.position = Vector3.MoveTowards(gizmos.transform.position, GameObject.FindGameObjectWithTag("Player").transform.position, m_rotationSpeed * Time.deltaTime);
+        //if(!m_animationFiring.isPlaying)
+        //    m_animationFiring.Play();
+        m_deltaTimeTimer += Time.deltaTime;
         if (m_deltaTimeTimer >= m_gracePeriodTimer)
         {
             RaycastAttackCheck(m_raycastChecker);
-            m_gracePeriodTimer = 0;
+            m_deltaTimeTimer = 0;
         }
     }
     private void RaycastSearchCheck() 
     {
         RaycastHit hit;
-        if (Physics.SphereCast(m_spotLight.gameObject.transform.position, m_spotLightRCRadius, m_spotLight.gameObject.transform.forward, out hit)
-            && hit.transform.gameObject == m_player)
+        if (Physics.SphereCast(m_spotLight.gameObject.transform.position, m_spotLightRCRadius, m_spotLight.gameObject.transform.forward, out hit, m_turretRange)
+            && hit.transform.gameObject == hit.transform.CompareTag("Player"))
         {
             m_turretState = TurretState.Attacking;
             m_spotLight.color = m_shootColourSpotLight;
@@ -149,11 +146,15 @@ public class TurretStateManager : MonoBehaviour
     private void RaycastAttackCheck(GameObject obj) 
     {
         RaycastHit hit;
-        if (Physics.Raycast(obj.transform.position,obj.transform.forward, out hit)
-            && hit.transform.gameObject == m_player)
+        if (Physics.Raycast(obj.transform.position, obj.transform.forward, out hit)
+            && hit.transform.gameObject == hit.transform.CompareTag("Player"))
+        {
             m_restartLevel.Raise();
-        else
-            m_turretState = TurretState.Searching;
+        }
+
+        m_turretState = TurretState.Searching;
+        m_spotLight.color = m_baseColourSpotLight;
+
     }
 
 }
