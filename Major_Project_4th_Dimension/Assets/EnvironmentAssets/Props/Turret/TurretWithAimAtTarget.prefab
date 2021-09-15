@@ -343,6 +343,7 @@ GameObject:
   - component: {fileID: 6640855606629399313}
   - component: {fileID: 6640855606629399318}
   - component: {fileID: 1331832020351349507}
+  - component: {fileID: 7021721715899887929}
   m_Layer: 0
   m_Name: TurretWithAimAtTarget
   m_TagString: Untagged
@@ -458,12 +459,26 @@ MonoBehaviour:
   m_gracePeriodTimer: 3
   m_restartLevel: {fileID: 11400000, guid: 77786e2160e2abf449d573d0c9709745, type: 2}
   m_spotLight: {fileID: 7166156642396339376}
-  m_player: {fileID: 0}
   m_baseColourSpotLight: {r: 0.38496292, g: 1, b: 0, a: 0}
   m_shootColourSpotLight: {r: 1, g: 0, b: 0, a: 0}
+  m_spotLightRCRadius: 1.5
+  m_turretRange: 10
   m_leftSight: {fileID: 3716853849323498417}
   m_rightSight: {fileID: 5301863191100638646}
   m_raycastChecker: {fileID: 7600448993688402682}
+--- !u!65 &7021721715899887929
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6640855606629399319}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.97, y: 1, z: 5.22}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &6640855606707008369
 GameObject:
   m_ObjectHideFlags: 0
@@ -695,7 +710,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 0, b: 0, a: 1}
-  m_Intensity: 536870900
+  m_Intensity: 8388608
   m_Range: 19.11
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
