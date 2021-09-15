@@ -16,7 +16,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &8403034228748886202
 Transform:
@@ -92,6 +92,10 @@ PrefabInstance:
     - target: {fileID: 8318641327232363981, guid: e2998cffc1fa7e84f94a1b5ce8aab71e, type: 3}
       propertyPath: m_Name
       value: SM_Power_Switch
+      objectReference: {fileID: 0}
+    - target: {fileID: 8318641327232363981, guid: e2998cffc1fa7e84f94a1b5ce8aab71e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 8663255087099017079, guid: e2998cffc1fa7e84f94a1b5ce8aab71e, type: 3}
       propertyPath: m_RootOrder
