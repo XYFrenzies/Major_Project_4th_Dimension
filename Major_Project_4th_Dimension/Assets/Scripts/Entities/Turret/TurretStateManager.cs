@@ -148,9 +148,7 @@ public class TurretStateManager : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(obj.transform.position, obj.transform.forward, out hit)
             && hit.transform.gameObject == hit.transform.CompareTag("Player"))
-        {
             m_restartLevel.Raise();
-        }
 
         m_turretState = TurretState.Searching;
         m_spotLight.color = m_baseColourSpotLight;
