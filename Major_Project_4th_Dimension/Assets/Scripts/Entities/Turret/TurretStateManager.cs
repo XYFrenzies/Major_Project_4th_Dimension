@@ -6,22 +6,29 @@ public enum TurretState
 {
     Inactive,
     Startup,
+    StartDown,
     Searching,
     Attacking
 }
-public class TurretSearcher : MonoBehaviour
+public class TurretStateManager : MonoBehaviour
 {
+    #region Variables
     //TurretState
     [SerializeField] private TurretState m_turretState;
 
     //Startup
-    [SerializeField] private Animation m_animateTurretStartUp;
     [SerializeField] private GameEvent m_startUpTurret;
+
+    //TurretAnimation
+    [SerializeField] private Animation m_animationStartDown;
+    [SerializeField] private Animation m_animationFiring;
+    [SerializeField] private Animation m_animateTurretStartUp;
 
     //The player rotation
     [SerializeField] private List<GameObject> m_objectsRotatingTo;
     [SerializeField] private GameObject gizmos;
     [SerializeField] private float m_rotationSpeed = 2.0f;
+    [SerializeField] private int m_startingPosition = 1;
     private int m_positionMove;
 
     //The period of time before death
@@ -41,7 +48,8 @@ public class TurretSearcher : MonoBehaviour
     //AimingSystem for attacking Player
     [SerializeField] private GameObject m_leftSight;
     [SerializeField] private GameObject m_rightSight;
-
+    [SerializeField] private GameObject m_raycastChecker;
+    #endregion
     // Start is called before the first frame update
     private void Start()
     {
@@ -49,8 +57,8 @@ public class TurretSearcher : MonoBehaviour
         {
             m_player = GameObject.FindGameObjectWithTag("Player");
         }
-        m_positionMove = m_objectsRotatingTo.Count;
         m_spotLight.color = m_baseColourSpotLight;
+        m_positionMove = m_startingPosition - 1;
     }
 
     // Update is called once per frame
@@ -62,7 +70,10 @@ public class TurretSearcher : MonoBehaviour
                 break;
             case TurretState.Startup:
                 PlayStartUpAnimation();
-            break;
+                break;
+            case TurretState.StartDown:
+                PlayStartDownAni();
+                break;
             case TurretState.Attacking:
                 FindPlayer();
                 break;
@@ -76,6 +87,17 @@ public class TurretSearcher : MonoBehaviour
     public void IsActiveTurret()
     {
         m_turretState = TurretState.Startup;
+        m_animateTurretStartUp.Play();
+    }
+    public void IsSettingInActiveTurret() 
+    {
+        m_turretState = TurretState.StartDown;
+        m_animationStartDown.Play();
+    }
+    private void PlayStartDownAni() 
+    {
+        if (!m_animationStartDown.isPlaying)
+            m_turretState = TurretState.Inactive;
     }
     //Plays animation of the turret starting up.
     private void PlayStartUpAnimation() 
@@ -86,7 +108,7 @@ public class TurretSearcher : MonoBehaviour
 
     private void MoveAround()
     {
-        while (m_objectsRotatingTo != null && m_positionMove > 1)
+        while (m_objectsRotatingTo != null && m_objectsRotatingTo.Count > 1)
         {
             gizmos.transform.position = Vector3.MoveTowards(gizmos.transform.position,
                 m_objectsRotatingTo[m_positionMove].transform.position, m_rotationSpeed * Time.deltaTime);
@@ -97,19 +119,20 @@ public class TurretSearcher : MonoBehaviour
                 else if (m_positionMove < m_objectsRotatingTo.Count - 1)
                     m_positionMove += 1;
             }
+            else
+                return;
         }
     }
     private void FindPlayer()
     {
         gizmos.transform.position = m_player.transform.position;
-
+        if(!m_animationFiring.isPlaying)
+            m_animationFiring.Play();
         if (m_deltaTimeTimer >= m_gracePeriodTimer)
         {
-            RaycastAttackCheck(m_leftSight);
-            RaycastAttackCheck(m_rightSight);
+            RaycastAttackCheck(m_raycastChecker);
             m_gracePeriodTimer = 0;
         }
-        
     }
     private void RaycastSearchCheck() 
     {
