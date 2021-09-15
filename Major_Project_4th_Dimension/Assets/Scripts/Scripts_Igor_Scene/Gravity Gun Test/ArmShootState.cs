@@ -28,21 +28,21 @@ public class ArmShootState : ArmBaseState
         armStateMan.shootAction.performed += ShootingArm;
         armStateMan.shootAction.canceled += UnShootingArm;
 
-        armStateMan.throwAction.performed += ThrowObject;
+        //armStateMan.throwAction.performed += ThrowObject;
         // called once when switch from some other state to this state.
 
-        Debug.Log("Shoot enter");
+        //Debug.Log("Shoot enter");
 
     }
 
 
     public override void ExitState()
     {
-        Debug.Log("Shoot state exited");
+        //Debug.Log("Shoot state exited");
         // called once when switching from this state to another state
         armStateMan.shootAction.performed -= ShootingArm;
         armStateMan.shootAction.canceled -= UnShootingArm;
-        armStateMan.throwAction.performed -= ThrowObject;
+        //armStateMan.throwAction.performed -= ThrowObject;
         shooting = false;
 
     }
@@ -99,7 +99,7 @@ public class ArmShootState : ArmBaseState
             }
             else if (hit.transform.CompareTag("MoveableToMe")) // pick up object
             {
-
+                shooting = false;
                 //Debug.Log("can pick up");
                 OnHookShotHit(armStateMan.pickUpState);
 
@@ -138,9 +138,12 @@ public class ArmShootState : ArmBaseState
         {
             return;
         }
-        shooting = true;
-        armStateMan.lineRenderer.enabled = true;
-        Debug.Log("Shooting arm");
+        else
+        {
+            shooting = true;
+            armStateMan.lineRenderer.enabled = true;
+            Debug.Log("Shooting arm");
+        }
 
     }
     private void UnShootingArm(InputAction.CallbackContext context)
@@ -149,9 +152,12 @@ public class ArmShootState : ArmBaseState
         {
             return;
         }
-        shooting = false;
-        armStateMan.lineRenderer.enabled = false;
-        Debug.Log("Unshooting arm");
+        else
+        {
+            shooting = false;
+            armStateMan.lineRenderer.enabled = false;
+            Debug.Log("Unshooting arm");
+        }
     }
 
     public void ThrowObject(InputAction.CallbackContext context)

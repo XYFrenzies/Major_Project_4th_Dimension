@@ -14,6 +14,7 @@ public class ArmStateManager : MonoBehaviour
     public float initialBeamSpeed = 1f;
     public float beamSpeedAccelModifier = 0.1f;
     [Space]
+    public List<GameObject> lights;
     public Transform shootPoint;
     public Transform holdPoint;
     public GameObject grappleHandle;
@@ -44,8 +45,11 @@ public class ArmStateManager : MonoBehaviour
     public bool pull = false;
     [HideInInspector]
     public GameObject newGrappleHandle;
+    [HideInInspector]
     public PlayerInput playerInput;
+    [HideInInspector]
     public InputAction shootAction;
+    [HideInInspector]
     public InputAction throwAction;
 
     // States
