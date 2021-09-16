@@ -22,7 +22,7 @@ public class ArmPullState : ArmBaseState
 
         shootAction.performed += Shoot;
         shootAction.canceled += NotShoot;
-
+        isShooting = true;
         armStateMan.newGrappleHandle = Object.Instantiate(armStateMan.grappleHandle, armStateMan.hitObject.transform);
         armStateMan.newGrappleHandle.transform.localPosition = armStateMan.localPoint;
         armStateMan.newGrappleHandle.GetComponent<FixedJoint>().connectedBody = armStateMan.hitObject.GetComponent<Rigidbody>();
@@ -59,7 +59,7 @@ public class ArmPullState : ArmBaseState
     public override void UpdateState()
     {
 
-        if (!Mouse.current.leftButton.isPressed/*isShooting*/)
+        if (!isShooting)
         {
             armStateMan.SwitchState(armStateMan.shootState);
 
