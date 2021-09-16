@@ -21,16 +21,16 @@ public class ArmPickUpState : ArmBaseState
 
     public override void EnterState()
     {
-        //Debug.Log("Entered Pickup state");
+        Debug.Log("Entered Pickup state");
 
         //playerInput = armStateMan.GetComponent<PlayerInput>();
         //shootAction = playerInput.actions["HookShot"];
         distanceBetweenPoints = Vector3.Distance(armStateMan.hitObject.transform.position, armStateMan.holdPoint.position);
-        Debug.Log(distanceBetweenPoints);
+        //Debug.Log(distanceBetweenPoints);
         changePoint = (int)(distanceBetweenPoints / armStateMan.lights.Count);
         armStateMan.shootAction.performed += Shoot;
         armStateMan.shootAction.canceled += NotShoot;
-
+        isShooting = true;
         armStateMan.player.currentState = PlayerControllerCinemachineLook2.State.HookShotThrown;
         cancelPickUp = false;
         rb = armStateMan.hitObject.GetComponent<Rigidbody>();
@@ -75,6 +75,7 @@ public class ArmPickUpState : ArmBaseState
     {
         armStateMan.hitPoint = armStateMan.hitObject.transform.position;
 
+
         armStateMan.hitObject.transform.position = Vector3.MoveTowards(armStateMan.hitObject.transform.position, armStateMan.holdPoint.position,
             armStateMan.initialBeamSpeed * Time.deltaTime);
 
@@ -86,46 +87,46 @@ public class ArmPickUpState : ArmBaseState
 
         }
 
-        if (!Mouse.current.leftButton.isPressed)
+        if (!isShooting)
         {
             cancelPickUp = true;
             armStateMan.SwitchState(armStateMan.pauseState);
         }
 
-        if (Vector3.Distance(armStateMan.hitObject.transform.position, armStateMan.holdPoint.position) <= (distanceBetweenPoints - changePoint))
-        {
-            int numba = 0;
-            changePoint += changePoint;
-            Debug.Log(distanceBetweenPoints - changePoint);
-            armStateMan.lights[(armStateMan.lights.Count - 1) - numba].SetActive(false);
-            numba++;
-            armStateMan.lights[(armStateMan.lights.Count - 1) - numba].SetActive(true);
-        }
+        //if (Vector3.Distance(armStateMan.hitObject.transform.position, armStateMan.holdPoint.position) <= (distanceBetweenPoints - changePoint))
+        //{
+        //    int numba = 0;
+        //    changePoint += changePoint;
+        //    Debug.Log(distanceBetweenPoints - changePoint);
+        //    armStateMan.lights[(armStateMan.lights.Count - 1) - numba].SetActive(false);
+        //    numba++;
+        //    armStateMan.lights[(armStateMan.lights.Count - 1) - numba].SetActive(true);
+        //}
 
     }
 
     public void Shoot(InputAction.CallbackContext context)
     {
-        if (context.phase != InputActionPhase.Performed)
-        {
-            return;
-        }
-        else
-        {
-
+        //if (context.phase != InputActionPhase.Performed)
+        //{
+        //    return;
+        //}
+        //else
+        //{
+        Debug.Log("pick up shoot");
             isShooting = true;
-        }
+        //}
     }
     private void NotShoot(InputAction.CallbackContext context)
     {
-        if (context.phase != InputActionPhase.Canceled)
-        {
-            return;
-        }
-        else
-        {
+        //if (context.phase != InputActionPhase.Canceled)
+        //{
+        //    return;
+        //}
+        //else
+        //{
 
             isShooting = false;
-        }
+        //}
     }
 }

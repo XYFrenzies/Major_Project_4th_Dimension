@@ -100,6 +100,7 @@ public class ArmShootState : ArmBaseState
             else if (hit.transform.CompareTag("MoveableToMe")) // pick up object
             {
                 shooting = false;
+
                 //Debug.Log("can pick up");
                 OnHookShotHit(armStateMan.pickUpState);
 
@@ -134,30 +135,36 @@ public class ArmShootState : ArmBaseState
 
     public void ShootingArm(InputAction.CallbackContext context)
     {
-        if (context.phase != InputActionPhase.Performed)
-        {
-            return;
-        }
-        else
+        //if (context.phase != InputActionPhase.Performed)
+        //{
+        //    return;
+        //}
+        //else
+        //{
+        if (armStateMan.lineRenderer != null)
         {
             shooting = true;
             armStateMan.lineRenderer.enabled = true;
-            Debug.Log("Shooting arm");
         }
+            //Debug.Log("Shooting arm");
+        //}
 
     }
     private void UnShootingArm(InputAction.CallbackContext context)
     {
-        if (context.phase != InputActionPhase.Canceled)
-        {
-            return;
-        }
-        else
+        //if (context.phase != InputActionPhase.Canceled)
+        //{
+        //    return;
+        //}
+        //else
+        // {
+        if (armStateMan.lineRenderer != null)
         {
             shooting = false;
             armStateMan.lineRenderer.enabled = false;
-            Debug.Log("Unshooting arm");
         }
+            //Debug.Log("Unshooting arm");
+        //}
     }
 
     public void ThrowObject(InputAction.CallbackContext context)
