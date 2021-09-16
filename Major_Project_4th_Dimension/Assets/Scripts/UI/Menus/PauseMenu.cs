@@ -18,16 +18,16 @@ public class PauseMenu : MonoBehaviour
     private InputAction pauseMenuAction;
     private InputAction pauseGamepad;
     private bool isPaused = false;
-    ColorBlock colourSelected;
+    private ColorBlock colourSelected;
     private void Awake()
     {
         pauseMenuAction = playerInput.actions["PauseMenu"];
         pauseGamepad = playerInput.actions["PauseMoveController"];
         m_pauseMenu.SetActive(false);
         colourSelected.colorMultiplier = 1;
-        colourSelected.selectedColor = new Color(0, 0, 0, 0);
         colourSelected.selectedColor = new Color(0, 1, 0.117f, 1);
         colourSelected.normalColor = new Color(1, 1, 1, 1);
+        colourSelected.highlightedColor = new Color(0, 1, 0.117f, 0.39f);
     }
     private void OnEnable()
     {
