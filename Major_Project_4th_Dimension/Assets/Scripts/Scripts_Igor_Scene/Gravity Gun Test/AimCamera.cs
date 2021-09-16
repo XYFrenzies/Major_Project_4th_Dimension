@@ -20,20 +20,20 @@ public class AimCamera : MonoBehaviour
 
     public void OnEnable()
     {
-        aimAction.performed += _ => StartAimZoom();
-        aimAction.canceled += _ => StopAimZoom();
+        aimAction.performed += StartAimZoom;
+        aimAction.canceled += StopAimZoom;
 
     }
 
     public void OnDisable()
     {
-        aimAction.performed -= _ => StartAimZoom();
-        aimAction.canceled -= _ => StopAimZoom();
+        aimAction.performed -= StartAimZoom;
+        aimAction.canceled -= StopAimZoom;
 
 
     }
 
-    public void StartAimZoom()
+    public void StartAimZoom(InputAction.CallbackContext context)
     {
         if (!aimCamera.activeInHierarchy)
         {
@@ -42,7 +42,7 @@ public class AimCamera : MonoBehaviour
         }
     }
 
-    public void StopAimZoom()
+    public void StopAimZoom(InputAction.CallbackContext context)
     {
         if (!mainCamera.activeInHierarchy)
         {
