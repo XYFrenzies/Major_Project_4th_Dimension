@@ -33,8 +33,8 @@ public class PlayerControllerCinemachineLook2 : MonoBehaviour
     [Header("Other Stuff")]
     public Animator animator;
     //private Vector2 m_Move;
-    //public Rig armRig;
-    //public Rig headRig;
+    public Rig armRig;
+    public Rig headRig;
 
     ArmStateManager arm;
 
@@ -188,7 +188,7 @@ public class PlayerControllerCinemachineLook2 : MonoBehaviour
         flyingSpeed = Mathf.Clamp(Vector3.Distance(transform.position, target), hookShotMinSpeed, hookShotMaxSpeed);
         transform.position = Vector3.MoveTowards(transform.position, target, flyingSpeed * flyingSpeedMultiplier * Time.deltaTime);
         //armRig.weight = 0f;
-        //headRig.weight = 0f;
+        headRig.weight = 0f;
         //if (Vector3.Distance(transform.position, target) < arm.distToTarget90)
         //{
 
@@ -205,7 +205,7 @@ public class PlayerControllerCinemachineLook2 : MonoBehaviour
             isFlying = false;
             arm.lineRenderer.enabled = false;
             //armRig.weight = 1f;
-            //headRig.weight = 1f;
+            headRig.weight = 1f;
             //Debug.Log(chainShoot.currentHookShotState);
 
         }

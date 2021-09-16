@@ -7694,6 +7694,8 @@ MonoBehaviour:
   hookShotMaxSpeed: 40
   distanceToHookShotHitPoint: 2
   animator: {fileID: 5804269354422864246}
+  armRig: {fileID: 5804269354776845175}
+  headRig: {fileID: 5804269354117374455}
   currentState: 0
   flyToTarget: {x: 0, y: 0, z: 0}
 --- !u!114 &5804269355457172854
@@ -7721,6 +7723,8 @@ MonoBehaviour:
   holdPoint: {fileID: 5804269353772245713}
   grappleHandle: {fileID: 4420089562460233718, guid: 6f03739fc8325224b9481ec4268df3d6, type: 3}
   springJoint: {fileID: 5804269355457172855}
+  distToTarget90: 0
+  percentageOfDistToTarget: 0.9
   aimTarget: {fileID: 0}
   lineRenderer: {fileID: 0}
   holdInitialBeamSpeedValue: 0

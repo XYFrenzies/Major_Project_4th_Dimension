@@ -6259,6 +6259,8 @@ MonoBehaviour:
   hookShotMaxSpeed: 40
   distanceToHookShotHitPoint: 2
   animator: {fileID: 7006184330128291003}
+  armRig: {fileID: 7006184330847528634}
+  headRig: {fileID: 7006184330458422330}
   currentState: 0
   flyToTarget: {x: 0, y: 0, z: 0}
 --- !u!114 &7006184331258243259
@@ -6273,31 +6275,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: facc9b99a1874874184f9efd961c56ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPutDown: 0
-  aimTarget: {fileID: 0}
-  lineRenderer: {fileID: 0}
+  throwForce: 30
+  shootRange: 50
+  armCoolDownTime: 1
+  holdObjectLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
   initialBeamSpeed: 1
   beamSpeedAccelModifier: 0.5
+  lights: []
+  shootPoint: {fileID: 7006184330229551716}
+  holdPoint: {fileID: 7006184329713557276}
+  grappleHandle: {fileID: 4420089562460233718, guid: 6f03739fc8325224b9481ec4268df3d6, type: 3}
+  springJoint: {fileID: 7006184331258243258}
+  distToTarget90: 0
+  percentageOfDistToTarget: 0.9
+  aimTarget: {fileID: 0}
+  lineRenderer: {fileID: 0}
   holdInitialBeamSpeedValue: 0
   hitPoint: {x: 0, y: 0, z: 0}
   hitObject: {fileID: 0}
-  shootPoint: {fileID: 7006184330229551716}
-  holdPoint: {fileID: 7006184329713557276}
   cam: {fileID: 0}
-  throwForce: 30
-  shootRange: 50
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 64
-  armCoolDownTime: 1
   player: {fileID: 7006184331258243256}
   isObjectHeld: 0
   localPoint: {x: 0, y: 0, z: 0}
   pullCheck: 0
   pull: 0
-  grappleHandle: {fileID: 4420089562460233718, guid: 6f03739fc8325224b9481ec4268df3d6, type: 3}
-  springJoint: {fileID: 7006184331258243258}
   newGrappleHandle: {fileID: 0}
+  playerInput: {fileID: 0}
+  shootAction:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+  throwAction:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
 --- !u!145 &7006184331258243258
 SpringJoint:
   m_ObjectHideFlags: 0
