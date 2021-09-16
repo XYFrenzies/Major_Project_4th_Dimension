@@ -19,6 +19,9 @@ public class ArmStateManager : MonoBehaviour
     public Transform holdPoint;
     public GameObject grappleHandle;
     public SpringJoint springJoint;
+    [HideInInspector]
+    public float distToTarget90 = 0f;
+    public float percentageOfDistToTarget = 0.9f;
 
     [HideInInspector]
     public Transform aimTarget;

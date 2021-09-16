@@ -1,7 +1,6 @@
-
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using UnityEngine.Animations.Rigging;
 
 
 public class PlayerControllerCinemachineLook2 : MonoBehaviour
@@ -34,7 +33,10 @@ public class PlayerControllerCinemachineLook2 : MonoBehaviour
     [Header("Other Stuff")]
     public Animator animator;
     //private Vector2 m_Move;
+    //public Rig armRig;
+    //public Rig headRig;
 
+    ArmStateManager arm;
 
     [HideInInspector]
     public State currentState;
@@ -65,7 +67,7 @@ public class PlayerControllerCinemachineLook2 : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         moveAction = playerInput.actions["Move"];
         lookAction = playerInput.actions["Look"];
-
+        arm = GetComponent<ArmStateManager>();
 
     }
 
@@ -185,15 +187,25 @@ public class PlayerControllerCinemachineLook2 : MonoBehaviour
         animator.SetBool("IsFlying", true);
         flyingSpeed = Mathf.Clamp(Vector3.Distance(transform.position, target), hookShotMinSpeed, hookShotMaxSpeed);
         transform.position = Vector3.MoveTowards(transform.position, target, flyingSpeed * flyingSpeedMultiplier * Time.deltaTime);
+        //armRig.weight = 0f;
+        //headRig.weight = 0f;
+        //if (Vector3.Distance(transform.position, target) < arm.distToTarget90)
+        //{
+
+        //    //animator.SetBool("IsFlying", false);
+        //}
 
         if (Vector3.Distance(transform.position, target) < distanceToHookShotHitPoint)
         {
-            animator.SetBool("IsFlying", false);
+        animator.SetBool("IsFlying", false);
             rb.useGravity = true;
             //chainShoot.fly = false;
             //chainShoot.ReturnHand();
             currentState = State.Normal;
             isFlying = false;
+            arm.lineRenderer.enabled = false;
+            //armRig.weight = 1f;
+            //headRig.weight = 1f;
             //Debug.Log(chainShoot.currentHookShotState);
 
         }

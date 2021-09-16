@@ -92,7 +92,8 @@ public class ArmShootState : ArmBaseState
 
             if (hit.transform.CompareTag("CanHookShotTowards")) // hit grapple point
             {
-
+                armStateMan.distToTarget90 = Vector3.Distance(armStateMan.transform.position, hit.point);
+                armStateMan.distToTarget90 *= armStateMan.percentageOfDistToTarget;
                 //Debug.Log("Can hook shot towards");
                 OnHookShotHit(armStateMan.grappleState);
 
