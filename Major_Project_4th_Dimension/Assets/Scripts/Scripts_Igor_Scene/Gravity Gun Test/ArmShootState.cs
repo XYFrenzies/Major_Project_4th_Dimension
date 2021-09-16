@@ -100,6 +100,7 @@ public class ArmShootState : ArmBaseState
             else if (hit.transform.CompareTag("MoveableToMe")) // pick up object
             {
                 shooting = false;
+
                 //Debug.Log("can pick up");
                 OnHookShotHit(armStateMan.pickUpState);
 
@@ -142,7 +143,7 @@ public class ArmShootState : ArmBaseState
         {
             shooting = true;
             armStateMan.lineRenderer.enabled = true;
-            Debug.Log("Shooting arm");
+            //Debug.Log("Shooting arm");
         }
 
     }
@@ -156,7 +157,7 @@ public class ArmShootState : ArmBaseState
         {
             shooting = false;
             armStateMan.lineRenderer.enabled = false;
-            Debug.Log("Unshooting arm");
+            //Debug.Log("Unshooting arm");
         }
     }
 
