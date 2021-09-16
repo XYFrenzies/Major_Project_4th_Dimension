@@ -104,6 +104,7 @@ public class PauseMenu : MonoBehaviour
     }
     public void ReturnToMenu(string nameOfScene)
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(nameOfScene);
     }
     public void ExitGame()
