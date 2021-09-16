@@ -5,9 +5,11 @@ using UnityEngine.InputSystem;
 
 public class ArmPutDownState : ArmBaseState
 {
-    private PlayerInput playerInput;
-    private InputAction shootAction;
+    //private PlayerInput playerInput;
+    //private InputAction shootAction;
     Rigidbody rb;
+    bool isShooting = false;
+
 
     public ArmPutDownState(ArmStateManager arm) : base(arm)
     {
@@ -17,10 +19,12 @@ public class ArmPutDownState : ArmBaseState
     public override void EnterState()
     {
         armStateMan.player.currentState = PlayerControllerCinemachineLook2.State.HookShotThrown;
+        armStateMan.shootAction.performed += Shoot;
+        armStateMan.shootAction.canceled += NotShoot;
         //Debug.Log("Entered Putdown state");
-        playerInput = armStateMan.GetComponent<PlayerInput>();
-
-        shootAction = playerInput.actions["HookShot"];
+        //playerInput = armStateMan.GetComponent<PlayerInput>();
+        isShooting = true;
+        //shootAction = playerInput.actions["HookShot"];
         rb = armStateMan.hitObject.GetComponent<Rigidbody>();
         rb.isKinematic = false;
         armStateMan.hitObject.transform.SetParent(null);
@@ -38,7 +42,8 @@ public class ArmPutDownState : ArmBaseState
         armStateMan.lineRenderer.enabled = false;
         armStateMan.initialBeamSpeed = armStateMan.holdInitialBeamSpeedValue;
         armStateMan.player.currentState = PlayerControllerCinemachineLook2.State.Normal;
-
+        armStateMan.shootAction.performed -= Shoot;
+        armStateMan.shootAction.canceled -= NotShoot;
 
     }
 
@@ -59,9 +64,18 @@ public class ArmPutDownState : ArmBaseState
 
         }
         //  }
-        if (!Mouse.current.leftButton.isPressed) // interrupt put down action and exit before object reaches target point
+        if (!isShooting) // interrupt put down action and exit before object reaches target point
         {
             armStateMan.SwitchState(armStateMan.pauseState);
         }
+    }
+
+    public void Shoot(InputAction.CallbackContext context)
+    {
+        isShooting = true;
+    }
+    private void NotShoot(InputAction.CallbackContext context)
+    {
+        isShooting = false;
     }
 }
