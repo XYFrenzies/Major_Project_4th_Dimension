@@ -31,13 +31,13 @@ public class PauseMenu : MonoBehaviour
     }
     private void OnEnable()
     {
-        pauseMenuAction.performed += _ => Pause();
+        pauseMenuAction.performed += Pause;
     }
     private void OnDisable()
     {
-        pauseMenuAction.performed -= _ => Pause();
+        pauseMenuAction.performed -= Pause;
     }
-    public void Pause()
+    public void Pause(InputAction.CallbackContext context)
     {
         if (isPaused)
         {
@@ -104,6 +104,7 @@ public class PauseMenu : MonoBehaviour
     }
     public void ReturnToMenu(string nameOfScene)
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(nameOfScene);
     }
     public void ExitGame()
@@ -118,6 +119,7 @@ public class PauseMenu : MonoBehaviour
     {
         //Scene scene = SceneManager.GetActiveScene();
         //SceneManager.LoadScene(scene.name);
+        Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
     }
