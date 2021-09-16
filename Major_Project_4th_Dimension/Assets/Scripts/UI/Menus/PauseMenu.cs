@@ -18,11 +18,16 @@ public class PauseMenu : MonoBehaviour
     private InputAction pauseMenuAction;
     private InputAction pauseGamepad;
     private bool isPaused = false;
+    ColorBlock colourSelected;
     private void Awake()
     {
         pauseMenuAction = playerInput.actions["PauseMenu"];
         pauseGamepad = playerInput.actions["PauseMoveController"];
         m_pauseMenu.SetActive(false);
+        colourSelected.colorMultiplier = 1;
+        colourSelected.selectedColor = new Color(0, 0, 0, 0);
+        colourSelected.selectedColor = new Color(0, 1, 0.117f, 1);
+        colourSelected.normalColor = new Color(1, 1, 1, 1);
     }
     private void OnEnable()
     {
@@ -50,11 +55,11 @@ public class PauseMenu : MonoBehaviour
     }
     private void Back() 
     {
-        if (m_pauseMenu.activeSelf)
+        if (m_pauseMenu != null && m_pauseMenu.activeSelf)
         {
             ResumeGame();
         }
-        else if (m_optionsUI.activeSelf)
+        else if (m_optionsUI != null && m_optionsUI.activeSelf)
         {
             OptionsMenuBack();
         }
@@ -66,7 +71,9 @@ public class PauseMenu : MonoBehaviour
         m_pauseMenu.SetActive(true);
         m_gameUI.SetActive(false);
         isPaused = true;
+        m_fsPauseMenu.GetComponent<Button>().colors = colourSelected;
         EventSystem.current.SetSelectedGameObject(m_fsPauseMenu);
+
     }
     public void ResumeGame()
     {
@@ -80,14 +87,19 @@ public class PauseMenu : MonoBehaviour
     {
         m_optionsUI.SetActive(false);
         m_pauseMenu.SetActive(true);
+        m_fsPauseMenu.GetComponent<Button>().colors = colourSelected;
         EventSystem.current.SetSelectedGameObject(m_fsPauseMenu);
+
         //Need to fill this in when the options menu is ready to be used.
     }
     public void OptionsMenu()
     {
         m_optionsUI.SetActive(true);
         m_pauseMenu.SetActive(false);
+        m_fsOptionsMenu.GetComponent<Scrollbar>().colors = colourSelected;
         EventSystem.current.SetSelectedGameObject(m_fsOptionsMenu);
+
+
         //Need to fill this in when the options menu is ready to be used.
     }
     public void ReturnToMenu(string nameOfScene)
