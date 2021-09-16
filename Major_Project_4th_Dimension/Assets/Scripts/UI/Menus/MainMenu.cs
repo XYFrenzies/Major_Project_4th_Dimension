@@ -5,11 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    [SerializeField] private GameObject m_playGameOBJ;
+    [SerializeField] private GameObject m_levelSelectOBJ;
     public void PlayGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        m_playGameOBJ.SetActive(false);
+        m_levelSelectOBJ.SetActive(true);
     }
-
+    public void ReturnToMenu()
+    {
+        m_playGameOBJ.SetActive(true);
+        m_levelSelectOBJ.SetActive(false);
+    }
     public void QuitGame()
     {
         Application.Quit();
