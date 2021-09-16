@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RealisticBlackHole
-  m_Shader: {fileID: -6465566751694194690, guid: c6975e95971a01d4991b4f01d67ccad2, type: 3}
+  m_Name: RingFormula
+  m_Shader: {fileID: -6465566751694194690, guid: 31e931406a3139044bd6e47052490779, type: 3}
   m_ShaderKeywords: _ENABLE_FOG_ON_TRANSPARENT _SURFACE_TYPE_TRANSPARENT
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -18,10 +18,10 @@ Material:
     MotionVector: User
     RenderType: Transparent
   disabledShaderPasses:
-  - MOTIONVECTORS
   - TransparentDepthPrepass
   - TransparentDepthPostpass
   - TransparentBackface
+  - MOTIONVECTORS
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -38,11 +38,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_092117b5f6e043fd8cb55bbe018256df: 0.4
-    - Vector1_8544fda598084502bdfcde03e8f7b598: 1.5
-    - Vector1_99a418122ea7461a83db1f5813fbd698: 10
-    - Vector1_acddc40ab6944a4cb5aea06010caae0c: 0.1
-    - Vector1_ba805540b43542a2af0bf1692fb29c6b: 0
+    - Vector1_02839626a86b48eeb0f54624c5160bea: 1
+    - Vector1_263b0b8e9486451f9e1df95391af45e5: 1
     - _AddPrecomputedVelocity: 0
     - _AlphaCutoffEnable: 0
     - _AlphaDstBlend: 10
@@ -85,10 +82,12 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 0
     m_Colors:
+    - Vector2_72962f577c2346aa94b68653892ae4a1: {r: 1, g: 1, b: 0, a: 0}
+    - Vector2_a31da69f9b97450fa98f01a44a3a50e2: {r: 0.5, g: 0.5, b: 0, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
---- !u!114 &3821117164460282522
+--- !u!114 &5523357660483276023
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
