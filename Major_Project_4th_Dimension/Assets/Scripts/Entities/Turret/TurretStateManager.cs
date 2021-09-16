@@ -84,22 +84,22 @@ public class TurretStateManager : MonoBehaviour
     public void IsActiveTurret()
     {
         m_turretState = TurretState.Startup;
-        m_animateTurretStartUp.Play();
+        //m_animateTurretStartUp.Play();
     }
     public void IsSettingInActiveTurret()
     {
         m_turretState = TurretState.StartDown;
-        m_animationStartDown.Play();
+        //m_animationStartDown.Play();
     }
     private void PlayStartDownAni()
     {
-        if (!m_animationStartDown.isPlaying)
+        //if (!m_animationStartDown.isPlaying)
             m_turretState = TurretState.Inactive;
     }
     //Plays animation of the turret starting up.
     private void PlayStartUpAnimation()
     {
-        if (!m_animateTurretStartUp.isPlaying)
+        //if (!m_animateTurretStartUp.isPlaying)
             m_turretState = TurretState.Searching;
     }
 
