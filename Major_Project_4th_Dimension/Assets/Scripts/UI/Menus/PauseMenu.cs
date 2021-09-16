@@ -31,13 +31,13 @@ public class PauseMenu : MonoBehaviour
     }
     private void OnEnable()
     {
-        pauseMenuAction.performed += _ => Pause();
+        pauseMenuAction.performed += Pause;
     }
     private void OnDisable()
     {
-        pauseMenuAction.performed -= _ => Pause();
+        pauseMenuAction.performed -= Pause;
     }
-    public void Pause()
+    public void Pause(InputAction.CallbackContext context)
     {
         if (isPaused)
         {
