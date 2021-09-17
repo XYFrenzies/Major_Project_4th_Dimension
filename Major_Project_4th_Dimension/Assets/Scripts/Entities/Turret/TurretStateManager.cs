@@ -64,8 +64,10 @@ public class TurretStateManager : MonoBehaviour
         switch (m_turretState)
         {
             case TurretState.Inactive:
+                m_spotLight.gameObject.SetActive(false);
                 break;
             case TurretState.Startup:
+                m_spotLight.gameObject.SetActive(true);
                 PlayStartUpAnimation();
                 break;
             case TurretState.StartDown:
