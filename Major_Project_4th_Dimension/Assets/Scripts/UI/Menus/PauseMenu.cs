@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 public class PauseMenu : MonoBehaviour
@@ -19,6 +18,8 @@ public class PauseMenu : MonoBehaviour
     private InputAction pauseGamepad;
     private bool isPaused = false;
     private ColorBlock colourSelected;
+    private ColorBlock naturalState;
+    private bool m_gamePadActive = false;
     private void Awake()
     {
         pauseMenuAction = playerInput.actions["PauseMenu"];
@@ -28,6 +29,11 @@ public class PauseMenu : MonoBehaviour
         colourSelected.selectedColor = new Color(0, 1, 0.117f, 1);
         colourSelected.normalColor = new Color(1, 1, 1, 1);
         colourSelected.highlightedColor = new Color(0, 1, 0.117f, 0.39f);
+
+        naturalState.colorMultiplier = 1;
+        naturalState.highlightedColor = new Color(0, 1, 0.117f, 1);
+        naturalState.selectedColor = new Color(0, 1, 1, 1);
+        naturalState.normalColor = new Color(1, 1, 1, 1);
     }
     private void OnEnable()
     {
@@ -52,6 +58,33 @@ public class PauseMenu : MonoBehaviour
     {
         if (isPaused)
             pauseGamepad.started += ctx => Back();
+
+        if (Gamepad.current.leftStick.IsActuated() && (EventSystem.current.currentSelectedGameObject == null || m_gamePadActive))
+        {
+            if (m_pauseMenu != null && m_pauseMenu.activeSelf)
+            {
+                EventSystem.current.SetSelectedGameObject(m_fsPauseMenu);
+                m_fsPauseMenu.GetComponent<Button>().colors = colourSelected;
+            }
+            else if (m_optionsUI != null && m_optionsUI.activeSelf)
+            {
+                EventSystem.current.SetSelectedGameObject(m_fsOptionsMenu);
+                m_fsOptionsMenu.GetComponent<Scrollbar>().colors = colourSelected;
+            }
+            m_gamePadActive = true;
+        }
+        else if (Mouse.current.IsActuated())
+        {
+            if (!Gamepad.current.leftStick.IsActuated())
+                m_gamePadActive = false;
+            if (EventSystem.current.alreadySelecting)
+            {
+                m_fsPauseMenu.GetComponent<Button>().colors = naturalState;
+                m_fsOptionsMenu.GetComponent<Scrollbar>().colors = naturalState;
+                EventSystem.current.SetSelectedGameObject(null);
+            }
+        }
+
     }
     private void Back() 
     {
@@ -87,18 +120,32 @@ public class PauseMenu : MonoBehaviour
     {
         m_optionsUI.SetActive(false);
         m_pauseMenu.SetActive(true);
-        m_fsPauseMenu.GetComponent<Button>().colors = colourSelected;
-        EventSystem.current.SetSelectedGameObject(m_fsPauseMenu);
-
+        if (m_gamePadActive)
+        {
+            m_fsPauseMenu.GetComponent<Button>().colors = colourSelected;
+            EventSystem.current.SetSelectedGameObject(m_fsPauseMenu);
+        }
+        else if (!m_gamePadActive)
+        {
+            m_fsPauseMenu.GetComponent<Button>().colors = naturalState;
+            EventSystem.current.SetSelectedGameObject(null);
+        }
         //Need to fill this in when the options menu is ready to be used.
     }
     public void OptionsMenu()
     {
         m_optionsUI.SetActive(true);
         m_pauseMenu.SetActive(false);
-        m_fsOptionsMenu.GetComponent<Scrollbar>().colors = colourSelected;
-        EventSystem.current.SetSelectedGameObject(m_fsOptionsMenu);
-
+        if (m_gamePadActive)
+        {
+            m_fsOptionsMenu.GetComponent<Scrollbar>().colors = colourSelected;
+            EventSystem.current.SetSelectedGameObject(m_fsOptionsMenu);
+        }
+        else if (!m_gamePadActive)
+        {
+            m_fsOptionsMenu.GetComponent<Scrollbar>().colors = naturalState;
+            EventSystem.current.SetSelectedGameObject(null);
+        }
 
         //Need to fill this in when the options menu is ready to be used.
     }
