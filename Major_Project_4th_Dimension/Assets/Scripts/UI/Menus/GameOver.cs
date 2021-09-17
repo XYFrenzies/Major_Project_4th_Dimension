@@ -12,7 +12,7 @@ public class GameOver : MonoBehaviour
     private ColorBlock naturalState;
     private bool m_gamePadActive = false;
     // Start is called before the first frame update
-    void Awake()
+    private void Awake()
     {
         colourSelected.colorMultiplier = 1;
         colourSelected.selectedColor = new Color(0, 1, 0.117f, 1);
@@ -26,7 +26,7 @@ public class GameOver : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (Gamepad.current != null && Gamepad.current.leftStick.IsActuated() && (EventSystem.current.currentSelectedGameObject == null || m_gamePadActive))
         {
