@@ -6033,6 +6033,8 @@ GameObject:
   - component: {fileID: 7006184331258243261}
   - component: {fileID: 7006184331258243260}
   - component: {fileID: 7006184331258243263}
+  - component: {fileID: 8830639599379206690}
+  - component: {fileID: 7802937919138218089}
   m_Layer: 7
   m_Name: PlayerNew (1)
   m_TagString: Player
@@ -6476,6 +6478,62 @@ MonoBehaviour:
   playerInput: {fileID: 7006184331258243257}
   mainCamera: {fileID: 7006184330665921619}
   aimCamera: {fileID: 7006184330401368930}
+--- !u!114 &8830639599379206690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7006184331258243249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48be2ea0f33e0194caf93c70cfde9568, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: f5485dac8127313489e6f5284bf178a5, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7006184331258243256}
+        m_TargetAssemblyTypeName: PlayerControllerCinemachineLook2, Assembly-CSharp
+        m_MethodName: ChangeIsPlayerCloseEnough
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7802937919138218089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7006184331258243249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48be2ea0f33e0194caf93c70cfde9568, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 2422a6cd7963a534ba729d5d459dd141, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7006184331258243256}
+        m_TargetAssemblyTypeName: PlayerControllerCinemachineLook2, Assembly-CSharp
+        m_MethodName: ChangeIsPlayerCloseEnough
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7006184331258699267
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,12 +10,19 @@ public class TriggerArea : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
+        { 
             insideTriggerArea.Raise();
+            Debug.Log("Player inside trigger area");
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
+        { 
             outsideTriggerArea.Raise();
+            Debug.Log("Player outside trigger area");
+
+        }
     }
 }
