@@ -26,7 +26,7 @@ public class MainMenu : MonoBehaviour
         naturalState.colorMultiplier = 1;
         naturalState.highlightedColor = new Color(0, 1, 0.117f, 0.39f);
         naturalState.selectedColor = new Color(0, 1, 1, 0);
-        colourSelected.normalColor = new Color(1, 1, 1, 0);
+        naturalState.normalColor = new Color(1, 1, 1, 0);
     }
     private void Start()
     {
