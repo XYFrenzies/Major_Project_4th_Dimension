@@ -2760,6 +2760,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae2bd8bb7f2795c43b8828e880f1fb61, type: 3}
+--- !u!1 &1872446415 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8000579788078637053, guid: b4f269ae58c4e2f418b14a0db3113322, type: 3}
+  m_PrefabInstance: {fileID: 8000579789030527108}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1897817695
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2821,6 +2826,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 00a96e21399877648afd46e9271128e2, type: 3}
+--- !u!1 &1907736703 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8000579789473674688, guid: b4f269ae58c4e2f418b14a0db3113322, type: 3}
+  m_PrefabInstance: {fileID: 8000579789030527108}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2012401952
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3517,6 +3527,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8000579788626801442, guid: b4f269ae58c4e2f418b14a0db3113322, type: 3}
+      propertyPath: m_parentMainMenu
+      value: 
+      objectReference: {fileID: 1907736703}
+    - target: {fileID: 8000579788626801442, guid: b4f269ae58c4e2f418b14a0db3113322, type: 3}
+      propertyPath: m_parentLevelSelect
+      value: 
+      objectReference: {fileID: 1872446415}
     - target: {fileID: 8000579788626801445, guid: b4f269ae58c4e2f418b14a0db3113322, type: 3}
       propertyPath: m_Name
       value: Canvas
