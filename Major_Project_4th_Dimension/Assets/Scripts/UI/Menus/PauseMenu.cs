@@ -28,7 +28,7 @@ public class PauseMenu : MonoBehaviour
         colourSelected.colorMultiplier = 1;
         colourSelected.selectedColor = new Color(0, 1, 0.117f, 1);
         colourSelected.normalColor = new Color(1, 1, 1, 1);
-        colourSelected.highlightedColor = new Color(0, 1, 0.117f, 0.39f);
+        colourSelected.highlightedColor = new Color(0, 1, 0.117f, 1);
 
         naturalState.colorMultiplier = 1;
         naturalState.highlightedColor = new Color(0, 1, 0.117f, 1);
