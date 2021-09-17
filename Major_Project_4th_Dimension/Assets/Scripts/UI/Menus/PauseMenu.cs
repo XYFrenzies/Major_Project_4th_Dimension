@@ -13,7 +13,6 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject m_optionsUI = null;
     [SerializeField] private GameObject m_fsOptionsMenu = null;
     [SerializeField] private GameObject m_fsPauseMenu = null;
-    [SerializeField] private float gamepadSpeed = 0.2f;
     private InputAction pauseMenuAction;
     private InputAction pauseGamepad;
     private bool isPaused = false;
