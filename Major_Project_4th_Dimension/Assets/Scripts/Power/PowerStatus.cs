@@ -9,17 +9,21 @@ public class PowerStatus : MonoBehaviour
     [SerializeField] private bool m_powerIsOn = false;
 
     //Can change to collision depending on the collider to the power.
-    private void OnTriggerEnter(Collider other)
+    public void TurnPowerOnOrOff()
     {
+        m_powerIsOn = !m_powerIsOn;
+
         switch (m_powerIsOn)
         {
             case true:
-                m_powerOff.Raise();
-                m_powerIsOn = false;
+                m_powerOn.Raise();
+                //m_powerIsOn = false;
+                Debug.Log("Power is on");
                 break;
             case false:
-                m_powerOn.Raise();
-                m_powerIsOn = true;
+                m_powerOff.Raise();
+                //m_powerIsOn = true;
+                Debug.Log("Power is off");
                 break;
         }
     }

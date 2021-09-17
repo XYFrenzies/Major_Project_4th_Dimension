@@ -56,6 +56,8 @@ public class ArmShootState : ArmBaseState
         //}
         if (shooting)
             ShootArm();
+
+        
     }
 
 

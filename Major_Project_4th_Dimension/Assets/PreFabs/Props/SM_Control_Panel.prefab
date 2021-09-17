@@ -39,6 +39,8 @@ GameObject:
   - component: {fileID: 8403034228748886202}
   - component: {fileID: 4842012304336334623}
   - component: {fileID: 7266205882513972181}
+  - component: {fileID: 5137638902536161574}
+  - component: {fileID: 4932605609300983675}
   m_Layer: 0
   m_Name: SM_Control_Panel
   m_TagString: Untagged
@@ -55,7 +57,7 @@ Transform:
   m_GameObject: {fileID: 9211624514158787072}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 21.75, y: 2.362, z: 13.56}
-  m_LocalScale: {x: 1.6861, y: 1.6861, z: 1.6861}
+  m_LocalScale: {x: 1.6861001, y: 1.6861, z: 1.6861001}
   m_Children:
   - {fileID: 805364760225330805}
   m_Father: {fileID: 0}
@@ -110,6 +112,33 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!135 &5137638902536161574
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9211624514158787072}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0.01997473, z: 0.15255496}
+--- !u!114 &4932605609300983675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9211624514158787072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1232a391f34f0443b69601f854816cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  insideTriggerArea: {fileID: 11400000, guid: f5485dac8127313489e6f5284bf178a5, type: 2}
+  outsideTriggerArea: {fileID: 11400000, guid: 2422a6cd7963a534ba729d5d459dd141, type: 2}
 --- !u!1001 &8293143836788048130
 PrefabInstance:
   m_ObjectHideFlags: 0

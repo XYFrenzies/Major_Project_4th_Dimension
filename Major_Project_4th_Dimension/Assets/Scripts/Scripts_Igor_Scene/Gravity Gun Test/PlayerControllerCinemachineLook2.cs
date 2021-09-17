@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Animations.Rigging;
-
+using System;
 
 public class PlayerControllerCinemachineLook2 : MonoBehaviour
 {
@@ -20,6 +20,7 @@ public class PlayerControllerCinemachineLook2 : MonoBehaviour
     private Vector2 inputs;
     private InputAction moveAction;
     private InputAction lookAction;
+    private InputAction interactAction;
 
     [Header("Hook Shot")]
     public float hookShotRange = 50f;
@@ -35,8 +36,11 @@ public class PlayerControllerCinemachineLook2 : MonoBehaviour
     //private Vector2 m_Move;
     public Rig armRig;
     public Rig headRig;
+    //public GameEvent interactedEvent;
 
     ArmStateManager arm;
+    public GameEvent interacting;
+    bool isPlayerCloseEnough = false;
 
     [HideInInspector]
     public State currentState;
@@ -67,7 +71,34 @@ public class PlayerControllerCinemachineLook2 : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         moveAction = playerInput.actions["Move"];
         lookAction = playerInput.actions["Look"];
+        interactAction = playerInput.actions["Interact"];
         arm = GetComponent<ArmStateManager>();
+
+    }
+
+    private void OnEnable()
+    {
+        interactAction.performed += Interact;
+    }
+
+    private void Interact(InputAction.CallbackContext obj)
+    {
+        if (isPlayerCloseEnough)
+        {
+            interacting.Raise();
+            Debug.Log("Player interacted");
+        }
+    }
+
+    public void ChangeIsPlayerCloseEnough()
+    {
+        isPlayerCloseEnough = !isPlayerCloseEnough;
+        Debug.Log(isPlayerCloseEnough);
+    }
+
+    private void OnDisable()
+    {
+        interactAction.performed -= Interact;
 
     }
 
