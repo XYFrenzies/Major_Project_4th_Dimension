@@ -262,17 +262,6 @@
                 },
                 {
                     "name": "",
-                    "id": "d51301b6-9465-430f-88f1-2332487b6745",
-                    "path": "<Gamepad>/leftTrigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ThrowObject",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "5607e11c-1ce9-4dce-80ed-279d1423fe03",
                     "path": "<Keyboard>/space",
                     "interactions": "",
@@ -350,6 +339,17 @@
                 },
                 {
                     "name": "",
+                    "id": "7f15b682-4b5d-4dfc-857b-e3b0563b4170",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Aim",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "8a450ad3-c1d0-4791-af96-5354939ecf3d",
                     "path": "<VirtualMouse>/position",
                     "interactions": "",
@@ -380,6 +380,77 @@
                     "action": "Test",
                     "isComposite": false,
                     "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Menu",
+            "id": "69cac28d-d9ab-44f7-9c73-0b79d10839b4",
+            "actions": [
+                {
+                    "name": "Controller",
+                    "type": "Value",
+                    "id": "ce350cc8-581d-49a5-a0c4-cbde825ee898",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "Movement",
+                    "id": "a19e7081-95ec-48eb-9146-a271cd3d28e0",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Controller",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "d977fe2f-934f-4303-bf9c-d12852764b2f",
+                    "path": "<Gamepad>/leftStick/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Controller",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "942bcdbc-1f01-4595-bd97-c5a470d239d3",
+                    "path": "<Gamepad>/leftStick/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Controller",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "155a7e89-5347-479f-a985-dc4dd373e578",
+                    "path": "<Gamepad>/leftStick/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Controller",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "616fbe28-491b-4165-b3dc-b23b6f4312e6",
+                    "path": "<Gamepad>/leftStick/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Controller",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }
