@@ -28,7 +28,7 @@ public class GameOver : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Gamepad.current.leftStick.IsActuated() && (EventSystem.current.currentSelectedGameObject == null || m_gamePadActive))
+        if (Gamepad.current != null && Gamepad.current.leftStick.IsActuated() && (EventSystem.current.currentSelectedGameObject == null || m_gamePadActive))
         {
             if (m_firstButton != null && m_firstButton.activeSelf)
             {
@@ -39,7 +39,7 @@ public class GameOver : MonoBehaviour
         }
         else if (Mouse.current.IsActuated())
         {
-            if (!Gamepad.current.leftStick.IsActuated())
+            if (Gamepad.current != null && !Gamepad.current.leftStick.IsActuated())
                 m_gamePadActive = false;
             if (EventSystem.current.alreadySelecting)
             {
