@@ -73,7 +73,7 @@ public class PlayerControllerCinemachineLook2 : MonoBehaviour
         lookAction = playerInput.actions["Look"];
         interactAction = playerInput.actions["Interact"];
         arm = GetComponent<ArmStateManager>();
-
+        
     }
 
     private void OnEnable()
