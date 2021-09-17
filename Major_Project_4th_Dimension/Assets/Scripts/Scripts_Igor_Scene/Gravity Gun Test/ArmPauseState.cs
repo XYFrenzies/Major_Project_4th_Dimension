@@ -13,14 +13,14 @@ public class ArmPauseState : ArmBaseState
     }
     public override void EnterState()
     {
-        Debug.Log("Entered pause state");
+        //Debug.Log("Entered pause state");
 
 
     }
 
     public override void ExitState()
     {
-        Debug.Log("Exited pause state");
+        //Debug.Log("Exited pause state");
 
     }
 

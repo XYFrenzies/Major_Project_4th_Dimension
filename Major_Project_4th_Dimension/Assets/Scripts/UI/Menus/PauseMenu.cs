@@ -13,7 +13,6 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject m_optionsUI = null;
     [SerializeField] private GameObject m_fsOptionsMenu = null;
     [SerializeField] private GameObject m_fsPauseMenu = null;
-    [SerializeField] private float gamepadSpeed = 0.2f;
     private InputAction pauseMenuAction;
     private InputAction pauseGamepad;
     private bool isPaused = false;
@@ -28,7 +27,7 @@ public class PauseMenu : MonoBehaviour
         colourSelected.colorMultiplier = 1;
         colourSelected.selectedColor = new Color(0, 1, 0.117f, 1);
         colourSelected.normalColor = new Color(1, 1, 1, 1);
-        colourSelected.highlightedColor = new Color(0, 1, 0.117f, 0.39f);
+        colourSelected.highlightedColor = new Color(0, 1, 0.117f, 1);
 
         naturalState.colorMultiplier = 1;
         naturalState.highlightedColor = new Color(0, 1, 0.117f, 1);
