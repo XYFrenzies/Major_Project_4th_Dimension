@@ -35,7 +35,7 @@ public class MainMenu : MonoBehaviour
     }
     private void Update()
     {
-        if (Gamepad.current.leftStick.IsActuated() && (EventSystem.current.currentSelectedGameObject == null || m_gamePadActive))
+        if (Gamepad.current != null && Gamepad.current.leftStick.IsActuated() && (EventSystem.current.currentSelectedGameObject == null || m_gamePadActive))
         {
             if (m_parentMainMenu != null && m_parentMainMenu.activeSelf)
             {
@@ -51,7 +51,7 @@ public class MainMenu : MonoBehaviour
         }
         else if (Mouse.current.IsActuated())
         {
-            if(!Gamepad.current.leftStick.IsActuated())
+            if(Gamepad.current != null && !Gamepad.current.leftStick.IsActuated())
                 m_gamePadActive = false;
             if (EventSystem.current.alreadySelecting)
             {

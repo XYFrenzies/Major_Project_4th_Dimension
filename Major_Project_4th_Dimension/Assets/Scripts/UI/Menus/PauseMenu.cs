@@ -58,7 +58,7 @@ public class PauseMenu : MonoBehaviour
         if (isPaused)
             pauseGamepad.started += ctx => Back();
 
-        if (Gamepad.current.leftStick.IsActuated() && (EventSystem.current.currentSelectedGameObject == null || m_gamePadActive))
+        if (Gamepad.current != null && Gamepad.current.leftStick.IsActuated() && (EventSystem.current.currentSelectedGameObject == null || m_gamePadActive))
         {
             if (m_pauseMenu != null && m_pauseMenu.activeSelf)
             {
@@ -74,7 +74,7 @@ public class PauseMenu : MonoBehaviour
         }
         else if (Mouse.current.IsActuated())
         {
-            if (!Gamepad.current.leftStick.IsActuated())
+            if (Gamepad.current != null && !Gamepad.current.leftStick.IsActuated())
                 m_gamePadActive = false;
             if (EventSystem.current.alreadySelecting)
             {
