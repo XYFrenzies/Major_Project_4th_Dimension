@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Cinemachine;
+using UnityEngine.Animations;
 
 public class ArmStateManager : MonoBehaviour
 {
@@ -54,6 +54,7 @@ public class ArmStateManager : MonoBehaviour
     public InputAction shootAction;
     [HideInInspector]
     public InputAction throwAction;
+    public ParentConstraint parentConstraint;
 
     // States
     public ArmShootState shootState = null; // Remove V2 to go back to original

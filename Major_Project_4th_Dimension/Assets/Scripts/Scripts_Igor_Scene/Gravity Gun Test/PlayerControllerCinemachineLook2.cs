@@ -19,7 +19,7 @@ public class PlayerControllerCinemachineLook2 : MonoBehaviour
     private Vector3 direction = Vector3.zero;
     private Vector2 inputs;
     private InputAction moveAction;
-    private InputAction lookAction;
+    public InputAction lookAction;
     private InputAction interactAction;
 
     [Header("Hook Shot")]
@@ -71,13 +71,15 @@ public class PlayerControllerCinemachineLook2 : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         moveAction = playerInput.actions["Move"];
         lookAction = playerInput.actions["Look"];
+        //var lookAct = new InputAction();
+        //lookAct.AddBinding("<Gamepad/rightStick>").WithProcessor("scaleVector2(x=20,y=20)");
         interactAction = playerInput.actions["Interact"];
         arm = GetComponent<ArmStateManager>();
-        
     }
 
     private void OnEnable()
     {
+        
         interactAction.performed += Interact;
     }
 
@@ -182,7 +184,7 @@ public class PlayerControllerCinemachineLook2 : MonoBehaviour
         if (isHookThrown == false)
             transform.rotation = Quaternion.Euler(0, cam.transform.eulerAngles.y, 0);
 
-
+        
 
 
         Vector3 rayOrigin = cam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
