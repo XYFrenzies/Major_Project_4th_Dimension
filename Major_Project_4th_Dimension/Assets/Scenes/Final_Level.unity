@@ -4145,7 +4145,7 @@ PrefabInstance:
       objectReference: {fileID: 1644135244}
     - target: {fileID: 4086751976221811923, guid: 8ae51393a6f3f2249aef5174ff6d59f8, type: 3}
       propertyPath: m_Intensity
-      value: 24.2
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 6640855606629399315, guid: 8ae51393a6f3f2249aef5174ff6d59f8, type: 3}
       propertyPath: m_RootOrder
@@ -4229,7 +4229,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7166156642396339376, guid: 8ae51393a6f3f2249aef5174ff6d59f8, type: 3}
       propertyPath: m_Intensity
-      value: 2408996.2
+      value: 262144
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ae51393a6f3f2249aef5174ff6d59f8, type: 3}
@@ -15983,7 +15983,7 @@ PrefabInstance:
       objectReference: {fileID: 705155434}
     - target: {fileID: 4086751976221811923, guid: 8ae51393a6f3f2249aef5174ff6d59f8, type: 3}
       propertyPath: m_Intensity
-      value: 26
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 6640855606629399315, guid: 8ae51393a6f3f2249aef5174ff6d59f8, type: 3}
       propertyPath: m_RootOrder
@@ -16044,6 +16044,10 @@ PrefabInstance:
     - target: {fileID: 6640855606629399319, guid: 8ae51393a6f3f2249aef5174ff6d59f8, type: 3}
       propertyPath: m_Name
       value: TurretWithAimAtTarget
+      objectReference: {fileID: 0}
+    - target: {fileID: 7166156642396339376, guid: 8ae51393a6f3f2249aef5174ff6d59f8, type: 3}
+      propertyPath: m_Intensity
+      value: 262144
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ae51393a6f3f2249aef5174ff6d59f8, type: 3}
@@ -39702,7 +39706,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8349732060284691408, guid: 427e5d9802c3433478ea5c75eaddbadc, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 427e5d9802c3433478ea5c75eaddbadc, type: 3}
@@ -50966,6 +50970,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6675686570265975414, guid: e1d8b43ec7b1d4a4485c6be4ed0d9ab6, type: 3}
   m_PrefabInstance: {fileID: 1419652847}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1419788482 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8349732060284691408, guid: 427e5d9802c3433478ea5c75eaddbadc, type: 3}
+  m_PrefabInstance: {fileID: 1962727141}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1419788483
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1419788482}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.1523361, y: 3.4926932, z: 0.02125026}
+  m_Center: {x: 0, y: 0.00000011920929, z: -0.0000009536743}
 --- !u!1001 &1424200091
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -59085,7 +59107,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5804269354966839709, guid: b22f7c45c4c7e524494ea2bd2d2853e9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.7248357
+      value: 0.82784736
       objectReference: {fileID: 0}
     - target: {fileID: 5804269354966839709, guid: b22f7c45c4c7e524494ea2bd2d2853e9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -59093,7 +59115,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5804269354966839709, guid: b22f7c45c4c7e524494ea2bd2d2853e9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.8393328
+      value: -2.8447309
       objectReference: {fileID: 0}
     - target: {fileID: 5804269354966839709, guid: b22f7c45c4c7e524494ea2bd2d2853e9, type: 3}
       propertyPath: m_LocalRotation.x
@@ -72540,7 +72562,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8349732060284691408, guid: 427e5d9802c3433478ea5c75eaddbadc, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 427e5d9802c3433478ea5c75eaddbadc, type: 3}
