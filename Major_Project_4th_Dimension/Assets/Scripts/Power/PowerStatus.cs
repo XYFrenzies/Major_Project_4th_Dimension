@@ -2,18 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PowerStatus : MonoBehaviour
+public class PowerStatus : Singleton<PowerStatus>
 {
     [SerializeField] private GameEvent m_powerOn;
     [SerializeField] private GameEvent m_powerOff;
-    [SerializeField] private bool m_powerIsOn = false;
+    public bool powerIsOn = false;
 
     //Can change to collision depending on the collider to the power.
     public void TurnPowerOnOrOff()
     {
-        m_powerIsOn = !m_powerIsOn;
+        powerIsOn = !powerIsOn;
 
-        switch (m_powerIsOn)
+        switch (powerIsOn)
         {
             case true:
                 m_powerOn.Raise();
