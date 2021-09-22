@@ -55,6 +55,7 @@ public class ArmStateManager : MonoBehaviour
     [HideInInspector]
     public InputAction throwAction;
     public ParentConstraint parentConstraint;
+    public ConstraintSource constraintSource;
 
     // States
     public ArmShootState shootState = null; // Remove V2 to go back to original
@@ -84,6 +85,10 @@ public class ArmStateManager : MonoBehaviour
         putDownState = new ArmPutDownState(this);
         pauseState = new ArmPauseState(this);
         aimTarget = GetComponent<AimTargetMove>().target.transform;
+        constraintSource.sourceTransform = holdPoint;
+        constraintSource.weight = 1f;
+        //parentConstraint.AddSource(constraintSource);
+        //parentConstraint.SetSource(0, constraintSource);
     }
 
     public void OnEnable()

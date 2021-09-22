@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 using UnityEngine.InputSystem;
 
 public class ArmPutDownState : ArmBaseState
@@ -23,10 +24,14 @@ public class ArmPutDownState : ArmBaseState
         armStateMan.shootAction.canceled += NotShoot;
         //Debug.Log("Entered Putdown state");
         //playerInput = armStateMan.GetComponent<PlayerInput>();
+
+        armStateMan.parentConstraint = armStateMan.hitObject.GetComponent<ParentConstraint>();
+        armStateMan.parentConstraint.constraintActive = false;
+
         isShooting = true;
         //shootAction = playerInput.actions["HookShot"];
         rb = armStateMan.hitObject.GetComponent<Rigidbody>();
-        rb.isKinematic = false;
+        //rb.isKinematic = false;
         armStateMan.hitObject.transform.SetParent(null);
         armStateMan.lineRenderer.enabled = true;
 
@@ -35,7 +40,7 @@ public class ArmPutDownState : ArmBaseState
     public override void ExitState()
     {
         armStateMan.hitObject.layer = LayerMask.NameToLayer("Default");
-        rb.isKinematic = false;
+        //rb.isKinematic = false;
         rb.useGravity = true;
         armStateMan.isObjectHeld = false;
         armStateMan.hitObject = null;
@@ -44,7 +49,8 @@ public class ArmPutDownState : ArmBaseState
         armStateMan.player.currentState = PlayerControllerCinemachineLook2.State.Normal;
         armStateMan.shootAction.performed -= Shoot;
         armStateMan.shootAction.canceled -= NotShoot;
-
+        if (armStateMan.parentConstraint.sourceCount != 0)
+            armStateMan.parentConstraint.RemoveSource(0);
     }
 
     public override void UpdateState()
