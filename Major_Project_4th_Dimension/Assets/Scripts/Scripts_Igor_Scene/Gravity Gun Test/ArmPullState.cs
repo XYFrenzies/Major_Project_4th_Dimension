@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class ArmPullState : ArmBaseState
 {
     bool isShooting = false;
+    float initialSpringForce;
     private PlayerInput playerInput;
     private InputAction shootAction;
     public ArmPullState(ArmStateManager arm) : base(arm)
@@ -34,6 +35,7 @@ public class ArmPullState : ArmBaseState
         //float distance = Vector3.Distance(armStateMan.transform.position, armStateMan.newGrappleHandle.transform.position);
         armStateMan.springJoint.minDistance = 2.5f;
         armStateMan.springJoint.maxDistance = 2.5f;
+        initialSpringForce = armStateMan.springJoint.spring;
         armStateMan.lineRenderer.enabled = true;
 
         //currentHookShotState = HookShotState.Pull;
@@ -46,6 +48,7 @@ public class ArmPullState : ArmBaseState
         shootAction.canceled -= NotShoot;
         //hand.transform.SetParent(armStateMan.transform);
         Object.Destroy(armStateMan.newGrappleHandle);
+        armStateMan.springJoint.spring = initialSpringForce;
         armStateMan.springJoint.connectedAnchor = Vector3.zero;
 
         armStateMan.springJoint.maxDistance = 0f;
@@ -64,8 +67,8 @@ public class ArmPullState : ArmBaseState
             armStateMan.SwitchState(armStateMan.shootState);
 
         }
-
         armStateMan.hitPoint = armStateMan.newGrappleHandle.transform.position;
+        armStateMan.springJoint.spring += Time.deltaTime;
     }
 
     public void Shoot(InputAction.CallbackContext context)
@@ -75,5 +78,6 @@ public class ArmPullState : ArmBaseState
     private void NotShoot(InputAction.CallbackContext context)
     {
         isShooting = false;
+
     }
 }

@@ -11,6 +11,7 @@ public class ArmShootState : ArmBaseState
     //private InputAction throwAction;
 
     private bool shooting;
+    Vector3 offset = Vector3.zero;
 
     public ArmShootState(ArmStateManager arm) : base(arm)
     {
@@ -50,14 +51,10 @@ public class ArmShootState : ArmBaseState
     public override void UpdateState()
     {
         Debug.DrawRay(armStateMan.shootPoint.position, armStateMan.shootPoint.forward, Color.green);
-        //if (shootAction.triggered)
-        //{
-        //    ThrowHookShot();
-        //}
+
         if (shooting)
             ShootArm();
 
-        
     }
 
 

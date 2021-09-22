@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 using UnityEngine.InputSystem;
 
 public class ArmPickUpState : ArmBaseState
@@ -12,6 +13,7 @@ public class ArmPickUpState : ArmBaseState
     bool isShooting = false;
     float distanceBetweenPoints = 0f;
     int changePoint = 0;
+    Vector3 offset = Vector3.zero;
     //private PlayerInput playerInput;
     //private InputAction shootAction;
     public ArmPickUpState(ArmStateManager arm) : base(arm)
@@ -35,6 +37,11 @@ public class ArmPickUpState : ArmBaseState
         cancelPickUp = false;
         rb = armStateMan.hitObject.GetComponent<Rigidbody>();
         rend = armStateMan.hitObject.GetComponent<Renderer>();
+
+        armStateMan.parentConstraint = armStateMan.hitObject.GetComponent<ParentConstraint>();
+        if (armStateMan.parentConstraint.sourceCount == 0)
+            armStateMan.parentConstraint.AddSource(armStateMan.constraintSource);
+
         radius = rend.bounds.extents.magnitude;
         rb.velocity = Vector3.zero;
         rb.useGravity = false;
@@ -50,8 +57,18 @@ public class ArmPickUpState : ArmBaseState
         if (!cancelPickUp) // grab object
         {
             armStateMan.hitObject.layer = LayerMask.NameToLayer("Hold");
-            rb.isKinematic = true;
-            armStateMan.hitObject.transform.SetParent(armStateMan.holdPoint);
+
+
+            //////////////////////////////// uncomment to use old method
+            //rb.isKinematic = true;
+            //armStateMan.hitObject.transform.SetParent(armStateMan.holdPoint);
+            ///////////////////////////////
+
+
+            armStateMan.parentConstraint.constraintActive = true; // comment to use old version
+            offset.z = radius;
+            armStateMan.parentConstraint.SetTranslationOffset(0, offset);
+            //armStateMan.parentConstraint.weight = 1f;
             armStateMan.isObjectHeld = true;
             armStateMan.lineRenderer.enabled = false;
             armStateMan.initialBeamSpeed = armStateMan.holdInitialBeamSpeedValue;
@@ -61,7 +78,12 @@ public class ArmPickUpState : ArmBaseState
         else // let go of mouse button before grabbing object
         {
             armStateMan.hitObject.layer = LayerMask.NameToLayer("Default");
-            rb.isKinematic = false;
+
+            ///////////////////// uncomment to use old version
+            //rb.isKinematic = false;
+            /////////////
+
+
             rb.useGravity = true;
             armStateMan.isObjectHeld = false;
             armStateMan.hitObject = null;
@@ -102,31 +124,15 @@ public class ArmPickUpState : ArmBaseState
         //    numba++;
         //    armStateMan.lights[(armStateMan.lights.Count - 1) - numba].SetActive(true);
         //}
-
+        Debug.Log(armStateMan.parentConstraint.GetTranslationOffset(0));
     }
 
     public void Shoot(InputAction.CallbackContext context)
     {
-        //if (context.phase != InputActionPhase.Performed)
-        //{
-        //    return;
-        //}
-        //else
-        //{
-        Debug.Log("pick up shoot");
-            isShooting = true;
-        //}
+        isShooting = true;
     }
     private void NotShoot(InputAction.CallbackContext context)
     {
-        //if (context.phase != InputActionPhase.Canceled)
-        //{
-        //    return;
-        //}
-        //else
-        //{
-
-            isShooting = false;
-        //}
+        isShooting = false;
     }
 }
