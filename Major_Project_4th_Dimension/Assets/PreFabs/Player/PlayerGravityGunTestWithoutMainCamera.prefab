@@ -271,6 +271,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objCanMoveAround: []
   objCanHookTo: []
+  objPower: []
+  objSwitch: []
 --- !u!1 &5804269353518322144
 GameObject:
   m_ObjectHideFlags: 0
@@ -7689,6 +7691,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFlying: 0
   moveSpeed: 4
+  lookAction:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
   hookShotRange: 50
   hookShotThrowSpeed: 70
   flyingSpeedMultiplier: 2
@@ -7757,6 +7767,7 @@ MonoBehaviour:
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings: []
+  parentConstraint: {fileID: 0}
 --- !u!145 &5804269355457172855
 SpringJoint:
   m_ObjectHideFlags: 0
@@ -7898,6 +7909,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 64
+  arm: {fileID: 0}
 --- !u!114 &5804269355457172850
 MonoBehaviour:
   m_ObjectHideFlags: 0
