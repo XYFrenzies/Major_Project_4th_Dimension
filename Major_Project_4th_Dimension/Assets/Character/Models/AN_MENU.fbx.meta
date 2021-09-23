@@ -10,8 +10,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: T_Clothes
+    second: {fileID: 2100000, guid: 6418a0233c6cb99468d92985be648408, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: T_Clothes4
     second: {fileID: 2100000, guid: 6418a0233c6cb99468d92985be648408, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: T_Human
+    second: {fileID: 2100000, guid: 7e8b9db5090060543a7cfd5474c6f522, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -20,13 +30,33 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: T_Machine_Legs
+    second: {fileID: 2100000, guid: bee9544389f8710429a55f2a6b4aea67, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: T_Machine_Legs4
+    second: {fileID: 2100000, guid: 752f650acb05a1b48b3dd7f6dc7d8c56, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: T_Machine_Torso
     second: {fileID: 2100000, guid: 752f650acb05a1b48b3dd7f6dc7d8c56, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: T_UI2
     second: {fileID: 2100000, guid: 2d8c3f8938c2d2c4685e419a3fac3569, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: UI_L
+    second: {fileID: 2100000, guid: 2d8c3f8938c2d2c4685e419a3fac3569, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: aiStandardSurface1
+    second: {fileID: 2100000, guid: 7b63cadfa212bd344a7085a6042e9c9a, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -39,7 +69,13 @@ ModelImporter:
     optimizeGameObjects: 0
     motionNodeName: 
     rigImportErrors: 
-    rigImportWarnings: 
+    rigImportWarnings: "Avatar Rig Configuration mis-match. Bone length in configuration
+      does not match position in animation file:\n\t'mixamorig:LeftUpLeg' : position
+      error = 10.269974 mm\n\t'mixamorig:LeftLeg' : position error = 5.715084 mm\n\t'mixamorig:LeftFoot'
+      : position error = 22.423985 mm\n\t'mixamorig:LeftToeBase' : position error
+      = 5.722878 mm\n\t'mixamorig:RightUpLeg' : position error = 11.264218 mm\n\t'mixamorig:RightLeg'
+      : position error = 6.005538 mm\n\t'mixamorig:RightFoot' : position error =
+      21.349976 mm\n\t'mixamorig:RightToeBase' : position error = 5.585110 mm\n"
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
