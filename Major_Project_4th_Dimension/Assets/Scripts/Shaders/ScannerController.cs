@@ -78,6 +78,8 @@ public class ScannerController : MonoBehaviour
             {
                 IndicatorChangeLayor(Indicator.Instance.objCanMoveAround, false, "SeeThroughWallsObjects");
                 IndicatorChangeLayor(Indicator.Instance.objCanHookTo, false, "SeeThroughWallsHook");
+                IndicatorChangeLayor(Indicator.Instance.objPower, false, "Power");
+                IndicatorChangeLayor(Indicator.Instance.objSwitch, false, "Switch");
             }
             material.SetFloat("_ScanDistance", m_scanDistance);
             material.SetVector("_WorldSpaceScannerPos", new Vector4(m_scanLocation.position.x, m_scanLocation.position.y, m_scanLocation.position.z, 0));
@@ -116,6 +118,8 @@ public class ScannerController : MonoBehaviour
             SetScanner(false);
             IndicatorChangeLayor(Indicator.Instance.objCanMoveAround, true, "SeeThroughWallsObjects");
             IndicatorChangeLayor(Indicator.Instance.objCanHookTo, true, "SeeThroughWallsHook");
+            IndicatorChangeLayor(Indicator.Instance.objPower, true, "Power");
+            IndicatorChangeLayor(Indicator.Instance.objSwitch, true, "Switch");
             foreach (var indicator in Indicator.Instance.objCanMoveAround)
             {
                 indicator.layer = LayerMask.NameToLayer("Default");
