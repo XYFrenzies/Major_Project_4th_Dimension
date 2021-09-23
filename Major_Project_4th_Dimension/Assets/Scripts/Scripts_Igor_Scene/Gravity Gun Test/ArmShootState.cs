@@ -6,9 +6,6 @@ using UnityEngine.InputSystem;
 
 public class ArmShootState : ArmBaseState
 {
-    //private PlayerInput playerInput;
-    //private InputAction shootAction;
-    //private InputAction throwAction;
 
     private bool shooting;
     Vector3 offset = Vector3.zero;
@@ -21,15 +18,10 @@ public class ArmShootState : ArmBaseState
 
     public override void EnterState()
     {
-        //playerInput = armStateMan.GetComponent<PlayerInput>();
-
-        //shootAction = playerInput.actions["HookShot"];
-        //throwAction = playerInput.actions["ThrowObject"];
 
         armStateMan.shootAction.performed += ShootingArm;
         armStateMan.shootAction.canceled += UnShootingArm;
 
-        //armStateMan.throwAction.performed += ThrowObject;
         // called once when switch from some other state to this state.
 
         //Debug.Log("Shoot enter");
@@ -43,28 +35,48 @@ public class ArmShootState : ArmBaseState
         // called once when switching from this state to another state
         armStateMan.shootAction.performed -= ShootingArm;
         armStateMan.shootAction.canceled -= UnShootingArm;
-        //armStateMan.throwAction.performed -= ThrowObject;
+
         shooting = false;
 
     }
 
     public override void UpdateState()
     {
-        Debug.DrawRay(armStateMan.shootPoint.position, armStateMan.shootPoint.forward, Color.green);
+        Debug.DrawRay(armStateMan.holdPoint.position, armStateMan.holdPoint.forward, Color.green);
 
         if (shooting)
             ShootArm();
 
+        if(armStateMan.isObjectHeld)
+        {
+            //var blah = armStateMan.hitObject.transform.rotation.eulerAngles.z;
+        }
+
     }
 
 
-    public void ShootArm(/*InputAction.CallbackContext context*/)
+    public void ShootArm()
     {
         //Debug.Log("Fired hook shot");
         RaycastHit hit;
+        Vector3 aimPoint;
 
-        Ray ray = armStateMan.cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+        // Ray from camera to crosshair
+        Ray crosshair = new Ray(armStateMan.cam.transform.position, armStateMan.cam.transform.forward);
 
+        if (Physics.Raycast(crosshair, out hit, armStateMan.shootRange))
+        {
+            aimPoint = hit.point;
+        }
+        else
+        {
+            aimPoint = crosshair.origin + crosshair.direction * armStateMan.shootRange;
+        }
+
+        //Ray ray = armStateMan.cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+
+        // ray from holdpoint to target obtained from aimPoint
+        Ray ray = new Ray(armStateMan.holdPoint.position, aimPoint - armStateMan.holdPoint.position);
 
         if (armStateMan.isObjectHeld)
         {
@@ -135,12 +147,7 @@ public class ArmShootState : ArmBaseState
 
     public void ShootingArm(InputAction.CallbackContext context)
     {
-        //if (context.phase != InputActionPhase.Performed)
-        //{
-        //    return;
-        //}
-        //else
-        //{
+
         if (armStateMan.lineRenderer != null)
         {
             shooting = true;
@@ -152,49 +159,43 @@ public class ArmShootState : ArmBaseState
     }
     private void UnShootingArm(InputAction.CallbackContext context)
     {
-        //if (context.phase != InputActionPhase.Canceled)
-        //{
-        //    return;
-        //}
-        //else
-        // {
+
         if (armStateMan.lineRenderer != null)
         {
             shooting = false;
             armStateMan.lineRenderer.enabled = false;
         }
             //Debug.Log("Unshooting arm");
-        //}
     }
 
-    public void ThrowObject(InputAction.CallbackContext context)
-    {
-        //Debug.Log("Throwing object");
-        if (armStateMan.isObjectHeld)
-        {
-            RaycastHit hit;
+    //public void ThrowObject(InputAction.CallbackContext context)
+    //{
+    //    //Debug.Log("Throwing object");
+    //    if (armStateMan.isObjectHeld)
+    //    {
+    //        RaycastHit hit;
 
-            Ray ray = armStateMan.cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+    //        Ray ray = armStateMan.cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
 
-            if (Physics.Raycast(ray, out hit, armStateMan.shootRange, ~armStateMan.holdObjectLayerMask))
-            {
-                armStateMan.hitPoint = hit.point;
-            }
-            else // put back at point of chain's full length
-            {
-                armStateMan.hitPoint = ray.origin + (armStateMan.cam.transform.forward * armStateMan.shootRange);
-            }
+    //        if (Physics.Raycast(ray, out hit, armStateMan.shootRange, ~armStateMan.holdObjectLayerMask))
+    //        {
+    //            armStateMan.hitPoint = hit.point;
+    //        }
+    //        else // put back at point of chain's full length
+    //        {
+    //            armStateMan.hitPoint = ray.origin + (armStateMan.cam.transform.forward * armStateMan.shootRange);
+    //        }
 
-            Vector3 dir = armStateMan.hitPoint - armStateMan.holdPoint.position;
-            armStateMan.hitObject.layer = LayerMask.NameToLayer("Default");
-            armStateMan.hitObject.GetComponent<Rigidbody>().isKinematic = false;
-            armStateMan.hitObject.transform.SetParent(null);
-            armStateMan.isObjectHeld = false;
-            Rigidbody rb = armStateMan.hitObject.GetComponent<Rigidbody>();
-            rb.useGravity = true;
-            rb.AddForce(dir.normalized * armStateMan.throwForce, ForceMode.Impulse);
-        }
-    }
+    //        Vector3 dir = armStateMan.hitPoint - armStateMan.holdPoint.position;
+    //        armStateMan.hitObject.layer = LayerMask.NameToLayer("Default");
+    //        armStateMan.hitObject.GetComponent<Rigidbody>().isKinematic = false;
+    //        armStateMan.hitObject.transform.SetParent(null);
+    //        armStateMan.isObjectHeld = false;
+    //        Rigidbody rb = armStateMan.hitObject.GetComponent<Rigidbody>();
+    //        rb.useGravity = true;
+    //        rb.AddForce(dir.normalized * armStateMan.throwForce, ForceMode.Impulse);
+    //    }
+    //}
 
     public void OnHookShotHit(ArmBaseState state)
     {
