@@ -64,7 +64,7 @@ public class ArmShootState : ArmBaseState
         // Ray from camera to crosshair
         Ray crosshair = new Ray(armStateMan.cam.transform.position, armStateMan.cam.transform.forward);
 
-        if (Physics.Raycast(crosshair, out hit, armStateMan.shootRange))
+        if (Physics.Raycast(crosshair, out hit, armStateMan.shootRange, ~armStateMan.holdObjectLayerMask))
         {
             aimPoint = hit.point;
         }
