@@ -54,7 +54,9 @@ public class ArmStateManager : MonoBehaviour
     public InputAction shootAction;
     [HideInInspector]
     public InputAction throwAction;
+    [HideInInspector]
     public ParentConstraint parentConstraint;
+    [HideInInspector]
     public ConstraintSource constraintSource;
 
     // States
