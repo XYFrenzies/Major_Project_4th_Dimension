@@ -281,6 +281,8 @@ MonoBehaviour:
   customPasses:
   - id: 0
   - id: 1
+  - id: 2
+  - id: 3
   injectionPoint: 3
   references:
     version: 1
@@ -296,7 +298,7 @@ MonoBehaviour:
         m_Version: 0
         seeThroughLayer:
           serializedVersion: 2
-          m_Bits: 5248
+          m_Bits: 1152
         seeThroughMaterial: {fileID: 2100000, guid: 50b2e08b08279834e8b94a68c9002c7b, type: 2}
         stencilShader: {fileID: 4800000, guid: 8a9b880cfc84eaf4da931d2945542e95, type: 3}
     00000001:
@@ -313,6 +315,36 @@ MonoBehaviour:
           serializedVersion: 2
           m_Bits: 2048
         seeThroughMaterial: {fileID: 2100000, guid: 6b18c862fe2588440964515e23ef783f, type: 2}
+        stencilShader: {fileID: 4800000, guid: 8a9b880cfc84eaf4da931d2945542e95, type: 3}
+    00000002:
+      type: {class: SeeThrough, ns: , asm: Assembly-CSharp}
+      data:
+        m_Name: Custom Pass
+        enabled: 1
+        targetColorBuffer: 0
+        targetDepthBuffer: 0
+        clearFlags: 0
+        passFoldout: 0
+        m_Version: 0
+        seeThroughLayer:
+          serializedVersion: 2
+          m_Bits: 8192
+        seeThroughMaterial: {fileID: 2100000, guid: beebdd77fd642144aabcedd5b0092777, type: 2}
+        stencilShader: {fileID: 4800000, guid: 8a9b880cfc84eaf4da931d2945542e95, type: 3}
+    00000003:
+      type: {class: SeeThrough, ns: , asm: Assembly-CSharp}
+      data:
+        m_Name: Custom Pass
+        enabled: 1
+        targetColorBuffer: 0
+        targetDepthBuffer: 0
+        clearFlags: 0
+        passFoldout: 0
+        m_Version: 0
+        seeThroughLayer:
+          serializedVersion: 2
+          m_Bits: 4096
+        seeThroughMaterial: {fileID: 2100000, guid: d94dd5a7d37d3744780e7ce416bd095f, type: 2}
         stencilShader: {fileID: 4800000, guid: 8a9b880cfc84eaf4da931d2945542e95, type: 3}
 --- !u!114 &7173122632476729518
 MonoBehaviour:
