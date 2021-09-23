@@ -18,7 +18,7 @@ public class AimTargetMove : MonoBehaviour
 
     public float weaponRange = 200.0f;
     private Camera cam;
-    RaycastHit hit;
+    //RaycastHit hit;
     public GameObject target;
     public float lerpSpeed = 10.0f;
     public LayerMask layerMask;
@@ -40,7 +40,7 @@ public class AimTargetMove : MonoBehaviour
         Vector3 lastPos = target.transform.position;
 
         //Vector3 rayOrigin = cam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
-        Ray rayOrigin = new Ray();
+        //Ray rayOrigin = new Ray();
         Vector3 lineOrigin = cam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
 
         Debug.DrawRay(lineOrigin, cam.transform.forward * weaponRange, Color.green);
