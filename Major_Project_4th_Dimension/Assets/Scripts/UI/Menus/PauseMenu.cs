@@ -98,19 +98,30 @@ public class PauseMenu : MonoBehaviour
     }
     private void PauseGame()
     {
+
+        Cursor.visible = true;
         Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.None;
         m_pauseMenu.SetActive(true);
         m_gameUI.SetActive(false);
         isPaused = true;
-        m_fsPauseMenu.GetComponent<Button>().colors = colourSelected;
-        EventSystem.current.SetSelectedGameObject(m_fsPauseMenu);
-
+        if (m_gamePadActive)
+        {
+            m_fsPauseMenu.GetComponent<Button>().colors = colourSelected;
+            EventSystem.current.SetSelectedGameObject(m_fsPauseMenu);
+        }
+        else if (!m_gamePadActive)
+        {
+            m_fsPauseMenu.GetComponent<Button>().colors = naturalState;
+            EventSystem.current.SetSelectedGameObject(null);
+        }
     }
     public void ResumeGame()
     {
         isPaused = false;
         Time.timeScale = 1;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         m_pauseMenu.SetActive(false);
         m_gameUI.SetActive(true);
         m_optionsUI.SetActive(false);
