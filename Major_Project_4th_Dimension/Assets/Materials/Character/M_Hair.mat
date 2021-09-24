@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: M_Hair
   m_Shader: {fileID: -6465566751694194690, guid: 384d88ff5b296a44b89f1fb2d4442c01, type: 3}
-  m_ShaderKeywords: _ALPHATEST_ON _ALPHATOMASK_ON _DISABLE_SSR_TRANSPARENT _DOUBLESIDED_ON
+  m_ShaderKeywords: _ALPHATEST_ON _ALPHATOMASK_ON _DOUBLESIDED_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 1
@@ -18,11 +18,11 @@ Material:
     MotionVector: User
     RenderType: TransparentCutout
   disabledShaderPasses:
-  - TransparentDepthPrepass
   - TransparentDepthPostpass
-  - TransparentBackface
-  - RayTracingPrepass
   - MOTIONVECTORS
+  - RayTracingPrepass
+  - TransparentBackface
+  - TransparentDepthPrepass
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -39,7 +39,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseColorMap:
-        m_Texture: {fileID: 2800000, guid: 06b03a17e7518b64d8196596b89ed246, type: 3}
+        m_Texture: {fileID: 2800000, guid: 952846fb50fb0724cb6dfe076f54a48c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BentNormalMap:
@@ -75,15 +75,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 06b03a17e7518b64d8196596b89ed246, type: 3}
+        m_Texture: {fileID: 2800000, guid: 952846fb50fb0724cb6dfe076f54a48c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 9ca163ad40e6d1b4c9da358822a80c80, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: f67493105e7744b4586ee95a2fd0f527, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMapOS:
@@ -132,22 +132,22 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - Vector1_b196f781e1f84b2b90b8d75ddde66e12: 1
-    - _AORemapMax: 1
+    - _AORemapMax: 0.6021858
     - _AORemapMin: 0
     - _ATDistance: 1
     - _AddPrecomputedVelocity: 0
     - _AlbedoAffectEmissive: 0
-    - _AlphaClipThreshold: 0
-    - _AlphaClipThresholdDepthPostpass: 0.6
-    - _AlphaClipThresholdDepthPrepass: 0.849
-    - _AlphaCutoff: 0.5
+    - _AlphaClipThreshold: 0.528
+    - _AlphaClipThresholdDepthPostpass: 0.535
+    - _AlphaClipThresholdDepthPrepass: 0.545
+    - _AlphaCutoff: 0.671
     - _AlphaCutoffEnable: 1
     - _AlphaCutoffPostpass: 0.5
     - _AlphaCutoffPrepass: 0.5
     - _AlphaCutoffShadow: 0.5
     - _AlphaDstBlend: 0
     - _AlphaSrcBlend: 1
-    - _AlphaThresholdShadow: 0.5
+    - _AlphaThresholdShadow: 0.54
     - _AlphaToMask: 1
     - _AlphaToMaskInspectorValue: 1
     - _Anisotropy: 0
@@ -155,7 +155,7 @@ Material:
     - _CoatMask: 0
     - _CullMode: 0
     - _CullModeForward: 0
-    - _Cutoff: 0.5
+    - _Cutoff: 0.671
     - _DepthOffsetEnable: 0
     - _DetailAlbedoScale: 1
     - _DetailNormalScale: 1
@@ -173,7 +173,7 @@ Material:
     - _EmissiveIntensity: 1
     - _EmissiveIntensityUnit: 0
     - _EnableBlendModePreserveSpecularLighting: 1
-    - _EnableFogOnTransparent: 1
+    - _EnableFogOnTransparent: 0
     - _EnableGeometricSpecularAA: 0
     - _EnergyConservingSpecularColor: 1
     - _HeightAmplitude: 0.02
@@ -205,22 +205,22 @@ Material:
     - _PPDPrimitiveWidth: 1
     - _RayTracing: 0
     - _ReceivesSSR: 1
-    - _ReceivesSSRTransparent: 0
+    - _ReceivesSSRTransparent: 1
     - _RefractionModel: 0
     - _RenderQueueType: 1
     - _RequireSplitLighting: 0
     - _SecondarySpecular: 1
     - _SecondarySpecularShift: 0.9
     - _Smoothness: 0.5
-    - _SmoothnessMax: 0.7
-    - _SmoothnessMin: 0.3
+    - _SmoothnessMax: 0.672
+    - _SmoothnessMin: 0.425
     - _SmoothnessRemapMax: 1
-    - _SmoothnessRemapMin: 0
+    - _SmoothnessRemapMin: 0.10928962
     - _Specular: 1
     - _SpecularAAScreenSpaceVariance: 0.1
     - _SpecularAAThreshold: 0.2
     - _SpecularOcclusionMode: 1
-    - _SpecularShift: 0.5
+    - _SpecularShift: 0.386
     - _SrcBlend: 1
     - _StencilRef: 0
     - _StencilRefDepth: 8
@@ -239,11 +239,11 @@ Material:
     - _TexWorldScaleEmissive: 1
     - _Thickness: 1
     - _TransmissionEnable: 1
-    - _TransmissionRim: 0.2
+    - _TransmissionRim: 0.735
     - _TransparentBackfaceEnable: 0
     - _TransparentCullMode: 2
     - _TransparentDepthPostpassEnable: 0
-    - _TransparentDepthPrepassEnable: 0
+    - _TransparentDepthPrepassEnable: 1
     - _TransparentSortPriority: 0
     - _TransparentWritingMotionVec: 0
     - _TransparentZWrite: 0
