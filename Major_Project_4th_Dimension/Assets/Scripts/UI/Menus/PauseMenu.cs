@@ -5,20 +5,23 @@ using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+/// <summary>
+/// This script works with both controller and keyboard support on the pause menu
+/// </summary>
 public class PauseMenu : MonoBehaviour
 {
-    [SerializeField]private PlayerInput playerInput;
-    [SerializeField] private GameObject m_pauseMenu = null;
-    [SerializeField] private GameObject m_gameUI = null;
-    [SerializeField] private GameObject m_optionsUI = null;
-    [SerializeField] private GameObject m_fsOptionsMenu = null;
-    [SerializeField] private GameObject m_fsPauseMenu = null;
-    private InputAction pauseMenuAction;
-    private InputAction pauseGamepad;
-    private bool isPaused = false;
-    private ColorBlock colourSelected;
-    private ColorBlock naturalState;
-    private bool m_gamePadActive = false;
+    [SerializeField]private PlayerInput playerInput;//Input from the player
+    [SerializeField] private GameObject m_pauseMenu = null;//Pause menu obj
+    [SerializeField] private GameObject m_gameUI = null;//Game ui obj
+    [SerializeField] private GameObject m_optionsUI = null;//Options menu obj
+    [SerializeField] private GameObject m_fsOptionsMenu = null;//Checking object first selected in options menu
+    [SerializeField] private GameObject m_fsPauseMenu = null;//Checking object first selected in pause menu
+    private InputAction pauseMenuAction;//Checks if the input has been called for the pause menu
+    private InputAction pauseGamepad;//Checks if the b button has been pressed on the controller.
+    private bool isPaused = false;//Checks if the game has been paused
+    private ColorBlock colourSelected;//Changing the ui selection colour
+    private ColorBlock naturalState;//The natural state of the ui selection colour
+    private bool m_gamePadActive = false;//Checking if the gamepad is active.
     private void Awake()
     {
         pauseMenuAction = playerInput.actions["PauseMenu"];
@@ -42,24 +45,25 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenuAction.performed -= Pause;
     }
+    //Callback when a button has been pressed (the pause button).
     public void Pause(InputAction.CallbackContext context)
     {
         if (isPaused)
-        {
             ResumeGame();
-        }
         else
-        {
             PauseGame();
-        }
     }
+    /// <summary>
+    ///For every frame, checking if theres a change in input and whether the button is being selected or not. 
+    ///Only one input can be selected at a time.
+    /// </summary>
     private void Update()
     {
-        if (isPaused)
-            pauseGamepad.started += ctx => Back();
-
         if (Gamepad.current != null && Gamepad.current.leftStick.IsActuated() && (EventSystem.current.currentSelectedGameObject == null || m_gamePadActive))
         {
+            if (isPaused)
+                pauseGamepad.started += ctx => Back();
+
             if (m_pauseMenu != null && m_pauseMenu.activeSelf)
             {
                 EventSystem.current.SetSelectedGameObject(m_fsPauseMenu);
@@ -85,6 +89,7 @@ public class PauseMenu : MonoBehaviour
         }
 
     }
+    //Uses the back input to return back to menu from pause or options menu.
     private void Back() 
     {
         if (m_pauseMenu != null && m_pauseMenu.activeSelf)
@@ -96,9 +101,10 @@ public class PauseMenu : MonoBehaviour
             OptionsMenuBack();
         }
     }
+    //When the game is paused, this function will occur.
     private void PauseGame()
     {
-
+        //Setting the cursor to visible, timescale = 0, cursor is not locked, changing menus and checking the initial input.
         Cursor.visible = true;
         Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.None;
@@ -126,8 +132,10 @@ public class PauseMenu : MonoBehaviour
         m_gameUI.SetActive(true);
         m_optionsUI.SetActive(false);
     }
+    //Goign back from the options menu to the pause menu
     public void OptionsMenuBack()
     {
+        //Changing menus and checking the initial input.
         m_optionsUI.SetActive(false);
         m_pauseMenu.SetActive(true);
         if (m_gamePadActive)
@@ -140,10 +148,11 @@ public class PauseMenu : MonoBehaviour
             m_fsPauseMenu.GetComponent<Button>().colors = naturalState;
             EventSystem.current.SetSelectedGameObject(null);
         }
-        //Need to fill this in when the options menu is ready to be used.
     }
+    //Moving from pause menu to options menu
     public void OptionsMenu()
     {
+        //Changing menus and checking the initial input.
         m_optionsUI.SetActive(true);
         m_pauseMenu.SetActive(false);
         if (m_gamePadActive)
@@ -156,14 +165,14 @@ public class PauseMenu : MonoBehaviour
             m_fsOptionsMenu.GetComponent<Scrollbar>().colors = naturalState;
             EventSystem.current.SetSelectedGameObject(null);
         }
-
-        //Need to fill this in when the options menu is ready to be used.
     }
+    //Returns the player to the main menu
     public void ReturnToMenu(string nameOfScene)
     {
         Time.timeScale = 1;
         SceneManager.LoadScene(nameOfScene);
     }
+    //Exits the game (the if statements is determining if its in build or not).
     public void ExitGame()
     {
 #if UNITY_EDITOR
@@ -172,13 +181,11 @@ public class PauseMenu : MonoBehaviour
         Application.Quit();
 #endif
     }
+    //Reloads the scene.
     public void RestartLevel() 
     {
-        //Scene scene = SceneManager.GetActiveScene();
-        //SceneManager.LoadScene(scene.name);
         Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-
     }
 
 }

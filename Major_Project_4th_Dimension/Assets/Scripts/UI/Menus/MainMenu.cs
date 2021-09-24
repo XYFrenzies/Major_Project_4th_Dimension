@@ -5,17 +5,20 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+/// <summary>
+/// This script works with both controller and keyboard support on the main menu
+/// </summary>
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] private GameObject m_playGameOBJ;
-    [SerializeField] private GameObject m_levelSelectOBJ;
-    [SerializeField] private GameObject m_firstButtonMain;
-    [SerializeField] private GameObject m_firstButtonLevelS;
-    [SerializeField] private GameObject m_parentLevelSelect;
-    [SerializeField] private GameObject m_parentMainMenu;
-    private ColorBlock colourSelected;
-    private ColorBlock naturalState;
-    private bool m_gamePadActive = false;
+    [SerializeField] private GameObject m_playGameOBJ;//The Playing Game obj
+    [SerializeField] private GameObject m_levelSelectOBJ;//The Level select obj
+    [SerializeField] private GameObject m_firstButtonMain;//First selected object for the play menu
+    [SerializeField] private GameObject m_firstButtonLevelS;//First selected object in level select
+    [SerializeField] private GameObject m_parentLevelSelect;//The parent of the LevelSelect
+    [SerializeField] private GameObject m_parentMainMenu;//The parent of the Main Menu
+    private ColorBlock colourSelected;//Changing the ui selection colour
+    private ColorBlock naturalState;//The natural state of the ui selection colour
+    private bool m_gamePadActive = false;//Checking if the gamepad is active.
     private void Awake()
     {
         colourSelected.colorMultiplier = 1;
@@ -33,6 +36,10 @@ public class MainMenu : MonoBehaviour
         m_firstButtonLevelS.GetComponent<Button>().colors = colourSelected;
         EventSystem.current.SetSelectedGameObject(m_firstButtonMain);
     }
+    /// <summary>
+    ///For every frame, checking if theres a change in input and whether the button is being selected or not. 
+    ///Only one input can be selected at a time.
+    /// </summary>
     private void Update()
     {
         if (Gamepad.current != null && Gamepad.current.leftStick.IsActuated() && (EventSystem.current.currentSelectedGameObject == null || m_gamePadActive))
@@ -61,6 +68,10 @@ public class MainMenu : MonoBehaviour
             }
         }
     }
+    /// <summary>
+    /// Once the button has been pressed, a change in ui occurs and checks for the initial input.
+    /// Sends the player to the level select.
+    /// </summary>
     public void PlayGame()
     {
         m_playGameOBJ.SetActive(false);
@@ -76,6 +87,10 @@ public class MainMenu : MonoBehaviour
             EventSystem.current.SetSelectedGameObject(null);
         }
     }
+    /// <summary>
+    /// Once the button has been pressed, a change in ui occurs and checks for the initial input.
+    /// Sends the player back to the original menu
+    /// </summary>
     public void ReturnToMenu()
     {
         m_playGameOBJ.SetActive(true);
@@ -91,6 +106,7 @@ public class MainMenu : MonoBehaviour
             EventSystem.current.SetSelectedGameObject(null);
         }
     }
+    //Exits the game (the if statements is determining if its in build or not).
     public void QuitGame()
     {
 #if UNITY_EDITOR

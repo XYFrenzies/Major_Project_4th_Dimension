@@ -4,14 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
-
+/// <summary>
+/// In the game over scene, the player is given an option to go to the main menu or to leave the game.
+/// </summary>
 public class GameOver : MonoBehaviour
 {
-    [SerializeField] private GameObject m_firstButton;
-    private ColorBlock colourSelected;
-    private ColorBlock naturalState;
-    private bool m_gamePadActive = false;
-    // Start is called before the first frame update
+    [SerializeField] private GameObject m_firstButton;//The first button to be selected in the game over scene for the gamepad.
+    private ColorBlock colourSelected;//Changing the ui selection colour
+    private ColorBlock naturalState;//The natural state of the ui selection colour
+    private bool m_gamePadActive = false;//Checking if the gamepad is active.
     private void Awake()
     {
         colourSelected.colorMultiplier = 1;
@@ -26,6 +27,10 @@ public class GameOver : MonoBehaviour
     }
 
     // Update is called once per frame
+    /// <summary>
+    ///For every frame, checking if theres a change in input and whether the button is being selected or not. 
+    ///Only one input can be selected at a time.
+    /// </summary>
     private void Update()
     {
         if (Gamepad.current != null && Gamepad.current.leftStick.IsActuated() && (EventSystem.current.currentSelectedGameObject == null || m_gamePadActive))
