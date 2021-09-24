@@ -366,13 +366,13 @@ MonoBehaviour:
       m_SchemaId:
         m_Id: With3Levels
     lightingQualitySettings:
-      AOStepCount: 030000000400000006000000
+      AOStepCount: 030000000300000003000000
       AOFullRes: 000000
-      AOMaximumRadiusPixels: 180000002000000020000000
+      AOMaximumRadiusPixels: 180000001800000018000000
       AOBilateralUpsample: 000000
       AODirectionCount: 010000000100000002000000
-      ContactShadowSampleCount: 04000000060000000a000000
-      SSRMaxRaySteps: 080000001000000020000000
+      ContactShadowSampleCount: 040000000400000004000000
+      SSRMaxRaySteps: 080000000800000008000000
       RTAORayLength:
       - 0.5
       - 3
@@ -427,8 +427,8 @@ MonoBehaviour:
       Fog_ControlMode: 000000000000000000000000
       Fog_Budget:
       - 0.125
-      - 0.25
-      - 0.5
+      - 0.125
+      - 0.125
       Fog_DepthRatio:
       - 0.5
       - 0.5
