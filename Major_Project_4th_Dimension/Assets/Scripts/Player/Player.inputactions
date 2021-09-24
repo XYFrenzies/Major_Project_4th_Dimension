@@ -424,6 +424,14 @@
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "Press(behavior=2)"
+                },
+                {
+                    "name": "OptionsMovement",
+                    "type": "Button",
+                    "id": "fe81144e-4931-4f24-9ff1-0078b8cae00a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -479,6 +487,39 @@
                     "processors": "",
                     "groups": "",
                     "action": "Controller",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Move",
+                    "id": "4fed69d1-eaaf-4dfa-9dce-0020c1b7e1e6",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OptionsMovement",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "1222bfac-d903-4d0f-b1d4-a43c7250e78a",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OptionsMovement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "712371be-845d-4913-8da7-9c98d57093a0",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OptionsMovement",
                     "isComposite": false,
                     "isPartOfComposite": true
                 }
