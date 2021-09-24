@@ -14,15 +14,19 @@ public class OptionsMenu : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        CheckInputStatus();
+        m_optionsMenuAction.performed += OptionsMove;
+    }
+    private void OptionsMove(InputAction.CallbackContext context) 
+    {
+        //float value = ;
+        //if (context.action.ReadValue<float> > 0)
+        //{ }
+        //else if (context.ReadValue() < 0)
+        //{ }
     }
 
-    private void CheckInputStatus() 
-    {
-
-    }
     public void SetMenu(GameObject menuSelected) 
     {
         foreach (var item in m_menus)
