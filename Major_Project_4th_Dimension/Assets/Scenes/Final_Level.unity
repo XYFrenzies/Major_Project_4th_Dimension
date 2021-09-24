@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.59974056, g: 0.57849175, b: 0.6158292, a: 1}
+  m_IndirectSpecularColor: {r: 5.796509, g: 7.182419, b: 9.506287, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -956,6 +956,10 @@ PrefabInstance:
       value: SM_Grid_Tile (40)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -1183,6 +1187,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_Name
       value: SM_Grid_Tile (103)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -3196,7 +3204,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1030947543}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &68312629
 PrefabInstance:
@@ -4033,6 +4041,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_Name
       value: SM_Grid_Tile (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -8120,6 +8132,10 @@ PrefabInstance:
       value: SM_Grid_Tile (97)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -8758,6 +8774,10 @@ PrefabInstance:
       value: SM_Grid_Tile (47)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -9297,6 +9317,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_Name
       value: SM_Grid_Tile (45)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -10063,6 +10087,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_Name
       value: SM_Grid_Tile (38)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -11424,7 +11452,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 262331839}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Wall_Grid_Tiles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12069,6 +12097,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_Name
       value: SM_Grid_Tile (104)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -14327,6 +14359,10 @@ PrefabInstance:
       value: SM_Industrial_Sliding_Door
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b09d241eccae5f9439db90fe10dd4674, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b09d241eccae5f9439db90fe10dd4674, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
@@ -15377,6 +15413,10 @@ PrefabInstance:
       value: SM_Grid_Tile (87)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -16119,6 +16159,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_Name
       value: SM_Grid_Tile (98)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -17898,6 +17942,10 @@ PrefabInstance:
       value: SM_Grid_Tile (72)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -19332,6 +19380,10 @@ PrefabInstance:
       value: SM_Grid_Tile (26)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -20461,6 +20513,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_Name
       value: SM_Grid_Tile (109)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -21595,6 +21651,10 @@ PrefabInstance:
       value: SM_Grid_Tile (35)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -21659,6 +21719,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_Name
       value: SM_Grid_Tile (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -24054,6 +24118,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_Name
       value: SM_Grid_Tile (46)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -27023,6 +27091,10 @@ PrefabInstance:
       value: SM_Grid_Tile (20)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -27603,6 +27675,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_Name
       value: SM_Grid_Tile (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -29467,6 +29543,10 @@ PrefabInstance:
       value: SM_Grid_Tile (42)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -29938,7 +30018,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8431453540725934212, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.54164124
+      value: 0.70750237
       objectReference: {fileID: 0}
     - target: {fileID: 8431453540725934212, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
       propertyPath: m_LocalPosition.y
@@ -29946,7 +30026,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8431453540725934212, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.8297253
+      value: -2.838418
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
@@ -32153,6 +32233,10 @@ PrefabInstance:
       value: SM_Grid_Tile (71)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -32906,6 +32990,10 @@ PrefabInstance:
       value: SM_Grid_Tile (90)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -33102,6 +33190,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_Name
       value: SM_Grid_Tile (60)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -34461,6 +34553,10 @@ PrefabInstance:
       value: SM_Grid_Tile (33)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -35428,6 +35524,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_Name
       value: SM_Grid_Tile (96)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -37314,8 +37414,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 328788285}
-  - {fileID: 1073770330}
   - {fileID: 67685511}
+  - {fileID: 1073770330}
   - {fileID: 1037150865}
   - {fileID: 1833738453}
   - {fileID: 160795273}
@@ -39023,6 +39123,10 @@ PrefabInstance:
       value: SM_Grid_Tile (105)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -39751,6 +39855,10 @@ PrefabInstance:
       value: SM_Grid_Tile (93)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -40050,7 +40158,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1030947543}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1073770331
 MonoBehaviour:
@@ -40792,6 +40900,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_Name
       value: SM_Grid_Tile (62)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -41609,6 +41721,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_Name
       value: SM_Grid_Tile (66)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -42765,6 +42881,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_Name
       value: SM_Grid_Tile (54)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -45865,6 +45985,10 @@ PrefabInstance:
       value: SM_Grid_Tile (37)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -46070,6 +46194,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_Name
       value: SM_Grid_Tile (91)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -48161,6 +48289,10 @@ PrefabInstance:
       value: SM_Grid_Tile (23)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -48612,6 +48744,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_Name
       value: SM_Grid_Tile (53)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -49163,6 +49299,10 @@ PrefabInstance:
       value: SM_Grid_Tile (52)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -49299,6 +49439,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_Name
       value: SM_Grid_Tile (51)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -49831,6 +49975,10 @@ PrefabInstance:
       value: SM_Grid_Tile (65)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -50037,6 +50185,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_Name
       value: SM_Grid_Tile (55)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -50658,6 +50810,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_Name
       value: SM_Grid_Tile (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -52039,6 +52195,10 @@ PrefabInstance:
       value: SM_Grid_Tile (43)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -53305,6 +53465,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_Name
       value: SM_Grid_Tile (50)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -55505,6 +55669,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_Name
       value: SM_Grid_Tile (59)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -58611,6 +58779,10 @@ PrefabInstance:
       value: SM_Grid_Tile (16)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -60854,6 +61026,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_Name
       value: SM_Grid_Tile (34)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -63164,6 +63340,10 @@ PrefabInstance:
       value: SM_Grid_Tile (108)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -63212,7 +63392,7 @@ MonoBehaviour:
   m_PointlightHDType: 0
   m_SpotLightShape: 0
   m_AreaLightShape: 0
-  m_Intensity: 45000
+  m_Intensity: 130000
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
@@ -63274,7 +63454,7 @@ MonoBehaviour:
   m_ShadowResolution:
     m_Override: 512
     m_UseOverride: 0
-    m_Level: 1
+    m_Level: 3
   m_ShadowDimmer: 1
   m_VolumetricShadowDimmer: 1
   m_ShadowFadeDistance: 10000
@@ -63326,7 +63506,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 0.3803922, g: 0.3803922, b: 0.3803922, a: 1}
-  m_Intensity: 45000
+  m_Intensity: 130000
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -63369,9 +63549,9 @@ Light:
   m_LightShadowCasterMode: 2
   m_AreaSize: {x: 0.5, y: 0.5}
   m_BounceIntensity: 1
-  m_ColorTemperature: 4750
+  m_ColorTemperature: 7000
   m_UseColorTemperature: 1
-  m_BoundingSphereOverride: {x: 0, y: 0.013216235, z: 4.5905e-41, w: 0}
+  m_BoundingSphereOverride: {x: 8.48e-43, y: 9.4e-44, z: 0, w: -0.0000000757413}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -64573,6 +64753,10 @@ PrefabInstance:
       value: SM_Grid_Tile (43)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -64972,6 +65156,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_Name
       value: SM_Grid_Tile (48)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -68123,6 +68311,10 @@ PrefabInstance:
       value: SM_Grid_Tile (32)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -70007,6 +70199,10 @@ PrefabInstance:
       value: SM_Grid_Tile (22)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -70962,6 +71158,10 @@ PrefabInstance:
       value: SM_Grid_Tile (36)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -71254,6 +71454,10 @@ PrefabInstance:
       value: SM_Grid_Tile (102)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -71318,6 +71522,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_Name
       value: SM_Grid_Tile (39)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -71518,6 +71726,10 @@ PrefabInstance:
       value: SM_Grid_Tile (68)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -71714,6 +71926,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_Name
       value: SM_Grid_Tile (92)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -72128,6 +72344,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_Name
       value: SM_Grid_Tile (27)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -72658,6 +72878,10 @@ PrefabInstance:
       value: SM_Grid_Tile (99)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -72900,6 +73124,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_Name
       value: SM_Grid_Tile (46)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -73216,6 +73444,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_Name
       value: SM_Grid_Tile (40)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -78405,6 +78637,10 @@ PrefabInstance:
       value: SM_Grid_Tile (19)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -79347,6 +79583,10 @@ PrefabInstance:
       value: SM_Grid_Tile (44)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -79411,6 +79651,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_Name
       value: SM_Grid_Tile (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -81155,6 +81399,10 @@ PrefabInstance:
       value: SM_Grid_Tile (86)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -82260,6 +82508,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Industrial_Sliding_Door (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b09d241eccae5f9439db90fe10dd4674, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b09d241eccae5f9439db90fe10dd4674, type: 3}
 --- !u!4 &2104852994 stripped
@@ -83002,6 +83254,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_Name
       value: SM_Grid_Tile (41)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3af8c53d0d199945ba1de62dd588230, type: 3}
       propertyPath: m_StaticEditorFlags
