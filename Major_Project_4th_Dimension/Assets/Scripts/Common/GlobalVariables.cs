@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
 /// These are global values that are saved between scenes.
@@ -11,6 +9,8 @@ public class GlobalVariables : Singleton<GlobalVariables>
     [HideInInspector] public float masterVolume = 0.0f;
     [HideInInspector] public float soundVolume = 0.0f;
     [HideInInspector] public float soundEffectVolume = 0.0f;
+    [HideInInspector] public float verticalSensitivity = 0.2f;
+    [HideInInspector] public float horizontalSensitivity = 0.2f;
     private void Awake()
     {
         if (PlayerPrefs.HasKey("Master Volume") && PlayerPrefs.HasKey("Sound Volume") && PlayerPrefs.HasKey("Sound Effect Volume"))
@@ -25,6 +25,17 @@ public class GlobalVariables : Singleton<GlobalVariables>
             PlayerPrefs.SetFloat("Master Volume", masterVolume);
             PlayerPrefs.SetFloat("Sound Volume", soundVolume);
             PlayerPrefs.SetFloat("Sound Effect Volume", soundEffectVolume);
+        }
+        if (PlayerPrefs.HasKey("Vertical Sensitivity") && PlayerPrefs.HasKey("Horizontal Sensitivity"))
+        {
+            verticalSensitivity = PlayerPrefs.GetFloat("Vertical Sensitivity");
+            horizontalSensitivity = PlayerPrefs.GetFloat("Horizontal Sensitivity");
+        }
+        else 
+        {
+            Debug.Log("New sensitivity defaults need to be entered.");
+            PlayerPrefs.SetFloat("Vertical Sensitivity", verticalSensitivity);
+            PlayerPrefs.SetFloat("Horizontal Sensitivity", horizontalSensitivity);
         }
         DontDestroyOnLoad(gameObject);
     }
@@ -44,6 +55,12 @@ public class GlobalVariables : Singleton<GlobalVariables>
         soundVolume = 0.0f;
         soundEffectVolume = 0.0f;
     }
+
+    public void SaveSensitivity(float a_verticalSensitivity, float a_horizontalSensitivity) 
+    {
+        verticalSensitivity = a_verticalSensitivity;
+        horizontalSensitivity = a_horizontalSensitivity;
+    }
     //public bool CheckIsFade()
     //{
     //    switch (isFading)
@@ -54,5 +71,4 @@ public class GlobalVariables : Singleton<GlobalVariables>
     //            return false;
     //    }
     //}
-
 }
