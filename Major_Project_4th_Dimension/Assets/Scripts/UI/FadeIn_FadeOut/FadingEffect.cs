@@ -6,6 +6,7 @@ using UnityEngine.UI;
 /// A system for the fading in and out effect that can be easily used across other scripts.
 /// If this script is needing to have impact across different scenes, uyse the global variables option that is
 /// set to dont destroy.
+/// For the time being, the effect wont be used until later into production.
 /// </summary>
 public class FadingEffect : Singleton<FadingEffect>
 {
