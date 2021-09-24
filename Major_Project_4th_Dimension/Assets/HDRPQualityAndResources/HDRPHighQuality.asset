@@ -246,8 +246,8 @@ MonoBehaviour:
     supportDitheringCrossFade: 1
     supportTerrainHole: 1
     supportProbeVolume: 0
-    supportRayTracing: 0
-    supportedRayTracingMode: 3
+    supportRayTracing: 1
+    supportedRayTracingMode: 2
     probeVolumeSettings:
       atlasResolution: 128
       atlasOctahedralDepthResolution: 2048
@@ -315,12 +315,12 @@ MonoBehaviour:
       lutFormat: 48
       bufferFormat: 74
     dynamicResolutionSettings:
-      enabled: 0
+      enabled: 1
       maxPercentage: 100
       minPercentage: 100
-      dynResType: 1
-      upsampleFilter: 1
-      forceResolution: 0
+      dynResType: 0
+      upsampleFilter: 2
+      forceResolution: 1
       forcedPercentage: 100
     lowresTransparentSettings:
       enabled: 1
