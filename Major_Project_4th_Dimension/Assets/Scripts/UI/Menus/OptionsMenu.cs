@@ -21,10 +21,10 @@ public class OptionsMenu : MonoBehaviour
     private void OptionsMove(InputAction.CallbackContext context) 
     {
         //float value = ;
-        //if (context.action.ReadValue<float> > 0)
-        //{ }
-        //else if (context.ReadValue() < 0)
-        //{ }
+        if (context.action.ReadValue<Vector2>().x > 0)
+        { }
+        else if (context.action.ReadValue<Vector2>().y < 0)
+        { }
     }
 
     public void SetMenu(GameObject menuSelected) 
