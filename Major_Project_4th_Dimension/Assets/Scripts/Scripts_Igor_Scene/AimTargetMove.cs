@@ -12,11 +12,12 @@ using UnityEngine.InputSystem;
 
 public class AimTargetMove : MonoBehaviour
 {
-    public PlayerInput playerInput;
-    private InputAction lookAction;
-    private Vector2 mouseInput;
+    //public PlayerInput playerInput;
+    //private InputAction lookAction;
+    //private Vector2 mouseInput;
 
     public float weaponRange = 200.0f;
+    public float distanceToPlayer = 1f;
     private Camera cam;
     //RaycastHit hit;
     public GameObject target;
@@ -28,29 +29,35 @@ public class AimTargetMove : MonoBehaviour
     void Awake()
     {
         cam = Camera.main;
-        lookAction = playerInput.actions["Look"];
+        //lookAction = playerInput.actions["Look"];
         arm = GetComponent<ArmStateManager>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        mouseInput = lookAction.ReadValue<Vector2>();
+        //mouseInput = lookAction.ReadValue<Vector2>();
 
         Vector3 lastPos = target.transform.position;
 
         //Vector3 rayOrigin = cam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
         //Ray rayOrigin = new Ray();
-        Vector3 lineOrigin = cam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
+        //Vector3 lineOrigin = cam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
 
-        Debug.DrawRay(lineOrigin, cam.transform.forward * weaponRange, Color.green);
+        //Debug.DrawRay(lineOrigin, cam.transform.forward * weaponRange, Color.green);
 
         RaycastHit hit;
         Vector3 aimPoint;
+
         Ray crosshair = new Ray(cam.transform.position, cam.transform.forward);
+
         if (Physics.Raycast(crosshair, out hit, weaponRange))
         {
-            aimPoint = hit.point;
+            if (Vector3.Distance(hit.point, transform.position) < distanceToPlayer)
+                aimPoint = crosshair.origin + crosshair.direction * weaponRange;
+            else
+                aimPoint = hit.point;
+
         }
         else
         {

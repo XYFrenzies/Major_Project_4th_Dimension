@@ -45,8 +45,7 @@ public class ArmPickUpState : ArmBaseState
         radius = rend.bounds.extents.magnitude;
         rb.velocity = Vector3.zero;
         rb.useGravity = false;
-        armStateMan.lineRenderer.enabled = true;
-
+        //armStateMan.lineRenderer.enabled = true;
     }
 
     public override void ExitState()
@@ -64,13 +63,14 @@ public class ArmPickUpState : ArmBaseState
             //armStateMan.hitObject.transform.SetParent(armStateMan.holdPoint);
             ///////////////////////////////
 
+            armStateMan.armEffects.DrawObjectHoldingEffect();
 
             armStateMan.parentConstraint.constraintActive = true; // comment to use old version
             offset.z = radius;
             armStateMan.parentConstraint.SetTranslationOffset(0, offset);
             //armStateMan.parentConstraint.weight = 1f;
             armStateMan.isObjectHeld = true;
-            armStateMan.lineRenderer.enabled = false;
+            //armStateMan.lineRenderer.enabled = false;
             armStateMan.initialBeamSpeed = armStateMan.holdInitialBeamSpeedValue;
             rb = null;
 
@@ -112,7 +112,7 @@ public class ArmPickUpState : ArmBaseState
         if (!isShooting)
         {
             cancelPickUp = true;
-            armStateMan.SwitchState(armStateMan.pauseState);
+            armStateMan.SwitchState(armStateMan.shootState);
         }
 
         //if (Vector3.Distance(armStateMan.hitObject.transform.position, armStateMan.holdPoint.position) <= (distanceBetweenPoints - changePoint))
@@ -124,7 +124,7 @@ public class ArmPickUpState : ArmBaseState
         //    numba++;
         //    armStateMan.lights[(armStateMan.lights.Count - 1) - numba].SetActive(true);
         //}
-        Debug.Log(armStateMan.parentConstraint.GetTranslationOffset(0));
+        //Debug.Log(armStateMan.parentConstraint.GetTranslationOffset(0));
     }
 
     public void Shoot(InputAction.CallbackContext context)

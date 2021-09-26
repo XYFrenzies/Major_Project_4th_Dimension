@@ -11,15 +11,13 @@ public class PlayerControllerCinemachineLook2 : MonoBehaviour
 
     [Header("Movement")]
     public float moveSpeed = 10.0f;
-
-    //public CinemachineTouchInputMapper cin;
     private Rigidbody rb;
 
     private Camera cam;
     private Vector3 direction = Vector3.zero;
     private Vector2 inputs;
     private InputAction moveAction;
-    public InputAction lookAction;
+    private InputAction lookAction;
     private InputAction interactAction;
 
     [Header("Hook Shot")]

@@ -36,7 +36,7 @@ public class ArmPullState : ArmBaseState
         armStateMan.springJoint.minDistance = 2.5f;
         armStateMan.springJoint.maxDistance = 2.5f;
         initialSpringForce = armStateMan.springJoint.spring;
-        armStateMan.lineRenderer.enabled = true;
+        //armStateMan.lineRenderer.enabled = true;
 
         //currentHookShotState = HookShotState.Pull;
         armStateMan.player.currentState = PlayerControllerCinemachineLook2.State.Normal;
@@ -56,7 +56,7 @@ public class ArmPullState : ArmBaseState
         //ReturnHand();
         armStateMan.pull = false;
         armStateMan.hitObject = null;
-        armStateMan.lineRenderer.enabled = false;
+        //armStateMan.lineRenderer.enabled = false;
     }
 
     public override void UpdateState()
