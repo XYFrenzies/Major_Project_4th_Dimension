@@ -12491,12 +12491,12 @@ GameObject:
   - component: {fileID: 624812663}
   - component: {fileID: 5917192673106942690}
   m_Layer: 0
-  m_Name: PlayerGravityGunV2
+  m_Name: PlayerGravityGunV2NonPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &624812663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15565,7 +15565,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &804926030
 GameObject:
@@ -23835,6 +23835,12 @@ MonoBehaviour:
   springJoint: {fileID: 1174014377}
   distToTarget90: 0
   percentageOfDistToTarget: 0.9
+  blackHoleCentre: {fileID: 0}
+  realisticBlackHole: {fileID: 0}
+  blackHoleDistortion: {fileID: 0}
+  scaleModifier: 1
+  modifier: 2
+  startSize: {x: 0, y: 0, z: 0}
   aimTarget: {fileID: 0}
   lineRenderer: {fileID: 0}
   holdInitialBeamSpeedValue: 0
@@ -23865,6 +23871,7 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
   parentConstraint: {fileID: 0}
+  armEffects: {fileID: 0}
 --- !u!114 &1174014383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23879,14 +23886,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFlying: 0
   moveSpeed: 10
-  lookAction:
-    m_Name: 
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
   hookShotRange: 50
   hookShotThrowSpeed: 70
   flyingSpeedMultiplier: 2
@@ -27205,6 +27204,12 @@ MonoBehaviour:
   springJoint: {fileID: 1309525788}
   distToTarget90: 0
   percentageOfDistToTarget: 0.9
+  blackHoleCentre: {fileID: 0}
+  realisticBlackHole: {fileID: 0}
+  blackHoleDistortion: {fileID: 0}
+  scaleModifier: 1
+  modifier: 2
+  startSize: {x: 0, y: 0, z: 0}
   aimTarget: {fileID: 0}
   lineRenderer: {fileID: 0}
   holdInitialBeamSpeedValue: 0
@@ -27235,6 +27240,7 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
   parentConstraint: {fileID: 0}
+  armEffects: {fileID: 0}
 --- !u!114 &1309525790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27249,14 +27255,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFlying: 0
   moveSpeed: 10
-  lookAction:
-    m_Name: Look
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: ef8fd633-0f7c-43f7-92fd-b856f6a1c715
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
   hookShotRange: 50
   hookShotThrowSpeed: 70
   flyingSpeedMultiplier: 2
@@ -27542,87 +27540,6 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.26003236, y: 0.006282538, z: -0.10259113}
     m_Extent: {x: 0.12111315, y: 0.08932209, z: 0.054838356}
   m_DirtyAABB: 0
---- !u!1 &1312804404
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1312804407}
-  - component: {fileID: 1312804406}
-  - component: {fileID: 1312804405}
-  m_Layer: 0
-  m_Name: Sphere (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!23 &1312804405
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1312804404}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 257
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 6539291c27af98146a4dee4b280bcb59, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &1312804406
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1312804404}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &1312804407
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1312804404}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 24.162737, y: 2.131351, z: 6.096}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 26
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1318083311
 GameObject:
   m_ObjectHideFlags: 0
@@ -31893,7 +31810,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1583328739}
   m_LocalRotation: {x: 0.02616798, y: 0.02616798, z: -0.0006852327, w: 0.9993148}
-  m_LocalPosition: {x: 1.1827137, y: 1.7656513, z: -2.863323}
+  m_LocalPosition: {x: 0.6265378, y: 1.7656513, z: -2.8341749}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1402260025}
@@ -33608,12 +33525,12 @@ GameObject:
   - component: {fileID: 1639457571}
   - component: {fileID: 1639457570}
   m_Layer: 0
-  m_Name: Sphere (4)
+  m_Name: BlackHoleCentre
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &1639457570
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -33670,12 +33587,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1639457569}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 24.162737, y: 2.131351, z: 8.92}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_Father: {fileID: 1952866670}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1648319563
 GameObject:
@@ -35896,12 +35813,12 @@ GameObject:
   - component: {fileID: 1751223834}
   - component: {fileID: 1751223833}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: RealisticBlackHole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &1751223833
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -35958,12 +35875,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1751223832}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 24.162737, y: 2.131351, z: 0.84}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_Father: {fileID: 1952866670}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1751263521
 GameObject:
@@ -39392,6 +39309,7 @@ GameObject:
   - component: {fileID: 1952866672}
   - component: {fileID: 1952866671}
   - component: {fileID: 1952866683}
+  - component: {fileID: 1952866684}
   m_Layer: 7
   m_Name: PlayerNew (1)
   m_TagString: Player
@@ -39412,6 +39330,8 @@ Transform:
   m_Children:
   - {fileID: 1804394213}
   - {fileID: 366149747}
+  - {fileID: 1751223835}
+  - {fileID: 1639457572}
   m_Father: {fileID: 624812664}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -39655,6 +39575,12 @@ MonoBehaviour:
   springJoint: {fileID: 1952866676}
   distToTarget90: 0
   percentageOfDistToTarget: 0.9
+  blackHoleCentre: {fileID: 1639457569}
+  realisticBlackHole: {fileID: 1751223832}
+  blackHoleDistortion: {fileID: 0}
+  scaleModifier: 1
+  modifier: 20
+  startSize: {x: 0, y: 0, z: 0}
   aimTarget: {fileID: 0}
   lineRenderer: {fileID: 0}
   holdInitialBeamSpeedValue: 0
@@ -39685,6 +39611,7 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
   parentConstraint: {fileID: 0}
+  armEffects: {fileID: 0}
 --- !u!114 &1952866678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39699,14 +39626,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFlying: 0
   moveSpeed: 4
-  lookAction:
-    m_Name: Look
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: a2f2bef7-b7b5-40b1-bb9c-750c4ea980ee
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
   hookShotRange: 50
   hookShotThrowSpeed: 70
   flyingSpeedMultiplier: 2
@@ -39919,6 +39838,18 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   arm: {fileID: 0}
+--- !u!114 &1952866684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1952866669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82ba7cca0be477a4482a25c2ce630ee3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1957602438
 GameObject:
   m_ObjectHideFlags: 0
@@ -45663,14 +45594,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFlying: 0
   moveSpeed: 4
-  lookAction:
-    m_Name: Look
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: fe1d4c81-6e73-481a-b303-68334f789c8f
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
   hookShotRange: 50
   hookShotThrowSpeed: 70
   flyingSpeedMultiplier: 2
@@ -45880,6 +45803,12 @@ MonoBehaviour:
   springJoint: {fileID: 244655921127099706}
   distToTarget90: 0
   percentageOfDistToTarget: 0.1
+  blackHoleCentre: {fileID: 0}
+  realisticBlackHole: {fileID: 0}
+  blackHoleDistortion: {fileID: 0}
+  scaleModifier: 1
+  modifier: 2
+  startSize: {x: 0, y: 0, z: 0}
   aimTarget: {fileID: 0}
   lineRenderer: {fileID: 0}
   holdInitialBeamSpeedValue: 0
@@ -45910,6 +45839,7 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
   parentConstraint: {fileID: 0}
+  armEffects: {fileID: 0}
 --- !u!114 &244655921127099708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55161,6 +55091,63 @@ Transform:
   m_Father: {fileID: 1852576806248223658}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1199984216902287406
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8431453540006725398, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
+      propertyPath: m_Name
+      value: PlayerGravityGunV2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8431453540006725400, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
+      propertyPath: m_RootOrder
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8431453540006725400, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 8431453540006725400, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8431453540006725400, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 8431453540006725400, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8431453540006725400, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8431453540006725400, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8431453540006725400, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8431453540006725400, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8431453540006725400, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8431453540006725400, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
 --- !u!4 &1202371031025749094
 Transform:
   m_ObjectHideFlags: 0
@@ -72926,14 +72913,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFlying: 0
   moveSpeed: 4
-  lookAction:
-    m_Name: Look
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: a2f2bef7-b7b5-40b1-bb9c-750c4ea980ee
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
   hookShotRange: 50
   hookShotThrowSpeed: 70
   flyingSpeedMultiplier: 2
@@ -73139,6 +73118,12 @@ MonoBehaviour:
   springJoint: {fileID: 5804269354957740058}
   distToTarget90: 0
   percentageOfDistToTarget: 0.9
+  blackHoleCentre: {fileID: 0}
+  realisticBlackHole: {fileID: 0}
+  blackHoleDistortion: {fileID: 0}
+  scaleModifier: 1
+  modifier: 2
+  startSize: {x: 0, y: 0, z: 0}
   aimTarget: {fileID: 0}
   lineRenderer: {fileID: 0}
   holdInitialBeamSpeedValue: 0
@@ -73169,6 +73154,7 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
   parentConstraint: {fileID: 0}
+  armEffects: {fileID: 0}
 --- !u!114 &5804269354957740060
 MonoBehaviour:
   m_ObjectHideFlags: 0

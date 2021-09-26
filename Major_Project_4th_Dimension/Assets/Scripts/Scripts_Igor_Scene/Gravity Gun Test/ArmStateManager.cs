@@ -22,6 +22,14 @@ public class ArmStateManager : MonoBehaviour
     [HideInInspector]
     public float distToTarget90 = 0f;
     public float percentageOfDistToTarget = 0.9f;
+    public GameObject blackHoleCentre; // pink one
+    public GameObject realisticBlackHole;
+    public GameObject blackHoleDistortion;
+
+    public float scaleModifier = 1f;
+    public float modifier = 5f;
+
+    public Vector3 startSize;
 
     [HideInInspector]
     public Transform aimTarget;
@@ -29,7 +37,8 @@ public class ArmStateManager : MonoBehaviour
     public LineRenderer lineRenderer;
     [HideInInspector]
     public float holdInitialBeamSpeedValue;
-    ArmBaseState currentState;
+    [HideInInspector]
+    public ArmBaseState currentState;
     [HideInInspector]
     public Vector3 hitPoint;
     [HideInInspector]
@@ -67,7 +76,8 @@ public class ArmStateManager : MonoBehaviour
     public ArmPutDownState putDownState = null;
     public ArmPauseState pauseState = null;
 
-
+    [HideInInspector]
+    public ArmEffects armEffects;
 
     public void Awake()
     {
@@ -89,6 +99,8 @@ public class ArmStateManager : MonoBehaviour
         aimTarget = GetComponent<AimTargetMove>().target.transform;
         constraintSource.sourceTransform = holdPoint;
         constraintSource.weight = 1f;
+        startSize = blackHoleCentre.transform.localScale;
+        armEffects = GetComponent<ArmEffects>();
         //parentConstraint.AddSource(constraintSource);
         //parentConstraint.SetSource(0, constraintSource);
     }
@@ -115,10 +127,9 @@ public class ArmStateManager : MonoBehaviour
     void Update()
     {
         currentState.UpdateState();
-        if (lineRenderer.enabled)
-            DrawLineRenderer();
-
-        
+        Debug.Log(currentState);
+        //if (lineRenderer.enabled)
+        //    DrawLineRenderer();
     }
 
     public void SwitchState(ArmBaseState state)
@@ -132,16 +143,34 @@ public class ArmStateManager : MonoBehaviour
             currentState.EnterState();
     }
 
-    public void DrawLineRenderer()
-    {
-        lineRenderer.positionCount = 2;
-        lineRenderer.SetPosition(0, shootPoint.position);
-        if (isObjectHeld)
-            lineRenderer.SetPosition(1, hitObject.transform.position);
-        else
-        {
-            lineRenderer.SetPosition(1, hitPoint);
+    //public void DrawLineRenderer()
+    //{
+    //    lineRenderer.positionCount = 2;
+    //    lineRenderer.SetPosition(0, shootPoint.position);
+    //    blackHoleCentre.transform.position = shootPoint.position;
+    //    EffectSizeChange();
+    //    if (isObjectHeld)
+    //    {
+    //        lineRenderer.SetPosition(1, hitObject.transform.position);
+    //        realisticBlackHole.transform.position = hitObject.transform.position;
+    //    }
+    //    else
+    //    {
+    //        lineRenderer.SetPosition(1, hitPoint);
+    //        realisticBlackHole.transform.position = hitPoint;
 
-        }
-    }
+    //    }
+    //}
+
+    //public void EffectSizeChange()
+    //{
+
+
+    //    if (scaleModifier < 4f)
+    //    {
+    //        blackHoleCentre.transform.localScale = startSize * scaleModifier;
+    //        scaleModifier += Time.deltaTime * modifier; // need to find best place to set scalemodifier back to 0
+    //    }
+
+    //}
 }

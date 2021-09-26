@@ -148,10 +148,13 @@ public class ArmShootState : ArmBaseState
     public void ShootingArm(InputAction.CallbackContext context)
     {
 
-        if (armStateMan.lineRenderer != null)
+        if (armStateMan.lineRenderer != null && armStateMan.realisticBlackHole != null && armStateMan.blackHoleCentre != null)
         {
             shooting = true;
-            armStateMan.lineRenderer.enabled = true;
+            //armStateMan.lineRenderer.enabled = true;
+            //armStateMan.blackHoleCentre.SetActive(true);
+            //armStateMan.realisticBlackHole.SetActive(true);
+            
         }
             //Debug.Log("Shooting arm");
         //}
@@ -160,12 +163,16 @@ public class ArmShootState : ArmBaseState
     private void UnShootingArm(InputAction.CallbackContext context)
     {
 
-        if (armStateMan.lineRenderer != null)
+        if (armStateMan.lineRenderer != null && armStateMan.realisticBlackHole != null && armStateMan.blackHoleCentre != null)
         {
             shooting = false;
-            armStateMan.lineRenderer.enabled = false;
+            //armStateMan.lineRenderer.enabled = false;
+            //armStateMan.realisticBlackHole.SetActive(false);
+            //armStateMan.blackHoleCentre.transform.localScale = armStateMan.startSize;
+            //armStateMan.scaleModifier = 1f;
+            //armStateMan.blackHoleCentre.SetActive(false);
         }
-            //Debug.Log("Unshooting arm");
+        //Debug.Log("Unshooting arm");
     }
 
     //public void ThrowObject(InputAction.CallbackContext context)

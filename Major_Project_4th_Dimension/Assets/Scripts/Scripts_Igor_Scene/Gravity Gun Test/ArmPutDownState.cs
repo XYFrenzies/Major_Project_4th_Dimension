@@ -33,7 +33,8 @@ public class ArmPutDownState : ArmBaseState
         rb = armStateMan.hitObject.GetComponent<Rigidbody>();
         //rb.isKinematic = false;
         armStateMan.hitObject.transform.SetParent(null);
-        armStateMan.lineRenderer.enabled = true;
+        //armStateMan.lineRenderer.enabled = true;
+        armStateMan.armEffects.StopDrawingObjectHoldingEffect();
 
     }
 
@@ -44,7 +45,7 @@ public class ArmPutDownState : ArmBaseState
         rb.useGravity = true;
         armStateMan.isObjectHeld = false;
         armStateMan.hitObject = null;
-        armStateMan.lineRenderer.enabled = false;
+        //armStateMan.lineRenderer.enabled = false;
         armStateMan.initialBeamSpeed = armStateMan.holdInitialBeamSpeedValue;
         armStateMan.player.currentState = PlayerControllerCinemachineLook2.State.Normal;
         armStateMan.shootAction.performed -= Shoot;
