@@ -69,11 +69,6 @@ public class PauseMenu : MonoBehaviour
                 EventSystem.current.SetSelectedGameObject(m_fsPauseMenu);
                 m_fsPauseMenu.GetComponent<Button>().colors = colourSelected;
             }
-            else if (m_optionsUI != null && m_optionsUI.activeSelf)
-            {
-                EventSystem.current.SetSelectedGameObject(m_fsOptionsMenu);
-                m_fsOptionsMenu.GetComponent<Scrollbar>().colors = colourSelected;
-            }
             m_gamePadActive = true;
         }
         else if (Mouse.current.IsActuated())
@@ -83,22 +78,17 @@ public class PauseMenu : MonoBehaviour
             if (EventSystem.current.alreadySelecting)
             {
                 m_fsPauseMenu.GetComponent<Button>().colors = naturalState;
-                m_fsOptionsMenu.GetComponent<Scrollbar>().colors = naturalState;
                 EventSystem.current.SetSelectedGameObject(null);
             }
         }
 
     }
     //Uses the back input to return back to menu from pause or options menu.
-    private void Back() 
+    private void Back()
     {
         if (m_pauseMenu != null && m_pauseMenu.activeSelf)
         {
             ResumeGame();
-        }
-        else if (m_optionsUI != null && m_optionsUI.activeSelf)
-        {
-            OptionsMenuBack();
         }
     }
     //When the game is paused, this function will occur.
@@ -132,39 +122,10 @@ public class PauseMenu : MonoBehaviour
         m_gameUI.SetActive(true);
         m_optionsUI.SetActive(false);
     }
-    //Goign back from the options menu to the pause menu
-    public void OptionsMenuBack()
-    {
-        //Changing menus and checking the initial input.
-        m_optionsUI.SetActive(false);
-        m_pauseMenu.SetActive(true);
-        if (m_gamePadActive)
-        {
-            m_fsPauseMenu.GetComponent<Button>().colors = colourSelected;
-            EventSystem.current.SetSelectedGameObject(m_fsPauseMenu);
-        }
-        else if (!m_gamePadActive)
-        {
-            m_fsPauseMenu.GetComponent<Button>().colors = naturalState;
-            EventSystem.current.SetSelectedGameObject(null);
-        }
-    }
-    //Moving from pause menu to options menu
     public void OptionsMenu()
     {
-        //Changing menus and checking the initial input.
         m_optionsUI.SetActive(true);
         m_pauseMenu.SetActive(false);
-        if (m_gamePadActive)
-        {
-            m_fsOptionsMenu.GetComponent<Scrollbar>().colors = colourSelected;
-            EventSystem.current.SetSelectedGameObject(m_fsOptionsMenu);
-        }
-        else if (!m_gamePadActive)
-        {
-            m_fsOptionsMenu.GetComponent<Scrollbar>().colors = naturalState;
-            EventSystem.current.SetSelectedGameObject(null);
-        }
     }
     //Returns the player to the main menu
     public void ReturnToMenu(string nameOfScene)

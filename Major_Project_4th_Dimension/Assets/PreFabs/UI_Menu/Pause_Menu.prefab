@@ -1443,7 +1443,15 @@ PrefabInstance:
     - target: {fileID: 317206789081931222, guid: 48131fa483572f24ca4b698528c71be0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1175429949}
+      objectReference: {fileID: 0}
+    - target: {fileID: 317206789081931222, guid: 48131fa483572f24ca4b698528c71be0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Back
+      objectReference: {fileID: 0}
+    - target: {fileID: 317206789081931222, guid: 48131fa483572f24ca4b698528c71be0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: OptionsMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48131fa483572f24ca4b698528c71be0, type: 3}
 --- !u!1 &6977709139047255184 stripped

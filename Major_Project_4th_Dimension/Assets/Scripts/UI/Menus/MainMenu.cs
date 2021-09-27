@@ -11,6 +11,7 @@ using UnityEngine.InputSystem;
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] private GameObject m_playGameOBJ;//The Playing Game obj
+    [SerializeField] private GameObject m_optionsOBJ;//Options Menu for the obj
     [SerializeField] private GameObject m_levelSelectOBJ;//The Level select obj
     [SerializeField] private GameObject m_firstButtonMain;//First selected object for the play menu
     [SerializeField] private GameObject m_firstButtonLevelS;//First selected object in level select
@@ -107,6 +108,11 @@ public class MainMenu : MonoBehaviour
         }
     }
     //Exits the game (the if statements is determining if its in build or not).
+    public void OptionsMenu()
+    {
+        m_optionsOBJ.SetActive(true);
+        m_playGameOBJ.SetActive(false);
+    }
     public void QuitGame()
     {
 #if UNITY_EDITOR
