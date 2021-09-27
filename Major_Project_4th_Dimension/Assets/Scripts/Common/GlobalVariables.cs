@@ -11,6 +11,7 @@ public class GlobalVariables : Singleton<GlobalVariables>
     [HideInInspector] public float soundEffectVolume = 0.0f;
     [HideInInspector] public float verticalSensitivity = 0.2f;
     [HideInInspector] public float horizontalSensitivity = 0.2f;
+    [HideInInspector] public int fpsIsOn = 1;
     private void Awake()
     {
         if (PlayerPrefs.HasKey("Master Volume") && PlayerPrefs.HasKey("Sound Volume") && PlayerPrefs.HasKey("Sound Effect Volume"))
@@ -37,6 +38,10 @@ public class GlobalVariables : Singleton<GlobalVariables>
             PlayerPrefs.SetFloat("Vertical Sensitivity", verticalSensitivity);
             PlayerPrefs.SetFloat("Horizontal Sensitivity", horizontalSensitivity);
         }
+        if (PlayerPrefs.HasKey("FPS Display"))
+            fpsIsOn = PlayerPrefs.GetInt("FPS Display");
+        else
+            PlayerPrefs.SetInt("FPS Display", fpsIsOn);
         DontDestroyOnLoad(gameObject);
     }
 
@@ -56,6 +61,14 @@ public class GlobalVariables : Singleton<GlobalVariables>
         soundEffectVolume = 0.0f;
     }
 
+    public bool GetFPSIsOn() 
+    {
+        if (fpsIsOn == 0)
+            return true;
+        else if (fpsIsOn == 1)
+            return false;
+        return false;
+    }
     public void SaveSensitivity(float a_verticalSensitivity, float a_horizontalSensitivity) 
     {
         verticalSensitivity = a_verticalSensitivity;
