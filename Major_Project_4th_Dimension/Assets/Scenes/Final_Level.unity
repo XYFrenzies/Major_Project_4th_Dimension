@@ -41115,6 +41115,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2061348098}
     m_Modifications:
+    - target: {fileID: 1753527218, guid: 427e5d9802c3433478ea5c75eaddbadc, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1753527219, guid: 427e5d9802c3433478ea5c75eaddbadc, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 79531835672066967, guid: 427e5d9802c3433478ea5c75eaddbadc, type: 3}
       propertyPath: m_Name
       value: SM_Steel_Door
@@ -41163,7 +41171,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1753527218, guid: 427e5d9802c3433478ea5c75eaddbadc, type: 3}
+    - {fileID: 1753527219, guid: 427e5d9802c3433478ea5c75eaddbadc, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 427e5d9802c3433478ea5c75eaddbadc, type: 3}
 --- !u!4 &1093668107 stripped
 Transform:
@@ -81644,18 +81654,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2415863282684328593, guid: 9019643d56d51c54288d670f6f6f7d36, type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2415863282684328593, guid: 9019643d56d51c54288d670f6f6f7d36, type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2415863282684328593, guid: 9019643d56d51c54288d670f6f6f7d36, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6188624662914489924, guid: 9019643d56d51c54288d670f6f6f7d36, type: 3}
       propertyPath: m_RootOrder
       value: 6
