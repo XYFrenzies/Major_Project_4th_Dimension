@@ -6,12 +6,13 @@ public class TriggerArea : MonoBehaviour
 {
     public GameEvent insideTriggerArea;
     public GameEvent outsideTriggerArea;
-
+    [SerializeField] private GameObject m_uiInteract;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         { 
             insideTriggerArea.Raise();
+            m_uiInteract.SetActive(true);
             Debug.Log("Player inside trigger area");
         }
     }
@@ -21,6 +22,7 @@ public class TriggerArea : MonoBehaviour
         if (other.CompareTag("Player"))
         { 
             outsideTriggerArea.Raise();
+            m_uiInteract.SetActive(false);
             Debug.Log("Player outside trigger area");
 
         }
