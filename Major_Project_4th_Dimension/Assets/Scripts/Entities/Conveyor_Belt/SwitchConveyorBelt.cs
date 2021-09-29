@@ -8,9 +8,9 @@ using UnityEngine;
 /// </summary>
 public class SwitchConveyorBelt : MonoBehaviour
 {
-    [SerializeField] private GameEvent changeDirection;
-    private void OnTriggerEnter()
-    {
-        changeDirection.Raise();
-    }
+    //[SerializeField] private GameEvent changeDirection;
+    //private void Update()
+    //{
+    //    changeDirection.Raise();
+    //}
 }

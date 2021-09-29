@@ -9,7 +9,7 @@ public class TriggerArea : MonoBehaviour
     [SerializeField] private GameObject m_uiInteract;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if ((other.CompareTag("Player") && gameObject.CompareTag("Power")) || (other.CompareTag("Player") && gameObject.CompareTag("Conveyor Belt") && PowerStatus.Instance.powerIsOn))
         { 
             insideTriggerArea.Raise();
             m_uiInteract.SetActive(true);
