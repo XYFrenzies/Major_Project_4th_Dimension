@@ -21,4 +21,5 @@ public class SimpleAudioEvent : AudioEvent
 		source.pitch = Random.Range(pitch.minValue, pitch.maxValue);
 		source.Play();
 	}
+
 }
