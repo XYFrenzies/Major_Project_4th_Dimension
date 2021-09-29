@@ -38,7 +38,9 @@ public class PlayerControllerCinemachineLook2 : MonoBehaviour
 
     ArmStateManager arm;
     public GameEvent interacting;
+    [SerializeField] private GameEvent interactingConveyorSwitch;
     bool isPlayerCloseEnough = false;
+    private bool isPlayerCloseToConveyorBelt = false;
 
     [HideInInspector]
     public State currentState;
@@ -88,12 +90,21 @@ public class PlayerControllerCinemachineLook2 : MonoBehaviour
             interacting.Raise();
             Debug.Log("Player interacted");
         }
+        else if (isPlayerCloseToConveyorBelt)
+        {
+            interactingConveyorSwitch.Raise();
+        }
     }
 
     public void ChangeIsPlayerCloseEnough()
     {
         isPlayerCloseEnough = !isPlayerCloseEnough;
         Debug.Log(isPlayerCloseEnough);
+    }
+
+    public void PlayerIsCloseToSwitchConveyor() 
+    {
+        isPlayerCloseToConveyorBelt = !isPlayerCloseToConveyorBelt;
     }
 
     private void OnDisable()

@@ -24,13 +24,16 @@ public class ConveyorBelt : MonoBehaviour
     }
     private void Update()
     {
-        float OffsetX = Time.time * m_scrollX;
-        float OffsetY = Time.time * m_scrollY;
-        GetComponent<Renderer>().material.mainTextureOffset = new Vector2(OffsetX, OffsetY);
+        if (PowerStatus.Instance.powerIsOn)
+        {
+            float OffsetX = Time.time * m_scrollX;
+            float OffsetY = Time.time * m_scrollY;
+            GetComponent<Renderer>().material.mainTextureOffset = new Vector2(OffsetX, OffsetY);
+        }
     }
     private void OnCollisionStay(Collision collision)
     {
-        switch (m_directionToGo) 
+        switch (m_directionToGo ) 
         {
             case Direction.Forward:
                 MoveDirection(collision, endPointForward);
@@ -42,10 +45,12 @@ public class ConveyorBelt : MonoBehaviour
     }
     private void MoveDirection(Collision col, GameObject obj)
     {
-        col.transform.position = Vector3.MoveTowards(col.transform.position, obj.transform.position, speed * Time.deltaTime);
+        if(PowerStatus.Instance.powerIsOn)
+            col.transform.position = Vector3.MoveTowards(col.transform.position, obj.transform.position, speed * Time.deltaTime);
     }
     public void ChangeDirection()
     {
+        m_scrollX = -m_scrollX;
         switch (m_directionToGo)
         {
             case Direction.Forward:
