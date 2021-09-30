@@ -5,6 +5,7 @@ using UnityEngine;
 public class SwitchController : MonoBehaviour
 {
     [SerializeField] private List<GameObject> m_switchesInScene;
+    [SerializeField] private List<GameEvent> closeDoors;
     private void Awake()
     {
         SwitchOff();
@@ -26,8 +27,13 @@ public class SwitchController : MonoBehaviour
         {
             foreach (var item in m_switchesInScene)
             {
-                item.SetActive(false );
+                item.SetActive(false);
             }
+            foreach (var item in closeDoors)
+            {
+                item.Raise();
+            }
+
         }
     }
 }
