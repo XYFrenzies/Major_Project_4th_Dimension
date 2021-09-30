@@ -1,24 +1,34 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AudioTriggerHit : MonoBehaviour
 {
     AudioSource source;
+    public SimpleAudioEvent audioEvent;
+    public bool alreadyHit = false;
+
     private void Awake()
     {
         source = GetComponent<AudioSource>();
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void OnCollisionEnter(Collision collision)
     {
-        
+        if (alreadyHit)
+        {
+            return;
+        }
+        else
+        { 
+            audioEvent.Play(source);
+            alreadyHit = true;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionExit(Collision collision)
     {
-        
+        if (alreadyHit)
+        {
+            alreadyHit = false;
+        }
     }
 }
