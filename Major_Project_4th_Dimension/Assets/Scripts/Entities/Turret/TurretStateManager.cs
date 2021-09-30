@@ -28,7 +28,6 @@ public class TurretStateManager : MonoBehaviour
     [SerializeField] private List<GameObject> m_objectsRotatingTo;
     [SerializeField] private GameObject gizmos;
     [SerializeField] private float m_rotationSpeed = 2.0f;
-    [SerializeField] private int m_startingPosition = 1;
     private int m_positionMove;
 
     //The period of time before death
@@ -50,12 +49,13 @@ public class TurretStateManager : MonoBehaviour
     [SerializeField] private GameObject m_rightSight;
     [SerializeField] private GameObject m_raycastChecker;
     private bool m_playerInArea = false;
+    private Vector3 startPosLight;
     #endregion
     // Start is called before the first frame update
     private void Start()
     {
         m_spotLight.color = m_baseColourSpotLight;
-        m_positionMove = m_startingPosition - 1;
+        startPosLight =  gizmos.transform.position;
     }
 
     // Update is called once per frame
@@ -138,8 +138,9 @@ public class TurretStateManager : MonoBehaviour
     }
     private void RaycastSearchCheck()
     {
+        
         RaycastHit hit;
-        if (Physics.SphereCast(m_spotLight.gameObject.transform.position, m_spotLightRCRadius, m_spotLight.gameObject.transform.forward, out hit, m_turretRange)
+        if (Physics.Raycast(m_spotLight.gameObject.transform.position, m_spotLight.gameObject.transform.forward, out hit)
             && hit.transform.gameObject == hit.transform.CompareTag("Player"))
         {
             m_turretState = TurretState.Attacking;
@@ -147,17 +148,19 @@ public class TurretStateManager : MonoBehaviour
             m_leftSight.SetActive(true);
             m_rightSight.SetActive(true);
         }
+        else if (Physics.Raycast(m_spotLight.gameObject.transform.position, m_spotLight.gameObject.transform.forward, out hit)
+    && hit.transform.gameObject == hit.transform.CompareTag("StopSearch") && !m_playerInArea)
+            gizmos.transform.position = startPosLight;
     }
     private void RaycastAttackCheck()
     {
         RaycastHit hit;
-        if (Physics.Raycast(m_raycastChecker.transform.position, m_raycastChecker.transform.forward, out hit)
+        if (Physics.Raycast(m_spotLight.gameObject.transform.position, m_spotLight.gameObject.transform.forward, out hit)
             && hit.transform.gameObject == hit.transform.CompareTag("Player"))
             m_restartLevel.Raise();
 
         m_turretState = TurretState.Searching;
         m_spotLight.color = m_baseColourSpotLight;
-
     }
     private bool StopCheck()
     {
@@ -167,6 +170,7 @@ public class TurretStateManager : MonoBehaviour
         {
             m_turretState = TurretState.Searching;
             m_spotLight.color = m_baseColourSpotLight;
+            gizmos.transform.position = startPosLight;
             return true;
         }
         return false;
@@ -185,4 +189,10 @@ public class TurretStateManager : MonoBehaviour
             m_playerInArea = false;
         }
     }
+    //private void OnDrawGizmosSelected()
+    //{
+    //    Gizmos.color = Color.yellow;
+    //    Gizmos.DrawSphere(m_spotLight.gameObject.transform.position - new Vector3(0,0, 7), m_spotLightRCRadius);
+    //}
+    
 }
