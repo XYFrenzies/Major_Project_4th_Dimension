@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class AudioTriggerHit : MonoBehaviour
+public class AudioCollision : MonoBehaviour
 {
     AudioSource source;
     public SimpleAudioEvent audioEvent;
