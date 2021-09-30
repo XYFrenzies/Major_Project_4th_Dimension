@@ -166,7 +166,7 @@ public class TurretStateManager : MonoBehaviour
     {
         RaycastHit hit;
         if (Physics.Raycast(m_raycastChecker.transform.position, m_raycastChecker.transform.forward, out hit)
-            && hit.transform.gameObject == hit.transform.CompareTag("StopSearch") && !m_playerInArea)
+            && (hit.transform.gameObject == hit.transform.CompareTag("StopSearch") || hit.transform.gameObject == hit.transform.CompareTag("BigPullObject") || hit.transform.gameObject == hit.transform.CompareTag("MoveableToMe")) && !m_playerInArea)
         {
             m_turretState = TurretState.Searching;
             m_spotLight.color = m_baseColourSpotLight;
