@@ -25,4 +25,9 @@ public class SimpleAudioEvent : AudioEvent
             source.Play();
     }
 
+    public override void Stop(AudioSource source)
+    {
+        source.Stop();
+    }
+
 }
