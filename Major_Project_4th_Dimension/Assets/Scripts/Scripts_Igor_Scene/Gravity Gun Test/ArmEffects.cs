@@ -10,6 +10,8 @@ public class ArmEffects : MonoBehaviour
     PlayerInput playerInput;
     InputAction shootAction;
     bool isShooting = false;
+    public SimpleAudioEvent audioEvent;
+    AudioSource source;
 
     // Start is called before the first frame update
     void Awake()
@@ -17,6 +19,7 @@ public class ArmEffects : MonoBehaviour
         arm = GetComponent<ArmStateManager>();
         playerInput = GetComponent<PlayerInput>();
         shootAction = playerInput.actions["HookShot"];
+        source = GetComponent<AudioSource>();
     }
     public void OnEnable()
     {
@@ -53,6 +56,7 @@ public class ArmEffects : MonoBehaviour
             arm.lineRenderer.enabled = true;
             arm.blackHoleCentre.SetActive(true);
             arm.realisticBlackHole.SetActive(true);
+            audioEvent.Play(source);
         }
     }
 
