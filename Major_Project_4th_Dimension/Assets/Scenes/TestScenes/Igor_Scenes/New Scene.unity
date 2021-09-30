@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 306.81036, g: 295.98352, b: 315.11917, a: 1}
+  m_IndirectSpecularColor: {r: 306.88004, g: 296.00836, b: 315.11417, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -23896,6 +23896,7 @@ MonoBehaviour:
   armRig: {fileID: 0}
   headRig: {fileID: 0}
   interacting: {fileID: 0}
+  interactingConveyorSwitch: {fileID: 0}
   currentState: 0
   flyToTarget: {x: 0, y: 0, z: 0}
 --- !u!4 &1174014384
@@ -27265,6 +27266,7 @@ MonoBehaviour:
   armRig: {fileID: 0}
   headRig: {fileID: 0}
   interacting: {fileID: 0}
+  interactingConveyorSwitch: {fileID: 0}
   currentState: 0
   flyToTarget: {x: 0, y: 0, z: 0}
 --- !u!114 &1309525791
@@ -39636,6 +39638,7 @@ MonoBehaviour:
   armRig: {fileID: 1305951633}
   headRig: {fileID: 1887118397}
   interacting: {fileID: 11400000, guid: 18e4fd24b905c8d40887ca44f2ebc613, type: 2}
+  interactingConveyorSwitch: {fileID: 0}
   currentState: 0
   flyToTarget: {x: 0, y: 0, z: 0}
 --- !u!114 &1952866679
@@ -39850,6 +39853,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82ba7cca0be477a4482a25c2ce630ee3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioEvent: {fileID: 0}
 --- !u!1 &1957602438
 GameObject:
   m_ObjectHideFlags: 0
@@ -45604,6 +45608,7 @@ MonoBehaviour:
   armRig: {fileID: 244655921788551994}
   headRig: {fileID: 244655921925847482}
   interacting: {fileID: 11400000, guid: 18e4fd24b905c8d40887ca44f2ebc613, type: 2}
+  interactingConveyorSwitch: {fileID: 0}
   currentState: 0
   flyToTarget: {x: 0, y: 0, z: 0}
 --- !u!114 &244655921127099705
@@ -72923,6 +72928,7 @@ MonoBehaviour:
   armRig: {fileID: 5804269355351676442}
   headRig: {fileID: 5804269353610177690}
   interacting: {fileID: 11400000, guid: 18e4fd24b905c8d40887ca44f2ebc613, type: 2}
+  interactingConveyorSwitch: {fileID: 0}
   currentState: 0
   flyToTarget: {x: 0, y: 0, z: 0}
 --- !u!114 &5804269354957740057
@@ -75962,6 +75968,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb709f69212d8a3498ec1fd540a638b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_check: {fileID: 0}
 --- !u!1 &5918118698252397685
 GameObject:
   m_ObjectHideFlags: 0
