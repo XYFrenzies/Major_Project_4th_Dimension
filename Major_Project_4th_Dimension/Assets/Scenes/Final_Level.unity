@@ -19440,6 +19440,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2990635527412597224, guid: 452c5ba77717f9841b67a4ac60860b29, type: 3}
   m_PrefabInstance: {fileID: 487447473}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &488698742 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6912800960224384231, guid: c43ee955d176d124e9ab28dc6a67a08d, type: 3}
+  m_PrefabInstance: {fileID: 627261738}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e332c89a394f4e4d9044025a8c8a1ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &493378050
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45210,6 +45221,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7ce374b0806d61a48ad648f68121704c, type: 3}
   m_PrefabInstance: {fileID: 1167442812}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1168138199 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6912800960224384231, guid: c43ee955d176d124e9ab28dc6a67a08d, type: 3}
+  m_PrefabInstance: {fileID: 71830506}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e332c89a394f4e4d9044025a8c8a1ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1170251053
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -69642,7 +69664,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2010567729587827416, guid: c1bc60680c0552d4d9d701440d8a54b7, type: 3}
       propertyPath: m_Constraints
-      value: 42
+      value: 112
       objectReference: {fileID: 0}
     - target: {fileID: 2010567729587827416, guid: c1bc60680c0552d4d9d701440d8a54b7, type: 3}
       propertyPath: m_CollisionDetection
@@ -69666,7 +69688,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4397137120211049588, guid: c1bc60680c0552d4d9d701440d8a54b7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -35.459
+      value: -34.534
       objectReference: {fileID: 0}
     - target: {fileID: 4397137120211049588, guid: c1bc60680c0552d4d9d701440d8a54b7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -81657,6 +81679,30 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 510320393}
+        m_TargetAssemblyTypeName: ConveyorBelt, Assembly-CSharp
+        m_MethodName: ChangeDirection
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1168138199}
+        m_TargetAssemblyTypeName: ConveyorBelt, Assembly-CSharp
+        m_MethodName: ChangeDirection
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 488698742}
         m_TargetAssemblyTypeName: ConveyorBelt, Assembly-CSharp
         m_MethodName: ChangeDirection
         m_Mode: 1
