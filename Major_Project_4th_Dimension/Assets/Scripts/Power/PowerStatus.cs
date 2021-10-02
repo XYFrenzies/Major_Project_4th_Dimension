@@ -24,13 +24,15 @@ public class PowerStatus : Singleton<PowerStatus>
         {
             case true:
                 m_powerOn.Raise();
+                if(source != null)
                 powerOn.Play(source);
                 //m_powerIsOn = false;
                 Debug.Log("Power is on");
                 break;
             case false:
                 m_powerOff.Raise();
-                powerOff.Play(source);
+                if (source != null)
+                    powerOff.Play(source);
                 //m_powerIsOn = true;
                 Debug.Log("Power is off");
                 break;
