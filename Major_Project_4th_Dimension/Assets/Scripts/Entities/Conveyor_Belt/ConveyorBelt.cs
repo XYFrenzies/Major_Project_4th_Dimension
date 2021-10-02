@@ -15,35 +15,34 @@ public class ConveyorBelt : MonoBehaviour
     [SerializeField] private float speed = 1.0f;
     [SerializeField] private float m_scrollX = 0.5f;
     [SerializeField] private float m_scrollY = 0.5f;
-    private GameObject endPointForward;
-    private GameObject endPointBackward;
-    private void Awake()
-    {
-        endPointBackward = transform.Find("Backward").gameObject;
-        endPointForward = transform.Find("Forward").gameObject;
-    }
+    [SerializeField] private GameObject endPointForward;
+    [SerializeField] private GameObject endPointBackward;
+    [SerializeField] private GameObject materialTexture;
     private void Update()
     {
         if (PowerStatus.Instance.powerIsOn)
         {
+            gameObject.GetComponent<BoxCollider>().enabled = true;
             float OffsetX = Time.time * m_scrollX;
             float OffsetY = Time.time * m_scrollY;
-            GetComponent<Renderer>().material.mainTextureOffset = new Vector2(OffsetX, OffsetY);
+            materialTexture.GetComponent<Renderer>().material.mainTextureOffset = new Vector2(OffsetX, OffsetY);
         }
+        else if (!PowerStatus.Instance.powerIsOn)
+            gameObject.GetComponent<BoxCollider>().enabled = false;
     }
-    private void OnCollisionStay(Collision collision)
+    private void OnTriggerStay(Collider other)
     {
-        switch (m_directionToGo ) 
+        switch (m_directionToGo)
         {
             case Direction.Forward:
-                MoveDirection(collision, endPointForward);
+                MoveDirection(other, endPointForward);
                 break;
             case Direction.Backward:
-                MoveDirection(collision, endPointBackward);
+                MoveDirection(other, endPointBackward);
                 break;
         }
     }
-    private void MoveDirection(Collision col, GameObject obj)
+    private void MoveDirection(Collider col, GameObject obj)
     {
         if(PowerStatus.Instance.powerIsOn)
             col.transform.position = Vector3.MoveTowards(col.transform.position, obj.transform.position, speed * Time.deltaTime);
