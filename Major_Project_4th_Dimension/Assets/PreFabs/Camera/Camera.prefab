@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7173122632476729517}
   - component: {fileID: 7173122632476729519}
   - component: {fileID: 7173122632476729518}
+  - component: {fileID: 3362575000200334334}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -380,3 +381,11 @@ MonoBehaviour:
         materialPassIndex: 0
         materialPassName: Custom Pass 0
         fetchColorBuffer: 0
+--- !u!81 &3362575000200334334
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7173122632476729511}
+  m_Enabled: 1
