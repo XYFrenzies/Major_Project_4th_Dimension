@@ -50947,7 +50947,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6640855606629399319, guid: 8ae51393a6f3f2249aef5174ff6d59f8, type: 3}
   m_PrefabInstance: {fileID: 96289702}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &1313167321
+--- !u!65 &1313167326
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -55353,6 +55353,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.54, y: 1, z: 1}
   m_Center: {x: 0, y: 0.66, z: 0.13}
+--- !u!114 &1437915159 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1331832020351349507, guid: 8ae51393a6f3f2249aef5174ff6d59f8, type: 3}
+  m_PrefabInstance: {fileID: 1904475150}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1437915157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28510c36e8ee29246b937913aeae67bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1438554825
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -61351,7 +61362,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6640855606629399319, guid: 8ae51393a6f3f2249aef5174ff6d59f8, type: 3}
   m_PrefabInstance: {fileID: 425615444}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &1550655421
+--- !u!65 &1550655426
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -80616,6 +80627,10 @@ PrefabInstance:
       value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 476081729600160608, guid: 2c10a23ac9a20ee4ba05bcbcb70a3e57, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.1492
+      objectReference: {fileID: 0}
+    - target: {fileID: 476081729600160608, guid: 2c10a23ac9a20ee4ba05bcbcb70a3e57, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.961
       objectReference: {fileID: 0}
@@ -80625,7 +80640,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 476081729600160608, guid: 2c10a23ac9a20ee4ba05bcbcb70a3e57, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.6950917
+      value: 4.5832
       objectReference: {fileID: 0}
     - target: {fileID: 476081729600160608, guid: 2c10a23ac9a20ee4ba05bcbcb70a3e57, type: 3}
       propertyPath: m_LocalRotation.w
@@ -81562,6 +81577,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1437915159}
+        m_TargetAssemblyTypeName: TurretStateManager, Assembly-CSharp
+        m_MethodName: IsSettingInActiveTurret
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2004226063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81605,6 +81632,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2004226066}
         m_TargetAssemblyTypeName: SwitchController, Assembly-CSharp
         m_MethodName: SwitchOn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1437915159}
+        m_TargetAssemblyTypeName: TurretStateManager, Assembly-CSharp
+        m_MethodName: IsActiveTurret
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
