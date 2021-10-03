@@ -12,9 +12,7 @@ public class DoorOpen : MonoBehaviour
         if (other.CompareTag("BigPullObject") || other.CompareTag("MoveableToMe") || other.CompareTag("Player"))
         {
 
-            if (OpenDoor != null && SceneManager.GetActiveScene().name == "Tutorial_Corridor")
-                OpenDoor.Raise();
-            if (OpenDoor != null && SceneManager.GetActiveScene().name == "Final_Scene" && PowerStatus.Instance.powerIsOn)
+            if ((OpenDoor != null && SceneManager.GetActiveScene().name == "Tutorial_Corridor") || (OpenDoor != null && (SceneManager.GetActiveScene().name == "Final_Level" || SceneManager.GetActiveScene().name == "Actual_Final_Level_Probably") && PowerStatus.Instance.powerIsOn))
                 OpenDoor.Raise();
         }
     }
