@@ -13713,6 +13713,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b92b03c5b3cd94548bfd61b232666071, type: 3}
   m_PrefabInstance: {fileID: 2015419731}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &311981038 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7024879611039302822, guid: c43ee955d176d124e9ab28dc6a67a08d, type: 3}
+  m_PrefabInstance: {fileID: 510320392}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e332c89a394f4e4d9044025a8c8a1ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &312032145
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20214,6 +20225,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c43ee955d176d124e9ab28dc6a67a08d, type: 3}
+--- !u!114 &511096759 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7024879611039302822, guid: c43ee955d176d124e9ab28dc6a67a08d, type: 3}
+  m_PrefabInstance: {fileID: 71830506}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e332c89a394f4e4d9044025a8c8a1ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &511937196
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31271,7 +31293,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8431453540725934212, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.6624985
+      value: 0.73804474
       objectReference: {fileID: 0}
     - target: {fileID: 8431453540725934212, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
       propertyPath: m_LocalPosition.y
@@ -31279,7 +31301,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8431453540725934212, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.8360586
+      value: -2.8400183
       objectReference: {fileID: 0}
     - target: {fileID: 8431453540725934212, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
       propertyPath: m_LocalRotation.x
@@ -66351,6 +66373,17 @@ Transform:
   m_Father: {fileID: 24009503}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1639706519 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7024879611039302822, guid: c43ee955d176d124e9ab28dc6a67a08d, type: 3}
+  m_PrefabInstance: {fileID: 627261738}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e332c89a394f4e4d9044025a8c8a1ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1641673954
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -71433,6 +71466,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2123886867798818593, guid: 7bd1c09a429af924bafadcb0567f148d, type: 3}
   m_PrefabInstance: {fileID: 1784746775}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1787991575 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7024879611039302822, guid: c43ee955d176d124e9ab28dc6a67a08d, type: 3}
+  m_PrefabInstance: {fileID: 572406640}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e332c89a394f4e4d9044025a8c8a1ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1789151124
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -81807,7 +81851,7 @@ MonoBehaviour:
   Response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1787991575}
         m_TargetAssemblyTypeName: ConveyorBelt, Assembly-CSharp
         m_MethodName: ChangeDirection
         m_Mode: 1
@@ -81819,7 +81863,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 311981038}
         m_TargetAssemblyTypeName: ConveyorBelt, Assembly-CSharp
         m_MethodName: ChangeDirection
         m_Mode: 1
@@ -81831,7 +81875,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 511096759}
         m_TargetAssemblyTypeName: ConveyorBelt, Assembly-CSharp
         m_MethodName: ChangeDirection
         m_Mode: 1
@@ -81843,7 +81887,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1639706519}
         m_TargetAssemblyTypeName: ConveyorBelt, Assembly-CSharp
         m_MethodName: ChangeDirection
         m_Mode: 1
