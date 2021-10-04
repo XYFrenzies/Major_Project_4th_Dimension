@@ -22,13 +22,14 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: SeeThroughMoveable
   m_Shader: {fileID: -6465566751694194690, guid: 61156fe9d9b3a6f429ea1a2da4f96fb6, type: 3}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: _ALPHATEST_ON _ALPHATOMASK_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2000
+  m_CustomRenderQueue: 2450
   stringTagMap:
     MotionVector: User
+    RenderType: TransparentCutout
   disabledShaderPasses:
   - TransparentDepthPrepass
   - TransparentDepthPostpass
@@ -135,7 +136,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_26270EFD: 0.461
+    - Vector1_26270EFD: 0.5
     - Vector1_7F93466: 1
     - Vector1_a2a7e744210e4f2691a8a4f716d2cd0a: 1
     - Vector1_adc236264b1d4c9296e83c6ba1ce01c4: 1
@@ -145,14 +146,14 @@ Material:
     - _AddPrecomputedVelocity: 0
     - _AlbedoAffectEmissive: 0
     - _AlphaCutoff: 0.5
-    - _AlphaCutoffEnable: 0
+    - _AlphaCutoffEnable: 1
     - _AlphaCutoffPostpass: 0.5
     - _AlphaCutoffPrepass: 0.5
     - _AlphaCutoffShadow: 0.5
     - _AlphaDstBlend: 0
     - _AlphaSrcBlend: 1
-    - _AlphaToMask: 0
-    - _AlphaToMaskInspectorValue: 0
+    - _AlphaToMask: 1
+    - _AlphaToMaskInspectorValue: 1
     - _Anisotropy: 0
     - _BlendMode: 0
     - _CoatMask: 0
@@ -248,7 +249,7 @@ Material:
     - _UseEmissiveIntensity: 0
     - _UseShadowThreshold: 0
     - _ZTestDepthEqualForOpaque: 3
-    - _ZTestGBuffer: 4
+    - _ZTestGBuffer: 3
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:

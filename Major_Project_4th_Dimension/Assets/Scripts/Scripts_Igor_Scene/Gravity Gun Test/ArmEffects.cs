@@ -10,6 +10,8 @@ public class ArmEffects : MonoBehaviour
     PlayerInput playerInput;
     InputAction shootAction;
     bool isShooting = false;
+    public SimpleAudioEvent audioEvent;
+    AudioSource source;
 
     // Start is called before the first frame update
     void Awake()
@@ -17,6 +19,7 @@ public class ArmEffects : MonoBehaviour
         arm = GetComponent<ArmStateManager>();
         playerInput = GetComponent<PlayerInput>();
         shootAction = playerInput.actions["HookShot"];
+        source = GetComponent<AudioSource>();
     }
     public void OnEnable()
     {
@@ -35,9 +38,18 @@ public class ArmEffects : MonoBehaviour
     void Update()
     {
         if (isShooting && arm.currentState != arm.pauseState)
+        {
             DrawLineRenderer();
+            if (!source.isPlaying)
+                audioEvent.Play(source);
+        }
         else
+        {
             StopDrawingLineRenderer();
+            if (source.isPlaying)
+                audioEvent.Stop(source);
+
+        }
         //if (arm.isObjectHeld)
         //    arm.realisticBlackHole.transform.position = arm.hitObject.transform.position;
         //DrawObjectHoldingEffect();
@@ -65,7 +77,7 @@ public class ArmEffects : MonoBehaviour
         arm.blackHoleCentre.transform.localScale = arm.startSize;
         arm.scaleModifier = 1f;
         arm.blackHoleCentre.SetActive(false);
-
+        audioEvent.Stop(source);
     }
 
 
@@ -114,13 +126,10 @@ public class ArmEffects : MonoBehaviour
 
     public void EffectSizeChange()
     {
-
-
         if (arm.scaleModifier < 4f)
         {
             arm.blackHoleCentre.transform.localScale = arm.startSize * arm.scaleModifier;
             arm.scaleModifier += Time.deltaTime * arm.modifier; // need to find best place to set scalemodifier back to 0
         }
-
     }
 }

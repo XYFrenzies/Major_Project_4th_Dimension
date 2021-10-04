@@ -40,7 +40,7 @@ class SeeThrough : CustomPass
         stencilMaterial.SetInt("_StencilWriteMask", (int)UserStencilUsage.UserBit0);
 
         //This determines whether the objects can be seen in front of you as well as behind walls.
-        RenderObjects(ctx.renderContext, ctx.cmd, stencilMaterial, 0, CompareFunction.LessEqual, ctx.cullingResults, ctx.hdCamera);
+        //RenderObjects(ctx.renderContext, ctx.cmd, stencilMaterial, 0, CompareFunction.LessEqual, ctx.cullingResults, ctx.hdCamera);
 
         // Then we render the objects that are behind walls using the stencil buffer with Greater Equal ZTest:
         StencilState seeThroughStencil = new StencilState(
