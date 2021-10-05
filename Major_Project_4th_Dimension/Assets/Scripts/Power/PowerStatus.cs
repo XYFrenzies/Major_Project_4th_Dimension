@@ -8,8 +8,8 @@ public class PowerStatus : Singleton<PowerStatus>
     [SerializeField] private GameEvent m_powerOff;
     public bool powerIsOn = false;
     AudioSource source;
-    public SimpleAudioEvent powerOn;
-    public SimpleAudioEvent powerOff;
+    //public SimpleAudioEvent powerOn;
+    //public SimpleAudioEvent powerOff;
 
     private void Awake()
     {
@@ -24,16 +24,16 @@ public class PowerStatus : Singleton<PowerStatus>
         {
             case true:
                 m_powerOn.Raise();
-                if(source != null)
-                powerOn.Play(source);
-                //m_powerIsOn = false;
+                if (source != null)
+                    SoundPlayer.Instance.PlaySoundEffect("PowerOn", source);
+
                 Debug.Log("Power is on");
                 break;
             case false:
                 m_powerOff.Raise();
                 if (source != null)
-                    powerOff.Play(source);
-                //m_powerIsOn = true;
+                    SoundPlayer.Instance.PlaySoundEffect("PowerOff", source);
+
                 Debug.Log("Power is off");
                 break;
         }

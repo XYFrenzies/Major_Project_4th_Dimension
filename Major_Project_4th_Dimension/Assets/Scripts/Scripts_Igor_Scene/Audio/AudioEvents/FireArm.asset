@@ -10,14 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b4faa563795fb7041844930fd835c9d3, type: 3}
-  m_Name: PowerOn
+  m_Name: FireArm
   m_EditorClassIdentifier: 
   clips:
-  - {fileID: 8300000, guid: b8df1d2d6dd54d740aa44a687c864976, type: 3}
-  volume:
+  - {fileID: 8300000, guid: 91cdf419ea05f654c87932c41c8813e8, type: 3}
+  volumeRange:
     minValue: 1
     maxValue: 1
-  pitch:
-    minValue: 1.0056335
-    maxValue: 1.0056335
-  playOneShot: 0
+  pitchRange:
+    minValue: 1.0093427
+    maxValue: 1.0093427
