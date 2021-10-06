@@ -79,9 +79,13 @@ public class OptionsMenu : MonoBehaviour
     {
         //float value = ;
         if (context.action.ReadValue<Vector2>().x > 0)
-        { }
+        {
+
+        }
         else if (context.action.ReadValue<Vector2>().y < 0)
-        { }
+        {
+
+        }
     }
 
     public void SetMenu(GameObject menuSelected)
