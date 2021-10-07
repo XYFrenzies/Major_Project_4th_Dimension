@@ -47,11 +47,6 @@ public class ConveyorBelt : MonoBehaviour
         if (!other.CompareTag("Player") && other.gameObject.GetComponent<Rigidbody>())
             other.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
     }
-    private void OnTriggerExit(Collider other)
-    {
-        if (!other.CompareTag("Player") && other.gameObject.GetComponent<Rigidbody>())
-            other.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
-    }
     private void MoveDirection(Collider col, GameObject obj)
     {
         if (PowerStatus.Instance.powerIsOn)
