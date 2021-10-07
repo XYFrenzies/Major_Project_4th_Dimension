@@ -127,7 +127,7 @@ public class ArmStateManager : MonoBehaviour
     void Update()
     {
         currentState.UpdateState();
-        Debug.Log(currentState);
+        //Debug.Log(currentState);
         //if (lineRenderer.enabled)
         //    DrawLineRenderer();
     }

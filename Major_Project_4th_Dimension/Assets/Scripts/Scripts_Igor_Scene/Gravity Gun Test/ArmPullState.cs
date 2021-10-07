@@ -33,14 +33,14 @@ public class ArmPullState : ArmBaseState
         //hand.transform.SetParent(armStateMan.newGrappleHandle.transform);
         //hand.transform.localPosition = Vector3.zero;
         armStateMan.hitPoint = armStateMan.newGrappleHandle.transform.position;
-        armStateMan.springJoint.connectedBody = armStateMan.newGrappleHandle.GetComponent<Rigidbody>();
-        armStateMan.springJoint.connectedAnchor = Vector3.zero;
+        //armStateMan.springJoint.connectedBody = armStateMan.newGrappleHandle.GetComponent<Rigidbody>();
+        //armStateMan.springJoint.connectedAnchor = Vector3.zero;
         //float distance = Vector3.Distance(armStateMan.transform.position, armStateMan.newGrappleHandle.transform.position);
-        armStateMan.springJoint.minDistance = 2.5f;
-        armStateMan.springJoint.maxDistance = 2.5f;
-        initialSpringForce = armStateMan.springJoint.spring;
+        //armStateMan.springJoint.minDistance = 2.5f;
+        //armStateMan.springJoint.maxDistance = 2.5f;
+        //initialSpringForce = armStateMan.springJoint.spring;
         //armStateMan.lineRenderer.enabled = true;
-        //rb = armStateMan.hitObject.GetComponent<Rigidbody>();
+        rb = armStateMan.hitObject.GetComponent<Rigidbody>();
         //initialMass = rb.mass;
         //rb.mass = 0.1f;
         //currentHookShotState = HookShotState.Pull;
@@ -54,11 +54,11 @@ public class ArmPullState : ArmBaseState
         //hand.transform.SetParent(armStateMan.transform);
         //rb.mass = initialMass;
         Object.Destroy(armStateMan.newGrappleHandle);
-        armStateMan.springJoint.spring = initialSpringForce;
-        armStateMan.springJoint.connectedAnchor = Vector3.zero;
+        //armStateMan.springJoint.spring = initialSpringForce;
+        //armStateMan.springJoint.connectedAnchor = Vector3.zero;
 
-        armStateMan.springJoint.maxDistance = 0f;
-        armStateMan.springJoint.minDistance = 0f;
+        //armStateMan.springJoint.maxDistance = 0f;
+        //armStateMan.springJoint.minDistance = 0f;
         //ReturnHand();
         armStateMan.pull = false;
         armStateMan.hitObject = null;
@@ -74,12 +74,13 @@ public class ArmPullState : ArmBaseState
 
         }
         armStateMan.hitPoint = armStateMan.newGrappleHandle.transform.position;
-        armStateMan.springJoint.spring += Time.deltaTime;
-        //if (armStateMan.transform != null && armStateMan.hitObject != null)
-        //    if (Vector3.Distance(armStateMan.transform.position, armStateMan.hitObject.transform.position) < 15f)
-        //    {
-        //        rb.AddForceAtPosition(armStateMan.transform.position - armStateMan.hitObject.transform.position, armStateMan.hitPoint, ForceMode.Force);
-        //    }
+        //armStateMan.springJoint.spring += Time.deltaTime;
+        if (armStateMan.transform != null && armStateMan.hitObject != null)
+            if (Vector3.Distance(armStateMan.transform.position, armStateMan.hitObject.transform.position) > 4f)
+            {
+                if (armStateMan.transform != null && armStateMan.hitObject != null)
+                    rb.AddForceAtPosition(Vector3.Normalize(armStateMan.transform.position - armStateMan.hitObject.transform.position) * 120f, armStateMan.hitPoint, ForceMode.Force);
+            }
     }
 
     public void Shoot(InputAction.CallbackContext context)
