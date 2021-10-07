@@ -11,6 +11,8 @@ public class ArmPullState : ArmBaseState
     private InputAction shootAction;
     float initialMass;
     Rigidbody rb;
+    Renderer rend;
+    float radius;
 
     public ArmPullState(ArmStateManager arm) : base(arm)
     {
@@ -30,6 +32,10 @@ public class ArmPullState : ArmBaseState
         armStateMan.newGrappleHandle = Object.Instantiate(armStateMan.grappleHandle, armStateMan.hitObject.transform);
         armStateMan.newGrappleHandle.transform.localPosition = armStateMan.localPoint;
         armStateMan.newGrappleHandle.GetComponent<FixedJoint>().connectedBody = armStateMan.hitObject.GetComponent<Rigidbody>();
+
+        rend = armStateMan.hitObject.GetComponent<Renderer>();
+        radius = rend.bounds.extents.magnitude;
+
         //hand.transform.SetParent(armStateMan.newGrappleHandle.transform);
         //hand.transform.localPosition = Vector3.zero;
         armStateMan.hitPoint = armStateMan.newGrappleHandle.transform.position;
@@ -76,10 +82,10 @@ public class ArmPullState : ArmBaseState
         armStateMan.hitPoint = armStateMan.newGrappleHandle.transform.position;
         //armStateMan.springJoint.spring += Time.deltaTime;
         if (armStateMan.transform != null && armStateMan.hitObject != null)
-            if (Vector3.Distance(armStateMan.transform.position, armStateMan.hitObject.transform.position) > 4f)
+            if (Vector3.Distance(armStateMan.transform.position, armStateMan.hitObject.transform.position) > armStateMan.distanceFromPlayerToStopPlaying + radius)
             {
                 if (armStateMan.transform != null && armStateMan.hitObject != null)
-                    rb.AddForceAtPosition(Vector3.Normalize(armStateMan.transform.position - armStateMan.hitObject.transform.position) * 120f, armStateMan.hitPoint, ForceMode.Force);
+                    rb.AddForceAtPosition(Vector3.Normalize(armStateMan.transform.position - armStateMan.hitObject.transform.position) * armStateMan.pullForce, armStateMan.hitPoint, ForceMode.Force);
             }
     }
 

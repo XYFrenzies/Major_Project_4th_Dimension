@@ -10,9 +10,5 @@ public class RenderingMenu : Singleton<RenderingMenu>
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }

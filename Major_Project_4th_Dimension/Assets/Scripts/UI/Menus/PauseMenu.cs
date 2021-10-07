@@ -8,7 +8,7 @@ using UnityEngine.EventSystems;
 /// <summary>
 /// This script works with both controller and keyboard support on the pause menu
 /// </summary>
-public class PauseMenu : MonoBehaviour
+public class PauseMenu : Singleton<PauseMenu>
 {
     [SerializeField]private PlayerInput playerInput;//Input from the player
     [SerializeField] private GameObject m_pauseMenu = null;//Pause menu obj
@@ -18,7 +18,7 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject m_fsPauseMenu = null;//Checking object first selected in pause menu
     private InputAction pauseMenuAction;//Checks if the input has been called for the pause menu
     private InputAction pauseGamepad;//Checks if the b button has been pressed on the controller.
-    private bool isPaused = false;//Checks if the game has been paused
+    [HideInInspector]public bool isPaused = false;//Checks if the game has been paused
     private ColorBlock colourSelected;//Changing the ui selection colour
     private ColorBlock naturalState;//The natural state of the ui selection colour
     private bool m_gamePadActive = false;//Checking if the gamepad is active.

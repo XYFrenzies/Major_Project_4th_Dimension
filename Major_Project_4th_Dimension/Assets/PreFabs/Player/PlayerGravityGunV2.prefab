@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1312804407}
   - component: {fileID: 1312804406}
   - component: {fileID: 1312804405}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BlackHoleDistortion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 7663215971057967915}
   - component: {fileID: 8854549975197375667}
   - component: {fileID: 6835627490091986423}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RealisticBlackHole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,7 +173,7 @@ GameObject:
   - component: {fileID: 6722787561257095584}
   - component: {fileID: 656099648195674733}
   - component: {fileID: 6853182050692564817}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BlackHoleCentre
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1320,7 +1320,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f21074a851a65543bcb45ec3ecdc0d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioEvent: {fileID: 11400000, guid: cd5960ff8c9dddf488a46c5694d98fad, type: 2}
 --- !u!1 &8431453539761728275
 GameObject:
   m_ObjectHideFlags: 0
@@ -2559,6 +2558,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8431453540006725400}
   - component: {fileID: 8431453540006725399}
+  - component: {fileID: 2767052875676183543}
   m_Layer: 0
   m_Name: PlayerGravityGunV2
   m_TagString: Untagged
@@ -2601,6 +2601,24 @@ MonoBehaviour:
   objCanHookTo: []
   objPower: []
   objSwitch: []
+--- !u!114 &2767052875676183543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8431453540006725398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbab9541f728378408fc5ce749d948b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  masterVolume: 0
+  soundVolume: 0
+  musicVolume: 0
+  verticalSensitivity: 0.2
+  horizontalSensitivity: 0.2
+  fpsIsOn: 1
 --- !u!1 &8431453540013879903
 GameObject:
   m_ObjectHideFlags: 0
@@ -4782,7 +4800,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8431453540725934211}
   m_LocalRotation: {x: 0.026167978, y: 0.026167985, z: -0.00068523263, w: 0.9993148}
-  m_LocalPosition: {x: 0.66232616, y: 1.7656511, z: -2.836051}
+  m_LocalPosition: {x: 0.6627546, y: 1.7656513, z: -2.836074}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8431453540922601305}
@@ -6885,7 +6903,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: facc9b99a1874874184f9efd961c56ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  throwForce: 30
+  pullForce: 120
+  distanceFromPlayerToStopPlaying: 1
   shootRange: 50
   armCoolDownTime: 1
   holdObjectLayerMask:
@@ -7162,7 +7181,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82ba7cca0be477a4482a25c2ce630ee3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioEvent: {fileID: 11400000, guid: 68d09e1b22c3cb1479e43a80e45f4643, type: 2}
 --- !u!82 &1685447671
 AudioSource:
   m_ObjectHideFlags: 0
