@@ -21036,7 +21036,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5070587578736435758, guid: 52e1585f8826b3249a1dc518d2ec8769, type: 3}
       propertyPath: m_Constraints
-      value: 84
+      value: 116
       objectReference: {fileID: 0}
     - target: {fileID: 5377070734909557669, guid: 52e1585f8826b3249a1dc518d2ec8769, type: 3}
       propertyPath: m_Name
@@ -23938,7 +23938,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: facc9b99a1874874184f9efd961c56ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  throwForce: 30
+  pullForce: 120
+  distanceFromPlayerToStopPlaying: 1
   shootRange: 50
   armCoolDownTime: 1
   holdObjectLayerMask:
@@ -27481,7 +27482,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: facc9b99a1874874184f9efd961c56ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  throwForce: 30
+  pullForce: 120
+  distanceFromPlayerToStopPlaying: 1
   shootRange: 50
   armCoolDownTime: 1
   holdObjectLayerMask:
@@ -39885,7 +39887,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: facc9b99a1874874184f9efd961c56ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  throwForce: 30
+  pullForce: 120
+  distanceFromPlayerToStopPlaying: 1
   shootRange: 50
   armCoolDownTime: 1
   holdObjectLayerMask:
@@ -46222,7 +46225,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: facc9b99a1874874184f9efd961c56ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  throwForce: 30
+  pullForce: 120
+  distanceFromPlayerToStopPlaying: 1
   shootRange: 50
   armCoolDownTime: 1
   holdObjectLayerMask:
@@ -55536,18 +55540,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1312804404, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 846154422018264744, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4339096343005897427, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 8431453540006725398, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
       propertyPath: m_Name
       value: PlayerGravityGunV2
@@ -55595,26 +55587,6 @@ PrefabInstance:
     - target: {fileID: 8431453540006725400, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8431453540180509504, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
-      propertyPath: m_RotationOffset.x
-      value: 8.36956
-      objectReference: {fileID: 0}
-    - target: {fileID: 8431453540180509504, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
-      propertyPath: m_RotationOffset.z
-      value: -0.7244182
-      objectReference: {fileID: 0}
-    - target: {fileID: 8431453540725934212, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.6627546
-      objectReference: {fileID: 0}
-    - target: {fileID: 8431453540725934212, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.7656513
-      objectReference: {fileID: 0}
-    - target: {fileID: 8431453540725934212, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -2.836074
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
@@ -73574,7 +73546,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: facc9b99a1874874184f9efd961c56ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  throwForce: 30
+  pullForce: 120
+  distanceFromPlayerToStopPlaying: 1
   shootRange: 50
   armCoolDownTime: 1
   holdObjectLayerMask:
