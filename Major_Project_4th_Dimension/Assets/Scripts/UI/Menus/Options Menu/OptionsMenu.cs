@@ -109,7 +109,15 @@ public class OptionsMenu : MonoBehaviour
                 item.SetActive(false);
         }
     }
-
+    public void BackToMainMenu(GameObject mainMenu)
+    {
+        foreach (var item in m_menus)
+        {
+            item.SetActive(false);
+        }
+        mainMenu.SetActive(true);
+        gameObject.SetActive(false);
+    }
     public void SetMenu(GameObject menuSelected)
     {
         foreach (var item in m_menus)

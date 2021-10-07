@@ -503,6 +503,8 @@ GameObject:
   - component: {fileID: 160569093217485530}
   - component: {fileID: 2312685061433654182}
   - component: {fileID: 2174459543306612083}
+  - component: {fileID: 3442046521881052407}
+  - component: {fileID: 4027005450224817076}
   m_Layer: 5
   m_Name: Options Menu
   m_TagString: Untagged
@@ -557,7 +559,30 @@ MonoBehaviour:
   m_masterScroll: {fileID: 160569092754454473}
   m_musicScroll: {fileID: 3902881111468471319}
   m_soundScroll: {fileID: 4362757195125687587}
-  m_volumeText: {fileID: 0}
+--- !u!114 &3442046521881052407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160569093217485531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01a4432a6c2bd3d4392145eb4da396ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4027005450224817076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160569093217485531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f937bfee6aab544d8ccc973883b292d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &160569093898949375
 GameObject:
   m_ObjectHideFlags: 0
