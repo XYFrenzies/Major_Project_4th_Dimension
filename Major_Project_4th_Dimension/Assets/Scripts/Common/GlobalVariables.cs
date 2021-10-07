@@ -42,7 +42,7 @@ public class GlobalVariables : Singleton<GlobalVariables>
             fpsIsOn = PlayerPrefs.GetInt("FPS Display");
         else
             PlayerPrefs.SetInt("FPS Display", fpsIsOn);
-        //DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(gameObject);
     }
 
     public void SaveVolumes(float a_masterVolume, float a_soundVolume, float a_soundEffectVolume) 
