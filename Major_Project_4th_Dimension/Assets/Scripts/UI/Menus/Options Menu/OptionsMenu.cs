@@ -15,8 +15,9 @@ public class OptionsMenu : MonoBehaviour
     private ColorBlock colourSelected;//Changing the ui selection colour
     private ColorBlock naturalState;//The natural state of the ui selection colour
     private InputAction pauseGamepad;//Checks if the b button has been pressed on the controller.
+    private int m_menuChosen = 1;
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         m_optionsMenuAction = playerInput.actions["OptionsMovement"];
         pauseGamepad = playerInput.actions["PauseMoveController"];
@@ -77,14 +78,30 @@ public class OptionsMenu : MonoBehaviour
     }
     private void OptionsMove(InputAction.CallbackContext context)
     {
-        //float value = ;
         if (context.action.ReadValue<Vector2>().x > 0)
         {
+            m_menuChosen -= 1;
+            if (m_menuChosen <= 0)
+                m_menuChosen = m_menus.Count;
 
         }
         else if (context.action.ReadValue<Vector2>().y < 0)
         {
+            m_menuChosen += 1;
+            if (m_menuChosen >= m_menus.Count)
+                m_menuChosen = 1;
+        }
+        SetMenu(m_menuChosen);
+    }
 
+    public void SetMenu(int value) 
+    {
+        foreach (var item in m_menus)
+        {
+            if (item == m_menus[value])
+                item.SetActive(true);
+            else
+                item.SetActive(false);
         }
     }
 
