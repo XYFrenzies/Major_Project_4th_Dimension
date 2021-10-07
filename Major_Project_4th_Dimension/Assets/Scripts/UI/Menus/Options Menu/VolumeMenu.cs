@@ -8,7 +8,6 @@ public class VolumeMenu : Singleton<VolumeMenu>
     [SerializeField]private Scrollbar m_masterScroll;
     [SerializeField]private Scrollbar m_musicScroll;
     [SerializeField]private Scrollbar m_soundScroll;
-    [SerializeField] private GameObject m_volumeText;
     private float m_masterVolume = 0.0f;
     private float m_musicVolume = 0.0f;
     private float m_soundVolume = 0.0f;
@@ -21,7 +20,6 @@ public class VolumeMenu : Singleton<VolumeMenu>
         m_masterScroll.value = m_masterVolume;
         m_musicScroll.value = m_musicVolume;
         m_soundScroll.value = m_soundVolume;
-        m_volumeText.SetActive(true);
     }
     public void SaveValues() 
     {

@@ -10,6 +10,7 @@ public class OptionsMenu : MonoBehaviour
     [SerializeField] private List<GameObject> m_menus;
     [SerializeField] private List<GameObject> m_firstButtonInMenus;
     [SerializeField] private List<GameObject> m_gamePadOptions;
+    [SerializeField] private List<GameObject> m_optionsSceneSelect;
     [SerializeField] private GameObject m_mainMenu;
     [SerializeField] private GameObject m_firstButtonMainMenu;
     private InputAction m_optionsMenuAction;
@@ -71,6 +72,7 @@ public class OptionsMenu : MonoBehaviour
         {
             item.SetActive(false);
         }
+        gameObject.SetActive(false);
     }
     // Update is called once per frame
     private void Update()
