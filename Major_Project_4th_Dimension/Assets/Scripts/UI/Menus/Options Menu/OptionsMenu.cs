@@ -9,6 +9,7 @@ public class OptionsMenu : MonoBehaviour
     [SerializeField] private PlayerInput playerInput;
     [SerializeField] private List<GameObject> m_menus;
     [SerializeField] private List<GameObject> m_firstButtonInMenus;
+    [SerializeField] private List<GameObject> m_gamePadOptions;
     [SerializeField] private GameObject m_mainMenu;
     [SerializeField] private GameObject m_firstButtonMainMenu;
     private InputAction m_optionsMenuAction;
@@ -16,6 +17,8 @@ public class OptionsMenu : MonoBehaviour
     private ColorBlock naturalState;//The natural state of the ui selection colour
     private InputAction pauseGamepad;//Checks if the b button has been pressed on the controller.
     private int m_menuChosen = 1;
+    private bool m_alreadySeenGamePad;
+    private bool m_alreadySeenMouse;
     // Start is called before the first frame update
     private void Start()
     {
@@ -119,11 +122,27 @@ public class OptionsMenu : MonoBehaviour
     {
         if (CheckInput.Instance.CheckGamePadActive() && (EventSystem.current.currentSelectedGameObject == null))
         {
+            if (!m_alreadySeenGamePad)
+            {
+                foreach (var item in m_gamePadOptions)
+                {
+                    item.SetActive(true);
+                }
+                m_alreadySeenGamePad = true;
+            }
             EventSystem.current.SetSelectedGameObject(m_firstButtonInMenus[0]);
             m_firstButtonInMenus[0].GetComponent<Scrollbar>().colors = colourSelected;
         }
         else if (Mouse.current.IsActuated())
         {
+            if (!m_alreadySeenMouse)
+            {
+                foreach (var item in m_gamePadOptions)
+                {
+                    item.SetActive(false);
+                }
+                m_alreadySeenMouse = true;
+            }
             if (EventSystem.current.alreadySelecting)
             {
                 m_firstButtonInMenus[0].GetComponent<Scrollbar>().colors = naturalState;
