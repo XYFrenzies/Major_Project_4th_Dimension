@@ -12,7 +12,8 @@ public class FootSteps : MonoBehaviour
 
     public void Step()
     {
-        SoundPlayer.Instance.PlaySoundEffect("FootSteps", source);
+        //SoundPlayer.Instance.PlaySoundEffect("FootSteps", source);
+        Debug.Log("Footstep sound");
     }
 
 }

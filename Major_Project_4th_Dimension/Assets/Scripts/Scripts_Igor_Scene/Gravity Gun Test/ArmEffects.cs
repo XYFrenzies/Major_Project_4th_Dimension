@@ -42,7 +42,8 @@ public class ArmEffects : MonoBehaviour
             DrawLineRenderer();
             if (!source.isPlaying)
             {
-                SoundPlayer.Instance.PlaySoundEffect("FireArm", source);
+                // SoundPlayer.Instance.PlaySoundEffect("FireArm", source);
+                Debug.Log("Arm sound effect");
             }
         }
         else
@@ -80,7 +81,7 @@ public class ArmEffects : MonoBehaviour
         arm.blackHoleCentre.transform.localScale = arm.startSize;
         arm.scaleModifier = 1f;
         arm.blackHoleCentre.SetActive(false);
-        source.Stop();
+        //source.Stop();
     }
 
 
