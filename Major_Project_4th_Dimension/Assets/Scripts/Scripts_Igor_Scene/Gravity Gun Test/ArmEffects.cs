@@ -42,8 +42,8 @@ public class ArmEffects : MonoBehaviour
             DrawLineRenderer();
             if (!source.isPlaying)
             {
-                // SoundPlayer.Instance.PlaySoundEffect("FireArm", source);
-                Debug.Log("Arm sound effect");
+                SoundPlayer.Instance.PlaySoundEffect("FireArm", source);
+                //Debug.Log("Arm sound effect");
             }
         }
         else

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.36192155, g: 0.4484372, b: 0.59357214, a: 1}
+  m_IndirectSpecularColor: {r: 0.36186764, g: 0.4483499, b: 0.5934325, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -31174,6 +31174,71 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7961490560718257157, guid: 67b7a3c38dc64ff4892ad9a0b527bf05, type: 3}
   m_PrefabInstance: {fileID: 807813946}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &809466054
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3096627470465845420, guid: 2f5db0dbcca1def40a4ccdc0e8badd20, type: 3}
+      propertyPath: m_Name
+      value: SoundPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 3096627470465845422, guid: 2f5db0dbcca1def40a4ccdc0e8badd20, type: 3}
+      propertyPath: m_RootOrder
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 3096627470465845422, guid: 2f5db0dbcca1def40a4ccdc0e8badd20, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3096627470465845422, guid: 2f5db0dbcca1def40a4ccdc0e8badd20, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3096627470465845422, guid: 2f5db0dbcca1def40a4ccdc0e8badd20, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3096627470465845422, guid: 2f5db0dbcca1def40a4ccdc0e8badd20, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3096627470465845422, guid: 2f5db0dbcca1def40a4ccdc0e8badd20, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3096627470465845422, guid: 2f5db0dbcca1def40a4ccdc0e8badd20, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3096627470465845422, guid: 2f5db0dbcca1def40a4ccdc0e8badd20, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3096627470465845422, guid: 2f5db0dbcca1def40a4ccdc0e8badd20, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3096627470465845422, guid: 2f5db0dbcca1def40a4ccdc0e8badd20, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3096627470465845422, guid: 2f5db0dbcca1def40a4ccdc0e8badd20, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8700069749185577221, guid: 2f5db0dbcca1def40a4ccdc0e8badd20, type: 3}
+      propertyPath: playMusic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8700069749185577221, guid: 2f5db0dbcca1def40a4ccdc0e8badd20, type: 3}
+      propertyPath: MusicToPlay
+      value: FinalLevelMusic
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2f5db0dbcca1def40a4ccdc0e8badd20, type: 3}
 --- !u!1001 &809839853
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31585,7 +31650,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8431453540725934212, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.73804474
+      value: 0.6627598
       objectReference: {fileID: 0}
     - target: {fileID: 8431453540725934212, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
       propertyPath: m_LocalPosition.y
@@ -31593,7 +31658,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8431453540725934212, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.8400183
+      value: -2.836073
       objectReference: {fileID: 0}
     - target: {fileID: 8431453540725934212, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
       propertyPath: m_LocalRotation.x
