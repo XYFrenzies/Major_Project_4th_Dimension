@@ -49,7 +49,7 @@ public class ScannerController : MonoBehaviour
 
     public void Scanner()
     {
-        if (!m_scanning && !PauseMenu.Instance.isPaused)
+        if (!m_scanning)
         {
             SetScanner(true);
             Debug.Log("Scanning");
