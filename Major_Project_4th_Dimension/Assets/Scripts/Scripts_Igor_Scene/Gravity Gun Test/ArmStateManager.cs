@@ -26,7 +26,7 @@ public class ArmStateManager : MonoBehaviour
     public float percentageOfDistToTarget = 0.9f;
     public GameObject blackHoleCentre; // pink one
     public GameObject realisticBlackHole;
-    public GameObject blackHoleDistortion;
+    //public GameObject blackHoleDistortion;
 
     public float scaleModifier = 1f;
     public float modifier = 5f;

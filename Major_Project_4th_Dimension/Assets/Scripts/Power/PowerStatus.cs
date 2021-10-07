@@ -25,15 +25,15 @@ public class PowerStatus : Singleton<PowerStatus>
             case true:
                 m_powerOn.Raise();
                 if (source != null)
-                    //SoundPlayer.Instance.PlaySoundEffect("PowerOn", source);
-                    Debug.Log("Power on sound");
+                    SoundPlayer.Instance.PlaySoundEffect("PowerOn", source);
+                    //Debug.Log("Power on sound");
                 Debug.Log("Power is on");
                 break;
             case false:
                 m_powerOff.Raise();
                 if (source != null)
-                    //SoundPlayer.Instance.PlaySoundEffect("PowerOff", source);
-                    Debug.Log("Power off sound");
+                    SoundPlayer.Instance.PlaySoundEffect("PowerOff", source);
+                    //Debug.Log("Power off sound");
 
                 Debug.Log("Power is off");
                 break;
