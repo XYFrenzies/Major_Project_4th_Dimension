@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Audio;
 /// <summary>
 /// These are global values that are saved between scenes.
 /// It will also be saving volumes outside of the game so that it will be set for each new start.
@@ -6,6 +7,7 @@ using UnityEngine;
 public class GlobalVariables : Singleton<GlobalVariables>
 {
     //[HideInInspector] public bool isFading = false;
+    [SerializeField] private AudioMixer m_audioMixer;
     [HideInInspector] public float masterVolume = 0.0f;
     [HideInInspector] public float soundVolume = 0.0f;
     [HideInInspector] public float musicVolume = 0.0f;
@@ -19,6 +21,8 @@ public class GlobalVariables : Singleton<GlobalVariables>
             masterVolume = PlayerPrefs.GetFloat("Master Volume");
             soundVolume = PlayerPrefs.GetFloat("Sound Volume");
             musicVolume = PlayerPrefs.GetFloat("Sound Effect Volume");
+            m_audioMixer.SetFloat("MasterVol", Mathf.Log10(masterVolume) * 30.0f);
+            float VALUE = Mathf.Log10(masterVolume) * 30.0f;
         }
         else
         {
