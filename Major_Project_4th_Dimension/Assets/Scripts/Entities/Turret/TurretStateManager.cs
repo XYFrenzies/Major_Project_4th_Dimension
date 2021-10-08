@@ -81,6 +81,7 @@ public class TurretStateManager : MonoBehaviour
                 RaycastSearchCheck();
                 break;
         }
+        Debug.DrawRay(m_spotLight.gameObject.transform.position, m_spotLight.gameObject.transform.forward * 20f, Color.blue);
     }
     //Enables for the turret to startup on GameEvent change;
     public void IsActiveTurret()
@@ -174,20 +175,6 @@ public class TurretStateManager : MonoBehaviour
             return true;
         }
         return false;
-    }
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            m_playerInArea = true;
-        }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            m_playerInArea = false;
-        }
     }
     //private void OnDrawGizmosSelected()
     //{
