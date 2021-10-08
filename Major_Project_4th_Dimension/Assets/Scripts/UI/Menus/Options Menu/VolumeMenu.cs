@@ -22,19 +22,24 @@ public class VolumeMenu : Singleton<VolumeMenu>
         m_masterScroll.value = m_masterVolume;
         m_musicScroll.value = m_musicVolume;
         m_soundScroll.value = m_soundVolume;
-        m_audioMixer.SetFloat("MasterVol", Mathf.Log10(m_masterVolume) * m_multipler);
         m_masterScroll.onValueChanged.AddListener(SetMasterVolume);
+        m_musicScroll.onValueChanged.AddListener(SetMusicVolume);
+        m_soundScroll.onValueChanged.AddListener(SetSoundVolume);
     }
     public void SetMasterVolume(float masterVolLvl)
     {
         m_audioMixer.SetFloat("MasterVol", Mathf.Log10(masterVolLvl) * m_multipler);
     }
-    public void SetMusicVolume(float musicVolLvl) { }
-    public void SetSoundVolume(float soundVolLvl) { }
+    public void SetMusicVolume(float musicVolLvl) 
+    {
+        m_audioMixer.SetFloat("MusicVol", Mathf.Log10(musicVolLvl) * m_multipler);
+    }
+    public void SetSoundVolume(float soundVolLvl) 
+    {
+        m_audioMixer.SetFloat("SFXVol", Mathf.Log10(soundVolLvl) * m_multipler);
+    }
     public void SaveValues()
     {
-        GlobalVariables.Instance.soundVolume = m_soundScroll.value;
-        GlobalVariables.Instance.musicVolume = m_musicScroll.value;
-        GlobalVariables.Instance.masterVolume = m_masterScroll.value;
+        GlobalVariables.Instance.SaveVolumes(m_masterScroll.value, m_soundScroll.value, m_musicScroll.value);
     }
 }

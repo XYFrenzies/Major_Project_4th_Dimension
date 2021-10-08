@@ -81,6 +81,7 @@ public class TurretStateManager : MonoBehaviour
                 RaycastSearchCheck();
                 break;
         }
+        Debug.DrawRay(m_spotLight.gameObject.transform.position, m_spotLight.gameObject.transform.forward * 20f, Color.blue);
     }
     //Enables for the turret to startup on GameEvent change;
     public void IsActiveTurret()
@@ -124,7 +125,7 @@ public class TurretStateManager : MonoBehaviour
     }
     private void FindPlayer()
     {
-        gizmos.transform.position = Vector3.MoveTowards(gizmos.transform.position, GameObject.FindGameObjectWithTag("Player").transform.position, m_rotationSpeed * Time.deltaTime);
+        gizmos.transform.position = GameObject.FindGameObjectWithTag("Player").transform.position;
         //if(!m_animationFiring.isPlaying)
         //    m_animationFiring.Play();
         if (StopCheck())
