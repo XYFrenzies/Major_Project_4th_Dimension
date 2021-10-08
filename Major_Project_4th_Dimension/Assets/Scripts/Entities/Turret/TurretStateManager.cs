@@ -81,6 +81,7 @@ public class TurretStateManager : MonoBehaviour
                 RaycastSearchCheck();
                 break;
         }
+        Debug.DrawRay(m_spotLight.gameObject.transform.position, m_spotLight.gameObject.transform.forward * 20f, Color.blue);
     }
     //Enables for the turret to startup on GameEvent change;
     public void IsActiveTurret()
