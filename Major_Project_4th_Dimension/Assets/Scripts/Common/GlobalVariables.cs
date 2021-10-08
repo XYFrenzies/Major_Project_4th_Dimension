@@ -69,6 +69,13 @@ public class GlobalVariables : Singleton<GlobalVariables>
             return false;
         return false;
     }
+    public void SaveFPSIsOn(bool boolValue) 
+    {
+        if (boolValue)
+            fpsIsOn = 0;
+        else
+            fpsIsOn = 1;
+    }
     public void SaveSensitivity(float a_verticalSensitivity, float a_horizontalSensitivity) 
     {
         verticalSensitivity = a_verticalSensitivity;
