@@ -176,20 +176,6 @@ public class TurretStateManager : MonoBehaviour
         }
         return false;
     }
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            m_playerInArea = true;
-        }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            m_playerInArea = false;
-        }
-    }
     //private void OnDrawGizmosSelected()
     //{
     //    Gizmos.color = Color.yellow;
