@@ -18,15 +18,12 @@ public class OptionsMenu : MonoBehaviour
     private ColorBlock colourSelected;//Changing the ui selection colour
     private ColorBlock naturalState;//The natural state of the ui selection colour
     private InputAction pauseGamepad;//Checks if the b button has been pressed on the controller.
-    private int m_menuChosen = 1;
+    private int m_menuChosen = 0;
     private bool m_alreadySeenGamePad;
     private bool m_alreadySeenMouse;
-    private float deltaTimeTables = 0;
-    private float timeBetweenTables = 0.25f;
     // Start is called before the first frame update
     private void Start()
     {
-        pauseGamepad = playerInput.actions["PauseMoveController"];
         //m_pauseMenu.SetActive(false);
         colourSelected.colorMultiplier = 1;
         colourSelected.selectedColor = new Color(0, 1, 0.117f, 1);
@@ -43,6 +40,10 @@ public class OptionsMenu : MonoBehaviour
     {
         m_optionsMenuActionRight = playerInput.actions["OptionsMovementRight"];
         m_optionsMenuActionLeft = playerInput.actions["OptionsMovementLeft"];
+        pauseGamepad = playerInput.actions["PauseMoveController"];
+        pauseGamepad.started += BackGamPad;
+        m_optionsMenuActionRight.started += OptionsMoveRight;
+        m_optionsMenuActionLeft.started += OptionsMoveLeft;
         m_menus[0].SetActive(true);
         m_mainMenu.SetActive(false);
         if (CheckInput.Instance.CheckGamePadActive())
@@ -56,7 +57,13 @@ public class OptionsMenu : MonoBehaviour
             m_firstButtonInMenus[0].GetComponent<Slider>().colors = naturalState;
         }
     }
-    public void BackGamPad()
+    private void OnDisable()
+    {
+        pauseGamepad.started -= BackGamPad;
+        m_optionsMenuActionRight.started -= OptionsMoveRight;
+        m_optionsMenuActionLeft.started -= OptionsMoveLeft;
+    }
+    public void BackGamPad(InputAction.CallbackContext context)
     {
         playerInput.SwitchCurrentActionMap("Player");
         m_mainMenu.SetActive(false);
@@ -84,33 +91,24 @@ public class OptionsMenu : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        deltaTimeTables += Time.unscaledDeltaTime;
-        pauseGamepad.started += ctx => BackGamPad();
-        m_optionsMenuActionRight.started += OptionsMoveRight;
-        m_optionsMenuActionLeft.started += OptionsMoveLeft;
         UpdateInput();
     }
     private void OptionsMoveLeft(InputAction.CallbackContext context)
     {
-        if (deltaTimeTables >= timeBetweenTables)
-        {
-            m_menuChosen -= 1;
-            if (m_menuChosen < 0)
-                m_menuChosen = m_menus.Count - 1;
-            deltaTimeTables = 0;
-            SetMenu(m_menuChosen);
-        }
+
+        m_menuChosen -= 1;
+        if (m_menuChosen < 0)
+            m_menuChosen = m_menus.Count - 1;
+
+        SetMenu(m_menuChosen);
+
     }
     private void OptionsMoveRight(InputAction.CallbackContext context)
     {
-        if (deltaTimeTables >= timeBetweenTables)
-        {
-            m_menuChosen += 1;
-            if (m_menuChosen > m_menus.Count - 1)
-                m_menuChosen = 0;
-            SetMenu(m_menuChosen);
-            deltaTimeTables = 0;
-        }
+        m_menuChosen += 1;
+        if (m_menuChosen > m_menus.Count - 1)
+            m_menuChosen = 0;
+        SetMenu(m_menuChosen);
     }
 
     public void SetMenu(int value)
