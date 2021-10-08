@@ -21,8 +21,6 @@ public class GlobalVariables : Singleton<GlobalVariables>
             masterVolume = PlayerPrefs.GetFloat("Master Volume");
             soundVolume = PlayerPrefs.GetFloat("Sound Volume");
             musicVolume = PlayerPrefs.GetFloat("Sound Effect Volume");
-            m_audioMixer.SetFloat("MasterVol", Mathf.Log10(masterVolume) * 30.0f);
-            float VALUE = Mathf.Log10(masterVolume) * 30.0f;
         }
         else
         {
@@ -48,7 +46,12 @@ public class GlobalVariables : Singleton<GlobalVariables>
             PlayerPrefs.SetInt("FPS Display", fpsIsOn);
         DontDestroyOnLoad(gameObject);
     }
-
+    private void Start()
+    {
+        m_audioMixer.SetFloat("MasterVol", Mathf.Log10(masterVolume) * 30.0f);
+        m_audioMixer.SetFloat("MusicVol", Mathf.Log10(soundVolume) * 30.0f);
+        m_audioMixer.SetFloat("SFXVol", Mathf.Log10(musicVolume) * 30.0f);
+    }
     public void SaveVolumes(float a_masterVolume, float a_soundVolume, float a_soundEffectVolume) 
     {
         masterVolume = a_masterVolume;
