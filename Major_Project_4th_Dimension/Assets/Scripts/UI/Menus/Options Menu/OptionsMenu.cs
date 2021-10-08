@@ -38,6 +38,7 @@ public class OptionsMenu : MonoBehaviour
     }
     private void OnEnable()
     {
+        playerInput.SwitchCurrentActionMap("Menu");
         m_optionsMenuActionRight = playerInput.actions["OptionsMovementRight"];
         m_optionsMenuActionLeft = playerInput.actions["OptionsMovementLeft"];
         pauseGamepad = playerInput.actions["PauseMoveController"];
@@ -59,6 +60,7 @@ public class OptionsMenu : MonoBehaviour
     }
     private void OnDisable()
     {
+        playerInput.SwitchCurrentActionMap("Player");
         pauseGamepad.started -= BackGamPad;
         m_optionsMenuActionRight.started -= OptionsMoveRight;
         m_optionsMenuActionLeft.started -= OptionsMoveLeft;
