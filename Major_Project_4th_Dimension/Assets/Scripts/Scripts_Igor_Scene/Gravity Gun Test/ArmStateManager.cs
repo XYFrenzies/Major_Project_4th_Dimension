@@ -126,7 +126,7 @@ public class ArmStateManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         currentState.UpdateState();
         //Debug.Log(currentState);
