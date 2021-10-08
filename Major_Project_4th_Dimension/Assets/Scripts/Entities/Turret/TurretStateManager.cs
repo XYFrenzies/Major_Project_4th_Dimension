@@ -125,7 +125,7 @@ public class TurretStateManager : MonoBehaviour
     }
     private void FindPlayer()
     {
-        gizmos.transform.position = Vector3.MoveTowards(gizmos.transform.position, GameObject.FindGameObjectWithTag("Player").transform.position, m_rotationSpeed * Time.deltaTime);
+        gizmos.transform.position = GameObject.FindGameObjectWithTag("Player").transform.position;
         //if(!m_animationFiring.isPlaying)
         //    m_animationFiring.Play();
         if (StopCheck())
