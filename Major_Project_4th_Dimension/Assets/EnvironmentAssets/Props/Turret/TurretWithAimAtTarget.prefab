@@ -343,7 +343,6 @@ GameObject:
   - component: {fileID: 6640855606629399313}
   - component: {fileID: 6640855606629399318}
   - component: {fileID: 1331832020351349507}
-  - component: {fileID: 7021721715899887929}
   m_Layer: 0
   m_Name: TurretWithAimAtTarget
   m_TagString: Untagged
@@ -466,19 +465,6 @@ MonoBehaviour:
   m_leftSight: {fileID: 3716853849323498417}
   m_rightSight: {fileID: 5301863191100638646}
   m_raycastChecker: {fileID: 7600448993688402682}
---- !u!65 &7021721715899887929
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6640855606629399319}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 7.97, y: 1, z: 5.22}
-  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &6640855606707008369
 GameObject:
   m_ObjectHideFlags: 0
@@ -1001,6 +987,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ddaa93b31eff4f4eacb1f3a801979d5, type: 3}
+--- !u!4 &6603323240527475491 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5ddaa93b31eff4f4eacb1f3a801979d5, type: 3}
+  m_PrefabInstance: {fileID: 6640855605961938120}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &60317890072194113 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -2522222293130708855, guid: 5ddaa93b31eff4f4eacb1f3a801979d5, type: 3}
+  m_PrefabInstance: {fileID: 6640855605961938120}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1218699157220095124 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -3692742168420671396, guid: 5ddaa93b31eff4f4eacb1f3a801979d5, type: 3}
@@ -1029,15 +1025,5 @@ Transform:
 --- !u!4 &6218741545979257250 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 748836146448659818, guid: 5ddaa93b31eff4f4eacb1f3a801979d5, type: 3}
-  m_PrefabInstance: {fileID: 6640855605961938120}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &60317890072194113 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -2522222293130708855, guid: 5ddaa93b31eff4f4eacb1f3a801979d5, type: 3}
-  m_PrefabInstance: {fileID: 6640855605961938120}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &6603323240527475491 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5ddaa93b31eff4f4eacb1f3a801979d5, type: 3}
   m_PrefabInstance: {fileID: 6640855605961938120}
   m_PrefabAsset: {fileID: 0}
