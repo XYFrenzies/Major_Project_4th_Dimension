@@ -23,6 +23,7 @@ public class AimTargetMove : MonoBehaviour
     public GameObject target;
     public float lerpSpeed = 10.0f;
     public LayerMask layerMask;
+    [HideInInspector]
     public ArmStateManager arm;
 
     // Start is called before the first frame update
@@ -51,7 +52,7 @@ public class AimTargetMove : MonoBehaviour
 
         Ray crosshair = new Ray(cam.transform.position, cam.transform.forward);
 
-        if (Physics.Raycast(crosshair, out hit, weaponRange))
+        if (Physics.Raycast(crosshair, out hit, weaponRange, ~layerMask))
         {
             if (Vector3.Distance(hit.point, transform.position) < distanceToPlayer)
                 aimPoint = crosshair.origin + crosshair.direction * weaponRange;

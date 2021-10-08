@@ -70,14 +70,6 @@
                     "interactions": ""
                 },
                 {
-                    "name": "PauseMoveController",
-                    "type": "Button",
-                    "id": "515ab485-629b-4eea-938a-f28418268724",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Press"
-                },
-                {
                     "name": "MousePosition",
                     "type": "Value",
                     "id": "6ac160fa-64e3-47c0-bc21-5025c261b801",
@@ -369,17 +361,6 @@
                 },
                 {
                     "name": "",
-                    "id": "7e0d45e2-ef5e-4bf7-bdc7-8eec2cbe532a",
-                    "path": "<Gamepad>/buttonEast",
-                    "interactions": "Press",
-                    "processors": "",
-                    "groups": "",
-                    "action": "PauseMoveController",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "d2c222fb-0664-4093-88e2-55a66ac3eac3",
                     "path": "<Keyboard>/g",
                     "interactions": "",
@@ -418,110 +399,63 @@
             "id": "69cac28d-d9ab-44f7-9c73-0b79d10839b4",
             "actions": [
                 {
-                    "name": "Controller",
-                    "type": "Value",
-                    "id": "ce350cc8-581d-49a5-a0c4-cbde825ee898",
-                    "expectedControlType": "Vector2",
+                    "name": "OptionsMovementLeft",
+                    "type": "Button",
+                    "id": "63946eb9-c494-4eb2-97eb-ba29232a7130",
+                    "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Press(behavior=2)"
+                    "interactions": ""
                 },
                 {
-                    "name": "OptionsMovement",
+                    "name": "OptionsMovementRight",
                     "type": "Button",
                     "id": "fe81144e-4931-4f24-9ff1-0078b8cae00a",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "PauseMoveController",
+                    "type": "Button",
+                    "id": "1320715d-c6ee-45b4-8fdd-db8e1c0680f7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press"
                 }
             ],
             "bindings": [
                 {
-                    "name": "Movement",
-                    "id": "a19e7081-95ec-48eb-9146-a271cd3d28e0",
-                    "path": "2DVector",
-                    "interactions": "",
+                    "name": "",
+                    "id": "9620efc2-83a3-4fc4-81a9-62c0916d0ccd",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "",
-                    "action": "Controller",
-                    "isComposite": true,
+                    "action": "PauseMoveController",
+                    "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "up",
-                    "id": "d977fe2f-934f-4303-bf9c-d12852764b2f",
-                    "path": "<Gamepad>/leftStick/up",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Controller",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "942bcdbc-1f01-4595-bd97-c5a470d239d3",
-                    "path": "<Gamepad>/leftStick/down",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Controller",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "155a7e89-5347-479f-a985-dc4dd373e578",
-                    "path": "<Gamepad>/leftStick/left",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Controller",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "616fbe28-491b-4165-b3dc-b23b6f4312e6",
-                    "path": "<Gamepad>/leftStick/right",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Controller",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "Move",
-                    "id": "4fed69d1-eaaf-4dfa-9dce-0020c1b7e1e6",
-                    "path": "1DAxis",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "OptionsMovement",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "negative",
-                    "id": "1222bfac-d903-4d0f-b1d4-a43c7250e78a",
-                    "path": "<Gamepad>/leftShoulder",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "OptionsMovement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "712371be-845d-4913-8da7-9c98d57093a0",
+                    "name": "",
+                    "id": "f9faceac-b966-4205-b459-5f94ad26fe77",
                     "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "OptionsMovement",
+                    "action": "OptionsMovementRight",
                     "isComposite": false,
-                    "isPartOfComposite": true
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4735a594-d9a1-4432-85da-b9633df74a3f",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OptionsMovementLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
