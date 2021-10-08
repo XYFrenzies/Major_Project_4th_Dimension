@@ -303,7 +303,7 @@ GameObject:
   - component: {fileID: 2312685061433654182}
   - component: {fileID: 2174459543306612083}
   - component: {fileID: 3442046521881052407}
-  - component: {fileID: 4027005450224817076}
+  - component: {fileID: 7296075148620487741}
   m_Layer: 5
   m_Name: Options Menu
   m_TagString: Untagged
@@ -373,7 +373,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fpsCounter: {fileID: 2565610236429584203}
---- !u!114 &4027005450224817076
+--- !u!114 &7296075148620487741
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -382,9 +382,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 160569093217485531}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f937bfee6aab544d8ccc973883b292d, type: 3}
+  m_Script: {fileID: 11500000, guid: 2929637bbaeda5c468e5acd9c55f7d62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInput: {fileID: 0}
+  m_menus:
+  - {fileID: 5689834037928413684}
+  - {fileID: 7747051976941007207}
+  - {fileID: 3004904616327493676}
+  m_firstButtonInMenus:
+  - {fileID: 2167520951409893413}
+  - {fileID: 3395776112307185817}
+  - {fileID: 738967331423238816}
+  m_gamePadOptions:
+  - {fileID: 2581596074848658462}
+  - {fileID: 972047392406121433}
+  m_optionsSceneSelect: []
+  m_mainMenu: {fileID: 0}
+  m_firstButtonMainMenu: {fileID: 0}
 --- !u!1 &738967331423238816
 GameObject:
   m_ObjectHideFlags: 0
