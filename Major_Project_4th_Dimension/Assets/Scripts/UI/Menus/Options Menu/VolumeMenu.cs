@@ -23,6 +23,7 @@ public class VolumeMenu : Singleton<VolumeMenu>
         m_musicScroll.value = m_musicVolume;
         m_soundScroll.value = m_soundVolume;
         m_audioMixer.SetFloat("MasterVol", Mathf.Log10(m_masterVolume) * m_multipler);
+        m_masterScroll.onValueChanged.AddListener(SetMasterVolume);
     }
     public void SetMasterVolume(float masterVolLvl)
     {
