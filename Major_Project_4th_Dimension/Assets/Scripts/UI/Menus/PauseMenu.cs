@@ -25,7 +25,6 @@ public class PauseMenu : Singleton<PauseMenu>
     private void Awake()
     {
         pauseMenuAction = playerInput.actions["PauseMenu"];
-        pauseGamepad = playerInput.actions["PauseMoveController"];
         m_pauseMenu.SetActive(false);
         colourSelected.colorMultiplier = 1;
         colourSelected.selectedColor = new Color(0, 1, 0.117f, 1);
@@ -94,6 +93,8 @@ public class PauseMenu : Singleton<PauseMenu>
     //When the game is paused, this function will occur.
     private void PauseGame()
     {
+        playerInput.SwitchCurrentActionMap("Menu");
+        pauseGamepad = playerInput.actions["PauseMoveController"];
         //Setting the cursor to visible, timescale = 0, cursor is not locked, changing menus and checking the initial input.
         Cursor.visible = true;
         Time.timeScale = 0;
@@ -114,6 +115,7 @@ public class PauseMenu : Singleton<PauseMenu>
     }
     public void ResumeGame()
     {
+        playerInput.SwitchCurrentActionMap("Player");
         isPaused = false;
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
