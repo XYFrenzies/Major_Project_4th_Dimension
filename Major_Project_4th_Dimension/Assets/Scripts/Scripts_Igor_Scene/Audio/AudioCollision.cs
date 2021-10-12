@@ -3,7 +3,7 @@ using UnityEngine;
 public class AudioCollision : MonoBehaviour
 {
     AudioSource source;
-    public SimpleAudioEvent audioEvent;
+    //public SimpleAudioEvent audioEvent;
     public bool alreadyHit = false;
 
     private void Awake()
@@ -18,8 +18,8 @@ public class AudioCollision : MonoBehaviour
             return;
         }
         else
-        { 
-            audioEvent.Play(source);
+        {
+            SoundPlayer.Instance.PlaySoundEffect("HitObject", source);
             alreadyHit = true;
         }
     }

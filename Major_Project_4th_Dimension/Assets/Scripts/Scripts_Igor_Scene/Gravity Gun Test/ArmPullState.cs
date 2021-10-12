@@ -9,6 +9,11 @@ public class ArmPullState : ArmBaseState
     float initialSpringForce;
     private PlayerInput playerInput;
     private InputAction shootAction;
+    float initialMass;
+    Rigidbody rb;
+    Renderer rend;
+    float radius;
+
     public ArmPullState(ArmStateManager arm) : base(arm)
     {
 
@@ -27,17 +32,23 @@ public class ArmPullState : ArmBaseState
         armStateMan.newGrappleHandle = Object.Instantiate(armStateMan.grappleHandle, armStateMan.hitObject.transform);
         armStateMan.newGrappleHandle.transform.localPosition = armStateMan.localPoint;
         armStateMan.newGrappleHandle.GetComponent<FixedJoint>().connectedBody = armStateMan.hitObject.GetComponent<Rigidbody>();
+
+        rend = armStateMan.hitObject.GetComponent<Renderer>();
+        radius = rend.bounds.extents.magnitude;
+
         //hand.transform.SetParent(armStateMan.newGrappleHandle.transform);
         //hand.transform.localPosition = Vector3.zero;
         armStateMan.hitPoint = armStateMan.newGrappleHandle.transform.position;
-        armStateMan.springJoint.connectedBody = armStateMan.newGrappleHandle.GetComponent<Rigidbody>();
-        armStateMan.springJoint.connectedAnchor = Vector3.zero;
+        //armStateMan.springJoint.connectedBody = armStateMan.newGrappleHandle.GetComponent<Rigidbody>();
+        //armStateMan.springJoint.connectedAnchor = Vector3.zero;
         //float distance = Vector3.Distance(armStateMan.transform.position, armStateMan.newGrappleHandle.transform.position);
-        armStateMan.springJoint.minDistance = 2.5f;
-        armStateMan.springJoint.maxDistance = 2.5f;
-        initialSpringForce = armStateMan.springJoint.spring;
+        //armStateMan.springJoint.minDistance = 2.5f;
+        //armStateMan.springJoint.maxDistance = 2.5f;
+        //initialSpringForce = armStateMan.springJoint.spring;
         //armStateMan.lineRenderer.enabled = true;
-
+        rb = armStateMan.hitObject.GetComponent<Rigidbody>();
+        //initialMass = rb.mass;
+        //rb.mass = 0.1f;
         //currentHookShotState = HookShotState.Pull;
         armStateMan.player.currentState = PlayerControllerCinemachineLook2.State.Normal;
     }
@@ -47,12 +58,13 @@ public class ArmPullState : ArmBaseState
         shootAction.performed -= Shoot;
         shootAction.canceled -= NotShoot;
         //hand.transform.SetParent(armStateMan.transform);
+        //rb.mass = initialMass;
         Object.Destroy(armStateMan.newGrappleHandle);
-        armStateMan.springJoint.spring = initialSpringForce;
-        armStateMan.springJoint.connectedAnchor = Vector3.zero;
+        //armStateMan.springJoint.spring = initialSpringForce;
+        //armStateMan.springJoint.connectedAnchor = Vector3.zero;
 
-        armStateMan.springJoint.maxDistance = 0f;
-        armStateMan.springJoint.minDistance = 0f;
+        //armStateMan.springJoint.maxDistance = 0f;
+        //armStateMan.springJoint.minDistance = 0f;
         //ReturnHand();
         armStateMan.pull = false;
         armStateMan.hitObject = null;
@@ -68,7 +80,13 @@ public class ArmPullState : ArmBaseState
 
         }
         armStateMan.hitPoint = armStateMan.newGrappleHandle.transform.position;
-        armStateMan.springJoint.spring += Time.deltaTime;
+        //armStateMan.springJoint.spring += Time.deltaTime;
+        if (armStateMan.transform != null && armStateMan.hitObject != null)
+            if (Vector3.Distance(armStateMan.transform.position, armStateMan.hitObject.transform.position) > armStateMan.distanceFromPlayerToStopPlaying + radius)
+            {
+                if (armStateMan.transform != null && armStateMan.hitObject != null)
+                    rb.AddForceAtPosition(Vector3.Normalize(armStateMan.transform.position - armStateMan.hitObject.transform.position) * armStateMan.pullForce, armStateMan.hitPoint, ForceMode.Force);
+            }
     }
 
     public void Shoot(InputAction.CallbackContext context)

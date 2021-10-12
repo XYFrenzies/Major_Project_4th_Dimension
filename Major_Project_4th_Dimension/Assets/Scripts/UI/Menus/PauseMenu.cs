@@ -8,7 +8,7 @@ using UnityEngine.EventSystems;
 /// <summary>
 /// This script works with both controller and keyboard support on the pause menu
 /// </summary>
-public class PauseMenu : MonoBehaviour
+public class PauseMenu : Singleton<PauseMenu>
 {
     [SerializeField]private PlayerInput playerInput;//Input from the player
     [SerializeField] private GameObject m_pauseMenu = null;//Pause menu obj
@@ -18,14 +18,13 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject m_fsPauseMenu = null;//Checking object first selected in pause menu
     private InputAction pauseMenuAction;//Checks if the input has been called for the pause menu
     private InputAction pauseGamepad;//Checks if the b button has been pressed on the controller.
-    private bool isPaused = false;//Checks if the game has been paused
+    [HideInInspector]public bool isPaused = false;//Checks if the game has been paused
     private ColorBlock colourSelected;//Changing the ui selection colour
     private ColorBlock naturalState;//The natural state of the ui selection colour
     private bool m_gamePadActive = false;//Checking if the gamepad is active.
     private void Awake()
     {
         pauseMenuAction = playerInput.actions["PauseMenu"];
-        pauseGamepad = playerInput.actions["PauseMoveController"];
         m_pauseMenu.SetActive(false);
         colourSelected.colorMultiplier = 1;
         colourSelected.selectedColor = new Color(0, 1, 0.117f, 1);
@@ -94,6 +93,8 @@ public class PauseMenu : MonoBehaviour
     //When the game is paused, this function will occur.
     private void PauseGame()
     {
+        playerInput.SwitchCurrentActionMap("Menu");
+        pauseGamepad = playerInput.actions["PauseMoveController"];
         //Setting the cursor to visible, timescale = 0, cursor is not locked, changing menus and checking the initial input.
         Cursor.visible = true;
         Time.timeScale = 0;
@@ -114,6 +115,7 @@ public class PauseMenu : MonoBehaviour
     }
     public void ResumeGame()
     {
+        playerInput.SwitchCurrentActionMap("Player");
         isPaused = false;
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;

@@ -3,7 +3,7 @@ using UnityEngine;
 public class FootSteps : MonoBehaviour
 {
     AudioSource source;
-    public SimpleAudioEvent audioEvent;
+    //public SimpleAudioEvent audioEvent;
 
     private void Awake()
     {
@@ -12,7 +12,8 @@ public class FootSteps : MonoBehaviour
 
     public void Step()
     {
-        audioEvent.Play(source);
+        SoundPlayer.Instance.PlaySoundEffect("FootSteps", source);
+        //Debug.Log("Footstep sound");
     }
 
 }

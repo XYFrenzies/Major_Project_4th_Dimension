@@ -10,7 +10,7 @@ public class ArmEffects : MonoBehaviour
     PlayerInput playerInput;
     InputAction shootAction;
     bool isShooting = false;
-    public SimpleAudioEvent audioEvent;
+    //public SimpleAudioEvent audioEvent;
     AudioSource source;
 
     // Start is called before the first frame update
@@ -41,14 +41,18 @@ public class ArmEffects : MonoBehaviour
         {
             DrawLineRenderer();
             if (!source.isPlaying)
-                audioEvent.Play(source);
+            {
+                SoundPlayer.Instance.PlaySoundEffect("FireArm", source);
+                //Debug.Log("Arm sound effect");
+            }
         }
         else
         {
             StopDrawingLineRenderer();
             if (source.isPlaying)
-                audioEvent.Stop(source);
-
+            {
+                source.Stop();
+            }
         }
         //if (arm.isObjectHeld)
         //    arm.realisticBlackHole.transform.position = arm.hitObject.transform.position;
@@ -77,7 +81,7 @@ public class ArmEffects : MonoBehaviour
         arm.blackHoleCentre.transform.localScale = arm.startSize;
         arm.scaleModifier = 1f;
         arm.blackHoleCentre.SetActive(false);
-        audioEvent.Stop(source);
+        //source.Stop();
     }
 
 

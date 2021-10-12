@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Audio;
 /// <summary>
 /// These are global values that are saved between scenes.
 /// It will also be saving volumes outside of the game so that it will be set for each new start.
@@ -6,9 +7,10 @@ using UnityEngine;
 public class GlobalVariables : Singleton<GlobalVariables>
 {
     //[HideInInspector] public bool isFading = false;
+    [SerializeField] private AudioMixer m_audioMixer;
     [HideInInspector] public float masterVolume = 0.0f;
     [HideInInspector] public float soundVolume = 0.0f;
-    [HideInInspector] public float soundEffectVolume = 0.0f;
+    [HideInInspector] public float musicVolume = 0.0f;
     [HideInInspector] public float verticalSensitivity = 0.2f;
     [HideInInspector] public float horizontalSensitivity = 0.2f;
     [HideInInspector] public int fpsIsOn = 1;
@@ -18,14 +20,14 @@ public class GlobalVariables : Singleton<GlobalVariables>
         {
             masterVolume = PlayerPrefs.GetFloat("Master Volume");
             soundVolume = PlayerPrefs.GetFloat("Sound Volume");
-            soundEffectVolume = PlayerPrefs.GetFloat("Sound Effect Volume");
+            musicVolume = PlayerPrefs.GetFloat("Sound Effect Volume");
         }
         else
         {
             Debug.Log("New volume defaults need to be entered.");
             PlayerPrefs.SetFloat("Master Volume", masterVolume);
             PlayerPrefs.SetFloat("Sound Volume", soundVolume);
-            PlayerPrefs.SetFloat("Sound Effect Volume", soundEffectVolume);
+            PlayerPrefs.SetFloat("Sound Effect Volume", musicVolume);
         }
         if (PlayerPrefs.HasKey("Vertical Sensitivity") && PlayerPrefs.HasKey("Horizontal Sensitivity"))
         {
@@ -44,21 +46,26 @@ public class GlobalVariables : Singleton<GlobalVariables>
             PlayerPrefs.SetInt("FPS Display", fpsIsOn);
         DontDestroyOnLoad(gameObject);
     }
-
+    private void Start()
+    {
+        m_audioMixer.SetFloat("MasterVol", Mathf.Log10(masterVolume) * 30.0f);
+        m_audioMixer.SetFloat("MusicVol", Mathf.Log10(soundVolume) * 30.0f);
+        m_audioMixer.SetFloat("SFXVol", Mathf.Log10(musicVolume) * 30.0f);
+    }
     public void SaveVolumes(float a_masterVolume, float a_soundVolume, float a_soundEffectVolume) 
     {
         masterVolume = a_masterVolume;
         soundVolume = a_soundVolume;
-        soundEffectVolume = a_soundEffectVolume;
+        musicVolume = a_soundEffectVolume;
         PlayerPrefs.SetFloat("Master Volume", masterVolume);
         PlayerPrefs.SetFloat("Sound Volume", soundVolume);
-        PlayerPrefs.SetFloat("Sound Effect Volume", soundEffectVolume);
+        PlayerPrefs.SetFloat("Sound Effect Volume", musicVolume);
     }
     public void ResetAllVolumes() 
     {
         masterVolume = 0.0f;
         soundVolume = 0.0f;
-        soundEffectVolume = 0.0f;
+        musicVolume = 0.0f;
     }
 
     public bool GetFPSIsOn() 
@@ -69,19 +76,25 @@ public class GlobalVariables : Singleton<GlobalVariables>
             return false;
         return false;
     }
+    public void SaveFPSIsOn(bool boolValue) 
+    {
+        if (boolValue)
+            fpsIsOn = 0;
+        else
+            fpsIsOn = 1;
+    }
     public void SaveSensitivity(float a_verticalSensitivity, float a_horizontalSensitivity) 
     {
         verticalSensitivity = a_verticalSensitivity;
         horizontalSensitivity = a_horizontalSensitivity;
     }
-    //public bool CheckIsFade()
-    //{
-    //    switch (isFading)
-    //    {
-    //        case true:
-    //            return true;
-    //        case false:
-    //            return false;
-    //    }
-    //}
+    private void OnApplicationQuit()
+    {
+        PlayerPrefs.SetFloat("Master Volume", masterVolume);
+        PlayerPrefs.SetFloat("Sound Volume", soundVolume);
+        PlayerPrefs.SetFloat("Sound Effect Volume", musicVolume);
+        PlayerPrefs.SetFloat("Vertical Sensitivity", verticalSensitivity);
+        PlayerPrefs.SetFloat("Horizontal Sensitivity", horizontalSensitivity);
+        PlayerPrefs.SetInt("FPS Display", fpsIsOn);
+    }
 }

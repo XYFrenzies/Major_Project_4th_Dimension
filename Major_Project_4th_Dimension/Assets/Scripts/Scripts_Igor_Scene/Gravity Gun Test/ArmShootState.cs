@@ -42,16 +42,9 @@ public class ArmShootState : ArmBaseState
 
     public override void UpdateState()
     {
-        Debug.DrawRay(armStateMan.holdPoint.position, armStateMan.holdPoint.forward, Color.green);
 
         if (shooting)
             ShootArm();
-
-        if(armStateMan.isObjectHeld)
-        {
-            //var blah = armStateMan.hitObject.transform.rotation.eulerAngles.z;
-        }
-
     }
 
 
@@ -100,6 +93,7 @@ public class ArmShootState : ArmBaseState
         {
             armStateMan.hitPoint = hit.point;
             armStateMan.hitObject = hit.collider.gameObject;
+            Debug.DrawRay(armStateMan.holdPoint.position, aimPoint - armStateMan.holdPoint.position * armStateMan.shootRange, Color.blue);
 
             if (hit.transform.CompareTag("CanHookShotTowards")) // hit grapple point
             {
@@ -151,13 +145,7 @@ public class ArmShootState : ArmBaseState
         if (armStateMan.lineRenderer != null && armStateMan.realisticBlackHole != null && armStateMan.blackHoleCentre != null)
         {
             shooting = true;
-            //armStateMan.lineRenderer.enabled = true;
-            //armStateMan.blackHoleCentre.SetActive(true);
-            //armStateMan.realisticBlackHole.SetActive(true);
-            
         }
-            //Debug.Log("Shooting arm");
-        //}
 
     }
     private void UnShootingArm(InputAction.CallbackContext context)
@@ -166,13 +154,9 @@ public class ArmShootState : ArmBaseState
         if (armStateMan.lineRenderer != null && armStateMan.realisticBlackHole != null && armStateMan.blackHoleCentre != null)
         {
             shooting = false;
-            //armStateMan.lineRenderer.enabled = false;
-            //armStateMan.realisticBlackHole.SetActive(false);
-            //armStateMan.blackHoleCentre.transform.localScale = armStateMan.startSize;
-            //armStateMan.scaleModifier = 1f;
-            //armStateMan.blackHoleCentre.SetActive(false);
+
         }
-        //Debug.Log("Unshooting arm");
+
     }
 
     //public void ThrowObject(InputAction.CallbackContext context)

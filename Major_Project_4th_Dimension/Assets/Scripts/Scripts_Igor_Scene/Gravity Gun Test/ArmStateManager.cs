@@ -7,7 +7,9 @@ using UnityEngine.Animations;
 public class ArmStateManager : MonoBehaviour
 {
     // Exposed properties
-    public float throwForce = 30f;
+    public float pullForce = 120f;
+    public float distanceFromPlayerToStopPlaying = 1f;
+    //public float throwForce = 30f;
     public float shootRange = 50f;
     public float armCoolDownTime = 1f;
     public LayerMask holdObjectLayerMask;
@@ -24,7 +26,7 @@ public class ArmStateManager : MonoBehaviour
     public float percentageOfDistToTarget = 0.9f;
     public GameObject blackHoleCentre; // pink one
     public GameObject realisticBlackHole;
-    public GameObject blackHoleDistortion;
+    //public GameObject blackHoleDistortion;
 
     public float scaleModifier = 1f;
     public float modifier = 5f;
@@ -124,10 +126,10 @@ public class ArmStateManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         currentState.UpdateState();
-        Debug.Log(currentState);
+        //Debug.Log(currentState);
         //if (lineRenderer.enabled)
         //    DrawLineRenderer();
     }

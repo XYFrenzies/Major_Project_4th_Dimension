@@ -42,9 +42,14 @@ public class ConveyorBelt : MonoBehaviour
                 break;
         }
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!other.CompareTag("Player") && other.gameObject.GetComponent<Rigidbody>())
+            other.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+    }
     private void MoveDirection(Collider col, GameObject obj)
     {
-        if(PowerStatus.Instance.powerIsOn)
+        if (PowerStatus.Instance.powerIsOn)
             col.transform.position = Vector3.MoveTowards(col.transform.position, obj.transform.position, speed * Time.deltaTime);
     }
     public void ChangeDirection()
