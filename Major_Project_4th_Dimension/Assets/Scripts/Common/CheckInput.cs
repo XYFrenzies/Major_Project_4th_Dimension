@@ -5,9 +5,20 @@ using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
 public class CheckInput : Singleton<CheckInput>
 {
-    public bool CheckGamePadActive()
+    public bool CheckGamePadActiveMenu()
     {
         if (Gamepad.current != null && Gamepad.current.leftStick.IsActuated() && (EventSystem.current.currentSelectedGameObject == null))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    public bool CheckGamePadActiveGame() 
+    {
+        if (Gamepad.current != null && (Gamepad.current.leftStick.IsActuated() || Gamepad.current.rightStick.IsActuated()))
         {
             return true;
         }
