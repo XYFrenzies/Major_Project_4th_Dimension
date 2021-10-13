@@ -246,6 +246,7 @@ GameObject:
   - component: {fileID: 2035133409329125007}
   - component: {fileID: 3139541760424319274}
   - component: {fileID: 897645489930399200}
+  - component: {fileID: 5275822567523264515}
   m_Layer: 0
   m_Name: SM_Grapple_Point
   m_TagString: Untagged
@@ -317,6 +318,23 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5275822567523264515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1690520710036311093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ab12e01905a268408a53777cd5e3d1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  materialOn: {fileID: 2100000, guid: cccc6e6d4996d0549b21eb21d4c3ff93, type: 2}
+  materialOff: {fileID: 2100000, guid: 7c169a90cda9aa943baf1bdaca7f3820, type: 2}
+  m_interfaceHookPC: {fileID: 8641633005849786301}
+  m_interfaceHookXbox: {fileID: 278730737771849564}
 --- !u!1 &8641633005849786301
 GameObject:
   m_ObjectHideFlags: 0
