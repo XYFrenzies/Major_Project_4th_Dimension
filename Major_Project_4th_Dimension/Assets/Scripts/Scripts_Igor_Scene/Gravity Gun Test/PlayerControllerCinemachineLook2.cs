@@ -79,7 +79,7 @@ public class PlayerControllerCinemachineLook2 : MonoBehaviour
 
     private void OnEnable()
     {
-        
+
         interactAction.performed += Interact;
     }
 
@@ -102,7 +102,7 @@ public class PlayerControllerCinemachineLook2 : MonoBehaviour
         Debug.Log(isPlayerCloseEnough);
     }
 
-    public void PlayerIsCloseToSwitchConveyor() 
+    public void PlayerIsCloseToSwitchConveyor()
     {
         isPlayerCloseToConveyorBelt = !isPlayerCloseToConveyorBelt;
     }
@@ -173,19 +173,32 @@ public class PlayerControllerCinemachineLook2 : MonoBehaviour
 
     public void CalculateMove()
     {
-        direction = Vector3.zero;
+        var camForward = cam.transform.forward;
+        camForward.y = 0.0f;
+        camForward.Normalize();
+
+        var camRight = cam.transform.right;
+        camRight.y = 0.0f;
+        camRight.Normalize();
+
+        direction.x = 0f;
+        direction.z = 0f;
+
+        //direction = Vector3.zero;
         inputs = moveAction.ReadValue<Vector2>();
-        direction.x = inputs.x;
-        direction.z = inputs.y;
-        if (direction != Vector3.zero)
-            //transform.forward = direction;
-            direction = direction.x * cam.transform.right.normalized + direction.z * cam.transform.forward.normalized;
-        direction.y = 0f;
+        //direction.x = inputs.x;
+        //direction.z = inputs.y;
+        //direction.y = 0f;
+        //if (direction != Vector3.zero)
+        //    direction = direction.x * cam.transform.right.normalized + direction.z * cam.transform.forward.normalized;
+        direction += inputs.y * camForward;
+        direction += inputs.x * camRight;
+
 
         animator.SetFloat("xPos", inputs.x, 0.3f, Time.deltaTime);
         animator.SetFloat("yPos", inputs.y, 0.3f, Time.deltaTime);
         //anim.SetBool("IsLanding", false);
-
+        Debug.Log(direction);
     }
 
     public void Look()
@@ -193,7 +206,6 @@ public class PlayerControllerCinemachineLook2 : MonoBehaviour
         if (isHookThrown == false)
             transform.rotation = Quaternion.Euler(0, cam.transform.eulerAngles.y, 0);
 
-        
 
 
         Vector3 rayOrigin = cam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
@@ -239,7 +251,7 @@ public class PlayerControllerCinemachineLook2 : MonoBehaviour
 
         if (Vector3.Distance(transform.position, target) < distanceToHookShotHitPoint)
         {
-        animator.SetBool("IsFlying", false);
+            animator.SetBool("IsFlying", false);
             rb.useGravity = true;
             //chainShoot.fly = false;
             //chainShoot.ReturnHand();
