@@ -33933,6 +33933,18 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 5297823867329914694, guid: 40b81e1fe579b4441aa2cdd6d5e483d0, type: 3}
+      propertyPath: m_Size.z
+      value: 1.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 5297823867329914694, guid: 40b81e1fe579b4441aa2cdd6d5e483d0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5297823867329914694, guid: 40b81e1fe579b4441aa2cdd6d5e483d0, type: 3}
+      propertyPath: m_Center.z
+      value: -0.12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40b81e1fe579b4441aa2cdd6d5e483d0, type: 3}
 --- !u!4 &851066775 stripped
@@ -34720,6 +34732,18 @@ PrefabInstance:
     - target: {fileID: 3182247701652938969, guid: 40b81e1fe579b4441aa2cdd6d5e483d0, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5297823867329914694, guid: 40b81e1fe579b4441aa2cdd6d5e483d0, type: 3}
+      propertyPath: m_Size.z
+      value: 1.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 5297823867329914694, guid: 40b81e1fe579b4441aa2cdd6d5e483d0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5297823867329914694, guid: 40b81e1fe579b4441aa2cdd6d5e483d0, type: 3}
+      propertyPath: m_Center.z
+      value: -0.15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40b81e1fe579b4441aa2cdd6d5e483d0, type: 3}
@@ -43567,8 +43591,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.15000007, y: 6.971298, z: 44.288387}
-  m_Center: {x: -0.07500002, y: 3.485649, z: 19.995556}
+  m_Size: {x: 0.3, y: 6.971298, z: 44.288387}
+  m_Center: {x: 0, y: 3.485649, z: 19.995556}
 --- !u!1001 &1086059601
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -57964,6 +57988,8 @@ MonoBehaviour:
   id: 0
   materialOn: {fileID: 2100000, guid: 5cdf32cedd9252c419fe88429a2a003e, type: 2}
   materialOff: {fileID: 2100000, guid: 7c169a90cda9aa943baf1bdaca7f3820, type: 2}
+  m_interfaceHookPC: {fileID: 0}
+  m_interfaceHookXbox: {fileID: 0}
 --- !u!65 &1454986957
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -83249,6 +83275,8 @@ MonoBehaviour:
   id: 0
   materialOn: {fileID: 2100000, guid: 5cdf32cedd9252c419fe88429a2a003e, type: 2}
   materialOff: {fileID: 2100000, guid: 7c169a90cda9aa943baf1bdaca7f3820, type: 2}
+  m_interfaceHookPC: {fileID: 0}
+  m_interfaceHookXbox: {fileID: 0}
 --- !u!65 &1997404091
 BoxCollider:
   m_ObjectHideFlags: 0
