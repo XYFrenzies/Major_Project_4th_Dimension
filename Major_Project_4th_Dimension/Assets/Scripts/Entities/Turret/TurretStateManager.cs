@@ -126,8 +126,6 @@ public class TurretStateManager : MonoBehaviour
     private void FindPlayer()
     {
         gizmos.transform.position = GameObject.FindGameObjectWithTag("Player").transform.position;
-        //if(!m_animationFiring.isPlaying)
-        //    m_animationFiring.Play();
         if (StopCheck())
             return;
         m_deltaTimeTimer += Time.deltaTime;
@@ -139,7 +137,6 @@ public class TurretStateManager : MonoBehaviour
     }
     private void RaycastSearchCheck()
     {
-        
         RaycastHit hit;
         if (Physics.Raycast(m_spotLight.gameObject.transform.position, m_spotLight.gameObject.transform.forward, out hit)
             && hit.transform.gameObject == hit.transform.CompareTag("Player"))
@@ -175,11 +172,5 @@ public class TurretStateManager : MonoBehaviour
             return true;
         }
         return false;
-    }
-    //private void OnDrawGizmosSelected()
-    //{
-    //    Gizmos.color = Color.yellow;
-    //    Gizmos.DrawSphere(m_spotLight.gameObject.transform.position - new Vector3(0,0, 7), m_spotLightRCRadius);
-    //}
-    
+    }    
 }
