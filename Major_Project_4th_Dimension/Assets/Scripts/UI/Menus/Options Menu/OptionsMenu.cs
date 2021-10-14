@@ -13,8 +13,8 @@ public class OptionsMenu : MonoBehaviour
     [SerializeField] private List<GameObject> m_optionsSceneSelect;
     [SerializeField] private GameObject m_mainMenu;
     [SerializeField] private GameObject m_firstButtonMainMenu;
-    [SerializeField] private InputAction m_optionsMenuActionRight;
-    [SerializeField] private InputAction m_optionsMenuActionLeft;
+    private InputAction m_optionsMenuActionRight;
+    private InputAction m_optionsMenuActionLeft;
     private ColorBlock colourSelected;//Changing the ui selection colour
     private ColorBlock naturalState;//The natural state of the ui selection colour
     private InputAction pauseGamepad;//Checks if the b button has been pressed on the controller.
