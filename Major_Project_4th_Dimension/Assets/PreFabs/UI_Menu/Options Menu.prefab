@@ -304,7 +304,6 @@ GameObject:
   - component: {fileID: 2174459543306612083}
   - component: {fileID: 3442046521881052407}
   - component: {fileID: 7296075148620487741}
-  - component: {fileID: 3639628450781732765}
   m_Layer: 5
   m_Name: Options Menu
   m_TagString: Untagged
@@ -401,18 +400,6 @@ MonoBehaviour:
   m_optionsSceneSelect: []
   m_mainMenu: {fileID: 0}
   m_firstButtonMainMenu: {fileID: 0}
---- !u!114 &3639628450781732765
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 160569093217485531}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02b8391f3c0cc234bbc681cfaa7f74a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &738967331423238816
 GameObject:
   m_ObjectHideFlags: 0
@@ -2831,7 +2818,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3639628450781732765}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: CheckInput, Assembly-CSharp
         m_MethodName: SetMouse
         m_Mode: 1
@@ -2999,7 +2986,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3639628450781732765}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: CheckInput, Assembly-CSharp
         m_MethodName: SetController
         m_Mode: 1
