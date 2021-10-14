@@ -5,7 +5,8 @@ using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
 public class CheckInput : Singleton<CheckInput>
 {
-    private bool m_mouseIsActive = false;
+
+    private bool m_mouseIsActive = true;
     public bool CheckGamePadActiveMenu()
     {
         if (Gamepad.current != null && Gamepad.current.leftStick.IsActuated() && (EventSystem.current.currentSelectedGameObject == null))
@@ -17,22 +18,22 @@ public class CheckInput : Singleton<CheckInput>
             return false;
         }
     }
+    public void SetController()
+    {
+        if(Gamepad.current != null)
+            m_mouseIsActive = false;
+    }
+    public void SetMouse()
+    {
+        if (Mouse.current != null)
+            m_mouseIsActive = true;
+    }
     public bool CheckGamePadActiveGame()
     {
-        if (Gamepad.current != null && (Gamepad.current.IsActuated() || !m_mouseIsActive) && !Mouse.current.leftButton.IsActuated() && !Mouse.current.rightButton.IsActuated())
-        {
-            m_mouseIsActive = false;
-            return true;
-        }
-        return false;
+        return !m_mouseIsActive;
     }
     public bool CheckMouseActive()
     {
-        if (Mouse.current != null && (Mouse.current.IsActuated() || m_mouseIsActive) && !Gamepad.current.leftStick.IsActuated() && !Gamepad.current.rightStick.IsActuated())
-        {
-            m_mouseIsActive = true;
-            return true;
-        }
-        return false;
+        return m_mouseIsActive;
     }
 }
