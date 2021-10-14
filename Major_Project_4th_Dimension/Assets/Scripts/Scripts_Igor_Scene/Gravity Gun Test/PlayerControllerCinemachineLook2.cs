@@ -52,6 +52,31 @@ public class PlayerControllerCinemachineLook2 : MonoBehaviour
 
     bool isHookThrown = false;
 
+    public bool Grounded
+    {
+        get
+        {
+            return animator.GetBool("IsGrounded");
+        }
+        set
+        {
+            animator.SetBool("IsGrounded", value);
+        }
+    }
+
+    // Is the player falling
+    public bool Falling
+    {
+        get
+        {
+            if (!Grounded)
+                return true;
+            else
+                return false;
+        }
+
+    }
+
     public enum State
     {
         Normal,
@@ -163,7 +188,8 @@ public class PlayerControllerCinemachineLook2 : MonoBehaviour
                 break;
 
         }
-
+        GroundCheck();
+        Debug.Log(Grounded);
     }
 
     public void Move()
@@ -198,7 +224,7 @@ public class PlayerControllerCinemachineLook2 : MonoBehaviour
         animator.SetFloat("xPos", inputs.x, 0.3f, Time.deltaTime);
         animator.SetFloat("yPos", inputs.y, 0.3f, Time.deltaTime);
         //anim.SetBool("IsLanding", false);
-        Debug.Log(direction);
+
     }
 
     public void Look()
@@ -265,6 +291,21 @@ public class PlayerControllerCinemachineLook2 : MonoBehaviour
         }
     }
 
+    bool GroundCheck()
+    {
+        Ray ray = new Ray(transform.position, Vector3.down); // Shoot a ray down
+        RaycastHit hit;
 
+        if (Physics.Raycast(ray, out hit, 2f)) // If the ray hits the ground
+        {
+            Grounded = true; // is the player on the ground?
+            //animator.SetBool("IsGrounded", false);
+            return true;
+        }
+
+        Grounded = false;
+        return false;
+
+    }
 
 }
