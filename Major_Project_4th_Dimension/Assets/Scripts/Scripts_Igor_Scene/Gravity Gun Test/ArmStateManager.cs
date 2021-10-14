@@ -117,21 +117,15 @@ public class ArmStateManager : MonoBehaviour
 
     }
 
-
-    // Start is called before the first frame update
     public void Start()
     {
         SwitchState(shootState);
-        //Debug.Log("enter state test");
     }
 
-    // Update is called once per frame
+
     void FixedUpdate()
     {
         currentState.UpdateState();
-        //Debug.Log(currentState);
-        //if (lineRenderer.enabled)
-        //    DrawLineRenderer();
     }
 
     public void SwitchState(ArmBaseState state)
@@ -145,34 +139,4 @@ public class ArmStateManager : MonoBehaviour
             currentState.EnterState();
     }
 
-    //public void DrawLineRenderer()
-    //{
-    //    lineRenderer.positionCount = 2;
-    //    lineRenderer.SetPosition(0, shootPoint.position);
-    //    blackHoleCentre.transform.position = shootPoint.position;
-    //    EffectSizeChange();
-    //    if (isObjectHeld)
-    //    {
-    //        lineRenderer.SetPosition(1, hitObject.transform.position);
-    //        realisticBlackHole.transform.position = hitObject.transform.position;
-    //    }
-    //    else
-    //    {
-    //        lineRenderer.SetPosition(1, hitPoint);
-    //        realisticBlackHole.transform.position = hitPoint;
-
-    //    }
-    //}
-
-    //public void EffectSizeChange()
-    //{
-
-
-    //    if (scaleModifier < 4f)
-    //    {
-    //        blackHoleCentre.transform.localScale = startSize * scaleModifier;
-    //        scaleModifier += Time.deltaTime * modifier; // need to find best place to set scalemodifier back to 0
-    //    }
-
-    //}
 }
