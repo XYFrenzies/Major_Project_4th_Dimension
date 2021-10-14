@@ -2071,7 +2071,7 @@ PrefabInstance:
       objectReference: {fileID: -1721949947461970759, guid: b532cb8e7c32fba42859b5cd9031df3d, type: 2}
     - target: {fileID: 8700069749185577221, guid: 2f5db0dbcca1def40a4ccdc0e8badd20, type: 3}
       propertyPath: playMusic
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8700069749185577221, guid: 2f5db0dbcca1def40a4ccdc0e8badd20, type: 3}
       propertyPath: MusicToPlay
@@ -39195,10 +39195,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TurretWithAimAtTarget (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ae51393a6f3f2249aef5174ff6d59f8, type: 3}
 --- !u!1 &1926852099
@@ -41770,17 +41766,6 @@ MonoBehaviour:
     m_MaintainTargetRotationOffset: 0
   m_SourceObjectsGUIToggle: 1
   m_SettingsGUIToggle: 1
---- !u!114 &2043515725 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8431453541361779733, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
-  m_PrefabInstance: {fileID: 1199984216902287406}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: facc9b99a1874874184f9efd961c56ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2055899752
 GameObject:
   m_ObjectHideFlags: 0
@@ -55640,10 +55625,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8431453539761728277, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8431453540006725398, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
       propertyPath: m_Name
       value: PlayerGravityGunV2
@@ -55694,36 +55675,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8431453540725934212, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.66262823
-      objectReference: {fileID: 0}
-    - target: {fileID: 8431453540725934212, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.7656513
+      value: 1.148467
       objectReference: {fileID: 0}
     - target: {fileID: 8431453540725934212, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.8360674
+      value: -2.8615289
       objectReference: {fileID: 0}
-    - target: {fileID: 8431453540725934212, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9993148
-      objectReference: {fileID: 0}
-    - target: {fileID: 8431453540725934212, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.026167978
-      objectReference: {fileID: 0}
-    - target: {fileID: 8431453540725934212, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.026167985
-      objectReference: {fileID: 0}
-    - target: {fileID: 8431453540725934212, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.00068523263
-      objectReference: {fileID: 0}
-    - target: {fileID: 8431453541361779730, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
-      propertyPath: arm
-      value: 
-      objectReference: {fileID: 2043515725}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
 --- !u!4 &1202371031025749094
@@ -60494,7 +60451,7 @@ PrefabInstance:
       objectReference: {fileID: 598438017157849053, guid: b532cb8e7c32fba42859b5cd9031df3d, type: 2}
     - target: {fileID: 8700069749185577221, guid: 2f5db0dbcca1def40a4ccdc0e8badd20, type: 3}
       propertyPath: playMusic
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8700069749185577221, guid: 2f5db0dbcca1def40a4ccdc0e8badd20, type: 3}
       propertyPath: MusicToPlay
