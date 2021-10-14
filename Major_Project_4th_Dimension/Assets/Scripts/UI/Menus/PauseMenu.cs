@@ -14,7 +14,6 @@ public class PauseMenu : Singleton<PauseMenu>
     [SerializeField] private GameObject m_pauseMenu = null;//Pause menu obj
     [SerializeField] private GameObject m_gameUI = null;//Game ui obj
     [SerializeField] private GameObject m_optionsUI = null;//Options menu obj
-    [SerializeField] private GameObject m_fsOptionsMenu = null;//Checking object first selected in options menu
     [SerializeField] private GameObject m_fsPauseMenu = null;//Checking object first selected in pause menu
     private InputAction pauseMenuAction;//Checks if the input has been called for the pause menu
     private InputAction pauseGamepad;//Checks if the b button has been pressed on the controller.
