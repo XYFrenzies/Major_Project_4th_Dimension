@@ -47,7 +47,7 @@ public class OptionsMenu : MonoBehaviour
         m_optionsMenuActionLeft.started += OptionsMoveLeft;
         m_menus[0].SetActive(true);
         m_mainMenu.SetActive(false);
-        if (CheckInput.Instance.CheckGamePadActive())
+        if (CheckInput.Instance.CheckGamePadActiveMenu())
         {
             EventSystem.current.SetSelectedGameObject(m_firstButtonInMenus[0]);
             m_firstButtonInMenus[0].GetComponent<Slider>().colors = colourSelected;
@@ -144,7 +144,7 @@ public class OptionsMenu : MonoBehaviour
     }
     private void UpdateInput()
     {
-        if (CheckInput.Instance.CheckGamePadActive() && (EventSystem.current.currentSelectedGameObject == null))
+        if (CheckInput.Instance.CheckGamePadActiveMenu() && (EventSystem.current.currentSelectedGameObject == null))
         {
             if (!m_alreadySeenGamePad)
             {
