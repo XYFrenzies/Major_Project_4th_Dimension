@@ -6,7 +6,6 @@ public class InterfaceMenu : MonoBehaviour
 {
     [SerializeField] private Toggle fpsCounter;
     private bool valueFPSCounter = false;
-    private bool isMouseActive = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +14,6 @@ public class InterfaceMenu : MonoBehaviour
     }
     public void SaveValues() 
     {
-        GlobalVariables.Instance.SaveFPSIsOn(valueFPSCounter);
+        GlobalVariables.Instance.SaveFPSIsOn(fpsCounter.isOn);
     }
 }
