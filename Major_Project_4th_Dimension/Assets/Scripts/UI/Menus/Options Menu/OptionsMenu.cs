@@ -103,7 +103,20 @@ public class OptionsMenu : MonoBehaviour
             m_menuChosen = m_menus.Count - 1;
 
         SetMenu(m_menuChosen);
-
+        SetFirstButton();
+    }
+    private void SetFirstButton() 
+    {
+        if (m_menus[m_menuChosen])
+        {
+            EventSystem.current.SetSelectedGameObject(m_firstButtonInMenus[m_menuChosen]);
+            if (m_firstButtonInMenus[m_menuChosen].GetComponent<Slider>() != null)
+                m_firstButtonInMenus[m_menuChosen].GetComponent<Slider>().colors = colourSelected;
+            else if (m_firstButtonInMenus[m_menuChosen].GetComponent<Button>() != null)
+                m_firstButtonInMenus[m_menuChosen].GetComponent<Button>().colors = colourSelected;
+            else if (m_firstButtonInMenus[m_menuChosen].GetComponent<Toggle>())
+                m_firstButtonInMenus[m_menuChosen].GetComponent<Toggle>().colors = colourSelected;
+        }
     }
     private void OptionsMoveRight(InputAction.CallbackContext context)
     {
@@ -111,6 +124,7 @@ public class OptionsMenu : MonoBehaviour
         if (m_menuChosen > m_menus.Count - 1)
             m_menuChosen = 0;
         SetMenu(m_menuChosen);
+        SetFirstButton();
     }
 
     public void SetMenu(int value)
@@ -153,9 +167,9 @@ public class OptionsMenu : MonoBehaviour
                     item.SetActive(true);
                 }
                 m_alreadySeenGamePad = true;
+                SetFirstButton();
             }
-            EventSystem.current.SetSelectedGameObject(m_firstButtonInMenus[0]);
-            m_firstButtonInMenus[0].GetComponent<Slider>().colors = colourSelected;
+
         }
         else if (Mouse.current.IsActuated())
         {
