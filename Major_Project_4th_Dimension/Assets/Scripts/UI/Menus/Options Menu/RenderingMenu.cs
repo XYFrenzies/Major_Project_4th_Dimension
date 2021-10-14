@@ -7,8 +7,11 @@ public class RenderingMenu : Singleton<RenderingMenu>
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
 
+    }
+    public void SaveValues()
+    {
+
+    }
 
 }
