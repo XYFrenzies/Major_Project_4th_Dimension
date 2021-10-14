@@ -47,12 +47,12 @@ public class GrapplePoint : MonoBehaviour
     }
     private void ChangeInterfaceType()
     {
-        if (!CheckInput.Instance.CheckGamePadActiveGame())
+        if (CheckInput.Instance.CheckMouseActive())
         {
             m_interfaceHookPC.SetActive(true);
             m_interfaceHookXbox.SetActive(false);
         }
-        else if (CheckInput.Instance.CheckGamePadActiveGame())
+        if (CheckInput.Instance.CheckGamePadActiveGame())
         {
             m_interfaceHookXbox.SetActive(true);
             m_interfaceHookPC.SetActive(false);
