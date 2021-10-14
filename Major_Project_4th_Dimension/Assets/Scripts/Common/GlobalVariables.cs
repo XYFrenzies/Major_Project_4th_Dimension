@@ -50,9 +50,9 @@ public class GlobalVariables : Singleton<GlobalVariables>
     }
     private bool CheckIfPrefsExist(string[] variables)
     {
-        foreach (var item in variables)
+        for (int i = 0; i < variables.Length; i++)
         {
-            if (!PlayerPrefs.HasKey(item))
+            if (!PlayerPrefs.HasKey(variables[i]))
                 return false;
         }
         return true;
@@ -63,7 +63,6 @@ public class GlobalVariables : Singleton<GlobalVariables>
         m_audioMixer.SetFloat("MusicVol", Mathf.Log10(soundVolume) * 30.0f);
         m_audioMixer.SetFloat("SFXVol", Mathf.Log10(musicVolume) * 30.0f);
         m_interfaceOn.isOn = GetFPSIsOn();
-
     }
     public void SaveVolumes(float a_masterVolume, float a_soundVolume, float a_soundEffectVolume)
     {
