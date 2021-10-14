@@ -31,9 +31,8 @@ public class GrapplePoint : MonoBehaviour
     }
     private void Update()
     {
-        m_interfaceHookPC.transform.LookAt(GameObject.FindGameObjectWithTag("Player").transform);
-        m_interfaceHookXbox.transform.LookAt(GameObject.FindGameObjectWithTag("Player").transform);
-
+        FindDirection(m_interfaceHookPC, GameObject.FindGameObjectWithTag("Player"));
+        FindDirection(m_interfaceHookXbox, GameObject.FindGameObjectWithTag("Player"));
         if (isOn)
         {
             ChangeInterfaceType();
@@ -41,23 +40,28 @@ public class GrapplePoint : MonoBehaviour
     }
     public void TurnPointOff()
     {
-            mat.color = materialOff.color;
+        mat.color = materialOff.color;
         m_interfaceHookPC.SetActive(false);
         m_interfaceHookXbox.SetActive(false);
         isOn = false;
     }
-    private void ChangeInterfaceType() 
+    private void ChangeInterfaceType()
     {
-        if (CheckInput.Instance.CheckGamePadActiveMenu())
+        if (!CheckInput.Instance.CheckGamePadActiveGame())
         {
             m_interfaceHookPC.SetActive(true);
             m_interfaceHookXbox.SetActive(false);
         }
-
-        else if (CheckInput.Instance.CheckGamePadActiveMenu())
+        else if (CheckInput.Instance.CheckGamePadActiveGame())
         {
             m_interfaceHookXbox.SetActive(true);
             m_interfaceHookPC.SetActive(false);
         }
+    }
+    private void FindDirection(GameObject obj, GameObject player) 
+    {
+        Vector3 dir = obj.transform.position - player.transform.position;
+        Quaternion lookDir = Quaternion.LookRotation(dir);
+        obj.transform.rotation = lookDir;
     }
 }
