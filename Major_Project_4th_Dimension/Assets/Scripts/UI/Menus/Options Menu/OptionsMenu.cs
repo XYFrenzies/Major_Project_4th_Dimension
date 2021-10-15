@@ -34,7 +34,7 @@ public class OptionsMenu : MonoBehaviour
         naturalState.highlightedColor = new Color(0, 1, 0.117f, 1);
         naturalState.selectedColor = new Color(0, 1, 1, 1);
         naturalState.normalColor = new Color(1, 1, 1, 1);
-
+        gameObject.SetActive(false);
     }
     private void OnEnable()
     {
