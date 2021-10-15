@@ -62,6 +62,7 @@ public class GlobalVariables : Singleton<GlobalVariables>
         m_audioMixer.SetFloat("MasterVol", Mathf.Log10(masterVolume) * 30.0f);
         m_audioMixer.SetFloat("MusicVol", Mathf.Log10(soundVolume) * 30.0f);
         m_audioMixer.SetFloat("SFXVol", Mathf.Log10(musicVolume) * 30.0f);
+        m_interfaceOn = GameObject.Find("/Draw FPS").GetComponent<Toggle>();   
         m_interfaceOn.isOn = GetFPSIsOn();
     }
     public void SaveVolumes(float a_masterVolume, float a_soundVolume, float a_soundEffectVolume)
