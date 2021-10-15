@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
+/// <summary>
+/// A volume setting class for any saved variables between scenes or startups
+/// </summary>
 public class VolumeMenu : Singleton<VolumeMenu>
 {
     [SerializeField] protected AudioMixer m_audioMixer;
