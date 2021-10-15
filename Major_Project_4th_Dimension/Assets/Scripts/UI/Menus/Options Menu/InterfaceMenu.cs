@@ -7,8 +7,8 @@ using UnityEngine.UI;
 /// </summary>
 public class InterfaceMenu : Singleton<InterfaceMenu>
 {
-    [SerializeField] private Toggle fpsCounter;
-    [SerializeField] private List<Button> m_inputOptions;
+    public Toggle fpsCounter;
+    public List<Button> m_inputOptions;
     private bool valueFPSCounter = false;
     // Start is called before the first frame update
     private void Start()
