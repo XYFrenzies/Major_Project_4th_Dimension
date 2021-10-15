@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 08387863471b34e4b85898a482f9d991, type: 2}
-  m_LightingSettings: {fileID: 4890085278179872738, guid: 99a1b6b1cc6496a4cbb85d98c3ab8ef9, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: df42d659ff02b9d45a7b393d16219266, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -4147,6 +4147,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7974638287893132125, guid: 3dc7801bf7ca5984689469b16cb793e2, type: 3}
+      propertyPath: m_LODs.Array.data[2].screenRelativeHeight
+      value: 0.05184714
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3dc7801bf7ca5984689469b16cb793e2, type: 3}
 --- !u!4 &909850324 stripped
@@ -5792,6 +5796,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7974638287893132125, guid: 3dc7801bf7ca5984689469b16cb793e2, type: 3}
+      propertyPath: m_LODs.Array.data[0].screenRelativeHeight
+      value: 0.6992035
+      objectReference: {fileID: 0}
+    - target: {fileID: 7974638287893132125, guid: 3dc7801bf7ca5984689469b16cb793e2, type: 3}
+      propertyPath: m_LODs.Array.data[1].screenRelativeHeight
+      value: 0.40156835
+      objectReference: {fileID: 0}
+    - target: {fileID: 7974638287893132125, guid: 3dc7801bf7ca5984689469b16cb793e2, type: 3}
+      propertyPath: m_LODs.Array.data[2].screenRelativeHeight
+      value: 0.04372982
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3dc7801bf7ca5984689469b16cb793e2, type: 3}
 --- !u!4 &1330584805 stripped
@@ -6012,6 +6028,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1695587637}
     m_Modifications:
+    - target: {fileID: 454856004095571806, guid: 3dc7801bf7ca5984689469b16cb793e2, type: 3}
+      propertyPath: m_LODs.Array.data[0].screenRelativeHeight
+      value: 0.6027469
+      objectReference: {fileID: 0}
+    - target: {fileID: 454856004095571806, guid: 3dc7801bf7ca5984689469b16cb793e2, type: 3}
+      propertyPath: m_LODs.Array.data[1].screenRelativeHeight
+      value: 0.39865652
+      objectReference: {fileID: 0}
     - target: {fileID: 3488008481274497696, guid: 3dc7801bf7ca5984689469b16cb793e2, type: 3}
       propertyPath: m_Name
       value: SM_rockCluster01 (2)
