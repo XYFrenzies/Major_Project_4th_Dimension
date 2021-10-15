@@ -189,7 +189,7 @@ public class PlayerControllerCinemachineLook2 : MonoBehaviour
 
         }
         GroundCheck();
-        Debug.Log(Grounded);
+        //Debug.Log(Grounded);
     }
 
     public void Move()
