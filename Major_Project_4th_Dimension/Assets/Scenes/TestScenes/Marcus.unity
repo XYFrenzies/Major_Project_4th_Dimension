@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 16.87558, g: 17.808708, b: 21.378548, a: 1}
+  m_IndirectSpecularColor: {r: 16.879303, g: 17.812454, b: 21.382404, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1859,6 +1859,53 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8844f6ab555f26d48b4f8b3d5c45edad, type: 3}
+--- !u!1 &1880390745 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 49484399377347293, guid: 8844f6ab555f26d48b4f8b3d5c45edad, type: 3}
+  m_PrefabInstance: {fileID: 1880390744}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &1880390746 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4306434893021510307, guid: 8844f6ab555f26d48b4f8b3d5c45edad, type: 3}
+  m_PrefabInstance: {fileID: 1880390744}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &1880390747 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1986071369750158496, guid: 8844f6ab555f26d48b4f8b3d5c45edad, type: 3}
+  m_PrefabInstance: {fileID: 1880390744}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &1880390748 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4975795299193842484, guid: 8844f6ab555f26d48b4f8b3d5c45edad, type: 3}
+  m_PrefabInstance: {fileID: 1880390744}
+  m_PrefabAsset: {fileID: 0}
+--- !u!205 &1880390749
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1880390745}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.00000023841858, y: 0.6693884, z: -0.00000023841858}
+  m_Size: 8.23271
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.7882419
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 1880390748}
+  - screenRelativeHeight: 0.6483194
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 1880390747}
+  - screenRelativeHeight: 0.1
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 1880390746}
+  m_Enabled: 1
 --- !u!4 &1933307353 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6340994874642122102, guid: 319ab444ceb2de34aa2000b5d00e05e5, type: 3}
