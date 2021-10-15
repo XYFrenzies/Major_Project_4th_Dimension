@@ -2301,6 +2301,7 @@ MonoBehaviour:
   m_Script: {fileID: 1273532306}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Entries: []
 --- !u!4 &33839692
 Transform:
   m_ObjectHideFlags: 19
@@ -13778,7 +13779,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4661647497374488566}
-  m_RootOrder: 172
+  m_RootOrder: 171
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &490247134
 MonoBehaviour:
@@ -32783,7 +32784,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4661647497374488566}
-  m_RootOrder: 180
+  m_RootOrder: 179
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &1215011942
 MonoBehaviour:
@@ -41023,7 +41024,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4661647497374488566}
-  m_RootOrder: 175
+  m_RootOrder: 173
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &1769343853
 MonoBehaviour:
@@ -44293,7 +44294,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4661647497374488566}
-  m_RootOrder: 174
+  m_RootOrder: 172
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &2010510722
 MonoBehaviour:
@@ -60113,16 +60114,16 @@ Transform:
   - {fileID: 917018436}
   - {fileID: 352465574}
   - {fileID: 2130839640}
-  - {fileID: 733144775}
   - {fileID: 490247133}
-  - {fileID: 756386566}
   - {fileID: 2010510721}
   - {fileID: 1769343852}
+  - {fileID: 733144775}
+  - {fileID: 756386566}
   - {fileID: 63434848}
   - {fileID: 736178970}
   - {fileID: 2057194906}
-  - {fileID: 1440083221}
   - {fileID: 1215011941}
+  - {fileID: 1440083221}
   - {fileID: 111280491}
   - {fileID: 1544671972}
   - {fileID: 206677234}
@@ -83977,6 +83978,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1310893516842222126, guid: b4f269ae58c4e2f418b14a0db3113322, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 8000579789030527109}
     - target: {fileID: 1498325264360112575, guid: b4f269ae58c4e2f418b14a0db3113322, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 2
@@ -84143,7 +84148,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5430019569646180441, guid: b4f269ae58c4e2f418b14a0db3113322, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5688567791627015337, guid: b4f269ae58c4e2f418b14a0db3113322, type: 3}
       propertyPath: m_AnchorMax.y
@@ -84317,6 +84322,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9196532448576697069, guid: b4f269ae58c4e2f418b14a0db3113322, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 8000579789030527109}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4f269ae58c4e2f418b14a0db3113322, type: 3}
 --- !u!1 &8000579789030527109 stripped
