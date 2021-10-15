@@ -11,7 +11,7 @@ public class InterfaceMenu : Singleton<InterfaceMenu>
     public List<Button> m_inputOptions;
     private bool valueFPSCounter = false;
     // Start is called before the first frame update
-    private void Start()
+    private void Awake()
     {
         valueFPSCounter = GlobalVariables.Instance.GetFPSIsOn();
         fpsCounter.isOn = valueFPSCounter;
