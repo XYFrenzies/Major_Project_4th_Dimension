@@ -8,7 +8,7 @@ using UnityEngine.Audio;
 /// </summary>
 public class VolumeMenu : Singleton<VolumeMenu>
 {
-    [SerializeField] protected AudioMixer m_audioMixer;
+    public AudioMixer m_audioMixer;
     [SerializeField] protected Slider m_masterScroll;
     [SerializeField] protected Slider m_musicScroll;
     [SerializeField] protected Slider m_soundScroll;

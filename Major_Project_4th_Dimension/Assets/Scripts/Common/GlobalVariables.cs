@@ -8,9 +8,6 @@ using System.Collections.Generic;
 /// </summary>
 public class GlobalVariables : Singleton<GlobalVariables>
 {
-    //[HideInInspector] public bool isFading = false;
-    [SerializeField] private AudioMixer m_audioMixer;
-    [SerializeField] private Toggle m_interfaceOn;
     [HideInInspector] public float masterVolume = 0.0f;
     [HideInInspector] public float soundVolume = 0.0f;
     [HideInInspector] public float musicVolume = 0.0f;
@@ -19,6 +16,8 @@ public class GlobalVariables : Singleton<GlobalVariables>
     [HideInInspector] public int fpsIsOn = 1;
     [HideInInspector] public int gamepadIsOn = 1;
     [HideInInspector] public int mouseIsOn = 0;
+    private AudioMixer m_audioMixer;
+    private Toggle m_interfaceOn;
     private string[] allValues = { "Master Volume", "Sound Volume", "Sound Effect Volume", "Vertical Sensitivity",
         "Horizontal Sensitivity", "FPS Display", "MouseIsOn" , "GamePadIsOn"};
     private void Awake()
@@ -47,6 +46,7 @@ public class GlobalVariables : Singleton<GlobalVariables>
                 break;
         }
         m_interfaceOn = InterfaceMenu.Instance.fpsCounter;
+        m_audioMixer = VolumeMenu.Instance.m_audioMixer;
         DontDestroyOnLoad(gameObject);
 
     }
