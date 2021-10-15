@@ -17,7 +17,7 @@ public class VolumeMenu : Singleton<VolumeMenu>
     private float m_musicVolume = 0.0f;
     private float m_soundVolume = 0.0f;
     // Start is called before the first frame update
-    private void Start()
+    private void Awake()
     {
         m_soundVolume = GlobalVariables.Instance.soundVolume;
         m_musicVolume = GlobalVariables.Instance.musicVolume;

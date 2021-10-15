@@ -13,7 +13,11 @@ public class UIHelper : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //m_keyWASDImage = GameObject.Find
+        m_keyWASDImage = gameObject.transform.Find("Canvas").Find("WASD Image").gameObject;
+        m_joySticks = gameObject.transform.Find("Canvas").Find("JoyStick").gameObject;
+        m_lookAroundText = gameObject.transform.Find("Canvas").Find("Look Around").gameObject;
+        m_pressToShoot = gameObject.transform.Find("Canvas").Find("Left_Click").gameObject;
+        m_zoomToLook = gameObject.transform.Find("Canvas").Find("Hold_Right_Click").gameObject;
     }
 
     // Update is called once per frame

@@ -35,7 +35,6 @@ public class OptionsMenu : MonoBehaviour
         naturalState.highlightedColor = new Color(0, 1, 0.117f, 1);
         naturalState.selectedColor = new Color(0, 1, 1, 1);
         naturalState.normalColor = new Color(1, 1, 1, 1);
-        gameObject.SetActive(false);
     }
     private void OnEnable()
     {
@@ -62,13 +61,19 @@ public class OptionsMenu : MonoBehaviour
         }
 
     }
+    private void Start()
+    {
+        gameObject.SetActive(false);
+    }
     private void OnDisable()
     {
 
         playerInput.SwitchCurrentActionMap("Player");
         if(pauseGamepad != null)
             pauseGamepad.started -= BackGamPad;
+        if(m_optionsMenuActionRight != null)
         m_optionsMenuActionRight.started -= OptionsMoveRight;
+        if(m_optionsMenuActionLeft != null)
         m_optionsMenuActionLeft.started -= OptionsMoveLeft;
         if (PauseMenu.Instance != null)
             PauseMenu.Instance.isPaused = false;
