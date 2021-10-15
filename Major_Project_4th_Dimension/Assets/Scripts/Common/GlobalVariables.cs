@@ -46,8 +46,9 @@ public class GlobalVariables : Singleton<GlobalVariables>
                 PlayerPrefs.SetInt("MouseIsOn", mouseIsOn);
                 break;
         }
-        DontDestroyOnLoad(gameObject);
         m_interfaceOn = InterfaceMenu.Instance.fpsCounter;
+        DontDestroyOnLoad(gameObject);
+
     }
     private bool CheckIfPrefsExist(string[] variables)
     {

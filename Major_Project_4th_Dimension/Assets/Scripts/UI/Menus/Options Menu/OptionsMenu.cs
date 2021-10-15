@@ -66,7 +66,8 @@ public class OptionsMenu : MonoBehaviour
     {
 
         playerInput.SwitchCurrentActionMap("Player");
-        pauseGamepad.started -= BackGamPad;
+        if(pauseGamepad != null)
+            pauseGamepad.started -= BackGamPad;
         m_optionsMenuActionRight.started -= OptionsMoveRight;
         m_optionsMenuActionLeft.started -= OptionsMoveLeft;
         if (PauseMenu.Instance != null)
