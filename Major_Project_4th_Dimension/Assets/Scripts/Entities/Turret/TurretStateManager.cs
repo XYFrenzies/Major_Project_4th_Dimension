@@ -8,7 +8,8 @@ public enum TurretState
     Startup,
     StartDown,
     Searching,
-    Attacking
+    Attacking,
+    PlayerDying
 }
 public class TurretStateManager : MonoBehaviour
 {
@@ -32,8 +33,11 @@ public class TurretStateManager : MonoBehaviour
 
     //The period of time before death
     [SerializeField] private float m_gracePeriodTimer = 3.0f;
+    [SerializeField] private float m_deathTimer = 3.0f;
     [SerializeField] private GameEvent m_restartLevel;
     private float m_deltaTimeTimer = 0f;
+    private bool m_isDying = false;
+    private float m_deathDT = 0f;
 
     //Find Player system
     [SerializeField] private Light m_spotLight;
@@ -55,7 +59,7 @@ public class TurretStateManager : MonoBehaviour
     private void Start()
     {
         m_spotLight.color = m_baseColourSpotLight;
-        startPosLight =  gizmos.transform.position;
+        startPosLight = gizmos.transform.position;
     }
 
     // Update is called once per frame
@@ -80,6 +84,9 @@ public class TurretStateManager : MonoBehaviour
                 MoveAround();
                 RaycastSearchCheck();
                 break;
+            case TurretState.PlayerDying:
+                DeathTimer();
+                break;
         }
         Debug.DrawRay(m_spotLight.gameObject.transform.position, m_spotLight.gameObject.transform.forward * 20f, Color.blue);
     }
@@ -97,15 +104,25 @@ public class TurretStateManager : MonoBehaviour
     private void PlayStartDownAni()
     {
         //if (!m_animationStartDown.isPlaying)
-            m_turretState = TurretState.Inactive;
+        m_turretState = TurretState.Inactive;
     }
     //Plays animation of the turret starting up.
     private void PlayStartUpAnimation()
     {
         //if (!m_animateTurretStartUp.isPlaying)
-            m_turretState = TurretState.Searching;
+        m_turretState = TurretState.Searching;
     }
-
+    private void DeathTimer()
+    {
+        if (m_deathTimer <= m_deathDT)
+        {
+            m_deathDT = 0f;
+            m_turretState = TurretState.Searching;
+            m_spotLight.color = m_baseColourSpotLight;
+            m_restartLevel.Raise();
+        }
+        m_deathDT += Time.deltaTime;
+    }
     private void MoveAround()
     {
         while (m_objectsRotatingTo != null && m_objectsRotatingTo.Count > 1)
@@ -155,7 +172,13 @@ public class TurretStateManager : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(m_spotLight.gameObject.transform.position, m_spotLight.gameObject.transform.forward, out hit)
             && hit.transform.gameObject == hit.transform.CompareTag("Player"))
-            m_restartLevel.Raise();
+        {
+            m_turretState = TurretState.PlayerDying;
+            //Need the player to not be able to move whilst it is dying.
+            //So in here we need to do this.
+            return;
+        }
+
 
         m_turretState = TurretState.Searching;
         m_spotLight.color = m_baseColourSpotLight;
@@ -172,5 +195,5 @@ public class TurretStateManager : MonoBehaviour
             return true;
         }
         return false;
-    }    
+    }
 }
