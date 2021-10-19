@@ -145,7 +145,7 @@ public class TurretStateManager : MonoBehaviour
         gizmos.transform.position = GameObject.FindGameObjectWithTag("Player").transform.position;
         if (StopCheck())
             return;
-        m_deltaTimeTimer += Time.deltaTime;
+        m_deltaTimeTimer += Time.unscaledDeltaTime;
         if (m_deltaTimeTimer >= m_gracePeriodTimer)
         {
             RaycastAttackCheck();
