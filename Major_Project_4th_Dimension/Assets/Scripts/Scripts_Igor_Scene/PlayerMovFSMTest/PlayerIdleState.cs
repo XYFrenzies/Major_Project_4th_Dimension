@@ -2,17 +2,44 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerIdleState : MonoBehaviour
+public class PlayerIdleState : PlayerBaseState
 {
-    // Start is called before the first frame update
-    void Start()
+    private PlayerMovementSM pmStateMan;
+
+    public PlayerIdleState(PlayerMovementSM stateMachine) : base(stateMachine)
     {
-        
+        pmStateMan = stateMachine;
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void EnterState()
     {
-        
+        base.EnterState();
+        Debug.Log("Enter idle state");
+
+    }
+
+    public override void ExitState()
+    {
+
+    }
+
+    public override void UpdateLogic()
+    {
+        base.UpdateLogic();
+
+        CheckForMovement();
+    }
+
+    public override void UpdatePhysics()
+    {
+
+    }
+
+    public void CheckForMovement()
+    {
+        pmStateMan.inputs = pmStateMan.moveAction.ReadValue<Vector2>();
+        pmStateMan.lookInputs = pmStateMan.lookAction.ReadValue<Vector2>();
+        if (Mathf.Abs(pmStateMan.inputs.x) > Mathf.Epsilon || Mathf.Abs(pmStateMan.inputs.y) > Mathf.Epsilon || Mathf.Abs(pmStateMan.lookInputs.x) > Mathf.Epsilon || Mathf.Abs(pmStateMan.lookInputs.y) > Mathf.Epsilon)
+            pmStateMan.ChangeState(pmStateMan.fallingState);
     }
 }

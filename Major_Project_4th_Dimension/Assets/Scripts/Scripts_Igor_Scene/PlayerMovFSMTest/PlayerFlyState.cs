@@ -2,17 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerFlyState : MonoBehaviour
+public class PlayerFlyState : PlayerBaseState
 {
-    // Start is called before the first frame update
-    void Start()
+    public PlayerFlyState(PlayerStateManager psm) : base(psm)
     {
-        
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void EnterState()
     {
-        
+        Debug.Log("Entered fly state");
+    }
+
+    public override void ExitState()
+    {
+
+    }
+
+    public override void UpdateLogic()
+    {
+
+    }
+
+    public override void UpdatePhysics()
+    {
+
     }
 }
