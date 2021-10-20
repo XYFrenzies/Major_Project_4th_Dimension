@@ -120,6 +120,7 @@ public class TurretStateManager : MonoBehaviour
             m_turretState = TurretState.Searching;
             m_spotLight.color = m_baseColourSpotLight;
             m_restartLevel.Raise();
+            return;
         }
         m_deathDT += Time.deltaTime;
     }
