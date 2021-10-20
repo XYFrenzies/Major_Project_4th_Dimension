@@ -14,6 +14,7 @@ public class ArmGrappleState : ArmBaseState
     {
         armStateMan.player.flyToTarget = armStateMan.hitPoint;
         armStateMan.player.currentState = PlayerControllerCinemachineLook2.State.HookShotFlying;
+        //armStateMan.playerr.ChangeState(armStateMan.playerr.flyState);
     }
 
     public override void ExitState()

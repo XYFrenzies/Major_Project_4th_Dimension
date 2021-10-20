@@ -49,6 +49,7 @@ public class ArmStateManager : MonoBehaviour
     public Camera cam;
     [HideInInspector]
     public PlayerControllerCinemachineLook2 player;
+    public PlayerMovementSM playerr;
     [HideInInspector]
     public bool isObjectHeld = false;
     [HideInInspector]
@@ -91,6 +92,7 @@ public class ArmStateManager : MonoBehaviour
         springJoint = GetComponent<SpringJoint>();
         holdInitialBeamSpeedValue = initialBeamSpeed;
         player = GetComponent<PlayerControllerCinemachineLook2>();
+        playerr = GetComponent<PlayerMovementSM>();
         lineRenderer.enabled = false;
         shootState = new ArmShootState(this); // Remove V2 to go back to original
         grappleState = new ArmGrappleState(this);

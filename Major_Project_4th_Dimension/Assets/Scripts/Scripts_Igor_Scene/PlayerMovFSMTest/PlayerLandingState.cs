@@ -2,16 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerFlyState : PlayerBaseState
+public class PlayerLandingState : PlayerBaseState
 {
-    public PlayerFlyState(PlayerStateManager psm) : base(psm)
-    {
+    private PlayerMovementSM pmStateMan;
 
+    public PlayerLandingState(PlayerMovementSM stateMachine) : base(stateMachine)
+    {
+        pmStateMan = stateMachine;
     }
 
     public override void EnterState()
     {
-        Debug.Log("Entered fly state");
+        base.EnterState();
+
+
     }
 
     public override void ExitState()
@@ -21,6 +25,8 @@ public class PlayerFlyState : PlayerBaseState
 
     public override void UpdateLogic()
     {
+        base.UpdateLogic();
+
 
     }
 
