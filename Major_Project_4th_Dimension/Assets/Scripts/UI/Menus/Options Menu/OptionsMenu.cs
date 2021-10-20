@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 public class OptionsMenu : MonoBehaviour
 {
     [SerializeField] private PlayerInput playerInput;
@@ -22,7 +23,7 @@ public class OptionsMenu : MonoBehaviour
     private bool m_alreadySeenGamePad;
     private bool m_alreadySeenMouse;
     // Start is called before the first frame update
-    private void Start()
+    private void Awake()
     {
         //m_pauseMenu.SetActive(false);
         colourSelected.colorMultiplier = 1;
@@ -34,10 +35,11 @@ public class OptionsMenu : MonoBehaviour
         naturalState.highlightedColor = new Color(0, 1, 0.117f, 1);
         naturalState.selectedColor = new Color(0, 1, 1, 1);
         naturalState.normalColor = new Color(1, 1, 1, 1);
-
     }
     private void OnEnable()
     {
+
+
         playerInput.SwitchCurrentActionMap("Menu");
         m_optionsMenuActionRight = playerInput.actions["OptionsMovementRight"];
         m_optionsMenuActionLeft = playerInput.actions["OptionsMovementLeft"];
@@ -46,7 +48,6 @@ public class OptionsMenu : MonoBehaviour
         m_optionsMenuActionRight.started += OptionsMoveRight;
         m_optionsMenuActionLeft.started += OptionsMoveLeft;
         m_menus[0].SetActive(true);
-        m_mainMenu.SetActive(false);
         if (CheckInput.Instance.CheckGamePadActiveMenu())
         {
             EventSystem.current.SetSelectedGameObject(m_firstButtonInMenus[0]);
@@ -57,13 +58,26 @@ public class OptionsMenu : MonoBehaviour
             EventSystem.current.SetSelectedGameObject(null);
             m_firstButtonInMenus[0].GetComponent<Slider>().colors = naturalState;
         }
+
+    }
+    private void Start()
+    {
+        gameObject.SetActive(false);
     }
     private void OnDisable()
     {
+
         playerInput.SwitchCurrentActionMap("Player");
-        pauseGamepad.started -= BackGamPad;
+        if(pauseGamepad != null)
+            pauseGamepad.started -= BackGamPad;
+        if(m_optionsMenuActionRight != null)
         m_optionsMenuActionRight.started -= OptionsMoveRight;
+        if(m_optionsMenuActionLeft != null)
         m_optionsMenuActionLeft.started -= OptionsMoveLeft;
+        if (PauseMenu.Instance != null)
+            PauseMenu.Instance.isPaused = false;
+
+        gameObject.SetActive(false);
     }
     public void BackGamPad(InputAction.CallbackContext context)
     {
@@ -105,7 +119,7 @@ public class OptionsMenu : MonoBehaviour
         SetMenu(m_menuChosen);
         SetFirstButton();
     }
-    private void SetFirstButton() 
+    private void SetFirstButton()
     {
         if (m_menus[m_menuChosen])
         {

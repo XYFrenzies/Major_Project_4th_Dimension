@@ -726,7 +726,6 @@ MonoBehaviour:
   m_pauseMenu: {fileID: 1105955306667244625}
   m_gameUI: {fileID: 0}
   m_optionsUI: {fileID: 6977709139047255184}
-  m_fsOptionsMenu: {fileID: 0}
   m_fsPauseMenu: {fileID: 6652235864777767081}
   isPaused: 0
 --- !u!114 &4367057979747066802
@@ -1448,10 +1447,6 @@ PrefabInstance:
     - target: {fileID: 160569093217485531, guid: 48131fa483572f24ca4b698528c71be0, type: 3}
       propertyPath: m_Name
       value: Options Menu
-      objectReference: {fileID: 0}
-    - target: {fileID: 160569093217485531, guid: 48131fa483572f24ca4b698528c71be0, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 317206789081931222, guid: 48131fa483572f24ca4b698528c71be0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

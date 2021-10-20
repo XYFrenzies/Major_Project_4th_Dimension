@@ -8,9 +8,6 @@ using System.Collections.Generic;
 /// </summary>
 public class GlobalVariables : Singleton<GlobalVariables>
 {
-    //[HideInInspector] public bool isFading = false;
-    [SerializeField] private AudioMixer m_audioMixer;
-    [SerializeField] private Toggle m_interfaceOn;
     [HideInInspector] public float masterVolume = 0.0f;
     [HideInInspector] public float soundVolume = 0.0f;
     [HideInInspector] public float musicVolume = 0.0f;
@@ -19,6 +16,8 @@ public class GlobalVariables : Singleton<GlobalVariables>
     [HideInInspector] public int fpsIsOn = 1;
     [HideInInspector] public int gamepadIsOn = 1;
     [HideInInspector] public int mouseIsOn = 0;
+    private AudioMixer m_audioMixer;
+    private Toggle m_interfaceOn;
     private string[] allValues = { "Master Volume", "Sound Volume", "Sound Effect Volume", "Vertical Sensitivity",
         "Horizontal Sensitivity", "FPS Display", "MouseIsOn" , "GamePadIsOn"};
     private void Awake()
@@ -46,7 +45,10 @@ public class GlobalVariables : Singleton<GlobalVariables>
                 PlayerPrefs.SetInt("MouseIsOn", mouseIsOn);
                 break;
         }
+        m_interfaceOn = InterfaceMenu.Instance.fpsCounter;
+        m_audioMixer = VolumeMenu.Instance.m_audioMixer;
         DontDestroyOnLoad(gameObject);
+
     }
     private bool CheckIfPrefsExist(string[] variables)
     {
@@ -62,6 +64,7 @@ public class GlobalVariables : Singleton<GlobalVariables>
         m_audioMixer.SetFloat("MasterVol", Mathf.Log10(masterVolume) * 30.0f);
         m_audioMixer.SetFloat("MusicVol", Mathf.Log10(soundVolume) * 30.0f);
         m_audioMixer.SetFloat("SFXVol", Mathf.Log10(musicVolume) * 30.0f);
+
         m_interfaceOn.isOn = GetFPSIsOn();
     }
     public void SaveVolumes(float a_masterVolume, float a_soundVolume, float a_soundEffectVolume)

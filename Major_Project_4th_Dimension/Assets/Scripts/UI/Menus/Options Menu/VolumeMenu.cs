@@ -8,7 +8,7 @@ using UnityEngine.Audio;
 /// </summary>
 public class VolumeMenu : Singleton<VolumeMenu>
 {
-    [SerializeField] protected AudioMixer m_audioMixer;
+    public AudioMixer m_audioMixer;
     [SerializeField] protected Slider m_masterScroll;
     [SerializeField] protected Slider m_musicScroll;
     [SerializeField] protected Slider m_soundScroll;
@@ -17,7 +17,7 @@ public class VolumeMenu : Singleton<VolumeMenu>
     private float m_musicVolume = 0.0f;
     private float m_soundVolume = 0.0f;
     // Start is called before the first frame update
-    private void Start()
+    private void Awake()
     {
         m_soundVolume = GlobalVariables.Instance.soundVolume;
         m_musicVolume = GlobalVariables.Instance.musicVolume;
