@@ -16,6 +16,8 @@ public class GlobalVariables : Singleton<GlobalVariables>
     [HideInInspector] public int fpsIsOn = 1;
     [HideInInspector] public int gamepadIsOn = 1;
     [HideInInspector] public int mouseIsOn = 0;
+    [HideInInspector] public int m_qualityDisplayInt = 0;
+    [HideInInspector] public int m_resolutionInt = 0;
     private AudioMixer m_audioMixer;
     private Toggle m_interfaceOn;
     private string[] allValues = { "Master Volume", "Sound Volume", "Sound Effect Volume", "Vertical Sensitivity",
