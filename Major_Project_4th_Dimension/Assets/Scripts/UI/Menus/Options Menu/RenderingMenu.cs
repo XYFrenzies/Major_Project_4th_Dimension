@@ -40,6 +40,8 @@ public class RenderingMenu : Singleton<RenderingMenu>
         m_quality.AddOptions(qualityOptions);
         m_resolutionDropDown.value = indexOfResolution;
         m_resolutionDropDown.RefreshShownValue();
+        m_quality.value = 2;
+        m_quality.RefreshShownValue();
     }
     public void SaveValues()
     {
