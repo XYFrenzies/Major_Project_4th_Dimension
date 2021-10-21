@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!65 &1343924962565327089
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4955426963691198012}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.09394608, y: 1.011451, z: 2.0000024}
+  m_Center: {x: -0.032948304, y: 0.5093663, z: 1}
 --- !u!1 &8307196615131914462
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,6 +24,7 @@ GameObject:
   - component: {fileID: 8647694009171688036}
   - component: {fileID: 5741276397410497985}
   - component: {fileID: 7514796108706234635}
+  - component: {fileID: 4387675598292606177}
   m_Layer: 0
   m_Name: SM_Walkway_Straight_Single_Rail
   m_TagString: Untagged
@@ -82,6 +96,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4387675598292606177
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8307196615131914462}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5, y: 0.15827763, z: 2}
+  m_Center: {x: 0.74487484, y: 0.07937671, z: 1}
 --- !u!1001 &5189377400952712045
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -143,6 +170,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ce7ad43e83cd664d92044f2b2d6b560, type: 3}
+--- !u!1 &4955426963691198012 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 0ce7ad43e83cd664d92044f2b2d6b560, type: 3}
+  m_PrefabInstance: {fileID: 5189377400952712045}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5732772525684067462 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0ce7ad43e83cd664d92044f2b2d6b560, type: 3}
