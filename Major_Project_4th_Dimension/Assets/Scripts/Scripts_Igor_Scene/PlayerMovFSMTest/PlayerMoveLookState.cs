@@ -18,6 +18,8 @@ public class PlayerMoveLookState : PlayerBaseState
     {
         base.EnterState();
         Debug.Log("Enter move state");
+        //pmStateMan.moveAction.Disable();
+        pmStateMan.lookAction.Disable();
     }
 
     public override void ExitState()
@@ -36,12 +38,13 @@ public class PlayerMoveLookState : PlayerBaseState
     public override void UpdatePhysics()
     {
         Move();
+        Look();
     }
 
     public void Move()
     {
         pmStateMan.rb.MovePosition(pmStateMan.rb.position + pmStateMan.direction * pmStateMan.moveSpeed * Time.fixedDeltaTime);
-        pmStateMan.transform.rotation = Quaternion.Euler(0, pmStateMan.cam.transform.eulerAngles.y, 0);
+
     }
 
     public void CalculateMove()
@@ -74,5 +77,10 @@ public class PlayerMoveLookState : PlayerBaseState
         pmStateMan.lookInputs = pmStateMan.lookAction.ReadValue<Vector2>();
         if (Mathf.Abs(pmStateMan.inputs.x) < Mathf.Epsilon && Mathf.Abs(pmStateMan.inputs.y) < Mathf.Epsilon && Mathf.Abs(pmStateMan.lookInputs.x) < Mathf.Epsilon && Mathf.Abs(pmStateMan.lookInputs.y) < Mathf.Epsilon)
             pmStateMan.ChangeState(pmStateMan.idleState);
+    }
+
+    public void Look()
+    {
+        pmStateMan.transform.rotation = Quaternion.Euler(0, pmStateMan.cam.transform.eulerAngles.y, 0);
     }
 }
