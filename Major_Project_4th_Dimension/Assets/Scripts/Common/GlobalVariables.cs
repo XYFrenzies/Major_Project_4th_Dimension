@@ -16,6 +16,8 @@ public class GlobalVariables : Singleton<GlobalVariables>
     [HideInInspector] public int fpsIsOn = 1;
     [HideInInspector] public int gamepadIsOn = 1;
     [HideInInspector] public int mouseIsOn = 0;
+    [HideInInspector] public int m_qualityDisplayInt = 2;
+    [HideInInspector] public int m_resolutionInt = 0;
     private AudioMixer m_audioMixer;
     private Toggle m_interfaceOn;
     private string[] allValues = { "Master Volume", "Sound Volume", "Sound Effect Volume", "Vertical Sensitivity",
@@ -33,6 +35,8 @@ public class GlobalVariables : Singleton<GlobalVariables>
                 fpsIsOn = PlayerPrefs.GetInt("FPS Display");
                 gamepadIsOn = PlayerPrefs.GetInt("GamePadIsOn");
                 mouseIsOn = PlayerPrefs.GetInt("MouseIsOn");
+                m_qualityDisplayInt = PlayerPrefs.GetInt("Quality");
+                m_resolutionInt = PlayerPrefs.GetInt("Resolution");
                 break;
             case false:
                 PlayerPrefs.SetFloat("Master Volume", masterVolume);
@@ -43,6 +47,8 @@ public class GlobalVariables : Singleton<GlobalVariables>
                 PlayerPrefs.SetInt("FPS Display", fpsIsOn);
                 PlayerPrefs.SetInt("GamePadIsOn", gamepadIsOn);
                 PlayerPrefs.SetInt("MouseIsOn", mouseIsOn);
+                PlayerPrefs.SetInt("Quality", m_resolutionInt);
+                PlayerPrefs.SetInt("Resolution",m_qualityDisplayInt);
                 break;
         }
         m_interfaceOn = InterfaceMenu.Instance.fpsCounter;
@@ -113,5 +119,7 @@ public class GlobalVariables : Singleton<GlobalVariables>
         PlayerPrefs.SetInt("FPS Display", fpsIsOn);
         PlayerPrefs.SetInt("GamePadIsOn", gamepadIsOn);
         PlayerPrefs.SetInt("MouseIsOn", mouseIsOn);
+        PlayerPrefs.SetInt("Quality", m_resolutionInt);
+        PlayerPrefs.SetInt("Resolution", m_qualityDisplayInt);
     }
 }

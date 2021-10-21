@@ -15,18 +15,23 @@ public class PlayerFallingState : PlayerBaseState
     {
         base.EnterState();
         pmStateMan.anim.SetBool("Falling", true);
-
+        Debug.Log("Entered falling state");
+        pmStateMan.moveAction.Disable();
+        pmStateMan.lookAction.Disable();
     }
 
     public override void ExitState()
     {
+        Debug.Log("Exited falling state");
 
+        pmStateMan.moveAction.Enable();
+        pmStateMan.lookAction.Enable();
     }
 
     public override void UpdateLogic()
     {
         base.UpdateLogic();
-
+        pmStateMan.ChangeState(pmStateMan.landingState);
 
     }
 

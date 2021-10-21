@@ -25,6 +25,7 @@ public class PlayerMovementSM : PlayerStateManager
     public PlayerMoveLookState moveLookState;
     public PlayerFallingState fallingState;
     public PlayerFlyState flyState;
+    public PlayerLandingState landingState;
 
 
     private void Awake()
@@ -33,6 +34,7 @@ public class PlayerMovementSM : PlayerStateManager
         moveLookState = new PlayerMoveLookState(this);
         flyState = new PlayerFlyState(this);
         fallingState = new PlayerFallingState(this);
+        landingState = new PlayerLandingState(this);
 
         cam = Camera.main;
 
@@ -46,17 +48,14 @@ public class PlayerMovementSM : PlayerStateManager
 
     protected override PlayerBaseState GetInitialState()
     {
-        return idleState;
+        return moveLookState;
     }
 
     public void Landed()
     {
-        if (currentState == fallingState)
-        {
-            anim.SetBool("Falling", false);
-            Debug.Log("Landed");
-            ChangeState(idleState);
-        }
+        anim.SetBool("Falling", false);
+        Debug.Log("Landed");
+        ChangeState(landingState);
     }
 
 }

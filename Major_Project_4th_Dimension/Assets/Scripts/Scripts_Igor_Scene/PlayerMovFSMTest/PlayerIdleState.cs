@@ -14,12 +14,13 @@ public class PlayerIdleState : PlayerBaseState
     public override void EnterState()
     {
         base.EnterState();
-        Debug.Log("Enter idle state");
+        Debug.Log("Entered idle state");
 
     }
 
     public override void ExitState()
     {
+        Debug.Log("Exited idle state");
 
     }
 
@@ -40,6 +41,6 @@ public class PlayerIdleState : PlayerBaseState
         pmStateMan.inputs = pmStateMan.moveAction.ReadValue<Vector2>();
         pmStateMan.lookInputs = pmStateMan.lookAction.ReadValue<Vector2>();
         if (Mathf.Abs(pmStateMan.inputs.x) > Mathf.Epsilon || Mathf.Abs(pmStateMan.inputs.y) > Mathf.Epsilon || Mathf.Abs(pmStateMan.lookInputs.x) > Mathf.Epsilon || Mathf.Abs(pmStateMan.lookInputs.y) > Mathf.Epsilon)
-            pmStateMan.ChangeState(pmStateMan.fallingState);
+            pmStateMan.ChangeState(pmStateMan.moveLookState);
     }
 }

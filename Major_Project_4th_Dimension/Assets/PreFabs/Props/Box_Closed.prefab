@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!65 &8359754034312399497
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1842994035176624646}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.26638916, y: 0.30360794, z: 0.5104751}
+  m_Center: {x: 0, y: -0.000000007450581, z: 0}
 --- !u!1 &4716720220430822174
 GameObject:
   m_ObjectHideFlags: 0
@@ -14,7 +27,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &6357779534842407114
 Transform:
@@ -98,8 +111,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Box_Closed2
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2211d1e1b1047a340b953a66740aff82, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2211d1e1b1047a340b953a66740aff82, type: 3}
+--- !u!1 &1842994035176624646 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 2211d1e1b1047a340b953a66740aff82, type: 3}
+  m_PrefabInstance: {fileID: 1536511006263537495}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1357960511440652476 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2211d1e1b1047a340b953a66740aff82, type: 3}

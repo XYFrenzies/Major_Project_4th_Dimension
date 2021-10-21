@@ -14,13 +14,12 @@ public class PlayerLandingState : PlayerBaseState
     public override void EnterState()
     {
         base.EnterState();
-
-
+        Debug.Log("Entered landing state");
     }
 
     public override void ExitState()
     {
-
+        Debug.Log("Exited landing state");
     }
 
     public override void UpdateLogic()
