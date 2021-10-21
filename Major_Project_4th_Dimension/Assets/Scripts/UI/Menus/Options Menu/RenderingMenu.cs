@@ -28,6 +28,7 @@ public class RenderingMenu : Singleton<RenderingMenu>
                 indexOfResolution = i;
             }
         }
+        
         m_resolutionDropDown.AddOptions(options);
         m_quality.ClearOptions();
         List<string> qualityOptions = new List<string>();
@@ -37,6 +38,8 @@ public class RenderingMenu : Singleton<RenderingMenu>
             string option = m_qualityChanger[i].name;
             qualityOptions.Add(option);
         }
+        indexOfResolution = GlobalVariables.Instance.m_resolutionInt;
+        m_qualityLevel = GlobalVariables.Instance.m_qualityDisplayInt;
         m_quality.AddOptions(qualityOptions);
         m_resolutionDropDown.value = indexOfResolution;
         m_resolutionDropDown.RefreshShownValue();
@@ -49,6 +52,8 @@ public class RenderingMenu : Singleton<RenderingMenu>
         Resolution resolution = m_resolutionsMultiple[m_resolutionLevel];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
         QualitySettings.SetQualityLevel(m_qualityLevel);
+        GlobalVariables.Instance.m_qualityDisplayInt = m_qualityLevel;
+        GlobalVariables.Instance.m_resolutionInt = m_resolutionLevel;
     }
     public void SetResolution(int resolutionIndex)
     {
