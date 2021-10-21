@@ -62,6 +62,11 @@ public class OptionsMenu : MonoBehaviour
     }
     private void Start()
     {
+
+        for (int i = 1; i < m_menus.Count; i++)
+        {
+            m_menus[i].SetActive(false);
+        }
         gameObject.SetActive(false);
     }
     private void OnDisable()
