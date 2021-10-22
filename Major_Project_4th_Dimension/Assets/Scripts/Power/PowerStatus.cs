@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class PowerStatus : Singleton<PowerStatus>
 {
     [SerializeField] private GameEvent m_powerOn;
@@ -14,6 +14,10 @@ public class PowerStatus : Singleton<PowerStatus>
     private void Awake()
     {
         source = GetComponent<AudioSource>();
+        if (powerIsOn)
+            m_powerOn.Raise();
+        else
+            m_powerOff.Raise();
     }
     //Can change to collision depending on the collider to the power.
     public void TurnPowerOnOrOff()
