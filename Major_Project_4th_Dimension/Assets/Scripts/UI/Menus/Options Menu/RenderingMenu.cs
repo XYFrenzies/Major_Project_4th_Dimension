@@ -55,7 +55,7 @@ public class RenderingMenu : Singleton<RenderingMenu>
             string option = m_qualityChanger[i].name;
             qualityOptions.Add(option);
         }
-        QualitySettings.SetQualityLevel(m_qualityLevel);
+        QualitySettings.SetQualityLevel(2);
         m_qualityLevel = GlobalVariables.Instance.m_qualityDisplayInt;
         m_quality.AddOptions(qualityOptions);
         m_quality.value = m_qualityLevel;
