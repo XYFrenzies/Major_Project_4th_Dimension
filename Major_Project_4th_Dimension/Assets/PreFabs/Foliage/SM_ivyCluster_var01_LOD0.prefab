@@ -172,12 +172,13 @@ GameObject:
   m_Component:
   - component: {fileID: 8651769639236321247}
   - component: {fileID: 7519443995784594608}
+  - component: {fileID: 2270771636607149106}
   m_Layer: 0
   m_Name: SM_ivyCluster_var01_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &8651769639236321247
 Transform:
@@ -186,7 +187,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8312116630750553445}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 15.118086, y: 3.961, z: -3.0514789}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -203,7 +204,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8312116630750553445}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -237,6 +238,33 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!205 &2270771636607149106
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8312116630750553445}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 1.5079641, y: -1.5826045, z: 0.079055786}
+  m_Size: 3.2771938
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.7490797
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 6881915384754376887}
+  - screenRelativeHeight: 0.4996826
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 502454665818517831}
+  - screenRelativeHeight: 0.045879982
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 1811943053757765656}
+  m_Enabled: 1
 --- !u!1 &9076635934083381448
 GameObject:
   m_ObjectHideFlags: 0
