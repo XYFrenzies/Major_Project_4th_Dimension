@@ -9,7 +9,7 @@ public class CheckInput : Singleton<CheckInput>
     private bool m_mouseIsActive = true;
     public bool CheckGamePadActiveMenu()
     {
-        if (Gamepad.current != null && Gamepad.current.leftStick.IsActuated() && (EventSystem.current.currentSelectedGameObject == null))
+        if (Gamepad.current != null && (EventSystem.current.currentSelectedGameObject == null))
         {
             return true;
         }
@@ -18,13 +18,24 @@ public class CheckInput : Singleton<CheckInput>
             return false;
         }
     }
-    public bool CheckGamePadActive() 
+    public bool CheckMouseOnly() 
     {
-        if (Gamepad.current != null && Gamepad.current.IsActuated())
+        if (Gamepad.current == null)
             return true;
+        else
+            return false;
+    }
+    public void GamePadActive() 
+    {
+        if (Gamepad.current != null)
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Confined;
+        }
         else 
         {
-            return false;
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
         }
     }
     public void SetController()
