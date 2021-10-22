@@ -36,6 +36,7 @@ public class TurretStateManager : MonoBehaviour
     [SerializeField] private float m_deathTimer = 3.0f;
     [SerializeField] private GameEvent m_restartLevel;
     [SerializeField] private GameEvent m_deathAnimation;
+    [SerializeField] private GameEvent m_noDeath;
     private float m_deltaTimeTimer = 0f;
     private bool m_isDying = false;
     private float m_deathDT = 0f;
@@ -65,6 +66,7 @@ public class TurretStateManager : MonoBehaviour
         m_spotLight.color = m_baseColourSpotLight;
         startPosLight = gizmos.transform.position;
         source = GetComponent<AudioSource>();
+        m_noDeath.Raise();
     }
 
     // Update is called once per frame

@@ -161,15 +161,13 @@ public class PlayerControllerCinemachineLook2 : MonoBehaviour
                 isHookThrown = true;
                 break;
             case State.Death:
-                
+
                 moveAction.Disable();
                 lookAction.Disable();
-                
+
                 break;
 
         }
-
-        DeathCheck();
     }
 
     // Update is called once per frame
@@ -325,14 +323,10 @@ public class PlayerControllerCinemachineLook2 : MonoBehaviour
 
     public void DeathCheck()
     {
-        if (turretSM.m_turretState == TurretState.PlayerDying)
-        {
-            currentState = State.Death;
             animator.SetBool("isDead", true);
-        }
-        else
-            animator.SetBool("isDead", false);
-
     }
-
+    public void NotDying() 
+    {
+        animator.SetBool("isDead", false);
+    }
 }
