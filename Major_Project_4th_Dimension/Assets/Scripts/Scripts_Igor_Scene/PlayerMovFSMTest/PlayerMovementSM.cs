@@ -20,6 +20,7 @@ public class PlayerMovementSM : PlayerStateManager
     public float moveSpeed = 10.0f;
     public Rigidbody rb;
     public Animator anim;
+    public CinemachineVirtualCamera vCam;
 
     public PlayerIdleState idleState;
     public PlayerMoveLookState moveLookState;
@@ -46,6 +47,18 @@ public class PlayerMovementSM : PlayerStateManager
         anim = GetComponent<Animator>();
     }
 
+    private void OnEnable()
+    {
+        lookAction.Enable();
+        moveAction.Enable();
+    }
+
+    private void OnDisable()
+    {
+        lookAction.Disable();
+        moveAction.Disable();
+    }
+
     protected override PlayerBaseState GetInitialState()
     {
         return moveLookState;
@@ -56,6 +69,11 @@ public class PlayerMovementSM : PlayerStateManager
         anim.SetBool("Falling", false);
         Debug.Log("Landed");
         ChangeState(landingState);
+    }
+
+    public void OnControlsChanged()
+    {
+        Debug.Log("CONTROLS CHANGED");
     }
 
 }
