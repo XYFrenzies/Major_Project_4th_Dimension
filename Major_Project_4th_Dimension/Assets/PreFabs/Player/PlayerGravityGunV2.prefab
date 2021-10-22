@@ -1580,7 +1580,10 @@ MonoBehaviour:
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
+    ModeOverride: 0
     LensShift: {x: 0, y: 0}
+    GateFit: 2
+    m_SensorSize: {x: 1, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -4781,7 +4784,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8431453540725934211}
   m_LocalRotation: {x: 0.026167978, y: 0.026167985, z: -0.00068523263, w: 0.9993148}
-  m_LocalPosition: {x: 0.6626554, y: 1.7656513, z: -2.8360689}
+  m_LocalPosition: {x: 0.66254836, y: 1.7656513, z: -2.8360627}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8431453540922601305}
@@ -4814,7 +4817,10 @@ MonoBehaviour:
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
+    ModeOverride: 0
     LensShift: {x: 0, y: 0}
+    GateFit: 2
+    m_SensorSize: {x: 1.777887, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -6868,6 +6874,7 @@ MonoBehaviour:
   animator: {fileID: 8431453539743655190}
   armRig: {fileID: 8431453540415002865}
   headRig: {fileID: 8431453541428183389}
+  turretSM: {fileID: 0}
   interacting: {fileID: 11400000, guid: 18e4fd24b905c8d40887ca44f2ebc613, type: 2}
   interactingConveyorSwitch: {fileID: 0}
   currentState: 0
@@ -6912,6 +6919,7 @@ MonoBehaviour:
   hitObject: {fileID: 0}
   cam: {fileID: 0}
   player: {fileID: 8431453541361779734}
+  playerr: {fileID: 0}
   isObjectHeld: 0
   localPoint: {x: 0, y: 0, z: 0}
   pullCheck: 0
