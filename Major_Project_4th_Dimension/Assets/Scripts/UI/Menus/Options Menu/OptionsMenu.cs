@@ -25,7 +25,6 @@ public class OptionsMenu : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
-        //m_pauseMenu.SetActive(false);
         colourSelected.colorMultiplier = 1;
         colourSelected.selectedColor = new Color(0, 1, 0.117f, 1);
         colourSelected.normalColor = new Color(1, 1, 1, 1);
@@ -35,11 +34,10 @@ public class OptionsMenu : MonoBehaviour
         naturalState.highlightedColor = new Color(0, 1, 0.117f, 1);
         naturalState.selectedColor = new Color(0, 1, 1, 1);
         naturalState.normalColor = new Color(1, 1, 1, 1);
+        CheckInput.Instance.GamePadActive();
     }
     private void OnEnable()
     {
-
-
         playerInput.SwitchCurrentActionMap("Menu");
         m_optionsMenuActionRight = playerInput.actions["OptionsMovementRight"];
         m_optionsMenuActionLeft = playerInput.actions["OptionsMovementLeft"];
@@ -58,11 +56,9 @@ public class OptionsMenu : MonoBehaviour
             EventSystem.current.SetSelectedGameObject(null);
             m_firstButtonInMenus[0].GetComponent<Slider>().colors = naturalState;
         }
-
     }
     private void Start()
     {
-
         for (int i = 1; i < m_menus.Count; i++)
         {
             m_menus[i].SetActive(false);
@@ -86,15 +82,22 @@ public class OptionsMenu : MonoBehaviour
     }
     public void BackGamPad(InputAction.CallbackContext context)
     {
-        playerInput.SwitchCurrentActionMap("Player");
-        m_mainMenu.SetActive(false);
-        EventSystem.current.SetSelectedGameObject(m_firstButtonMainMenu);
-        m_firstButtonMainMenu.GetComponent<Button>().colors = colourSelected;
         foreach (var item in m_menus)
         {
             item.SetActive(false);
         }
-        Time.timeScale = 1;
+        switch (SceneManager.GetActiveScene().name)
+        {
+            case "MainMenu":
+                m_mainMenu.SetActive(true);
+                EventSystem.current.SetSelectedGameObject(m_firstButtonMainMenu);
+                break;
+            default:
+                m_mainMenu.SetActive(false);
+                Time.timeScale = 1;
+                playerInput.SwitchCurrentActionMap("Player");
+                break;
+        }
         gameObject.SetActive(false);
     }
     public void BackToGame()
@@ -135,6 +138,7 @@ public class OptionsMenu : MonoBehaviour
                 m_firstButtonInMenus[m_menuChosen].GetComponent<Button>().colors = colourSelected;
             else if (m_firstButtonInMenus[m_menuChosen].GetComponent<Toggle>())
                 m_firstButtonInMenus[m_menuChosen].GetComponent<Toggle>().colors = colourSelected;
+            
         }
     }
     private void OptionsMoveRight(InputAction.CallbackContext context)
@@ -162,6 +166,7 @@ public class OptionsMenu : MonoBehaviour
         {
             item.SetActive(false);
         }
+        EventSystem.current.SetSelectedGameObject(m_firstButtonMainMenu);
         mainMenu.SetActive(true);
         gameObject.SetActive(false);
     }
@@ -177,7 +182,7 @@ public class OptionsMenu : MonoBehaviour
     }
     private void UpdateInput()
     {
-        if (CheckInput.Instance.CheckGamePadActiveMenu() && (EventSystem.current.currentSelectedGameObject == null))
+        if (CheckInput.Instance.CheckGamePadActiveMenu())
         {
             if (!m_alreadySeenGamePad)
             {
@@ -188,9 +193,8 @@ public class OptionsMenu : MonoBehaviour
                 m_alreadySeenGamePad = true;
                 SetFirstButton();
             }
-
         }
-        else if (Mouse.current.IsActuated())
+        else if(CheckInput.Instance.CheckMouseOnly())
         {
             if (!m_alreadySeenMouse)
             {
