@@ -54,12 +54,16 @@ public class TurretStateManager : MonoBehaviour
     [SerializeField] private GameObject m_raycastChecker;
     private bool m_playerInArea = false;
     private Vector3 startPosLight;
+
+    AudioSource source;
+
     #endregion
     // Start is called before the first frame update
     private void Start()
     {
         m_spotLight.color = m_baseColourSpotLight;
         startPosLight = gizmos.transform.position;
+        source = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -163,6 +167,7 @@ public class TurretStateManager : MonoBehaviour
             m_spotLight.color = m_shootColourSpotLight;
             m_leftSight.SetActive(true);
             m_rightSight.SetActive(true);
+            SoundPlayer.Instance.PlaySoundEffect("TurretFire", source);
         }
         else if (Physics.Raycast(m_spotLight.gameObject.transform.position, m_spotLight.gameObject.transform.forward, out hit)
     && hit.transform.gameObject == hit.transform.CompareTag("StopSearch") && !m_playerInArea)
