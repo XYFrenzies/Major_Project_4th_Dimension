@@ -161,7 +161,7 @@ public class PlayerControllerCinemachineLook2 : MonoBehaviour
                 isHookThrown = true;
                 break;
             case State.Death:
-                animator.SetBool("isDead", true);
+                
                 moveAction.Disable();
                 lookAction.Disable();
                 
@@ -328,7 +328,11 @@ public class PlayerControllerCinemachineLook2 : MonoBehaviour
         if (turretSM.m_turretState == TurretState.PlayerDying)
         {
             currentState = State.Death;
+            animator.SetBool("isDead", true);
         }
+        else
+            animator.SetBool("isDead", false);
+
     }
 
 }
