@@ -16,6 +16,7 @@ public class PlayerFlyState : PlayerBaseState
 
     public override void ExitState()
     {
+        Debug.Log("Exited fly state");
 
     }
 

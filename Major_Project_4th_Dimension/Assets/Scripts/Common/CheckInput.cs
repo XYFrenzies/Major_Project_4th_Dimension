@@ -18,6 +18,15 @@ public class CheckInput : Singleton<CheckInput>
             return false;
         }
     }
+    public bool CheckGamePadActive() 
+    {
+        if (Gamepad.current != null && Gamepad.current.IsActuated())
+            return true;
+        else 
+        {
+            return false;
+        }
+    }
     public void SetController()
     {
         if(Gamepad.current != null)
