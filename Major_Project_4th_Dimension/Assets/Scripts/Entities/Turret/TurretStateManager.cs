@@ -15,7 +15,7 @@ public class TurretStateManager : MonoBehaviour
 {
     #region Variables
     //TurretState
-    [SerializeField] private TurretState m_turretState;
+    [SerializeField] public TurretState m_turretState;
 
     //Startup
     [SerializeField] private GameEvent m_startUpTurret;
