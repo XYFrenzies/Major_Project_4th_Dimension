@@ -378,7 +378,10 @@ MonoBehaviour:
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
+    ModeOverride: 0
     LensShift: {x: 0, y: 0}
+    GateFit: 2
+    m_SensorSize: {x: 1, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -3202,6 +3205,17 @@ Transform:
   m_Father: {fileID: 1550006262}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &164099937 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1331832020351349507, guid: 8ae51393a6f3f2249aef5174ff6d59f8, type: 3}
+  m_PrefabInstance: {fileID: 1922829872}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28510c36e8ee29246b937913aeae67bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &165675805
 GameObject:
   m_ObjectHideFlags: 0
@@ -4255,7 +4269,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_RecenterTarget: 0
   m_VerticalAxis:
-    Value: 0
+    Value: 3.0000267
     m_SpeedMode: 1
     m_MaxSpeed: 1
     m_AccelTime: 0.1
@@ -4279,7 +4293,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_HorizontalAxis:
-    Value: 0
+    Value: 93.00001
     m_SpeedMode: 1
     m_MaxSpeed: 1
     m_AccelTime: 0.1
@@ -5950,7 +5964,10 @@ MonoBehaviour:
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
+    ModeOverride: 0
     LensShift: {x: 0, y: 0}
+    GateFit: 2
+    m_SensorSize: {x: 1, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -8153,7 +8170,10 @@ MonoBehaviour:
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
+    ModeOverride: 0
     LensShift: {x: 0, y: 0}
+    GateFit: 2
+    m_SensorSize: {x: 1, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -10401,7 +10421,10 @@ MonoBehaviour:
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
+    ModeOverride: 0
     LensShift: {x: 0, y: 0}
+    GateFit: 2
+    m_SensorSize: {x: 1, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -12739,6 +12762,7 @@ MonoBehaviour:
   m_YawDamping: 0
   m_RollDamping: 0
   m_AngularDamping: 0
+  m_HideOffsetInInspector: 0
   m_Heading:
     m_Definition: 2
     m_VelocityFilterStrength: 4
@@ -14128,6 +14152,7 @@ MonoBehaviour:
   m_YawDamping: 0
   m_RollDamping: 0
   m_AngularDamping: 0
+  m_HideOffsetInInspector: 0
   m_Heading:
     m_Definition: 2
     m_VelocityFilterStrength: 4
@@ -14843,6 +14868,7 @@ MonoBehaviour:
   m_YawDamping: 0
   m_RollDamping: 0
   m_AngularDamping: 0
+  m_HideOffsetInInspector: 0
   m_Heading:
     m_Definition: 2
     m_VelocityFilterStrength: 4
@@ -16538,7 +16564,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &805069675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16565,7 +16591,10 @@ MonoBehaviour:
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
+    ModeOverride: 0
     LensShift: {x: 0, y: 0}
+    GateFit: 2
+    m_SensorSize: {x: 1.7781931, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -16588,8 +16617,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 805069674}
-  m_LocalRotation: {x: 0.02616798, y: 0.02616798, z: -0.0006852327, w: 0.9993148}
-  m_LocalPosition: {x: 34.84201, y: 3.234522, z: -13.22897}
+  m_LocalRotation: {x: 0.01801918, y: 0.72512585, z: -0.018988257, w: 0.6881187}
+  m_LocalPosition: {x: 25.881187, y: 1.7247151, z: 6.5996327}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1857914967}
@@ -21153,7 +21182,10 @@ MonoBehaviour:
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
+    ModeOverride: 0
     LensShift: {x: 0, y: 0}
+    GateFit: 2
+    m_SensorSize: {x: 1, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -23182,7 +23214,10 @@ MonoBehaviour:
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
+    ModeOverride: 0
     LensShift: {x: 0, y: 0}
+    GateFit: 2
+    m_SensorSize: {x: 1, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -23335,7 +23370,10 @@ MonoBehaviour:
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
+    ModeOverride: 0
     LensShift: {x: 0, y: 0}
+    GateFit: 2
+    m_SensorSize: {x: 1, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -25318,6 +25356,7 @@ MonoBehaviour:
   animator: {fileID: 489989199}
   armRig: {fileID: 0}
   headRig: {fileID: 0}
+  turretSM: {fileID: 0}
   interacting: {fileID: 0}
   interactingConveyorSwitch: {fileID: 0}
   currentState: 0
@@ -26339,7 +26378,10 @@ MonoBehaviour:
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
+    ModeOverride: 0
     LensShift: {x: 0, y: 0}
+    GateFit: 2
+    m_SensorSize: {x: 1.7781931, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -28943,6 +28985,7 @@ MonoBehaviour:
   animator: {fileID: 230136605}
   armRig: {fileID: 0}
   headRig: {fileID: 0}
+  turretSM: {fileID: 0}
   interacting: {fileID: 0}
   interactingConveyorSwitch: {fileID: 0}
   currentState: 0
@@ -29302,6 +29345,7 @@ MonoBehaviour:
   m_YawDamping: 0
   m_RollDamping: 0
   m_AngularDamping: 0
+  m_HideOffsetInInspector: 0
   m_Heading:
     m_Definition: 2
     m_VelocityFilterStrength: 4
@@ -31468,6 +31512,7 @@ MonoBehaviour:
   m_YawDamping: 0
   m_RollDamping: 0
   m_AngularDamping: 0
+  m_HideOffsetInInspector: 0
   m_Heading:
     m_Definition: 2
     m_VelocityFilterStrength: 4
@@ -33140,7 +33185,10 @@ MonoBehaviour:
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
+    ModeOverride: 0
     LensShift: {x: 0, y: 0}
+    GateFit: 2
+    m_SensorSize: {x: 1.7781931, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -34007,7 +34055,10 @@ MonoBehaviour:
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
+    ModeOverride: 0
     LensShift: {x: 0, y: 0}
+    GateFit: 2
+    m_SensorSize: {x: 1, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -34538,6 +34589,7 @@ MonoBehaviour:
   m_YawDamping: 0
   m_RollDamping: 0
   m_AngularDamping: 0
+  m_HideOffsetInInspector: 0
   m_Heading:
     m_Definition: 2
     m_VelocityFilterStrength: 4
@@ -36971,7 +37023,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1688118973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39734,7 +39786,10 @@ MonoBehaviour:
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
+    ModeOverride: 0
     LensShift: {x: 0, y: 0}
+    GateFit: 2
+    m_SensorSize: {x: 1, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -39963,8 +40018,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1857914966}
-  m_LocalRotation: {x: 0.3079211, y: -0.024448019, z: 0.009355522, w: 0.9510518}
-  m_LocalPosition: {x: 0.15831739, y: 1.2591968, z: 16.267916}
+  m_LocalRotation: {x: 0.0037366478, y: -0.93388426, z: 0.35736978, w: 0.011541128}
+  m_LocalPosition: {x: 0.073390245, y: 2.594177, z: 12.892371}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1316716523}
@@ -40004,7 +40059,10 @@ MonoBehaviour:
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
+    ModeOverride: 0
     LensShift: {x: 0, y: 0}
+    GateFit: 2
+    m_SensorSize: {x: 1.7781931, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -41565,7 +41623,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1331832020351349507, guid: 8ae51393a6f3f2249aef5174ff6d59f8, type: 3}
       propertyPath: m_turretState
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6640855606629399315, guid: 8ae51393a6f3f2249aef5174ff6d59f8, type: 3}
       propertyPath: m_RootOrder
@@ -42466,6 +42524,7 @@ MonoBehaviour:
   animator: {fileID: 366149750}
   armRig: {fileID: 1305951633}
   headRig: {fileID: 1887118397}
+  turretSM: {fileID: 0}
   interacting: {fileID: 11400000, guid: 18e4fd24b905c8d40887ca44f2ebc613, type: 2}
   interactingConveyorSwitch: {fileID: 0}
   currentState: 0
@@ -43588,7 +43647,10 @@ MonoBehaviour:
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
+    ModeOverride: 0
     LensShift: {x: 0, y: 0}
+    GateFit: 2
+    m_SensorSize: {x: 1, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -48707,6 +48769,7 @@ MonoBehaviour:
   animator: {fileID: 244655922171892027}
   armRig: {fileID: 244655921788551994}
   headRig: {fileID: 244655921925847482}
+  turretSM: {fileID: 0}
   interacting: {fileID: 11400000, guid: 18e4fd24b905c8d40887ca44f2ebc613, type: 2}
   interactingConveyorSwitch: {fileID: 0}
   currentState: 0
@@ -51173,7 +51236,10 @@ MonoBehaviour:
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
+    ModeOverride: 0
     LensShift: {x: 0, y: 0}
+    GateFit: 2
+    m_SensorSize: {x: 1, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -52282,7 +52348,10 @@ MonoBehaviour:
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
+    ModeOverride: 0
     LensShift: {x: 0, y: 0}
+    GateFit: 2
+    m_SensorSize: {x: 1, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -58210,7 +58279,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8431453540006725398, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8431453540006725400, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
       propertyPath: m_RootOrder
@@ -58258,12 +58327,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8431453540725934212, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.66255003
+      value: 0.66254836
       objectReference: {fileID: 0}
     - target: {fileID: 8431453540725934212, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.8360631
+      value: -2.8360627
       objectReference: {fileID: 0}
+    - target: {fileID: 8431453540725934215, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
+      propertyPath: m_Lens.m_SensorSize.x
+      value: 1.777887
+      objectReference: {fileID: 0}
+    - target: {fileID: 8431453541361779734, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
+      propertyPath: turretSM
+      value: 
+      objectReference: {fileID: 164099937}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
 --- !u!4 &1202371031025749094
@@ -63886,7 +63963,7 @@ Camera:
   far clip plane: 5000
   field of view: 45
   orthographic: 0
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -64065,8 +64142,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3373627836190250097}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.24, y: 1.61, z: -3}
+  m_LocalRotation: {x: 0.018019024, y: 0.7251258, z: -0.01898809, w: 0.6881187}
+  m_LocalPosition: {x: -3.4430625, y: 1.7656513, z: -3.5425482}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -71251,7 +71328,10 @@ MonoBehaviour:
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
+    ModeOverride: 0
     LensShift: {x: 0, y: 0}
+    GateFit: 2
+    m_SensorSize: {x: 1, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -76109,6 +76189,7 @@ MonoBehaviour:
   animator: {fileID: 4081892703090407983}
   armRig: {fileID: 5804269355351676442}
   headRig: {fileID: 5804269353610177690}
+  turretSM: {fileID: 0}
   interacting: {fileID: 11400000, guid: 18e4fd24b905c8d40887ca44f2ebc613, type: 2}
   interactingConveyorSwitch: {fileID: 0}
   currentState: 0
@@ -78593,7 +78674,10 @@ MonoBehaviour:
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
+    ModeOverride: 0
     LensShift: {x: 0, y: 0}
+    GateFit: 2
+    m_SensorSize: {x: 1, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -83912,7 +83996,10 @@ MonoBehaviour:
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
+    ModeOverride: 0
     LensShift: {x: 0, y: 0}
+    GateFit: 2
+    m_SensorSize: {x: 1, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -84406,7 +84493,10 @@ MonoBehaviour:
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
+    ModeOverride: 0
     LensShift: {x: 0, y: 0}
+    GateFit: 2
+    m_SensorSize: {x: 1, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
