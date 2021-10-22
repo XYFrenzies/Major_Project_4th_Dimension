@@ -3109,7 +3109,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7173122632476729507, guid: d1f3f6b147dadff46afa0ae9c201f050, type: 3}
       propertyPath: near clip plane
-      value: 1
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7173122632476729507, guid: d1f3f6b147dadff46afa0ae9c201f050, type: 3}
+      propertyPath: orthographic size
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7173122632476729507, guid: d1f3f6b147dadff46afa0ae9c201f050, type: 3}
       propertyPath: m_CullingMask.m_Bits
@@ -3125,15 +3129,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7173122632476729516, guid: d1f3f6b147dadff46afa0ae9c201f050, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 29.22
+      value: 19.29754
       objectReference: {fileID: 0}
     - target: {fileID: 7173122632476729516, guid: d1f3f6b147dadff46afa0ae9c201f050, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 47.06
+      value: 1.7656498
       objectReference: {fileID: 0}
     - target: {fileID: 7173122632476729516, guid: d1f3f6b147dadff46afa0ae9c201f050, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -14.03
+      value: -10.583101
       objectReference: {fileID: 0}
     - target: {fileID: 7173122632476729516, guid: d1f3f6b147dadff46afa0ae9c201f050, type: 3}
       propertyPath: m_LocalRotation.w
@@ -18447,28 +18451,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1331832020351349507, guid: 8ae51393a6f3f2249aef5174ff6d59f8, type: 3}
-      propertyPath: m_turretState
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1331832020351349507, guid: 8ae51393a6f3f2249aef5174ff6d59f8, type: 3}
       propertyPath: sphereChecker
       value: 
       objectReference: {fileID: 217915058}
     - target: {fileID: 1331832020351349507, guid: 8ae51393a6f3f2249aef5174ff6d59f8, type: 3}
-      propertyPath: m_rotationSpeed
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1331832020351349507, guid: 8ae51393a6f3f2249aef5174ff6d59f8, type: 3}
       propertyPath: useSphereChecker
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1331832020351349507, guid: 8ae51393a6f3f2249aef5174ff6d59f8, type: 3}
-      propertyPath: m_gracePeriodTimer
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1331832020351349507, guid: 8ae51393a6f3f2249aef5174ff6d59f8, type: 3}
-      propertyPath: m_spotLightRCRadius
-      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 1331832020351349507, guid: 8ae51393a6f3f2249aef5174ff6d59f8, type: 3}
       propertyPath: m_objectsRotatingTo.Array.data[0]
@@ -32746,19 +32734,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8431453540180509504, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
       propertyPath: m_RotationOffset.x
-      value: 8.36956
+      value: 8.369557
       objectReference: {fileID: 0}
     - target: {fileID: 8431453540180509504, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
       propertyPath: m_RotationOffset.y
-      value: -4.964671
+      value: -4.9646707
       objectReference: {fileID: 0}
     - target: {fileID: 8431453540180509504, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
       propertyPath: m_RotationOffset.z
-      value: -0.7244191
+      value: -0.724419
       objectReference: {fileID: 0}
     - target: {fileID: 8431453540725934212, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.6551037
+      value: 0.804039
       objectReference: {fileID: 0}
     - target: {fileID: 8431453540725934212, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
       propertyPath: m_LocalPosition.y
@@ -32766,7 +32754,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8431453540725934212, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.8356714
+      value: -2.8434772
       objectReference: {fileID: 0}
     - target: {fileID: 8431453540725934212, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
       propertyPath: m_LocalRotation.x
@@ -84592,6 +84580,7 @@ GameObject:
   - component: {fileID: 2004226071}
   - component: {fileID: 2004226070}
   - component: {fileID: 2004226073}
+  - component: {fileID: 2004226072}
   m_Layer: 0
   m_Name: EventsManager
   m_TagString: Untagged
@@ -85022,6 +85011,34 @@ MonoBehaviour:
       - m_Target: {fileID: 2118381926}
         m_TargetAssemblyTypeName: DoorOpenMotion, Assembly-CSharp
         m_MethodName: OpenDoor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2004226072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2004226059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48be2ea0f33e0194caf93c70cfde9568, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 86cba94f0ecf3d746830f1939aac7f4b, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4956258}
+        m_TargetAssemblyTypeName: PlayerControllerCinemachineLook2, Assembly-CSharp
+        m_MethodName: DeathCheck
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -35,6 +35,7 @@ public class TurretStateManager : MonoBehaviour
     [SerializeField] private float m_gracePeriodTimer = 3.0f;
     [SerializeField] private float m_deathTimer = 3.0f;
     [SerializeField] private GameEvent m_restartLevel;
+    [SerializeField] private GameEvent m_deathAnimation;
     private float m_deltaTimeTimer = 0f;
     private bool m_isDying = false;
     private float m_deathDT = 0f;
@@ -180,6 +181,7 @@ public class TurretStateManager : MonoBehaviour
             && hit.transform.gameObject == hit.transform.CompareTag("Player"))
         {
             m_turretState = TurretState.PlayerDying;
+            m_deathAnimation.Raise();
             //Need the player to not be able to move whilst it is dying.
             //So in here we need to do this.
             return;
