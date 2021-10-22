@@ -18451,6 +18451,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1331832020351349507, guid: 8ae51393a6f3f2249aef5174ff6d59f8, type: 3}
+      propertyPath: m_noDeath
+      value: 
+      objectReference: {fileID: 11400000, guid: 8a77b8f39fa22034ea07b970386277d7, type: 2}
+    - target: {fileID: 1331832020351349507, guid: 8ae51393a6f3f2249aef5174ff6d59f8, type: 3}
       propertyPath: sphereChecker
       value: 
       objectReference: {fileID: 217915058}
@@ -84581,6 +84585,7 @@ GameObject:
   - component: {fileID: 2004226070}
   - component: {fileID: 2004226073}
   - component: {fileID: 2004226072}
+  - component: {fileID: 2004226074}
   m_Layer: 0
   m_Name: EventsManager
   m_TagString: Untagged
@@ -85144,6 +85149,34 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2004226074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2004226059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48be2ea0f33e0194caf93c70cfde9568, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 8a77b8f39fa22034ea07b970386277d7, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4956258}
+        m_TargetAssemblyTypeName: PlayerControllerCinemachineLook2, Assembly-CSharp
+        m_MethodName: NotDying
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &2004419029
 PrefabInstance:
   m_ObjectHideFlags: 0
