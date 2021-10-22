@@ -3205,6 +3205,17 @@ Transform:
   m_Father: {fileID: 1550006262}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &164099937 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1331832020351349507, guid: 8ae51393a6f3f2249aef5174ff6d59f8, type: 3}
+  m_PrefabInstance: {fileID: 1922829872}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28510c36e8ee29246b937913aeae67bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &165675805
 GameObject:
   m_ObjectHideFlags: 0
@@ -25345,6 +25356,7 @@ MonoBehaviour:
   animator: {fileID: 489989199}
   armRig: {fileID: 0}
   headRig: {fileID: 0}
+  turretSM: {fileID: 0}
   interacting: {fileID: 0}
   interactingConveyorSwitch: {fileID: 0}
   currentState: 0
@@ -28973,6 +28985,7 @@ MonoBehaviour:
   animator: {fileID: 230136605}
   armRig: {fileID: 0}
   headRig: {fileID: 0}
+  turretSM: {fileID: 0}
   interacting: {fileID: 0}
   interactingConveyorSwitch: {fileID: 0}
   currentState: 0
@@ -41610,7 +41623,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1331832020351349507, guid: 8ae51393a6f3f2249aef5174ff6d59f8, type: 3}
       propertyPath: m_turretState
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6640855606629399315, guid: 8ae51393a6f3f2249aef5174ff6d59f8, type: 3}
       propertyPath: m_RootOrder
@@ -42511,6 +42524,7 @@ MonoBehaviour:
   animator: {fileID: 366149750}
   armRig: {fileID: 1305951633}
   headRig: {fileID: 1887118397}
+  turretSM: {fileID: 0}
   interacting: {fileID: 11400000, guid: 18e4fd24b905c8d40887ca44f2ebc613, type: 2}
   interactingConveyorSwitch: {fileID: 0}
   currentState: 0
@@ -48755,6 +48769,7 @@ MonoBehaviour:
   animator: {fileID: 244655922171892027}
   armRig: {fileID: 244655921788551994}
   headRig: {fileID: 244655921925847482}
+  turretSM: {fileID: 0}
   interacting: {fileID: 11400000, guid: 18e4fd24b905c8d40887ca44f2ebc613, type: 2}
   interactingConveyorSwitch: {fileID: 0}
   currentState: 0
@@ -58312,12 +58327,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8431453540725934212, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.6626876
+      value: 0.66254836
       objectReference: {fileID: 0}
     - target: {fileID: 8431453540725934212, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.8360703
+      value: -2.8360627
       objectReference: {fileID: 0}
+    - target: {fileID: 8431453540725934215, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
+      propertyPath: m_Lens.m_SensorSize.x
+      value: 1.777887
+      objectReference: {fileID: 0}
+    - target: {fileID: 8431453541361779734, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
+      propertyPath: turretSM
+      value: 
+      objectReference: {fileID: 164099937}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
 --- !u!4 &1202371031025749094
@@ -64120,7 +64143,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3373627836190250097}
   m_LocalRotation: {x: 0.018019024, y: 0.7251258, z: -0.01898809, w: 0.6881187}
-  m_LocalPosition: {x: -3.44307, y: 1.7656513, z: -3.5426874}
+  m_LocalPosition: {x: -3.4430625, y: 1.7656513, z: -3.5425482}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -76166,6 +76189,7 @@ MonoBehaviour:
   animator: {fileID: 4081892703090407983}
   armRig: {fileID: 5804269355351676442}
   headRig: {fileID: 5804269353610177690}
+  turretSM: {fileID: 0}
   interacting: {fileID: 11400000, guid: 18e4fd24b905c8d40887ca44f2ebc613, type: 2}
   interactingConveyorSwitch: {fileID: 0}
   currentState: 0
