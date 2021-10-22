@@ -1,0 +1,1859 @@
+fileFormatVersion: 2
+guid: e0b7114697161c14f8436351a9acad91
+ModelImporter:
+  serializedVersion: 20200
+  internalIDToNameTable:
+  - first:
+      74: 1827226128182048838
+    second: Take 001
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _GEO_face_T_CharacterMachine2
+    second: {fileID: 2100000, guid: 6418a0233c6cb99468d92985be648408, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _GEO_face_T_Clothes
+    second: {fileID: 2100000, guid: 6418a0233c6cb99468d92985be648408, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _GEO_face_T_Eye
+    second: {fileID: 2100000, guid: 25fd6a5f54151f243a9a6d9ed8028bbe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _GEO_face_T_Human
+    second: {fileID: 2100000, guid: 7e8b9db5090060543a7cfd5474c6f522, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _GEO_face_T_Machine_Legs
+    second: {fileID: 2100000, guid: bee9544389f8710429a55f2a6b4aea67, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _GEO_face_T_Machine_Torso
+    second: {fileID: 2100000, guid: 752f650acb05a1b48b3dd7f6dc7d8c56, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _GEO_face_T_hair
+    second: {fileID: 2100000, guid: 7b63cadfa212bd344a7085a6042e9c9a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _GEO_face_UI_L2
+    second: {fileID: 2100000, guid: 2d8c3f8938c2d2c4685e419a3fac3569, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'_GEO_face:GameSkeletonRoot_M' has translation
+      animation that will be discarded.\n\t'_GEO_face:GameSkeletonRoot_M' is inbetween
+      humanoid transforms and has rotation animation that will be discarded.\n\t'_GEO_face:JawJoint_M'
+      has translation animation that will be discarded.\n\t'_GEO_face:GameSkeletonScapula_R'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'_GEO_face:GameSkeletonShoulderPart2_R'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'_GEO_face:GameSkeletonScapula_L'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'_GEO_face:GameSkeletonShoulderPart2_L'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n"
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human:
+    - boneName: export
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _GEO_face:GameSkeletonHip_L
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _GEO_face:GameSkeletonHip_R
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _GEO_face:GameSkeletonKnee_L
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _GEO_face:GameSkeletonKnee_R
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _GEO_face:GameSkeletonAnkle_L
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _GEO_face:GameSkeletonAnkle_R
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _GEO_face:GameSkeletonSpine1_M
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _GEO_face:GameSkeletonSpine2_M
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _GEO_face:GameSkeletonNeck_M
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _GEO_face:GameSkeletonHead_M
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _GEO_face:GameSkeletonShoulder_L
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _GEO_face:GameSkeletonShoulder_R
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _GEO_face:GameSkeletonShoulderPart1_L
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _GEO_face:GameSkeletonShoulderPart1_R
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _GEO_face:GameSkeletonElbow_L
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _GEO_face:GameSkeletonElbow_R
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _GEO_face:GameSkeletonWrist_L
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _GEO_face:GameSkeletonToes_L
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _GEO_face:GameSkeletonToes_R
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _GEO_face:GameSkeletonEye_L
+      humanName: LeftEye
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _GEO_face:EyeJoint_R
+      humanName: RightEye
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _GEO_face:JawJoint_M
+      humanName: Jaw
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _GEO_face:GameSkeletonThumbFinger1_L
+      humanName: Left Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _GEO_face:GameSkeletonThumbFinger2_L
+      humanName: Left Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _GEO_face:GameSkeletonThumbFinger3_L
+      humanName: Left Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _GEO_face:GameSkeletonIndexFinger1_L
+      humanName: Left Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _GEO_face:GameSkeletonIndexFinger2_L
+      humanName: Left Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _GEO_face:GameSkeletonIndexFinger3_L
+      humanName: Left Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _GEO_face:GameSkeletonMiddleFinger1_L
+      humanName: Left Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _GEO_face:GameSkeletonMiddleFinger2_L
+      humanName: Left Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _GEO_face:GameSkeletonMiddleFinger3_L
+      humanName: Left Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _GEO_face:GameSkeletonRingFinger1_L
+      humanName: Left Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _GEO_face:GameSkeletonRingFinger2_L
+      humanName: Left Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _GEO_face:GameSkeletonRingFinger3_L
+      humanName: Left Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _GEO_face:GameSkeletonPinkyFinger1_L
+      humanName: Left Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _GEO_face:GameSkeletonPinkyFinger2_L
+      humanName: Left Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _GEO_face:GameSkeletonPinkyFinger3_L
+      humanName: Left Little Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _GEO_face:GameSkeletonChest_M
+      humanName: UpperChest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: _GEO_face:GameSkeletonWrist_R
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: AN_MenuIdle_(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: export
+      parentName: AN_MenuIdle_(Clone)
+      position: {x: 0, y: 0.32975236, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:geo
+      parentName: export
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:Hair_Geo
+      parentName: _GEO_face:geo
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:Head_Geo
+      parentName: _GEO_face:geo
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:Ear_Geo
+      parentName: _GEO_face:geo
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:Eyelashes_Geo
+      parentName: _GEO_face:geo
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:Eye_R_Geo
+      parentName: _GEO_face:geo
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:Eye_L_Geo
+      parentName: _GEO_face:geo
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:Tongue_Geo
+      parentName: _GEO_face:geo
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:Teeth_Up_Geo
+      parentName: _GEO_face:geo
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:Teeth_Down_Geo
+      parentName: _GEO_face:geo
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:Body_Geo
+      parentName: _GEO_face:geo
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:Stamina_Lights
+      parentName: export
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:UI_4
+      parentName: _GEO_face:Stamina_Lights
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:UI_3
+      parentName: _GEO_face:Stamina_Lights
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:UI_2
+      parentName: _GEO_face:Stamina_Lights
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:UI_1
+      parentName: _GEO_face:Stamina_Lights
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:Controls
+      parentName: export
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:Main
+      parentName: _GEO_face:Controls
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:MotionSystem
+      parentName: _GEO_face:Main
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:FKSystem
+      parentName: _GEO_face:MotionSystem
+      position: {x: -3.9443044e-33, y: -0.34090874, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:FKOffsetRoot_M
+      parentName: _GEO_face:FKSystem
+      position: {x: -1.9709482e-17, y: 1.0037589, z: -0.017717207}
+      rotation: {x: 0.51956177, y: -0.47964114, z: -0.51956177, w: 0.47964114}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:FKExtraRoot_M
+      parentName: _GEO_face:FKOffsetRoot_M
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:FKRoot_M
+      parentName: _GEO_face:FKExtraRoot_M
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:FKXRoot_M
+      parentName: _GEO_face:FKRoot_M
+      position: {x: -0.000011919899, y: -0.0015388282, z: -1.1832913e-32}
+      rotation: {x: 0, y: -0, z: -0.0077458564, w: 0.99997}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:HipSwingReverse
+      parentName: _GEO_face:FKRoot_M
+      position: {x: -0.099335335, y: -1.7763568e-17, z: 4.899735e-17}
+      rotation: {x: 0, y: -0, z: -0.0077458564, w: 0.99997}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:HipSwingReverseRoot
+      parentName: _GEO_face:HipSwingReverse
+      position: {x: 0.099335335, y: 1.7763568e-17, z: -4.899735e-17}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:IKSystem
+      parentName: _GEO_face:MotionSystem
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:IKJoints
+      parentName: _GEO_face:IKSystem
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:IKParentConstraintRoot_M
+      parentName: _GEO_face:IKJoints
+      position: {x: -1.9709482e-17, y: 1.0037589, z: -0.017717207}
+      rotation: {x: 0.51956177, y: -0.47964114, z: -0.51956177, w: 0.47964114}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:IKXOffsetRoot_M
+      parentName: _GEO_face:IKParentConstraintRoot_M
+      position: {x: 1.4210854e-16, y: -1.7763568e-17, z: -3.9443044e-33}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:IKXRoot_M
+      parentName: _GEO_face:IKXOffsetRoot_M
+      position: {x: 0.33982214, y: 0.027196879, z: 3.9443044e-33}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:IKfake0Spine_M
+      parentName: _GEO_face:IKParentConstraintRoot_M
+      position: {x: 0.33982214, y: 0.027196879, z: 3.9443044e-33}
+      rotation: {x: 1.7143265e-17, y: -5.4705448e-17, z: 0.034755595, w: 0.99939585}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:IKFixedOrientRoot_M
+      parentName: _GEO_face:IKfake0Spine_M
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0.034755595, w: 0.99939585}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:IKAcRootFollowOffset_M
+      parentName: _GEO_face:IKFixedOrientRoot_M
+      position: {x: 1.4210854e-16, y: 0, z: -3.9443044e-33}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:IKSpRootFollowOffset_M
+      parentName: _GEO_face:IKFixedOrientRoot_M
+      position: {x: -0, y: -7.105427e-17, z: -3.9443044e-33}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:IKHandle
+      parentName: _GEO_face:IKSystem
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:IKOffsetSpine2_M
+      parentName: _GEO_face:IKHandle
+      position: {x: -6.988528e-17, y: 0.8186481, z: -0.020994863}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:IKExtraSpine2_M
+      parentName: _GEO_face:IKOffsetSpine2_M
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:IKSpine2_M
+      parentName: _GEO_face:IKExtraSpine2_M
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:IKSpine2LocalOrient1_M
+      parentName: _GEO_face:IKSpine2_M
+      position: {x: -0, y: -1.4210854e-16, z: 0}
+      rotation: {x: 0.51956177, y: -0.47964114, z: -0.51956177, w: 0.47964114}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:IKSpine2LocalOrient2_M
+      parentName: _GEO_face:IKSpine2LocalOrient1_M
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:IKOffsetConstrainedSpine1_M
+      parentName: _GEO_face:IKHandle
+      position: {x: -1.9709482e-17, y: 0.6628502, z: -0.017717207}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:IKhybridOffsetSpine1_M
+      parentName: _GEO_face:IKOffsetConstrainedSpine1_M
+      position: {x: 3.9443044e-33, y: -1.4210854e-16, z: -2.8865798e-17}
+      rotation: {x: 0.51956177, y: -0.47964114, z: -0.51956177, w: 0.47964114}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:IKOffsetSpine1_M
+      parentName: _GEO_face:IKhybridOffsetSpine1_M
+      position: {x: -1.4210854e-16, y: 3.5527136e-17, z: 7.888609e-33}
+      rotation: {x: 0.51956177, y: -0.47964114, z: -0.51956177, w: -0.47964114}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:IKExtraSpine1_M
+      parentName: _GEO_face:IKOffsetSpine1_M
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:IKSpine1_M
+      parentName: _GEO_face:IKExtraSpine1_M
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:IKSpine1LocalOrient1_M
+      parentName: _GEO_face:IKSpine1_M
+      position: {x: 3.9443044e-33, y: -1.4210854e-16, z: -2.8865798e-17}
+      rotation: {x: 0.51956177, y: -0.47964114, z: -0.51956177, w: 0.47964114}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:IKSpine1LocalOrient2_M
+      parentName: _GEO_face:IKSpine1LocalOrient1_M
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:IKhybridFollowSpine1_M
+      parentName: _GEO_face:IKhybridOffsetSpine1_M
+      position: {x: -0, y: -8.881784e-18, z: 3.9443044e-33}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:IKhybridExtraSpine1_M
+      parentName: _GEO_face:IKhybridFollowSpine1_M
+      position: {x: -0, y: 0, z: 3.9443044e-33}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:IKhybridSpine1_M
+      parentName: _GEO_face:IKhybridExtraSpine1_M
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:IKhybridOffsetSpine2_M
+      parentName: _GEO_face:IKhybridSpine1_M
+      position: {x: -0.1550399, y: -0.015696395, z: 5.01758e-17}
+      rotation: {x: 0, y: 0, z: 0.089241, w: 0.99601007}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:IKhybridExtraSpine2_M
+      parentName: _GEO_face:IKhybridOffsetSpine2_M
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:IKhybridSpine2_M
+      parentName: _GEO_face:IKhybridExtraSpine2_M
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:IKhybridOffsetSpine3_M
+      parentName: _GEO_face:IKhybridSpine2_M
+      position: {x: -0.15595964, y: -0.0051914454, z: 3.715178e-18}
+      rotation: {x: 0, y: 0, z: 0.023842916, w: 0.99971575}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:IKhybridExtraSpine3_M
+      parentName: _GEO_face:IKhybridOffsetSpine3_M
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:IKhybridSpine3_M
+      parentName: _GEO_face:IKhybridExtraSpine3_M
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:IKOffsetSpine3_M
+      parentName: _GEO_face:IKhybridSpine3_M
+      position: {x: -0, y: 0, z: 1.5777218e-32}
+      rotation: {x: -0.4620542, y: 0.53526247, z: 0.4620542, w: 0.53526247}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:IKExtraSpine3_M
+      parentName: _GEO_face:IKOffsetSpine3_M
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:IKSpine3_M
+      parentName: _GEO_face:IKExtraSpine3_M
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:IKSpine3LocalOrient1_M
+      parentName: _GEO_face:IKSpine3_M
+      position: {x: 1.5777218e-32, y: 0, z: 1.7763568e-17}
+      rotation: {x: 0.5180233, y: -0.48130226, z: -0.5180233, w: 0.48130226}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:IKSpine3LocalOrient2_M
+      parentName: _GEO_face:IKSpine3LocalOrient1_M
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:IKScalerRoot_M
+      parentName: _GEO_face:IKHandle
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:FKIKSystem
+      parentName: _GEO_face:MotionSystem
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:FKIKParentConstraintSpine_M
+      parentName: _GEO_face:FKIKSystem
+      position: {x: -1.9709482e-17, y: 0.66298485, z: -0.01925018}
+      rotation: {x: 0.52326137, y: -0.47560227, z: -0.52326137, w: 0.47560227}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:FKIKSpine_M
+      parentName: _GEO_face:FKIKParentConstraintSpine_M
+      position: {x: -0.101111904, y: 0, z: 0.19022237}
+      rotation: {x: 0.51956177, y: -0.47964114, z: -0.51956177, w: -0.47964114}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:DeformationSystem
+      parentName: _GEO_face:Main
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:Root_M
+      parentName: _GEO_face:DeformationSystem
+      position: {x: -1.9709482e-17, y: 0.66298485, z: -0.01925018}
+      rotation: {x: 0.5195618, y: -0.4796411, z: -0.51956177, w: 0.4796411}
+      scale: {x: 0.9999999, y: 0.9999999, z: 1}
+    - name: _GEO_face:GameSkeletonRoot_M
+      parentName: export
+      position: {x: -1.9709482e-17, y: 0.66298485, z: -0.01925018}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:GameSkeletonHip_R
+      parentName: _GEO_face:GameSkeletonRoot_M
+      position: {x: 0.08196866, y: -0.020922279, z: -0.0053527146}
+      rotation: {x: 0.000000023283064, y: 0.000000013096724, z: -0.000000011641532, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:GameSkeletonKnee_R
+      parentName: _GEO_face:GameSkeletonHip_R
+      position: {x: 0.02763929, y: -0.42509636, z: 0.009794871}
+      rotation: {x: -0.000000017462298, y: -0.0000000072759576, z: -1.3552527e-16, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1.0000002}
+    - name: _GEO_face:GameSkeletonAnkle_R
+      parentName: _GEO_face:GameSkeletonKnee_R
+      position: {x: 0.023279756, y: -0.45180142, z: -0.06345243}
+      rotation: {x: -0.0000000058207696, y: -0.000000005820766, z: 0.000000011641529, w: 1}
+      scale: {x: 0.99999994, y: 1, z: 1}
+    - name: _GEO_face:GameSkeletonToes_R
+      parentName: _GEO_face:GameSkeletonAnkle_R
+      position: {x: -0.0016254358, y: -0.0666117, z: 0.08744538}
+      rotation: {x: -0, y: -0, z: -3.3881338e-17, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:GameSkeletonToesEnd_R
+      parentName: _GEO_face:GameSkeletonToes_R
+      position: {x: 0.00000008057974, y: 0.0014525824, z: 0.048941154}
+      rotation: {x: 1.7763568e-15, y: 6.0185346e-32, z: -0.000000018275918, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:GameSkeletonHip_L
+      parentName: _GEO_face:GameSkeletonRoot_M
+      position: {x: -0.08196866, y: -0.020922279, z: -0.0053527146}
+      rotation: {x: 0.000000005820766, y: -6.776262e-17, z: -0.000000011641532, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1.0000001}
+    - name: _GEO_face:GameSkeletonKnee_L
+      parentName: _GEO_face:GameSkeletonHip_L
+      position: {x: -0.02763929, y: -0.42509636, z: 0.009794873}
+      rotation: {x: 0.0000000058207643, y: 0.000000011641532, z: 0.000000011641532, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1.0000001}
+    - name: _GEO_face:GameSkeletonAnkle_L
+      parentName: _GEO_face:GameSkeletonKnee_L
+      position: {x: -0.023279756, y: -0.45180142, z: -0.06345243}
+      rotation: {x: -0.00000001164153, y: -0.000000011641532, z: -3.9443026e-25, w: 1}
+      scale: {x: 1, y: 1, z: 1.0000001}
+    - name: _GEO_face:GameSkeletonToes_L
+      parentName: _GEO_face:GameSkeletonAnkle_L
+      position: {x: 0.0016254357, y: -0.0666117, z: 0.08744538}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:GameSkeletonToesEnd_L
+      parentName: _GEO_face:GameSkeletonToes_L
+      position: {x: -0.00000008057229, y: 0.0014525818, z: 0.048941154}
+      rotation: {x: 2.9309888e-14, y: -0.0000016414563, z: 0.00000001780257, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:GameSkeletonSpine1_M
+      parentName: _GEO_face:GameSkeletonRoot_M
+      position: {x: -4.899735e-17, y: 0.099018715, z: 0.007924734}
+      rotation: {x: 0.000000023283064, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:GameSkeletonSpine2_M
+      parentName: _GEO_face:GameSkeletonSpine1_M
+      position: {x: -1.5499312e-17, y: 0.09963049, z: -0.015253701}
+      rotation: {x: -0.000000023283064, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1.0000001}
+    - name: _GEO_face:GameSkeletonChest_M
+      parentName: _GEO_face:GameSkeletonSpine2_M
+      position: {x: 1.0605684e-17, y: 0.11183456, z: -0.016507432}
+      rotation: {x: -0.000000023283064, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1.0000001}
+    - name: _GEO_face:GameSkeletonNeck_M
+      parentName: _GEO_face:GameSkeletonChest_M
+      position: {x: -4.6432647e-16, y: 0.122530505, z: 0.00901715}
+      rotation: {x: 0.000000023283064, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:GameSkeletonHead_M
+      parentName: _GEO_face:GameSkeletonNeck_M
+      position: {x: 5.660023e-17, y: 0.110453516, z: 0.01752521}
+      rotation: {x: 0.000000011641532, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 0.99999976, z: 0.99999976}
+    - name: _GEO_face:GameSkeletonHeadEnd_M
+      parentName: _GEO_face:GameSkeletonHead_M
+      position: {x: -3.0262667e-17, y: 0.10506076, z: 0.011563145}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1.0000001}
+    - name: _GEO_face:Hair_front_jnt1
+      parentName: _GEO_face:GameSkeletonHeadEnd_M
+      position: {x: -0.0012406661, y: 0.028376965, z: 0.060771476}
+      rotation: {x: 0.000000029802319, y: -0, z: 0.1629148, w: 0.9866402}
+      scale: {x: 1, y: 0.9999999, z: 0.99999994}
+    - name: _GEO_face:Hair_f1_jnt
+      parentName: _GEO_face:Hair_front_jnt1
+      position: {x: -0.06774849, y: 4.1633363e-17, z: 0}
+      rotation: {x: -0.000000028883788, y: -9.816937e-10, z: 0.30960634, w: 0.9508648}
+      scale: {x: 1, y: 1.0000001, z: 1.0000001}
+    - name: _GEO_face:Hair_f2_jnt
+      parentName: _GEO_face:Hair_f1_jnt
+      position: {x: -0.05081992, y: 1.687539e-16, z: 0}
+      rotation: {x: -0.4824412, y: -0.64010036, z: -0.0058794664, w: 0.5979026}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:Hair_mid_jnt
+      parentName: _GEO_face:GameSkeletonHeadEnd_M
+      position: {x: -0.0012406661, y: 0.028376965, z: -0.0069398787}
+      rotation: {x: -0, y: 4.6566123e-10, z: 0.013068544, w: 0.99991465}
+      scale: {x: 1, y: 1, z: 0.99999994}
+    - name: _GEO_face:Hair_m1_jnt
+      parentName: _GEO_face:Hair_mid_jnt
+      position: {x: -0.06774849, y: 4.1633363e-17, z: 0}
+      rotation: {x: -1.4994583e-10, y: -4.4085896e-10, z: 0.30960628, w: 0.95086485}
+      scale: {x: 1, y: 1, z: 1.0000001}
+    - name: _GEO_face:Hair_m2_jnt
+      parentName: _GEO_face:Hair_m1_jnt
+      position: {x: -0.05081992, y: 1.687539e-16, z: 0}
+      rotation: {x: -0.4824412, y: -0.64010036, z: -0.0058794664, w: 0.5979026}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:Hair_back_jnt
+      parentName: _GEO_face:GameSkeletonHeadEnd_M
+      position: {x: -0.0012406661, y: 0.028376965, z: -0.05321853}
+      rotation: {x: -0.053518176, y: -0.1979984, z: 0.27999067, w: 0.9378367}
+      scale: {x: 1, y: 1.0000001, z: 0.99999994}
+    - name: _GEO_face:Hair_b1_jnt
+      parentName: _GEO_face:Hair_back_jnt
+      position: {x: -0.06774849, y: 4.1633363e-17, z: 0}
+      rotation: {x: -0.0000000037252899, y: -0.000000014901159, z: 0.30960628, w: 0.9508648}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:Hair_b2_jnt
+      parentName: _GEO_face:Hair_b1_jnt
+      position: {x: -0.05081992, y: 1.687539e-16, z: 0}
+      rotation: {x: 0.4824413, y: 0.6401004, z: 0.005879524, w: -0.5979025}
+      scale: {x: 1, y: 1, z: 1.0000004}
+    - name: _GEO_face:GameSkeletonEye_L
+      parentName: _GEO_face:GameSkeletonHead_M
+      position: {x: -0.02739165, y: 0.04921162, z: 0.06779701}
+      rotation: {x: -0, y: -7.1085826e-24, z: -1.1955343e-23, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1.0000001}
+    - name: _GEO_face:GameSkeletonEyeEnd_L
+      parentName: _GEO_face:GameSkeletonEye_L
+      position: {x: -0.0027036332, y: -0.0011347135, z: 0.016833564}
+      rotation: {x: 6.938894e-18, y: 0, z: -6.938894e-17, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:FaceJoint_M
+      parentName: _GEO_face:GameSkeletonHead_M
+      position: {x: -1.8932661e-31, y: 5.684342e-16, z: 0.019683897}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 0.9999999, z: 0.9999999}
+    - name: _GEO_face:upperLidMain0_R
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: 0.01685106, y: 0.046152703, z: 0.06364549}
+      rotation: {x: -0.000000023283064, y: -3.6379794e-10, z: -1.8189897e-10, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1.0000001}
+    - name: _GEO_face:lowerLidMain1_R
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: 0.018343331, y: 0.04525924, z: 0.06372202}
+      rotation: {x: 0.000000011641532, y: -9.0949484e-11, z: 1.3642422e-10, w: 1}
+      scale: {x: 1, y: 1, z: 1.0000001}
+    - name: _GEO_face:lowerLidMain2_R
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: 0.020663835, y: 0.04530914, z: 0.06596269}
+      rotation: {x: -0.000000011641532, y: -9.094946e-11, z: 6.8212097e-10, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: _GEO_face:lowerLidMain3_R
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: 0.023298092, y: 0.044996414, z: 0.06690054}
+      rotation: {x: -0.000000011641534, y: 3.6379783e-10, z: 4.547473e-10, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:lowerLidMain4_R
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: 0.02551183, y: 0.044649966, z: 0.06741994}
+      rotation: {x: 1.323489e-19, y: -7.2759576e-10, z: -1.8189894e-10, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: _GEO_face:lowerLidMain5_R
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: 0.027592363, y: 0.04436279, z: 0.06778141}
+      rotation: {x: 0.000000023283064, y: -7.2759576e-10, z: -1.8189893e-10, w: 1}
+      scale: {x: 0.99999994, y: 1, z: 1}
+    - name: _GEO_face:lowerLidMain6_R
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: 0.02934857, y: 0.04425991, z: 0.06787583}
+      rotation: {x: -1.323489e-19, y: -7.2759576e-10, z: 1.8189894e-10, w: 1}
+      scale: {x: 0.99999994, y: 1.0000002, z: 1.0000001}
+    - name: _GEO_face:lowerLidMain7_R
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: 0.032271415, y: 0.044372104, z: 0.067114994}
+      rotation: {x: 0.000000011641532, y: -7.275959e-10, z: 8.470333e-18, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:lowerLidMain8_R
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: 0.03477486, y: 0.044849604, z: 0.06619962}
+      rotation: {x: -3.970466e-19, y: 7.2759565e-10, z: -1.8189891e-10, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: _GEO_face:lowerLidMain9_R
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: 0.03684214, y: 0.04558672, z: 0.06505026}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1.0000002, z: 1}
+    - name: _GEO_face:lowerLidMain10_R
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: 0.038910396, y: 0.046840824, z: 0.06316245}
+      rotation: {x: 0.000000011641534, y: -3.6379783e-10, z: 4.2351656e-18, w: 1}
+      scale: {x: 0.99999994, y: 1, z: 1}
+    - name: _GEO_face:lowerLidMain11_R
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: 0.04025512, y: 0.04801125, z: 0.0613901}
+      rotation: {x: -3.3087225e-20, y: -1.8189894e-10, z: 1.8189894e-10, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1.0000001}
+    - name: _GEO_face:upperLidMain0_L
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: -0.01685106, y: 0.045972764, z: 0.063509084}
+      rotation: {x: 0.000000011641532, y: -3.6379783e-10, z: -1.8189891e-10, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: _GEO_face:lowerLidMain1_L
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: -0.018378045, y: 0.045051448, z: 0.063614585}
+      rotation: {x: -0.000000011641532, y: 9.0949456e-11, z: -1.8189891e-10, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: _GEO_face:lowerLidMain2_L
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: -0.020895874, y: 0.045046963, z: 0.06590449}
+      rotation: {x: -0.000000011641532, y: 3.6379783e-10, z: 4.235163e-18, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: _GEO_face:lowerLidMain3_L
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: -0.023683123, y: 0.04469902, z: 0.06683083}
+      rotation: {x: -1.323489e-19, y: -7.2759576e-10, z: 1.8189894e-10, w: 1}
+      scale: {x: 1, y: 1, z: 1.0000002}
+    - name: _GEO_face:lowerLidMain4_L
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: -0.026013391, y: 0.04433227, z: 0.06731109}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 0.99999994, y: 1.0000002, z: 1.0000001}
+    - name: _GEO_face:lowerLidMain5_L
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: -0.028191911, y: 0.044035017, z: 0.06761534}
+      rotation: {x: -0.000000011641532, y: -7.2759576e-10, z: -8.4703295e-18, w: 1}
+      scale: {x: 1, y: 0.99999994, z: 1.0000001}
+    - name: _GEO_face:lowerLidMain6_L
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: -0.030014733, y: 0.043933533, z: 0.067648605}
+      rotation: {x: 0.000000011641532, y: -7.2759576e-10, z: -3.6379788e-10, w: 1}
+      scale: {x: 1, y: 1, z: 1.0000001}
+    - name: _GEO_face:lowerLidMain7_L
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: -0.032921236, y: 0.044087518, z: 0.06679581}
+      rotation: {x: 0.00000001164153, y: -7.2759565e-10, z: 8.470327e-18, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: _GEO_face:lowerLidMain8_L
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: -0.03530313, y: 0.04462366, z: 0.06584316}
+      rotation: {x: 6.617445e-19, y: -7.2759576e-10, z: -1.8189894e-10, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:lowerLidMain9_L
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: -0.037254557, y: 0.045414317, z: 0.06468292}
+      rotation: {x: 1.203706e-33, y: 7.2759565e-10, z: 1.6543612e-24, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:lowerLidMain10_L
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: -0.039166857, y: 0.04672894, z: 0.06282646}
+      rotation: {x: 0.00000002328306, y: -3.6379783e-10, z: 8.470327e-18, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:lowerLidMain11_L
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: -0.040390585, y: 0.0479454, z: 0.061117403}
+      rotation: {x: -0.000000011641532, y: 1.058791e-18, z: -9.094947e-11, w: 1}
+      scale: {x: 1, y: 0.99999994, z: 0.99999994}
+    - name: _GEO_face:upperLidBaseJoint_R
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: 0.027984569, y: 0.058574017, z: 0.064281374}
+      rotation: {x: 0.9939423, y: -4.676072e-10, z: -0.10990316, w: 0.000000022252395}
+      scale: {x: 1, y: 1.0000006, z: 1.0000002}
+    - name: _GEO_face:upperLidBaseJoint_L
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: -0.027984569, y: 0.058574017, z: 0.064281374}
+      rotation: {x: -0.000000032688934, y: -0.10990316, z: -0.0000000065426335, w: 0.9939423}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: _GEO_face:EyeBrowInnerJoint_R
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: 0.008909946, y: 0.058091097, z: 0.07520759}
+      rotation: {x: 0.9931212, y: -0.000000004013752, z: -0.117090754, w: -0.000000009187398}
+      scale: {x: 1, y: 1.0000004, z: 1.0000001}
+    - name: _GEO_face:EyeBrowMid1Joint_R
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: 0.020705264, y: 0.06377918, z: 0.07532498}
+      rotation: {x: 0.97539085, y: 0.00000001072593, z: -0.22048292, w: 0.000000021050194}
+      scale: {x: 1, y: 1.0000001, z: 1.0000001}
+    - name: _GEO_face:EyeBrowMid2Joint_R
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: 0.031252746, y: 0.06676696, z: 0.07329651}
+      rotation: {x: 0.953988, y: -0.000000013469622, z: -0.2998449, w: -0.0000000040298267}
+      scale: {x: 1.0000001, y: 1.0000004, z: 1.0000001}
+    - name: _GEO_face:EyeBrowMid3Joint_R
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: 0.04129082, y: 0.06665144, z: 0.06642795}
+      rotation: {x: 0.9212604, y: 8.1122653e-10, z: -0.3889464, w: 0.000000001921475}
+      scale: {x: 1.0000001, y: 1.0000006, z: 1.0000004}
+    - name: _GEO_face:EyeBrowOuterJoint_R
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: 0.04744009, y: 0.063275956, z: 0.057700124}
+      rotation: {x: 0.8927322, y: 0.00000002502204, z: -0.45058775, w: -0.0000000020974578}
+      scale: {x: 1, y: 1.0000004, z: 1.0000004}
+    - name: _GEO_face:EyeBrowCenterJoint_M
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: 4.813267e-16, y: 0.059653167, z: 0.076738335}
+      rotation: {x: 0.000000011641532, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 0.99999994, z: 0.99999994}
+    - name: _GEO_face:EyeBrowInnerJoint_L
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: -0.008909946, y: 0.059548672, z: 0.07520759}
+      rotation: {x: -0.000000012567216, y: -0.11709076, z: -0.0000000014816973, w: 0.99312127}
+      scale: {x: 1, y: 1.0000001, z: 1.0000001}
+    - name: _GEO_face:EyeBrowMid1Joint_L
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: -0.020705264, y: 0.06487558, z: 0.07532498}
+      rotation: {x: 6.238877e-11, y: -0.22048293, z: -0.000000005953522, w: 0.97539085}
+      scale: {x: 1, y: 0.99999994, z: 1}
+    - name: _GEO_face:EyeBrowMid2Joint_L
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: -0.031252746, y: 0.06776976, z: 0.07329651}
+      rotation: {x: 0.000000018855072, y: -0.2998449, z: 0.000000012027787, w: 0.953988}
+      scale: {x: 1.0000002, y: 1, z: 1.0000002}
+    - name: _GEO_face:EyeBrowMid3Joint_L
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: -0.04129082, y: 0.06750799, z: 0.06642795}
+      rotation: {x: -0.000000001921475, y: -0.3889464, z: -8.1122653e-10, w: 0.9212604}
+      scale: {x: 0.9999999, y: 1, z: 1}
+    - name: _GEO_face:EyeBrowOuterJoint_L
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: -0.04744009, y: 0.064133264, z: 0.057700124}
+      rotation: {x: 0.0000000020974578, y: -0.45058775, z: -0.00000002502204, w: 0.8927322}
+      scale: {x: 1.0000002, y: 0.99999994, z: 1}
+    - name: _GEO_face:LipJoints_M
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: 4.813267e-16, y: -0.013093693, z: 0.08359838}
+      rotation: {x: 0.000000011641532, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1.0000001}
+    - name: _GEO_face:upperLipJoint0_M
+      parentName: _GEO_face:LipJoints_M
+      position: {x: 1.1816136e-17, y: 0.0048166723, z: -0.0020738982}
+      rotation: {x: 0.000000023283064, y: -0.000000043711385, z: 6.476912e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:upperLipJoint1_R
+      parentName: _GEO_face:LipJoints_M
+      position: {x: 0.0045277104, y: 0.0047289254, z: -0.0030507338}
+      rotation: {x: 0.0006660908, y: 0.11354031, z: -0.018869566, w: 0.99335396}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:upperLipJoint1_L
+      parentName: _GEO_face:LipJoints_M
+      position: {x: -0.0045277104, y: 0.0047289254, z: -0.0030507338}
+      rotation: {x: 0.0006661146, y: -0.11354041, z: 0.01886956, w: 0.99335396}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:upperLipJoint2_R
+      parentName: _GEO_face:LipJoints_M
+      position: {x: 0.008102899, y: 0.0045410153, z: -0.00381184}
+      rotation: {x: 0.0012576291, y: 0.18318428, z: -0.032540195, w: 0.9825391}
+      scale: {x: 1, y: 0.99999994, z: 1.0000001}
+    - name: _GEO_face:upperLipJoint2_L
+      parentName: _GEO_face:LipJoints_M
+      position: {x: -0.008102899, y: 0.0045410153, z: -0.00381184}
+      rotation: {x: 0.0012576337, y: -0.18318437, z: 0.032540195, w: 0.9825391}
+      scale: {x: 1, y: 0.99999994, z: 1}
+    - name: _GEO_face:upperLipJoint3_R
+      parentName: _GEO_face:LipJoints_M
+      position: {x: 0.011054028, y: 0.004301574, z: -0.0049790535}
+      rotation: {x: 0.0011440945, y: 0.23332722, z: -0.044283196, w: 0.97138876}
+      scale: {x: 1, y: 0.99999994, z: 1}
+    - name: _GEO_face:upperLipJoint3_L
+      parentName: _GEO_face:LipJoints_M
+      position: {x: -0.011054028, y: 0.004301574, z: -0.0049790535}
+      rotation: {x: 0.0011441051, y: -0.23332736, z: 0.0442832, w: 0.97138876}
+      scale: {x: 1, y: 0.9999998, z: 1.0000001}
+    - name: _GEO_face:upperLipJoint4_R
+      parentName: _GEO_face:LipJoints_M
+      position: {x: 0.013872387, y: 0.003975216, z: -0.006817429}
+      rotation: {x: -0.00012753795, y: 0.28137225, z: -0.058292713, w: 0.9578265}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:upperLipJoint4_L
+      parentName: _GEO_face:LipJoints_M
+      position: {x: -0.013872387, y: 0.003975216, z: -0.006817429}
+      rotation: {x: -0.00012757393, y: -0.28137237, z: 0.05829271, w: 0.9578265}
+      scale: {x: 1.0000002, y: 1, z: 1}
+    - name: _GEO_face:upperLipJoint5_R
+      parentName: _GEO_face:LipJoints_M
+      position: {x: 0.016899012, y: 0.0034466598, z: -0.009524941}
+      rotation: {x: -0.004963437, y: 0.3444468, z: -0.0831069, w: 0.93510693}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:upperLipJoint5_L
+      parentName: _GEO_face:LipJoints_M
+      position: {x: -0.016899012, y: 0.0034466598, z: -0.009524941}
+      rotation: {x: -0.00496345, y: -0.34444693, z: 0.0831069, w: 0.93510693}
+      scale: {x: 1.0000001, y: 1, z: 1.0000001}
+    - name: _GEO_face:upperLipJoint6_R
+      parentName: _GEO_face:LipJoints_M
+      position: {x: 0.01903432, y: 0.0028628719, z: -0.011829393}
+      rotation: {x: -0.01366952, y: 0.4137435, z: -0.11158453, w: 0.90342593}
+      scale: {x: 1, y: 1, z: 1.0000001}
+    - name: _GEO_face:upperLipJoint6_L
+      parentName: _GEO_face:LipJoints_M
+      position: {x: -0.01903432, y: 0.0028628719, z: -0.011829393}
+      rotation: {x: -0.013669476, y: -0.41374356, z: 0.11158456, w: 0.9034259}
+      scale: {x: 1.0000002, y: 1.0000001, z: 1}
+    - name: _GEO_face:upperLipJoint7_R
+      parentName: _GEO_face:LipJoints_M
+      position: {x: 0.020793917, y: 0.0021601024, z: -0.01402078}
+      rotation: {x: -0.027038308, y: 0.4853261, z: -0.13675308, w: 0.863149}
+      scale: {x: 1.0000002, y: 1, z: 1}
+    - name: _GEO_face:upperLipJoint7_L
+      parentName: _GEO_face:LipJoints_M
+      position: {x: -0.020793917, y: 0.0021601024, z: -0.01402078}
+      rotation: {x: -0.027038272, y: -0.48532623, z: 0.13675308, w: 0.86314887}
+      scale: {x: 1.0000002, y: 1, z: 1}
+    - name: _GEO_face:upperLipJoint8_R
+      parentName: _GEO_face:LipJoints_M
+      position: {x: 0.021763522, y: 0.0015093269, z: -0.01606423}
+      rotation: {x: -0.040664393, y: 0.53420585, z: -0.15045859, w: 0.83086264}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:upperLipJoint8_L
+      parentName: _GEO_face:LipJoints_M
+      position: {x: -0.021763522, y: 0.0015093269, z: -0.01606423}
+      rotation: {x: -0.040664416, y: -0.5342059, z: 0.15045859, w: 0.83086264}
+      scale: {x: 1.0000001, y: 1, z: 1.0000002}
+    - name: _GEO_face:LipJoint_R
+      parentName: _GEO_face:LipJoints_M
+      position: {x: 0.022653496, y: 0.00085426297, z: -0.017884044}
+      rotation: {x: -0.053804196, y: 0.5637532, z: -0.15266246, w: 0.8099269}
+      scale: {x: 1.0000005, y: 1, z: 1.0000005}
+    - name: _GEO_face:LipJoint_L
+      parentName: _GEO_face:LipJoints_M
+      position: {x: -0.022653496, y: 0.00085426297, z: -0.017884044}
+      rotation: {x: -0.05380417, y: -0.56375325, z: 0.15266243, w: 0.8099269}
+      scale: {x: 1.0000002, y: 1.0000001, z: 1.0000002}
+    - name: _GEO_face:lowerLipJoint0_M
+      parentName: _GEO_face:LipJoints_M
+      position: {x: -5.150348e-20, y: -0.0038718295, z: -0.0046646306}
+      rotation: {x: 0.000000023283064, y: -0.000000043711385, z: 6.476912e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:lowerLipJoint1_R
+      parentName: _GEO_face:LipJoints_M
+      position: {x: 0.004952163, y: -0.0035460554, z: -0.004794567}
+      rotation: {x: -0.0013559002, y: 0.09713178, z: 0.061174557, w: 0.9933888}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:lowerLipJoint1_L
+      parentName: _GEO_face:LipJoints_M
+      position: {x: -0.004952163, y: -0.0035460554, z: -0.004794567}
+      rotation: {x: -0.0013559058, y: -0.097131856, z: -0.061174545, w: 0.9933888}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:lowerLipJoint2_R
+      parentName: _GEO_face:LipJoints_M
+      position: {x: 0.008918015, y: -0.0029076498, z: -0.005530432}
+      rotation: {x: -0.0020010383, y: 0.1607885, z: 0.093563765, w: 0.9825421}
+      scale: {x: 1, y: 1.0000001, z: 0.99999994}
+    - name: _GEO_face:lowerLipJoint2_L
+      parentName: _GEO_face:LipJoints_M
+      position: {x: -0.008918015, y: -0.0029076498, z: -0.005530432}
+      rotation: {x: -0.0020010322, y: -0.16078858, z: -0.09356379, w: 0.98254204}
+      scale: {x: 1, y: 1, z: 0.99999994}
+    - name: _GEO_face:lowerLipJoint3_R
+      parentName: _GEO_face:LipJoints_M
+      position: {x: 0.011963999, y: -0.0022308165, z: -0.006920266}
+      rotation: {x: -0.001190082, y: 0.20920302, z: 0.11063748, w: 0.97159255}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:lowerLipJoint3_L
+      parentName: _GEO_face:LipJoints_M
+      position: {x: -0.011963999, y: -0.0022308165, z: -0.006920266}
+      rotation: {x: -0.0011900984, y: -0.20920315, z: -0.11063747, w: 0.97159255}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:lowerLipJoint4_R
+      parentName: _GEO_face:LipJoints_M
+      position: {x: 0.014863397, y: -0.0014553247, z: -0.008899241}
+      rotation: {x: 0.0010205612, y: 0.26353785, z: 0.11864528, w: 0.95732445}
+      scale: {x: 1, y: 1.0000001, z: 1.0000001}
+    - name: _GEO_face:lowerLipJoint4_L
+      parentName: _GEO_face:LipJoints_M
+      position: {x: -0.014863397, y: -0.0014553247, z: -0.008899241}
+      rotation: {x: 0.0010205543, y: -0.26353785, z: -0.11864525, w: 0.95732445}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:lowerLipJoint5_R
+      parentName: _GEO_face:LipJoints_M
+      position: {x: 0.01712948, y: -0.00080603483, z: -0.010678421}
+      rotation: {x: 0.0032392284, y: 0.32322833, z: 0.11507602, w: 0.93929255}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:lowerLipJoint5_L
+      parentName: _GEO_face:LipJoints_M
+      position: {x: -0.01712948, y: -0.00080603483, z: -0.010678421}
+      rotation: {x: 0.0032391949, y: -0.32322836, z: -0.11507602, w: 0.93929255}
+      scale: {x: 1.0000001, y: 1, z: 1.0000001}
+    - name: _GEO_face:lowerLipJoint6_R
+      parentName: _GEO_face:LipJoints_M
+      position: {x: 0.018832112, y: -0.00026513255, z: -0.012697141}
+      rotation: {x: 0.0052199834, y: 0.39425713, z: 0.10859522, w: 0.9125465}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:lowerLipJoint6_L
+      parentName: _GEO_face:LipJoints_M
+      position: {x: -0.018832112, y: -0.00026513255, z: -0.012697141}
+      rotation: {x: 0.0052199527, y: -0.39425713, z: -0.10859522, w: 0.9125466}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:lowerLipJoint7_R
+      parentName: _GEO_face:LipJoints_M
+      position: {x: 0.020197745, y: 0.00015547092, z: -0.014349334}
+      rotation: {x: 0.008076093, y: 0.45740983, z: 0.09754477, w: 0.88385296}
+      scale: {x: 1.0000001, y: 1, z: 0.9999999}
+    - name: _GEO_face:lowerLipJoint7_L
+      parentName: _GEO_face:LipJoints_M
+      position: {x: -0.020197745, y: 0.00015547092, z: -0.014349334}
+      rotation: {x: 0.008076111, y: -0.45740995, z: -0.097544774, w: 0.8838529}
+      scale: {x: 1, y: 1, z: 1.0000001}
+    - name: _GEO_face:lowerLipJoint8_R
+      parentName: _GEO_face:LipJoints_M
+      position: {x: 0.021101665, y: 0.0004481147, z: -0.015772246}
+      rotation: {x: 0.011757331, y: 0.49995857, z: 0.086862035, w: 0.8616021}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:lowerLipJoint8_L
+      parentName: _GEO_face:LipJoints_M
+      position: {x: -0.021101665, y: 0.0004481147, z: -0.015772246}
+      rotation: {x: 0.01175729, y: -0.4999586, z: -0.08686199, w: 0.86160207}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:SmileBulgeJoint_R
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: 0.033464048, y: -0.00976659, z: 0.060399607}
+      rotation: {x: 0.93658113, y: -0.0000000031717824, z: -0.3504508, w: -0.000000008476601}
+      scale: {x: 1, y: 1.0000008, z: 1.0000007}
+    - name: _GEO_face:FrownBulgeJoint_R
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: 0.0305088, y: -0.018867237, z: 0.059168756}
+      rotation: {x: 0.9410104, y: 0.0000000051997264, z: -0.33837762, w: -0.000000019943801}
+      scale: {x: 1.0000001, y: 1.0000006, z: 1.0000005}
+    - name: _GEO_face:SmileBulgeJoint_L
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: -0.033464048, y: -0.00976659, z: 0.060399607}
+      rotation: {x: 0.0000000068143238, y: -0.35045078, z: -0.000000009880028, w: 0.9365812}
+      scale: {x: 1, y: 0.99999994, z: 1.0000001}
+    - name: _GEO_face:FrownBulgeJoint_L
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: -0.0305088, y: -0.018867237, z: 0.059168756}
+      rotation: {x: -0.0000000022199746, y: -0.33837762, z: -0.000000013169591, w: 0.9410104}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+    - name: _GEO_face:CheekRaiserJoint_R
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: 0.03986453, y: 0.03409373, z: 0.06406431}
+      rotation: {x: 0.9939423, y: -4.676072e-10, z: -0.10990316, w: 0.000000022252395}
+      scale: {x: 1, y: 1.0000006, z: 1.0000002}
+    - name: _GEO_face:CheekRaiserJoint_L
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: -0.03986453, y: 0.03409373, z: 0.06406431}
+      rotation: {x: -0.000000032688934, y: -0.10990316, z: -0.0000000065426335, w: 0.9939423}
+      scale: {x: 1, y: 0.9999999, z: 1}
+    - name: _GEO_face:CheekJoint_R
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: 0.04171322, y: -0.0022008247, z: 0.04977724}
+      rotation: {x: 0.89198226, y: 0.000000012773053, z: -0.45207036, w: -5.4902216e-10}
+      scale: {x: 1.0000002, y: 1.0000004, z: 1.0000002}
+    - name: _GEO_face:CheekJoint_L
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: -0.04171322, y: -0.0022008247, z: 0.04977724}
+      rotation: {x: 2.3567914e-10, y: -0.45207042, z: -0.000000012931858, w: 0.89198226}
+      scale: {x: 1, y: 0.99999994, z: 1}
+    - name: _GEO_face:NoseJoint_M
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: 4.813267e-16, y: 0.019197337, z: 0.09788332}
+      rotation: {x: 0.000000011641532, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1.0000001}
+    - name: _GEO_face:NoseCornerJoint_R
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: 0.01599446, y: 0.014432628, z: 0.07395284}
+      rotation: {x: 0.987607, y: -0.0000000056704184, z: -0.15694727, w: 0.0000000014057051}
+      scale: {x: 1, y: 1.0000004, z: 1.0000005}
+    - name: _GEO_face:NoseCornerJoint_L
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: -0.01599446, y: 0.014432628, z: 0.07395284}
+      rotation: {x: -0.000000013797864, y: -0.15694726, z: 0.0000000037010972, w: 0.987607}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: _GEO_face:upperLidMain1_R
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: 0.018109601, y: 0.047643393, z: 0.065909445}
+      rotation: {x: -0.000000029802319, y: 1.8189894e-10, z: 1.8189894e-10, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:upperLidMain2_R
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: 0.019520685, y: 0.049005773, z: 0.0664986}
+      rotation: {x: -0, y: -3.0357665e-18, z: 3.6379785e-10, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: _GEO_face:upperLidMain3_R
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: 0.021762937, y: 0.050802168, z: 0.0666673}
+      rotation: {x: -0.000000029802319, y: 0.0000000010913935, z: 3.637979e-10, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:upperLidMain4_R
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: 0.024011858, y: 0.05242283, z: 0.066902176}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 0.99999994, y: 1, z: 1.0000001}
+    - name: _GEO_face:upperLidMain5_R
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: 0.02605458, y: 0.05319704, z: 0.067016296}
+      rotation: {x: -0, y: -7.275957e-10, z: -6.071533e-18, w: 1}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1}
+    - name: _GEO_face:upperLidMain6_R
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: 0.028789463, y: 0.053310875, z: 0.066920616}
+      rotation: {x: -0.000000029802319, y: 0.0000000014551915, z: 3.6379788e-10, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: _GEO_face:upperLidMain7_R
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: 0.031081047, y: 0.05344328, z: 0.06663363}
+      rotation: {x: 0.000000059604638, y: 3.6379783e-10, z: 1.8189887e-10, w: 1}
+      scale: {x: 0.99999994, y: 1, z: 1.0000001}
+    - name: _GEO_face:upperLidMain8_R
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: 0.03319416, y: 0.05347405, z: 0.0659725}
+      rotation: {x: -0, y: -7.275957e-10, z: -6.3664635e-10, w: 1}
+      scale: {x: 1, y: 1, z: 1.0000002}
+    - name: _GEO_face:upperLidMain9_R
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: 0.03547189, y: 0.05310549, z: 0.06509385}
+      rotation: {x: -0.000000029802319, y: -0.0000000010004441, z: -8.640198e-10, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1.0000001}
+    - name: _GEO_face:upperLidMain10_R
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: 0.03779361, y: 0.052205414, z: 0.06381171}
+      rotation: {x: 0.000000059604638, y: -1.9326771e-10, z: -0.0000000017280398, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: _GEO_face:upperLidMain11_R
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: 0.03957136, y: 0.050864235, z: 0.06182637}
+      rotation: {x: -0.000000029802319, y: -5.0022214e-10, z: 6.5938366e-10, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: _GEO_face:upperLidMain12_R
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: 0.041043546, y: 0.049112324, z: 0.058229197}
+      rotation: {x: -0, y: 4.743385e-20, z: -5.6843415e-12, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1.0000001}
+    - name: _GEO_face:upperLidMain1_L
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: -0.018258393, y: 0.047585163, z: 0.06585561}
+      rotation: {x: -0, y: 9.094947e-11, z: 4.547473e-11, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:upperLidMain2_L
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: -0.01976714, y: 0.049018625, z: 0.06646845}
+      rotation: {x: -0.000000029802319, y: 3.6379788e-10, z: -2.7284838e-10, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:upperLidMain3_L
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: -0.022145154, y: 0.050912295, z: 0.06664318}
+      rotation: {x: 0.000000029802319, y: 3.6379788e-10, z: -3.6379788e-10, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:upperLidMain4_L
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: -0.024541643, y: 0.052637234, z: 0.066849515}
+      rotation: {x: -0, y: -3.637979e-10, z: -3.0357648e-18, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1.0000001}
+    - name: _GEO_face:upperLidMain5_L
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: -0.026694063, y: 0.05347699, z: 0.06690215}
+      rotation: {x: 0.000000029802319, y: 1.6263033e-17, z: 5.456969e-10, w: 1}
+      scale: {x: 0.99999994, y: 1.0000001, z: 1.0000002}
+    - name: _GEO_face:upperLidMain6_L
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: -0.029512346, y: 0.053629488, z: 0.066692084}
+      rotation: {x: -0, y: -7.275958e-10, z: -1.9949317e-17, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1.0000001}
+    - name: _GEO_face:upperLidMain7_L
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: -0.031751215, y: 0.053746574, z: 0.06633083}
+      rotation: {x: 0.000000029802319, y: -7.275958e-10, z: 7.8062565e-18, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1.0000001}
+    - name: _GEO_face:upperLidMain8_L
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: -0.033771284, y: 0.05373619, z: 0.06562977}
+      rotation: {x: -0.000000029802319, y: 7.275956e-10, z: -3.637978e-10, w: 1}
+      scale: {x: 0.99999994, y: 1.0000001, z: 1}
+    - name: _GEO_face:upperLidMain9_L
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: -0.035939146, y: 0.053304613, z: 0.06473062}
+      rotation: {x: -0, y: 1.2143073e-17, z: -0.0000000014551912, w: 1}
+      scale: {x: 0.99999994, y: 1, z: 1.0000001}
+    - name: _GEO_face:upperLidMain10_L
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: -0.03812462, y: 0.052332185, z: 0.0634575}
+      rotation: {x: -0.000000029802319, y: 0.0000000021827873, z: 3.637979e-10, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: _GEO_face:upperLidMain11_L
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: -0.03974625, y: 0.050930634, z: 0.06153273}
+      rotation: {x: -0.000000029802319, y: 7.275957e-10, z: 3.3827104e-17, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: _GEO_face:upperLidMain12_L
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: -0.041043546, y: 0.049106482, z: 0.058092788}
+      rotation: {x: -0, y: 1.1368684e-11, z: -2.8421707e-12, w: 1}
+      scale: {x: 0.99999994, y: 1, z: 1}
+    - name: _GEO_face:EyeJoint_L
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: -0.02739165, y: 0.04921162, z: 0.04811311}
+      rotation: {x: 0.033117082, y: 0.079496816, z: -0.0026425275, w: 0.9962814}
+      scale: {x: 1, y: 0.9999999, z: 0.9999999}
+    - name: _GEO_face:IrisJoint_L
+      parentName: _GEO_face:EyeJoint_L
+      position: {x: -0.0037084927, y: 0.0015380692, z: 0.014086828}
+      rotation: {x: -0, y: -0, z: 4.6566123e-10, w: 1}
+      scale: {x: 0.99999994, y: 1, z: 1.0000001}
+    - name: _GEO_face:PupilJoint_L
+      parentName: _GEO_face:IrisJoint_L
+      position: {x: 0.00033400668, y: -0.00016691543, z: -0.0010144095}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:upperTeethJoint_M
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: 4.813267e-16, y: -0.003767521, z: 0.05448986}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:lowerTeethJoint_M
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: 4.813267e-16, y: -0.012903645, z: 0.05102378}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:EyeJoint_R
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: 0.02739165, y: 0.04921162, z: 0.04811311}
+      rotation: {x: 0.033117034, y: 0.079496816, z: -0.0026425275, w: 0.9962814}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:IrisJoint_R
+      parentName: _GEO_face:EyeJoint_R
+      position: {x: -0.000911441, y: 0.0015679018, z: 0.01453507}
+      rotation: {x: -0, y: -0, z: 4.6566123e-10, w: 1}
+      scale: {x: 0.99999994, y: 1, z: 1.0000001}
+    - name: _GEO_face:PupilJoint_R
+      parentName: _GEO_face:IrisJoint_R
+      position: {x: 0.000003215433, y: -0.00017044356, z: -0.0010674205}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:JawJoint_M
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: 4.813267e-16, y: 0.027127635, z: 0.0073073804}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:Tongue0Joint_M
+      parentName: _GEO_face:FaceJoint_M
+      position: {x: 4.813267e-16, y: -0.009606373, z: 0.019397948}
+      rotation: {x: -0.000000008231807, y: 0.7071068, z: -0.000000008231807, w: 0.7071068}
+      scale: {x: 1.0000007, y: 0.99999994, z: 1.0000008}
+    - name: _GEO_face:Tongue1Joint_M
+      parentName: _GEO_face:Tongue0Joint_M
+      position: {x: -0.016294826, y: -1.4210854e-16, z: 1.2663624e-17}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:Tongue2Joint_M
+      parentName: _GEO_face:Tongue1Joint_M
+      position: {x: -0.016294826, y: 2.842171e-16, z: 1.2663624e-17}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:Tongue3Joint_M
+      parentName: _GEO_face:Tongue2Joint_M
+      position: {x: -0.016294826, y: -2.842171e-16, z: 1.2663624e-17}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:GameSkeletonEye_R
+      parentName: _GEO_face:GameSkeletonHead_M
+      position: {x: 0.02739165, y: 0.04921162, z: 0.06779701}
+      rotation: {x: -0, y: 5.169879e-24, z: 2.5849394e-24, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:GameSkeletonEyeEnd_R
+      parentName: _GEO_face:GameSkeletonEye_R
+      position: {x: 0.0027036332, y: -0.0011347135, z: 0.016833564}
+      rotation: {x: 1.3877788e-17, y: 5.551115e-17, z: 9.1940344e-17, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:GameSkeletonJaw_M
+      parentName: _GEO_face:GameSkeletonHead_M
+      position: {x: 7.310796e-17, y: -0.022474436, z: 0.032554474}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:GameSkeletonJawEnd_M
+      parentName: _GEO_face:GameSkeletonJaw_M
+      position: {x: 1.8457576e-17, y: -0.02011054, z: 0.056475166}
+      rotation: {x: 2.7755576e-17, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:GameSkeletonScapula_R
+      parentName: _GEO_face:GameSkeletonChest_M
+      position: {x: 0.071435176, y: 0.08001504, z: 0.006205525}
+      rotation: {x: -3.5527137e-15, y: -0.000000011641532, z: 0.000000011641532, w: 1}
+      scale: {x: 1.0000001, y: 1, z: 1}
+    - name: _GEO_face:GameSkeletonShoulder_R
+      parentName: _GEO_face:GameSkeletonScapula_R
+      position: {x: 0.082541004, y: -0.00001959332, z: -0.00003542602}
+      rotation: {x: 4.1625774e-15, y: 0.00000006402843, z: -0.0000000116415295, w: 1}
+      scale: {x: 1, y: 0.9999999, z: 1}
+    - name: _GEO_face:GameSkeletonShoulderPart1_R
+      parentName: _GEO_face:GameSkeletonShoulder_R
+      position: {x: 0.08702214, y: -0.009182094, z: 0.0024346234}
+      rotation: {x: 0.000000115968795, y: 0.0034463024, z: 0.012997838, w: 0.99990964}
+      scale: {x: 1.0000001, y: 1, z: 1}
+    - name: _GEO_face:GameSkeletonShoulderPart2_R
+      parentName: _GEO_face:GameSkeletonShoulderPart1_R
+      position: {x: 0.08702214, y: -0.009182094, z: 0.0024346234}
+      rotation: {x: -0.000000046566157, y: 0.000000017462312, z: 0.000000062573235, w: 1}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+    - name: _GEO_face:GameSkeletonElbow_R
+      parentName: _GEO_face:GameSkeletonShoulderPart2_R
+      position: {x: 0.08702214, y: -0.009182094, z: 0.0024346234}
+      rotation: {x: -0.00000006402843, y: 0.000000016007103, z: -0.000000005820768, w: 1}
+      scale: {x: 1.0000002, y: 1, z: 1.0000001}
+    - name: _GEO_face:GameSkeletonWrist_R
+      parentName: _GEO_face:GameSkeletonElbow_R
+      position: {x: 0.23584436, y: 0.003457871, z: 0.013438898}
+      rotation: {x: -0, y: -0, z: 1.3673123e-16, w: 1}
+      scale: {x: 1.0000001, y: 1, z: 1.0000002}
+    - name: _GEO_face:GameSkeletonMiddleFinger1_R
+      parentName: _GEO_face:GameSkeletonWrist_R
+      position: {x: 0.09297318, y: 0.004169581, z: 0.009887485}
+      rotation: {x: -5.551115e-17, y: 9.020562e-17, z: -3.1225023e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:GameSkeletonMiddleFinger2_R
+      parentName: _GEO_face:GameSkeletonMiddleFinger1_R
+      position: {x: 0.043588836, y: -0.00898774, z: 0.00508641}
+      rotation: {x: 2.7755578e-16, y: 1.07552856e-16, z: -4.0592532e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:GameSkeletonMiddleFinger3_R
+      parentName: _GEO_face:GameSkeletonMiddleFinger2_R
+      position: {x: 0.03218348, y: -0.009765273, z: 0.0036131523}
+      rotation: {x: 5.551115e-17, y: 3.8163916e-16, z: -4.3715032e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:GameSkeletonMiddleFinger4_R
+      parentName: _GEO_face:GameSkeletonMiddleFinger3_R
+      position: {x: 0.018478606, y: -0.006472165, z: 0.0020368132}
+      rotation: {x: 1.110223e-16, y: 2.1510571e-16, z: -4.440892e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:GameSkeletonIndexFinger1_R
+      parentName: _GEO_face:GameSkeletonWrist_R
+      position: {x: 0.09189578, y: -0.0013738654, z: 0.034419052}
+      rotation: {x: -5.551115e-17, y: -9.7144515e-17, z: -1.249001e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:GameSkeletonIndexFinger2_R
+      parentName: _GEO_face:GameSkeletonIndexFinger1_R
+      position: {x: 0.03347556, y: -0.0035036018, z: 0.009376909}
+      rotation: {x: 5.551115e-17, y: 2.4286129e-16, z: -2.7755576e-17, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:GameSkeletonIndexFinger3_R
+      parentName: _GEO_face:GameSkeletonIndexFinger2_R
+      position: {x: 0.027177759, y: -0.0067615327, z: 0.007465027}
+      rotation: {x: -5.551115e-17, y: 3.7123082e-16, z: -2.810252e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:GameSkeletonIndexFinger4_R
+      parentName: _GEO_face:GameSkeletonIndexFinger3_R
+      position: {x: 0.020085948, y: -0.005455547, z: 0.00544788}
+      rotation: {x: -1.110223e-16, y: 5.08274e-16, z: -4.7704896e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:GameSkeletonRingFinger1_R
+      parentName: _GEO_face:GameSkeletonWrist_R
+      position: {x: 0.0935749, y: 0.0033990522, z: -0.010282891}
+      rotation: {x: -5.551115e-17, y: 1.0408341e-16, z: -2.289835e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:GameSkeletonRingFinger2_R
+      parentName: _GEO_face:GameSkeletonRingFinger1_R
+      position: {x: 0.036199458, y: -0.011276084, z: -0.0028434782}
+      rotation: {x: 2.220446e-16, y: -1.3877788e-17, z: -4.57967e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:GameSkeletonRingFinger3_R
+      parentName: _GEO_face:GameSkeletonRingFinger2_R
+      position: {x: 0.027953012, y: -0.009880631, z: -0.0022534893}
+      rotation: {x: 2.220446e-16, y: 1.3877789e-16, z: -6.2450045e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:GameSkeletonRingFinger4_R
+      parentName: _GEO_face:GameSkeletonRingFinger3_R
+      position: {x: 0.018022642, y: -0.0063085137, z: -0.001445832}
+      rotation: {x: -5.551115e-17, y: 1.3877789e-16, z: -4.440892e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:GameSkeletonPinkyFinger1_R
+      parentName: _GEO_face:GameSkeletonWrist_R
+      position: {x: 0.08632146, y: -0.0040303804, z: -0.028153267}
+      rotation: {x: -5.551115e-17, y: 2.9837244e-16, z: -2.289835e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:GameSkeletonPinkyFinger2_R
+      parentName: _GEO_face:GameSkeletonPinkyFinger1_R
+      position: {x: 0.028684463, y: -0.00483456, z: -0.0081240535}
+      rotation: {x: 3.32719e-40, y: 5.551115e-17, z: -5.1347815e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:GameSkeletonPinkyFinger3_R
+      parentName: _GEO_face:GameSkeletonPinkyFinger2_R
+      position: {x: 0.025049783, y: -0.009492356, z: -0.008055231}
+      rotation: {x: -2.220446e-16, y: 1.110223e-16, z: -6.3837824e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:GameSkeletonPinkyFinger4_R
+      parentName: _GEO_face:GameSkeletonPinkyFinger3_R
+      position: {x: 0.013453539, y: -0.0066297483, z: -0.004996263}
+      rotation: {x: 1.6653345e-16, y: -5.551115e-17, z: -9.714451e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:GameSkeletonThumbFinger1_R
+      parentName: _GEO_face:GameSkeletonWrist_R
+      position: {x: 0.024438454, y: -0.009513025, z: 0.037381995}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1.0000002, y: 1, z: 1.0000002}
+    - name: _GEO_face:GameSkeletonThumbFinger2_R
+      parentName: _GEO_face:GameSkeletonThumbFinger1_R
+      position: {x: 0.036678396, y: -0.0023616655, z: 0.02580507}
+      rotation: {x: 2.220446e-16, y: 1.6653345e-16, z: -2.7755578e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:GameSkeletonThumbFinger3_R
+      parentName: _GEO_face:GameSkeletonThumbFinger2_R
+      position: {x: 0.0155009795, y: 0.0007863546, z: 0.0066068587}
+      rotation: {x: 2.220446e-16, y: 3.330669e-16, z: -1.110223e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:GameSkeletonThumbFinger4_R
+      parentName: _GEO_face:GameSkeletonThumbFinger3_R
+      position: {x: 0.018680803, y: 0.0009476842, z: 0.007962128}
+      rotation: {x: 3.330669e-16, y: 4.718448e-16, z: -6.9388946e-17, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:GameSkeletonScapula_L
+      parentName: _GEO_face:GameSkeletonChest_M
+      position: {x: -0.071435176, y: 0.08001504, z: 0.006205525}
+      rotation: {x: -0, y: 0.000000017462296, z: -0.00000001164153, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _GEO_face:GameSkeletonShoulder_L
+      parentName: _GEO_face:GameSkeletonScapula_L
+      position: {x: -0.082541004, y: -0.00001959332, z: -0.00003542602}
+      rotation: {x: 8.131515e-16, y: -0.000000052386895, z: -0.000000011641534, w: 1}
+      scale: {x: 1.0000001, y: 0.9999999, z: 1}
+    - name: _GEO_face:GameSkeletonShoulderPart1_L
+      parentName: _GEO_face:GameSkeletonShoulder_L
+      position: {x: -0.08702214, y: -0.009182094, z: 0.0024346234}
+      rotation: {x: -6.23893e-10, y: -0.0034463583, z: -0.012997875, w: 0.99990964}
+      scale: {x: 1, y: 0.9999999, z: 1}
+    - name: _GEO_face:GameSkeletonShoulderPart2_L
+      parentName: _GEO_face:GameSkeletonShoulderPart1_L
+      position: {x: -0.08702214, y: -0.009182094, z: 0.0024346234}
+      rotation: {x: 0.000000023283066, y: -0, z: 0.000000008731149, w: 1}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1}
+    - name: _GEO_face:GameSkeletonElbow_L
+      parentName: _GEO_face:GameSkeletonShoulderPart2_L
+      position: {x: -0.08702214, y: -0.009182094, z: 0.0024346234}
+      rotation: {x: 0.0000000174623, y: 0.0000000058207665, z: 0.000000020372681, w: 1}
+      scale: {x: 1.0000004, y: 1.0000001, z: 1.0000002}
+    - name: _GEO_face:GameSkeletonWrist_L
+      parentName: _GEO_face:GameSkeletonElbow_L
+      position: {x: -0.23584436, y: 0.003457871, z: 0.013438898}
+      rotation: {x: -0.000000014551919, y: -8.881784e-16, z: -0.000000029103832, w: 1}
+      scale: {x: 1.0000001, y: 1.0000004, z: 1.0000001}
+    - name: _GEO_face:GameSkeletonMiddleFinger1_L
+      parentName: _GEO_face:GameSkeletonWrist_L
+      position: {x: -0.09297318, y: 0.004169581, z: 0.009887485}
+      rotation: {x: -0.0045421375, y: -0.0017296695, z: -0.041980904, w: 0.9991066}
+      scale: {x: 1.0000004, y: 1, z: 1.0000004}
+    - name: _GEO_face:GameSkeletonMiddleFinger2_L
+      parentName: _GEO_face:GameSkeletonMiddleFinger1_L
+      position: {x: -0.043588836, y: -0.00898774, z: 0.00508641}
+      rotation: {x: -0.00051404396, y: 0.00018549827, z: -0.0040773647, w: 0.9999916}
+      scale: {x: 1.0000001, y: 1, z: 1}
+    - name: _GEO_face:GameSkeletonMiddleFinger3_L
+      parentName: _GEO_face:GameSkeletonMiddleFinger2_L
+      position: {x: -0.03218348, y: -0.009765273, z: 0.0036131523}
+      rotation: {x: -0.000000002910383, y: -0.000000005820768, z: -0.000000034924597, w: 1}
+      scale: {x: 1.0000002, y: 1, z: 1.0000002}
+    - name: _GEO_face:GameSkeletonMiddleFinger4_L
+      parentName: _GEO_face:GameSkeletonMiddleFinger3_L
+      position: {x: -0.018478606, y: -0.006472165, z: 0.0020368132}
+      rotation: {x: -0, y: -0, z: -1.6940664e-17, w: 1}
+      scale: {x: 1.0000002, y: 0.99999994, z: 1.0000004}
+    - name: _GEO_face:GameSkeletonThumbFinger1_L
+      parentName: _GEO_face:GameSkeletonWrist_L
+      position: {x: -0.024438454, y: -0.009513025, z: 0.037381995}
+      rotation: {x: -0.0133761475, y: 0.062607974, z: -0.0132823335, w: 0.99786013}
+      scale: {x: 1.0000002, y: 1, z: 1.0000001}
+    - name: _GEO_face:GameSkeletonThumbFinger2_L
+      parentName: _GEO_face:GameSkeletonThumbFinger1_L
+      position: {x: -0.036678396, y: -0.0023616655, z: 0.02580507}
+      rotation: {x: 0.016111992, y: 0.07077022, z: 0.029378036, w: 0.99692976}
+      scale: {x: 1.0000002, y: 1, z: 1.0000002}
+    - name: _GEO_face:GameSkeletonThumbFinger3_L
+      parentName: _GEO_face:GameSkeletonThumbFinger2_L
+      position: {x: -0.0155009795, y: 0.0007863546, z: 0.0066068587}
+      rotation: {x: -0.0000000072759576, y: 0.0000000058207625, z: -0.00000001164153, w: 1}
+      scale: {x: 1, y: 1, z: 1.0000001}
+    - name: _GEO_face:GameSkeletonThumbFinger4_L
+      parentName: _GEO_face:GameSkeletonThumbFinger3_L
+      position: {x: -0.018680803, y: 0.0009476842, z: 0.007962128}
+      rotation: {x: -0, y: -0, z: 4.235162e-17, w: 1}
+      scale: {x: 1.0000001, y: 1, z: 1.0000002}
+    - name: _GEO_face:GameSkeletonIndexFinger1_L
+      parentName: _GEO_face:GameSkeletonWrist_L
+      position: {x: -0.09189578, y: -0.0013738654, z: 0.034419052}
+      rotation: {x: -0.0029613283, y: -0.021718735, z: -0.0186869, w: 0.9995851}
+      scale: {x: 1.0000004, y: 1, z: 1.0000004}
+    - name: _GEO_face:GameSkeletonIndexFinger2_L
+      parentName: _GEO_face:GameSkeletonIndexFinger1_L
+      position: {x: -0.03347556, y: -0.0035036018, z: 0.009376909}
+      rotation: {x: -0.0074517746, y: 0.0009898318, z: -0.026232922, w: 0.9996276}
+      scale: {x: 1.0000002, y: 1.0000001, z: 1.0000004}
+    - name: _GEO_face:GameSkeletonIndexFinger3_L
+      parentName: _GEO_face:GameSkeletonIndexFinger2_L
+      position: {x: -0.027177759, y: -0.0067615327, z: 0.007465027}
+      rotation: {x: -0.0000000058207696, y: -0.000000011641534, z: -0.0000000698492, w: 1}
+      scale: {x: 1.0000004, y: 1.0000001, z: 1.0000004}
+    - name: _GEO_face:GameSkeletonIndexFinger4_L
+      parentName: _GEO_face:GameSkeletonIndexFinger3_L
+      position: {x: -0.020085948, y: -0.005455547, z: 0.00544788}
+      rotation: {x: -0, y: -0, z: -6.776269e-17, w: 1}
+      scale: {x: 1.0000002, y: 1, z: 1.0000002}
+    - name: _GEO_face:GameSkeletonRingFinger1_L
+      parentName: _GEO_face:GameSkeletonWrist_L
+      position: {x: -0.0935749, y: 0.0033990522, z: -0.010282891}
+      rotation: {x: -0.008647159, y: 0.054006685, z: -0.10408487, w: 0.99306345}
+      scale: {x: 1.0000002, y: 1, z: 1.0000004}
+    - name: _GEO_face:GameSkeletonRingFinger2_L
+      parentName: _GEO_face:GameSkeletonRingFinger1_L
+      position: {x: -0.036199458, y: -0.011276084, z: -0.0028434782}
+      rotation: {x: -0.000000002910383, y: 0.000000008731151, z: 0.00000004656612, w: 1}
+      scale: {x: 1.0000001, y: 1, z: 1}
+    - name: _GEO_face:GameSkeletonRingFinger3_L
+      parentName: _GEO_face:GameSkeletonRingFinger2_L
+      position: {x: -0.027953012, y: -0.009880631, z: -0.0022534893}
+      rotation: {x: 0.0000000014551919, y: -3.5527137e-15, z: -0.00000003492459, w: 1}
+      scale: {x: 1.0000002, y: 1, z: 1.0000004}
+    - name: _GEO_face:GameSkeletonRingFinger4_L
+      parentName: _GEO_face:GameSkeletonRingFinger3_L
+      position: {x: -0.018022642, y: -0.0063085137, z: -0.001445832}
+      rotation: {x: -0, y: -0, z: 5.16988e-24, w: 1}
+      scale: {x: 1.0000004, y: 1, z: 1.0000004}
+    - name: _GEO_face:GameSkeletonPinkyFinger1_L
+      parentName: _GEO_face:GameSkeletonWrist_L
+      position: {x: -0.08632146, y: -0.0040303804, z: -0.028153267}
+      rotation: {x: -0.0016393176, y: 0.1222824, z: -0.066981144, w: 0.9902313}
+      scale: {x: 1.0000002, y: 1, z: 1.0000001}
+    - name: _GEO_face:GameSkeletonPinkyFinger2_L
+      parentName: _GEO_face:GameSkeletonPinkyFinger1_L
+      position: {x: -0.028684463, y: -0.00483456, z: -0.0081240535}
+      rotation: {x: 0.013337643, y: 0.009627467, z: -0.05282188, w: 0.9984685}
+      scale: {x: 1.0000002, y: 1, z: 1.0000001}
+    - name: _GEO_face:GameSkeletonPinkyFinger3_L
+      parentName: _GEO_face:GameSkeletonPinkyFinger2_L
+      position: {x: -0.025049783, y: -0.009492356, z: -0.008055231}
+      rotation: {x: 0.0009417875, y: 0.0026441617, z: -0.0060446067, w: 0.99997777}
+      scale: {x: 1.0000002, y: 1, z: 1.0000001}
+    - name: _GEO_face:GameSkeletonPinkyFinger4_L
+      parentName: _GEO_face:GameSkeletonPinkyFinger3_L
+      position: {x: -0.013453539, y: -0.0066297483, z: -0.004996263}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1.0000002, y: 1, z: 1.0000001}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 3
+  humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
