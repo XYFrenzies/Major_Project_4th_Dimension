@@ -81,6 +81,8 @@ public class PlayerMoveLookState : PlayerBaseState
 
     public void Look()
     {
+        pmStateMan.lookInputs = pmStateMan.lookAction.ReadValue<Vector2>().normalized;
+
         pmStateMan.transform.rotation = Quaternion.Euler(0, pmStateMan.cam.transform.eulerAngles.y, 0);
     }
 }
