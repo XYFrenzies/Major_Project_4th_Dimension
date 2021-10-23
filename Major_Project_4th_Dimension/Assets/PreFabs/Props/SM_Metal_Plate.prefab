@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 8031246975898527483}
   - component: {fileID: 6402820181178165598}
   - component: {fileID: 9169210429375995284}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SM_Metal_Plate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &8031246975898527483
 Transform:
@@ -136,6 +136,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 10a4d26dc41b4744a812a0285cfd8056, type: 3}
       propertyPath: m_Name
       value: SM_Metal_Plate
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 10a4d26dc41b4744a812a0285cfd8056, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 10a4d26dc41b4744a812a0285cfd8056, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10a4d26dc41b4744a812a0285cfd8056, type: 3}
