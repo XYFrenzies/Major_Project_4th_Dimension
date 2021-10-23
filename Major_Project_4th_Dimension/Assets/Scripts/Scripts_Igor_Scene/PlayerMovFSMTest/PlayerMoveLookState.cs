@@ -5,18 +5,16 @@ using UnityEngine.InputSystem;
 
 public class PlayerMoveLookState : PlayerBaseState
 {
-    private PlayerMovementSM pmStateMan;
+    //private PlayerMovementSM pmStateMan;
 
-    public PlayerMoveLookState(PlayerMovementSM stateMachine) : base(stateMachine)
+    public PlayerMoveLookState(PlayerStateManager psm) : base(psm)
     {
-        pmStateMan = stateMachine;
+        //pmStateMan = stateMachine;
     }
-
-
 
     public override void EnterState()
     {
-        base.EnterState();
+        //base.EnterState();
         Debug.Log("Enter move state");
         //pmStateMan.moveAction.Disable();
     }
@@ -28,63 +26,34 @@ public class PlayerMoveLookState : PlayerBaseState
 
     public override void UpdateLogic()
     {
-        base.UpdateLogic();
+        //base.UpdateLogic();
 
-        CalculateMove();
+        PSManager.CalculateMove();
         CheckForNoMovement();
-        //pmStateMan.lookAction.Disable();
+        PSManager.GroundCheck();
     }
 
     public override void UpdatePhysics()
     {
-        Move();
-        Look();
-        pmStateMan.lookAction.Disable();
-
-    }
-
-    public void Move()
-    {
-        pmStateMan.rb.MovePosition(pmStateMan.rb.position + pmStateMan.direction * pmStateMan.moveSpeed * Time.fixedDeltaTime);
-
-    }
-
-    public void CalculateMove()
-    {
-        var camForward = pmStateMan.cam.transform.forward;
-        camForward.y = 0.0f;
-        camForward.Normalize();
-
-        var camRight = pmStateMan.cam.transform.right;
-        camRight.y = 0.0f;
-        camRight.Normalize();
-
-        pmStateMan.direction.x = 0f;
-        pmStateMan.direction.z = 0f;
-
-        pmStateMan.inputs = pmStateMan.moveAction.ReadValue<Vector2>();
-
-        pmStateMan.direction += pmStateMan.inputs.y * camForward;
-        pmStateMan.direction += pmStateMan.inputs.x * camRight;
-
-        //pmStateMan.animator.SetFloat("xPos", pmStateMan.inputs.x, 0.3f, Time.deltaTime);
-        //pmStateMan.animator.SetFloat("yPos", pmStateMan.inputs.y, 0.3f, Time.deltaTime);
+        PSManager.Move();
+        RotatePlayerModel();
 
 
     }
 
     public void CheckForNoMovement()
     {
-        pmStateMan.inputs = pmStateMan.moveAction.ReadValue<Vector2>();
-        pmStateMan.lookInputs = pmStateMan.lookAction.ReadValue<Vector2>();
-        if (Mathf.Abs(pmStateMan.inputs.x) < Mathf.Epsilon && Mathf.Abs(pmStateMan.inputs.y) < Mathf.Epsilon && Mathf.Abs(pmStateMan.lookInputs.x) < Mathf.Epsilon && Mathf.Abs(pmStateMan.lookInputs.y) < Mathf.Epsilon)
-            pmStateMan.ChangeState(pmStateMan.idleState);
+        PSManager.inputs = PSManager.moveAction.ReadValue<Vector2>();
+        PSManager.lookInputs = PSManager.lookAction.ReadValue<Vector2>();
+        if (Mathf.Abs(PSManager.inputs.x) < Mathf.Epsilon && Mathf.Abs(PSManager.inputs.y) < Mathf.Epsilon && Mathf.Abs(PSManager.lookInputs.x) < Mathf.Epsilon && Mathf.Abs(PSManager.lookInputs.y) < Mathf.Epsilon)
+            PSManager.ChangeState(PSManager.idleState);
     }
 
-    public void Look()
+    public void RotatePlayerModel()
     {
-        pmStateMan.lookInputs = pmStateMan.lookAction.ReadValue<Vector2>().normalized;
+        //pmStateMan.lookInputs = pmStateMan.lookAction.ReadValue<Vector2>().normalized;
 
-        pmStateMan.transform.rotation = Quaternion.Euler(0, pmStateMan.cam.transform.eulerAngles.y, 0);
+        PSManager.transform.rotation = Quaternion.Euler(0, PSManager.cam.transform.eulerAngles.y, 0);
     }
+
 }

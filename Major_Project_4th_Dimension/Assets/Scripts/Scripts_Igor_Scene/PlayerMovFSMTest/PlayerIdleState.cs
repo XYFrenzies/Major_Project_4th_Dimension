@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class PlayerIdleState : PlayerBaseState
 {
-    private PlayerMovementSM pmStateMan;
+    //private PlayerMovementSM pmStateMan;
 
-    public PlayerIdleState(PlayerMovementSM stateMachine) : base(stateMachine)
+    public PlayerIdleState(PlayerStateManager psm) : base(psm)
     {
-        pmStateMan = stateMachine;
+        //pmStateMan = stateMachine;
     }
 
     public override void EnterState()
     {
-        base.EnterState();
+        //base.EnterState();
         Debug.Log("Entered idle state");
 
     }
@@ -26,9 +26,12 @@ public class PlayerIdleState : PlayerBaseState
 
     public override void UpdateLogic()
     {
-        base.UpdateLogic();
+        //base.UpdateLogic();
+        PSManager.CalculateMove();
 
         CheckForMovement();
+        PSManager.GroundCheck();
+
     }
 
     public override void UpdatePhysics()
@@ -38,9 +41,9 @@ public class PlayerIdleState : PlayerBaseState
 
     public void CheckForMovement()
     {
-        pmStateMan.inputs = pmStateMan.moveAction.ReadValue<Vector2>();
-        pmStateMan.lookInputs = pmStateMan.lookAction.ReadValue<Vector2>();
-        if (Mathf.Abs(pmStateMan.inputs.x) > Mathf.Epsilon || Mathf.Abs(pmStateMan.inputs.y) > Mathf.Epsilon || Mathf.Abs(pmStateMan.lookInputs.x) > Mathf.Epsilon || Mathf.Abs(pmStateMan.lookInputs.y) > Mathf.Epsilon)
-            pmStateMan.ChangeState(pmStateMan.moveLookState);
+        PSManager.inputs = PSManager.moveAction.ReadValue<Vector2>();
+        PSManager.lookInputs = PSManager.lookAction.ReadValue<Vector2>();
+        if (Mathf.Abs(PSManager.inputs.x) > Mathf.Epsilon || Mathf.Abs(PSManager.inputs.y) > Mathf.Epsilon || Mathf.Abs(PSManager.lookInputs.x) > Mathf.Epsilon || Mathf.Abs(PSManager.lookInputs.y) > Mathf.Epsilon)
+            PSManager.ChangeState(PSManager.moveLookState);
     }
 }

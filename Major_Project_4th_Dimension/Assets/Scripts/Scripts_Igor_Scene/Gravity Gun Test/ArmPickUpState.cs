@@ -34,6 +34,7 @@ public class ArmPickUpState : ArmBaseState
         armStateMan.shootAction.canceled += NotShoot;
         isShooting = true;
         armStateMan.player.currentState = PlayerControllerCinemachineLook2.State.HookShotThrown;
+        //armStateMan.playerSM.ChangeState(armStateMan.playerSM.pickUpOrPutDownState);
         cancelPickUp = false;
         rb = armStateMan.hitObject.GetComponent<Rigidbody>();
         rend = armStateMan.hitObject.GetComponent<Renderer>();
@@ -91,6 +92,7 @@ public class ArmPickUpState : ArmBaseState
             armStateMan.initialBeamSpeed = armStateMan.holdInitialBeamSpeedValue;
         }
         armStateMan.player.currentState = PlayerControllerCinemachineLook2.State.Normal;
+        //armStateMan.playerSM.ChangeState(armStateMan.playerSM.moveLookState);
     }
 
     public override void UpdateState()

@@ -51,6 +51,7 @@ public class ArmPullState : ArmBaseState
         //rb.mass = 0.1f;
         //currentHookShotState = HookShotState.Pull;
         armStateMan.player.currentState = PlayerControllerCinemachineLook2.State.Normal;
+        //armStateMan.playerSM.ChangeState(armStateMan.playerSM.pullingState);
     }
 
     public override void ExitState()

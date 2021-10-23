@@ -1,5 +1,5 @@
 
-public class PlayerBaseState
+public abstract class PlayerBaseState
 { 
     protected PlayerStateManager PSManager;
 
@@ -8,11 +8,11 @@ public class PlayerBaseState
         PSManager = psm;
     }
 
-    public virtual void EnterState() { }
+    public abstract void EnterState();
 
-    public virtual void ExitState() { }
+    public abstract void ExitState();
 
-    public virtual void UpdateLogic() { }
+    public abstract void UpdateLogic();
 
-    public virtual void UpdatePhysics() { }
+    public abstract void UpdatePhysics();
 }

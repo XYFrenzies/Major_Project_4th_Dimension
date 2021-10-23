@@ -2,32 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerLandingState : PlayerBaseState
+public class PlayerPickUpOrPutDownState : PlayerBaseState
 {
     //private PlayerMovementSM pmStateMan;
 
-    public PlayerLandingState(PlayerStateManager psm) : base(psm)
+    public PlayerPickUpOrPutDownState(PlayerStateManager psm) : base(psm)
     {
         //pmStateMan = stateMachine;
     }
 
     public override void EnterState()
     {
-        //base.EnterState();
-        Debug.Log("Entered landing state");
-        PSManager.animator.SetBool("IsLanding", true);
+        Debug.Log("Entered PUOPD state");
+        PSManager.animator.SetBool("IsShooting", true);
     }
 
     public override void ExitState()
     {
-        Debug.Log("Exited landing state");
+        Debug.Log("Exited PUOPD state");
+        PSManager.animator.SetBool("IsShooting", false);
+
     }
 
     public override void UpdateLogic()
     {
-        //base.UpdateLogic();
-
-
+        PSManager.lookAction.Disable();
     }
 
     public override void UpdatePhysics()

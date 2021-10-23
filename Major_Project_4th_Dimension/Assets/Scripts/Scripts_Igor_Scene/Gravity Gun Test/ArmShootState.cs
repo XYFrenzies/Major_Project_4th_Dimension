@@ -86,7 +86,7 @@ public class ArmShootState : ArmBaseState
             OnHookShotHit(armStateMan.putDownState);
 
             armStateMan.player.currentState = PlayerControllerCinemachineLook2.State.HookShotThrown;
-
+            //armStateMan.playerSM.ChangeState(armStateMan.playerSM.pickUpOrPutDownState);
             return;
         }
         if (Physics.Raycast(ray, out hit, armStateMan.shootRange, ~armStateMan.holdObjectLayerMask))
@@ -158,35 +158,6 @@ public class ArmShootState : ArmBaseState
         }
 
     }
-
-    //public void ThrowObject(InputAction.CallbackContext context)
-    //{
-    //    //Debug.Log("Throwing object");
-    //    if (armStateMan.isObjectHeld)
-    //    {
-    //        RaycastHit hit;
-
-    //        Ray ray = armStateMan.cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
-
-    //        if (Physics.Raycast(ray, out hit, armStateMan.shootRange, ~armStateMan.holdObjectLayerMask))
-    //        {
-    //            armStateMan.hitPoint = hit.point;
-    //        }
-    //        else // put back at point of chain's full length
-    //        {
-    //            armStateMan.hitPoint = ray.origin + (armStateMan.cam.transform.forward * armStateMan.shootRange);
-    //        }
-
-    //        Vector3 dir = armStateMan.hitPoint - armStateMan.holdPoint.position;
-    //        armStateMan.hitObject.layer = LayerMask.NameToLayer("Default");
-    //        armStateMan.hitObject.GetComponent<Rigidbody>().isKinematic = false;
-    //        armStateMan.hitObject.transform.SetParent(null);
-    //        armStateMan.isObjectHeld = false;
-    //        Rigidbody rb = armStateMan.hitObject.GetComponent<Rigidbody>();
-    //        rb.useGravity = true;
-    //        rb.AddForce(dir.normalized * armStateMan.throwForce, ForceMode.Impulse);
-    //    }
-    //}
 
     public void OnHookShotHit(ArmBaseState state)
     {
