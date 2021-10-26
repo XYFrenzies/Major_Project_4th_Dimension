@@ -4,35 +4,42 @@ using UnityEngine;
 
 public class PlayerFallingState : PlayerBaseState
 {
-    private PlayerMovementSM pmStateMan;
+    //private PlayerMovementSM pmStateMan;
 
-    public PlayerFallingState(PlayerMovementSM stateMachine) : base(stateMachine)
+    public PlayerFallingState(PlayerStateManager psm) : base(psm)
     {
-        pmStateMan = stateMachine;
+        //pmStateMan = stateMachine;
     }
 
     public override void EnterState()
     {
-        base.EnterState();
-        pmStateMan.anim.SetBool("Falling", true);
-        Debug.Log("Entered falling state");
-        pmStateMan.moveAction.Disable();
-        pmStateMan.lookAction.Disable();
+        //base.EnterState();
+        PSManager.animator.SetBool("IsFlying", true);
+        //Debug.Log("Entered falling state");
+
     }
 
     public override void ExitState()
     {
-        Debug.Log("Exited falling state");
+        //Debug.Log("Exited falling state");
+        PSManager.animator.SetBool("IsFlying", false);
 
-        pmStateMan.moveAction.Enable();
-        pmStateMan.lookAction.Enable();
+        PSManager.moveAction.Enable();
+        PSManager.lookAction.Enable();
     }
 
     public override void UpdateLogic()
     {
-        base.UpdateLogic();
-        pmStateMan.ChangeState(pmStateMan.landingState);
-
+        //base.UpdateLogic();
+        PSManager.ChangeState(PSManager.landingState);
+        PSManager.moveAction.Disable();
+        PSManager.lookAction.Disable();
+        PSManager.GroundCheck();
+        if (PSManager.Grounded)
+        {
+            PSManager.animator.SetBool("IsGrounded", true);
+            PSManager.ChangeState(PSManager.landingState); 
+        }
     }
 
     public override void UpdatePhysics()

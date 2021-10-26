@@ -4,29 +4,32 @@ using UnityEngine;
 
 public class PlayerLandingState : PlayerBaseState
 {
-    private PlayerMovementSM pmStateMan;
+    //private PlayerMovementSM pmStateMan;
 
-    public PlayerLandingState(PlayerMovementSM stateMachine) : base(stateMachine)
+    public PlayerLandingState(PlayerStateManager psm) : base(psm)
     {
-        pmStateMan = stateMachine;
+        //pmStateMan = stateMachine;
     }
 
     public override void EnterState()
     {
-        base.EnterState();
-        Debug.Log("Entered landing state");
+        //base.EnterState();
+        //Debug.Log("Entered landing state");
+        //PSManager.animator.SetBool("IsGrounded", true);
     }
 
     public override void ExitState()
     {
-        Debug.Log("Exited landing state");
+        //Debug.Log("Exited landing state");
+        //PSManager.ChangeState(PSManager.idleState);
     }
 
     public override void UpdateLogic()
     {
-        base.UpdateLogic();
-
-
+        //base.UpdateLogic();
+        //PSManager.GroundCheck();
+        // if(PSManager.Grounded)
+        PSManager.ChangeState(PSManager.idleState);
     }
 
     public override void UpdatePhysics()

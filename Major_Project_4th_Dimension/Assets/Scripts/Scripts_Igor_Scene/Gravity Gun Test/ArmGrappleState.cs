@@ -12,9 +12,12 @@ public class ArmGrappleState : ArmBaseState
         
     public override void EnterState()
     {
-        armStateMan.player.flyToTarget = armStateMan.hitPoint;
-        armStateMan.player.currentState = PlayerControllerCinemachineLook2.State.HookShotFlying;
-        //armStateMan.playerr.ChangeState(armStateMan.playerr.flyState);
+        armStateMan.playerSM.flyToTarget = armStateMan.hitPoint;
+        
+        //////////
+        //armStateMan.player.currentState = PlayerControllerCinemachineLook2.State.HookShotFlying;
+        armStateMan.playerSM.ChangeState(armStateMan.playerSM.flyState);
+        //////////
     }
 
     public override void ExitState()
@@ -24,9 +27,9 @@ public class ArmGrappleState : ArmBaseState
 
     public override void UpdateState()
     {
-        if(armStateMan.player.isFlying == false)
+        if(armStateMan.playerSM.isFlying == false)
         {
-            armStateMan.SwitchState(armStateMan.shootState);
+            armStateMan.SwitchState(armStateMan.pauseState);
         }
     }
 

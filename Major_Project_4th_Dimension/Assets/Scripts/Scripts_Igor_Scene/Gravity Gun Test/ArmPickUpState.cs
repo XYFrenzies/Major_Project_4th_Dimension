@@ -33,7 +33,13 @@ public class ArmPickUpState : ArmBaseState
         armStateMan.shootAction.performed += Shoot;
         armStateMan.shootAction.canceled += NotShoot;
         isShooting = true;
-        armStateMan.player.currentState = PlayerControllerCinemachineLook2.State.HookShotThrown;
+
+        /////////////////////////////////////////////
+        //armStateMan.player.currentState = PlayerControllerCinemachineLook2.State.HookShotThrown; // old version
+        armStateMan.playerSM.ChangeState(armStateMan.playerSM.pickUpOrPutDownState); // new version
+        /////////////////////////////////////////////
+        
+
         cancelPickUp = false;
         rb = armStateMan.hitObject.GetComponent<Rigidbody>();
         rend = armStateMan.hitObject.GetComponent<Renderer>();
@@ -74,6 +80,8 @@ public class ArmPickUpState : ArmBaseState
             armStateMan.initialBeamSpeed = armStateMan.holdInitialBeamSpeedValue;
             rb = null;
 
+            armStateMan.playerSM.armRig.weight = 1f;
+            
         }
         else // let go of mouse button before grabbing object
         {
@@ -90,7 +98,11 @@ public class ArmPickUpState : ArmBaseState
             armStateMan.lineRenderer.enabled = false;
             armStateMan.initialBeamSpeed = armStateMan.holdInitialBeamSpeedValue;
         }
-        armStateMan.player.currentState = PlayerControllerCinemachineLook2.State.Normal;
+
+        /////////////////////
+        //armStateMan.player.currentState = PlayerControllerCinemachineLook2.State.Normal; // old version
+        armStateMan.playerSM.ChangeState(armStateMan.playerSM.moveLookState); // new version
+        ////////////////////
     }
 
     public override void UpdateState()
@@ -115,16 +127,7 @@ public class ArmPickUpState : ArmBaseState
             armStateMan.SwitchState(armStateMan.shootState);
         }
 
-        //if (Vector3.Distance(armStateMan.hitObject.transform.position, armStateMan.holdPoint.position) <= (distanceBetweenPoints - changePoint))
-        //{
-        //    int numba = 0;
-        //    changePoint += changePoint;
-        //    Debug.Log(distanceBetweenPoints - changePoint);
-        //    armStateMan.lights[(armStateMan.lights.Count - 1) - numba].SetActive(false);
-        //    numba++;
-        //    armStateMan.lights[(armStateMan.lights.Count - 1) - numba].SetActive(true);
-        //}
-        //Debug.Log(armStateMan.parentConstraint.GetTranslationOffset(0));
+
     }
 
     public void Shoot(InputAction.CallbackContext context)

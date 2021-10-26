@@ -19,7 +19,14 @@ public class ArmPutDownState : ArmBaseState
 
     public override void EnterState()
     {
-        armStateMan.player.currentState = PlayerControllerCinemachineLook2.State.HookShotThrown;
+        armStateMan.playerSM.armRig.weight = 0f;
+
+
+        ///////////////////
+        //armStateMan.player.currentState = PlayerControllerCinemachineLook2.State.HookShotThrown;
+        armStateMan.playerSM.ChangeState(armStateMan.playerSM.pickUpOrPutDownState);
+        ///////////////////
+
         armStateMan.shootAction.performed += Shoot;
         armStateMan.shootAction.canceled += NotShoot;
         //Debug.Log("Entered Putdown state");
@@ -47,7 +54,12 @@ public class ArmPutDownState : ArmBaseState
         armStateMan.hitObject = null;
         //armStateMan.lineRenderer.enabled = false;
         armStateMan.initialBeamSpeed = armStateMan.holdInitialBeamSpeedValue;
-        armStateMan.player.currentState = PlayerControllerCinemachineLook2.State.Normal;
+
+        //////////////////
+        //armStateMan.player.currentState = PlayerControllerCinemachineLook2.State.Normal;
+        armStateMan.playerSM.ChangeState(armStateMan.playerSM.moveLookState);
+        //////////////////
+
         armStateMan.shootAction.performed -= Shoot;
         armStateMan.shootAction.canceled -= NotShoot;
         if (armStateMan.parentConstraint.sourceCount != 0)

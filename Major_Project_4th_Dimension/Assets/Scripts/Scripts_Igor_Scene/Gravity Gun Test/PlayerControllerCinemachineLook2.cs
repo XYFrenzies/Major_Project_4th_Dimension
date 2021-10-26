@@ -309,7 +309,7 @@ public class PlayerControllerCinemachineLook2 : MonoBehaviour
         Ray ray = new Ray(transform.position, Vector3.down); // Shoot a ray down
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, 2f)) // If the ray hits the ground
+        if (Physics.Raycast(ray, out hit, 1.5f)) // If the ray hits the ground
         {
             Grounded = true; // is the player on the ground?
             //animator.SetBool("IsGrounded", false);
@@ -323,10 +323,10 @@ public class PlayerControllerCinemachineLook2 : MonoBehaviour
 
     public void DeathCheck()
     {
-            animator.SetBool("isDead", true);
+            animator.SetBool("IsDead", true);
     }
     public void NotDying() 
     {
-        animator.SetBool("isDead", false);
+        animator.SetBool("IsDead", false);
     }
 }
