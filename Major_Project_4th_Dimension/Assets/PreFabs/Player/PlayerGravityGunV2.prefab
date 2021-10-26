@@ -1070,6 +1070,7 @@ GameObject:
   - component: {fileID: 8431453539743655188}
   - component: {fileID: 1792184813}
   - component: {fileID: 1792184812}
+  - component: {fileID: 1136488317}
   m_Layer: 0
   m_Name: SK_Matilda (1)
   m_TagString: Untagged
@@ -1320,6 +1321,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f21074a851a65543bcb45ec3ecdc0d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1136488317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8431453539743655186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bae60e2baab7cfe468507cc4501c95db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  armE: {fileID: 2167654700605579680}
+  armSM: {fileID: 8431453541361779733}
 --- !u!1 &8431453539761728275
 GameObject:
   m_ObjectHideFlags: 0
@@ -4118,7 +4133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70b342d8ce5c2fd48b8fa3147d48d1d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Weight: 1
+  m_Weight: 0
   m_Effectors: []
 --- !u!1 &8431453540422062619
 GameObject:
@@ -4783,8 +4798,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8431453540725934211}
-  m_LocalRotation: {x: 0.026167978, y: 0.026167985, z: -0.00068523263, w: 0.9993148}
-  m_LocalPosition: {x: 0.66254836, y: 1.7656513, z: -2.8360627}
+  m_LocalRotation: {x: 0.02616821, y: 0.026168223, z: -0.00068524474, w: 0.9993148}
+  m_LocalPosition: {x: 0.6626614, y: 1.7656525, z: -2.8360698}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8431453540922601305}
@@ -4820,7 +4835,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.777887, y: 1}
+    m_SensorSize: {x: 1.7781385, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -5486,7 +5501,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_RecenterTarget: 2
   m_VerticalAxis:
-    Value: 3
+    Value: 3.0000267
     m_SpeedMode: 1
     m_MaxSpeed: 0.2
     m_AccelTime: 0.2
@@ -5510,7 +5525,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_HorizontalAxis:
-    Value: 3
+    Value: 3.0000267
     m_SpeedMode: 1
     m_MaxSpeed: 0.3
     m_AccelTime: 0.2
@@ -6636,6 +6651,7 @@ GameObject:
   - component: {fileID: 8431453541361779736}
   - component: {fileID: 8431453541361779735}
   - component: {fileID: 8431453541361779734}
+  - component: {fileID: 4661202256751509523}
   - component: {fileID: 8431453541361779733}
   - component: {fileID: 8431453541361779732}
   - component: {fileID: 8431453541361779731}
@@ -6858,7 +6874,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8431453541361779725}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6562e952a08f15f4faf99bc2524cfca6, type: 3}
   m_Name: 
@@ -6878,6 +6894,57 @@ MonoBehaviour:
   interacting: {fileID: 11400000, guid: 18e4fd24b905c8d40887ca44f2ebc613, type: 2}
   interactingConveyorSwitch: {fileID: 11400000, guid: 27110a35cd655014fa2a702b580cded0, type: 2}
   currentState: 0
+  flyToTarget: {x: 0, y: 0, z: 0}
+--- !u!114 &4661202256751509523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8431453541361779725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3debed4a85516b94e90a940748b2d425, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInput: {fileID: 0}
+  isFlying: 0
+  moveSpeed: 4
+  hookShotRange: 50
+  hookShotThrowSpeed: 70
+  flyingSpeed: 0
+  flyingSpeedMultiplier: 2
+  hookShotMinSpeed: 10
+  hookShotMaxSpeed: 40
+  distanceToHookShotHitPoint: 2
+  moveAction:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+  lookAction:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+  arm: {fileID: 0}
+  animator: {fileID: 8431453539743655190}
+  armRig: {fileID: 8431453540415002865}
+  headRig: {fileID: 8431453541428183389}
+  cam: {fileID: 0}
+  direction: {x: 0, y: 0, z: 0}
+  inputs: {x: 0, y: 0}
+  lookInputs: {x: 0, y: 0}
+  rb: {fileID: 0}
+  vCam: {fileID: 0}
+  interacting: {fileID: 11400000, guid: 18e4fd24b905c8d40887ca44f2ebc613, type: 2}
+  interactingConveyorSwitch: {fileID: 11400000, guid: 27110a35cd655014fa2a702b580cded0, type: 2}
   flyToTarget: {x: 0, y: 0, z: 0}
 --- !u!114 &8431453541361779733
 MonoBehaviour:
@@ -6900,7 +6967,11 @@ MonoBehaviour:
     m_Bits: 64
   initialBeamSpeed: 1
   beamSpeedAccelModifier: 0.5
-  lights: []
+  lights:
+  - {fileID: 8431453540138987629}
+  - {fileID: 8431453540678479940}
+  - {fileID: 8431453539403295010}
+  - {fileID: 8431453539987518846}
   shootPoint: {fileID: 8431453540402815601}
   holdPoint: {fileID: 8431453541346135002}
   grappleHandle: {fileID: 4420089562460233718, guid: 6f03739fc8325224b9481ec4268df3d6, type: 3}
@@ -6912,6 +6983,8 @@ MonoBehaviour:
   scaleModifier: 1
   modifier: 20
   startSize: {x: 0, y: 0, z: 0}
+  shootCheck: {fileID: 0}
+  isShootingAnimationReady: 0
   aimTarget: {fileID: 0}
   lineRenderer: {fileID: 0}
   holdInitialBeamSpeedValue: 0
@@ -6919,7 +6992,7 @@ MonoBehaviour:
   hitObject: {fileID: 0}
   cam: {fileID: 0}
   player: {fileID: 8431453541361779734}
-  playerr: {fileID: 0}
+  playerSM: {fileID: 0}
   isObjectHeld: 0
   localPoint: {x: 0, y: 0, z: 0}
   pullCheck: 0
@@ -7169,6 +7242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82ba7cca0be477a4482a25c2ce630ee3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isShooting: 0
 --- !u!82 &1685447671
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7575,7 +7649,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70b342d8ce5c2fd48b8fa3147d48d1d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Weight: 1
+  m_Weight: 0
   m_Effectors: []
 --- !u!1 &8431453541440037485
 GameObject:

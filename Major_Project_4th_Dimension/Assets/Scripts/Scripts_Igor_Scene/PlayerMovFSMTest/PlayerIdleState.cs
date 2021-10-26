@@ -14,13 +14,14 @@ public class PlayerIdleState : PlayerBaseState
     public override void EnterState()
     {
         //base.EnterState();
-        Debug.Log("Entered idle state");
+        //Debug.Log("Entered idle state");
+        PSManager.moveAction.Enable();
 
     }
 
     public override void ExitState()
     {
-        Debug.Log("Exited idle state");
+        //Debug.Log("Exited idle state");
 
     }
 

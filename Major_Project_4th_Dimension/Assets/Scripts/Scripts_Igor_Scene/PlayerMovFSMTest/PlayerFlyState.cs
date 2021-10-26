@@ -13,30 +13,38 @@ public class PlayerFlyState : PlayerBaseState
 
     public override void EnterState()
     {
-        Debug.Log("Entered fly state");
+        //Debug.Log("Entered fly state");
+        PSManager.animator.SetBool("IsFlying", true);
+        PSManager.arm.lineRenderer.enabled = true;
+
     }
 
     public override void ExitState()
     {
-        Debug.Log("Exited fly state");
+        //Debug.Log("Exited fly state");
+        PSManager.animator.SetBool("IsFlying", false);
+        PSManager.arm.lineRenderer.enabled = false;
+        PSManager.isFlying = false;
+        PSManager.headRig.weight = 1f;
+        PSManager.rb.useGravity = true;
+        PSManager.lookAction.Enable();
 
     }
 
     public override void UpdateLogic()
     {
-
+        PSManager.lookAction.Disable();
+        Fly(PSManager.flyToTarget);
     }
 
     public override void UpdatePhysics()
     {
-        Fly(PSManager.flyToTarget);
     }
 
     public void Fly(Vector3 target)
     {
         PSManager.isFlying = true;
         PSManager.rb.useGravity = false;
-        PSManager.animator.SetBool("IsFlying", true);
         PSManager.flyingSpeed = Mathf.Clamp(Vector3.Distance(PSManager.transform.position, target), PSManager.hookShotMinSpeed, PSManager.hookShotMaxSpeed);
         PSManager.transform.position = Vector3.MoveTowards(PSManager.transform.position, target, PSManager.flyingSpeed * PSManager.flyingSpeedMultiplier * Time.deltaTime);
         //armRig.weight = 0f;
@@ -49,16 +57,11 @@ public class PlayerFlyState : PlayerBaseState
 
         if (Vector3.Distance(PSManager.transform.position, target) < PSManager.distanceToHookShotHitPoint)
         {
-            PSManager.animator.SetBool("IsFlying", false);
-            PSManager.rb.useGravity = true;
             //chainShoot.fly = false;
             //chainShoot.ReturnHand();
             //pmStateMan.currentState = State.Normal;
             PSManager.ChangeState(PSManager.fallingState);
-            PSManager.isFlying = false;
-            PSManager.arm.lineRenderer.enabled = false;
             //armRig.weight = 1f;
-            PSManager.headRig.weight = 1f;
             //Debug.Log(chainShoot.currentHookShotState);
 
         }

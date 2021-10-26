@@ -62,6 +62,7 @@ public class PlayerStateManager : MonoBehaviour
     public PlayerLandingState landingState = null;
     public PlayerPickUpOrPutDownState pickUpOrPutDownState = null;
     public PlayerPullingState pullingState = null;
+    public PlayerMissState missState = null;
 
     private void OnEnable()
     {
@@ -93,6 +94,7 @@ public class PlayerStateManager : MonoBehaviour
         landingState = new PlayerLandingState(this);
         pickUpOrPutDownState = new PlayerPickUpOrPutDownState(this);
         pullingState = new PlayerPullingState(this);
+        missState = new PlayerMissState(this);
 
         cam = Camera.main;
 
@@ -143,6 +145,7 @@ public class PlayerStateManager : MonoBehaviour
     {
         if (currentState != null)
             currentState.UpdateLogic();
+        Debug.Log(currentState);
     }
 
     void FixedUpdate()
@@ -246,6 +249,12 @@ public class PlayerStateManager : MonoBehaviour
         rb.MovePosition(rb.position + direction * moveSpeed * Time.fixedDeltaTime);
 
     }
+    public void RotatePlayerModel()
+    {
+        //pmStateMan.lookInputs = pmStateMan.lookAction.ReadValue<Vector2>().normalized;
+
+        transform.rotation = Quaternion.Euler(0, cam.transform.eulerAngles.y, 0);
+    }
 
     public void Landed()
     {
@@ -253,4 +262,6 @@ public class PlayerStateManager : MonoBehaviour
         animator.SetBool("IsLanding", false);
         ChangeState(idleState);
     }
+
+
 }

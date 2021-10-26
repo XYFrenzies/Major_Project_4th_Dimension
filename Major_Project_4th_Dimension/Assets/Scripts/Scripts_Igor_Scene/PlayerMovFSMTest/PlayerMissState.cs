@@ -2,44 +2,41 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerPullingState : PlayerBaseState
+public class PlayerMissState : PlayerBaseState
 {
-    //private PlayerMovementSM pmStateMan;
-
-    public PlayerPullingState(PlayerStateManager psm) : base(psm)
-    { 
+    public PlayerMissState(PlayerStateManager psm) : base(psm)
+    {
         //pmStateMan = stateMachine;
     }
 
     public override void EnterState()
     {
         //base.EnterState();
-        //Debug.Log("Entered pulling state");
-        //PSManager.animator.SetBool("IsPulling", true);
+        //Debug.Log("Entered miss state");
         PSManager.animator.SetBool("IsShooting", true);
 
     }
 
     public override void ExitState()
     {
-        //Debug.Log("Exited pulling state");
-        //PSManager.animator.SetBool("IsPulling", false);
+        //Debug.Log("Exited miss state");
         PSManager.animator.SetBool("IsShooting", false);
-
 
     }
 
     public override void UpdateLogic()
     {
         //base.UpdateLogic();
-        PSManager.CalculateMove();
-        PSManager.lookAction.Disable();
+        //PSManager.CalculateMove();
+
+
+        //PSManager.GroundCheck();
 
     }
 
     public override void UpdatePhysics()
     {
-        PSManager.Move();
+        PSManager.RotatePlayerModel();
 
     }
 }

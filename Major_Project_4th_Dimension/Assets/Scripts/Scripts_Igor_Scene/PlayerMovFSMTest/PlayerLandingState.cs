@@ -14,20 +14,22 @@ public class PlayerLandingState : PlayerBaseState
     public override void EnterState()
     {
         //base.EnterState();
-        Debug.Log("Entered landing state");
-        PSManager.animator.SetBool("IsLanding", true);
+        //Debug.Log("Entered landing state");
+        //PSManager.animator.SetBool("IsGrounded", true);
     }
 
     public override void ExitState()
     {
-        Debug.Log("Exited landing state");
+        //Debug.Log("Exited landing state");
+        //PSManager.ChangeState(PSManager.idleState);
     }
 
     public override void UpdateLogic()
     {
         //base.UpdateLogic();
-
-
+        //PSManager.GroundCheck();
+        // if(PSManager.Grounded)
+        PSManager.ChangeState(PSManager.idleState);
     }
 
     public override void UpdatePhysics()

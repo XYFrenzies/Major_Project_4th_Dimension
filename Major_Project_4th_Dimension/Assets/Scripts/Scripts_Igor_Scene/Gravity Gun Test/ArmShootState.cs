@@ -37,7 +37,7 @@ public class ArmShootState : ArmBaseState
         armStateMan.shootAction.canceled -= UnShootingArm;
 
         shooting = false;
-
+        armStateMan.isShootingAnimationReady = false;
     }
 
     public override void UpdateState()
@@ -85,10 +85,13 @@ public class ArmShootState : ArmBaseState
 
             OnHookShotHit(armStateMan.putDownState);
 
-            armStateMan.player.currentState = PlayerControllerCinemachineLook2.State.HookShotThrown;
-            //armStateMan.playerSM.ChangeState(armStateMan.playerSM.pickUpOrPutDownState);
+            /////////////
+            //armStateMan.player.currentState = PlayerControllerCinemachineLook2.State.HookShotThrown;
+            armStateMan.playerSM.ChangeState(armStateMan.playerSM.pickUpOrPutDownState);
+            ////////////
             return;
         }
+
         if (Physics.Raycast(ray, out hit, armStateMan.shootRange, ~armStateMan.holdObjectLayerMask))
         {
             armStateMan.hitPoint = hit.point;
@@ -122,6 +125,7 @@ public class ArmShootState : ArmBaseState
             else // hit object but cant pick up, pull or grapple
             {
                 //Debug.Log("Hit other thing");
+                armStateMan.playerSM.ChangeState(armStateMan.playerSM.missState);
 
             }
 
@@ -131,6 +135,7 @@ public class ArmShootState : ArmBaseState
         {
             //Debug.Log("missed");
             armStateMan.hitPoint = ray.origin + (armStateMan.cam.transform.forward * armStateMan.shootRange);
+            armStateMan.playerSM.ChangeState(armStateMan.playerSM.missState);
         }
 
         //armStateMan.player.currentState = PlayerControllerCinemachineLook2.State.HookShotThrown;
@@ -145,6 +150,7 @@ public class ArmShootState : ArmBaseState
         if (armStateMan.lineRenderer != null && armStateMan.realisticBlackHole != null && armStateMan.blackHoleCentre != null)
         {
             shooting = true;
+            //armStateMan.playerSM.animator.SetBool("IsShooting", true);
         }
 
     }
@@ -154,7 +160,9 @@ public class ArmShootState : ArmBaseState
         if (armStateMan.lineRenderer != null && armStateMan.realisticBlackHole != null && armStateMan.blackHoleCentre != null)
         {
             shooting = false;
-
+            armStateMan.playerSM.ChangeState(armStateMan.playerSM.idleState);
+            //armStateMan.playerSM.animator.SetBool("IsShooting", false);
+            //armStateMan.isShootingAnimationReady = false;
         }
 
     }

@@ -14,14 +14,15 @@ public class PlayerFallingState : PlayerBaseState
     public override void EnterState()
     {
         //base.EnterState();
-        PSManager.animator.SetBool("Falling", true);
-        Debug.Log("Entered falling state");
+        PSManager.animator.SetBool("IsFlying", true);
+        //Debug.Log("Entered falling state");
 
     }
 
     public override void ExitState()
     {
-        Debug.Log("Exited falling state");
+        //Debug.Log("Exited falling state");
+        PSManager.animator.SetBool("IsFlying", false);
 
         PSManager.moveAction.Enable();
         PSManager.lookAction.Enable();
@@ -36,7 +37,7 @@ public class PlayerFallingState : PlayerBaseState
         PSManager.GroundCheck();
         if (PSManager.Grounded)
         {
-            PSManager.animator.SetBool("Falling", false);
+            PSManager.animator.SetBool("IsGrounded", true);
             PSManager.ChangeState(PSManager.landingState); 
         }
     }

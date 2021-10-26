@@ -33,23 +33,19 @@ public class ArmStateManager : MonoBehaviour
 
     public Vector3 startSize;
 
-    [HideInInspector]
-    public Transform aimTarget;
-    [HideInInspector]
-    public LineRenderer lineRenderer;
-    [HideInInspector]
-    public float holdInitialBeamSpeedValue;
-    [HideInInspector]
-    public ArmBaseState currentState;
-    [HideInInspector]
-    public Vector3 hitPoint;
-    [HideInInspector]
-    public GameObject hitObject;
-    [HideInInspector]
-    public Camera cam;
+    public ShootingCheck shootCheck;
+    public bool isShootingAnimationReady = false;
+
+    [HideInInspector] public Transform aimTarget;
+    [HideInInspector] public LineRenderer lineRenderer;
+    [HideInInspector] public float holdInitialBeamSpeedValue;
+    [HideInInspector] public ArmBaseState currentState;
+    [HideInInspector] public Vector3 hitPoint;
+    [HideInInspector] public GameObject hitObject;
+    [HideInInspector] public Camera cam;
     [HideInInspector]
     public PlayerControllerCinemachineLook2 player;
-    public PlayerMovementSM playerSM;
+    public PlayerStateManager playerSM;
     [HideInInspector]
     public bool isObjectHeld = false;
     [HideInInspector]
@@ -92,7 +88,7 @@ public class ArmStateManager : MonoBehaviour
         springJoint = GetComponent<SpringJoint>();
         holdInitialBeamSpeedValue = initialBeamSpeed;
         player = GetComponent<PlayerControllerCinemachineLook2>();
-        playerSM = GetComponent<PlayerMovementSM>();
+        playerSM = GetComponent<PlayerStateManager>();
         lineRenderer.enabled = false;
         shootState = new ArmShootState(this); // Remove V2 to go back to original
         grappleState = new ArmGrappleState(this);

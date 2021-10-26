@@ -1796,7 +1796,6 @@ GameObject:
   - component: {fileID: 87564096}
   - component: {fileID: 87564095}
   - component: {fileID: 87564094}
-  - component: {fileID: 87564100}
   - component: {fileID: 87564102}
   m_Layer: 0
   m_Name: GrapplePoint
@@ -1804,7 +1803,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!135 &87564094
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1867,23 +1866,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 87564093}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &87564100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 87564093}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ab12e01905a268408a53777cd5e3d1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: 0
-  materialOn: {fileID: 2100000, guid: ac7f5c2bcbee1b1468a3e10a62d375aa, type: 2}
-  materialOff: {fileID: 2100000, guid: 5cdf32cedd9252c419fe88429a2a003e, type: 2}
-  m_interfaceHookPC: {fileID: 0}
-  m_interfaceHookXbox: {fileID: 0}
 --- !u!224 &87564101
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18926,7 +18908,6 @@ GameObject:
   - component: {fileID: 917317088}
   - component: {fileID: 917317087}
   - component: {fileID: 917317086}
-  - component: {fileID: 917317085}
   - component: {fileID: 917317083}
   m_Layer: 0
   m_Name: GrapplePoint (1)
@@ -18934,7 +18915,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!54 &917317083
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -18951,23 +18932,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &917317085
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 917317082}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ab12e01905a268408a53777cd5e3d1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: 1
-  materialOn: {fileID: 2100000, guid: ac7f5c2bcbee1b1468a3e10a62d375aa, type: 2}
-  materialOff: {fileID: 2100000, guid: 5cdf32cedd9252c419fe88429a2a003e, type: 2}
-  m_interfaceHookPC: {fileID: 0}
-  m_interfaceHookXbox: {fileID: 0}
 --- !u!135 &917317086
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -24214,7 +24178,6 @@ GameObject:
   - component: {fileID: 1152636370}
   - component: {fileID: 1152636369}
   - component: {fileID: 1152636368}
-  - component: {fileID: 1152636367}
   - component: {fileID: 1152636365}
   m_Layer: 0
   m_Name: GrapplePoint (2)
@@ -24222,7 +24185,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!54 &1152636365
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -24239,23 +24202,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1152636367
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1152636364}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ab12e01905a268408a53777cd5e3d1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: 2
-  materialOn: {fileID: 2100000, guid: ac7f5c2bcbee1b1468a3e10a62d375aa, type: 2}
-  materialOff: {fileID: 2100000, guid: 5cdf32cedd9252c419fe88429a2a003e, type: 2}
-  m_interfaceHookPC: {fileID: 0}
-  m_interfaceHookXbox: {fileID: 0}
 --- !u!135 &1152636368
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -25301,6 +25247,8 @@ MonoBehaviour:
   scaleModifier: 1
   modifier: 2
   startSize: {x: 0, y: 0, z: 0}
+  shootCheck: {fileID: 0}
+  isShootingAnimationReady: 0
   aimTarget: {fileID: 0}
   lineRenderer: {fileID: 0}
   holdInitialBeamSpeedValue: 0
@@ -28930,6 +28878,8 @@ MonoBehaviour:
   scaleModifier: 1
   modifier: 2
   startSize: {x: 0, y: 0, z: 0}
+  shootCheck: {fileID: 0}
+  isShootingAnimationReady: 0
   aimTarget: {fileID: 0}
   lineRenderer: {fileID: 0}
   holdInitialBeamSpeedValue: 0
@@ -42482,6 +42432,8 @@ MonoBehaviour:
   scaleModifier: 1
   modifier: 20
   startSize: {x: 0, y: 0, z: 0}
+  shootCheck: {fileID: 0}
+  isShootingAnimationReady: 0
   aimTarget: {fileID: 0}
   lineRenderer: {fileID: 0}
   holdInitialBeamSpeedValue: 0
@@ -42754,6 +42706,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82ba7cca0be477a4482a25c2ce630ee3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isShooting: 0
 --- !u!1 &1957602438
 GameObject:
   m_ObjectHideFlags: 0
@@ -47085,6 +47038,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82ba7cca0be477a4482a25c2ce630ee3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isShooting: 0
 --- !u!137 &96467505039354337
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
@@ -49002,6 +48956,8 @@ MonoBehaviour:
   scaleModifier: 1
   modifier: 2
   startSize: {x: 0, y: 0, z: 0}
+  shootCheck: {fileID: 0}
+  isShootingAnimationReady: 0
   aimTarget: {fileID: 0}
   lineRenderer: {fileID: 0}
   holdInitialBeamSpeedValue: 0
@@ -58302,10 +58258,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerGravityGunV2
       objectReference: {fileID: 0}
-    - target: {fileID: 8431453540006725398, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8431453540006725400, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
       propertyPath: m_RootOrder
       value: 25
@@ -58349,14 +58301,6 @@ PrefabInstance:
     - target: {fileID: 8431453540006725400, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8431453540725934212, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.66272575
-      objectReference: {fileID: 0}
-    - target: {fileID: 8431453540725934212, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -2.8360722
       objectReference: {fileID: 0}
     - target: {fileID: 8431453541361779734, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
       propertyPath: turretSM
@@ -64492,8 +64436,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3373627836190250097}
-  m_LocalRotation: {x: 0.018019024, y: 0.7251258, z: -0.01898809, w: 0.6881187}
-  m_LocalPosition: {x: -3.443072, y: 1.7656513, z: -3.5427256}
+  m_LocalRotation: {x: 0.018019179, y: 0.725126, z: -0.018988261, w: 0.6881186}
+  m_LocalPosition: {x: -3.4430697, y: 1.7656525, z: -3.5426612}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -76839,6 +76783,8 @@ MonoBehaviour:
   scaleModifier: 1
   modifier: 2
   startSize: {x: 0, y: 0, z: 0}
+  shootCheck: {fileID: 0}
+  isShootingAnimationReady: 0
   aimTarget: {fileID: 0}
   lineRenderer: {fileID: 0}
   holdInitialBeamSpeedValue: 0
@@ -84451,7 +84397,11 @@ MonoBehaviour:
     m_Bits: 64
   initialBeamSpeed: 1
   beamSpeedAccelModifier: 0.5
-  lights: []
+  lights:
+  - {fileID: 7643758376700124066}
+  - {fileID: 7643758376165874571}
+  - {fileID: 7643758377575039725}
+  - {fileID: 7643758377087753905}
   shootPoint: {fileID: 7643758376697612734}
   holdPoint: {fileID: 7643758375493459989}
   grappleHandle: {fileID: 4420089562460233718, guid: 6f03739fc8325224b9481ec4268df3d6, type: 3}
@@ -84463,6 +84413,8 @@ MonoBehaviour:
   scaleModifier: 1
   modifier: 20
   startSize: {x: 0, y: 0, z: 0}
+  shootCheck: {fileID: 7643758377112194782}
+  isShootingAnimationReady: 0
   aimTarget: {fileID: 0}
   lineRenderer: {fileID: 0}
   holdInitialBeamSpeedValue: 0
@@ -84958,7 +84910,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70b342d8ce5c2fd48b8fa3147d48d1d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Weight: 1
+  m_Weight: 0
   m_Effectors: []
 --- !u!4 &7643758375575513747
 Transform:
@@ -86614,7 +86566,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7782767, y: 1}
+    m_SensorSize: {x: 1.7781385, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -86683,7 +86635,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7643758376215438156}
   m_LocalRotation: {x: 0.026167978, y: 0.026167985, z: -0.00068523263, w: 0.9993148}
-  m_LocalPosition: {x: 0.66272575, y: 1.7656513, z: -2.8360722}
+  m_LocalPosition: {x: 0.6626628, y: 1.7656513, z: -2.8360689}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7643758376143783062}
@@ -87257,7 +87209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70b342d8ce5c2fd48b8fa3147d48d1d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Weight: 1
+  m_Weight: 0
   m_Effectors: []
 --- !u!4 &7643758376441377599
 Transform:
@@ -89652,6 +89604,7 @@ GameObject:
   - component: {fileID: 7643758377112194779}
   - component: {fileID: 2240153700939315746}
   - component: {fileID: 2240153700939315747}
+  - component: {fileID: 7643758377112194782}
   m_Layer: 0
   m_Name: SK_Matilda (1)
   m_TagString: Untagged
@@ -89659,6 +89612,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &7643758377112194782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7643758377112194781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bae60e2baab7cfe468507cc4501c95db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  armE: {fileID: 73062115239004783}
+  armSM: {fileID: 7643758375507144666}
 --- !u!33 &7643758377128165593
 MeshFilter:
   m_ObjectHideFlags: 0

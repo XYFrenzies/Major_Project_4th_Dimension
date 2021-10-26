@@ -9,8 +9,7 @@ public class ArmEffects : MonoBehaviour
     ArmStateManager arm;
     PlayerInput playerInput;
     InputAction shootAction;
-    bool isShooting = false;
-    //public SimpleAudioEvent audioEvent;
+    public bool isShooting = false;
     AudioSource source;
 
     // Start is called before the first frame update
@@ -37,13 +36,12 @@ public class ArmEffects : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isShooting && arm.currentState != arm.pauseState)
+        if ((isShooting && arm.currentState != arm.pauseState) || arm.currentState == arm.grappleState)
         {
             DrawLineRenderer();
             if (!source.isPlaying)
             {
                 SoundPlayer.Instance.PlaySoundEffect("FireArm", source);
-                //Debug.Log("Arm sound effect");
             }
         }
         else
@@ -54,9 +52,6 @@ public class ArmEffects : MonoBehaviour
                 source.Stop();
             }
         }
-        //if (arm.isObjectHeld)
-        //    arm.realisticBlackHole.transform.position = arm.hitObject.transform.position;
-        //DrawObjectHoldingEffect();
 
     }
 
@@ -65,28 +60,29 @@ public class ArmEffects : MonoBehaviour
 
         if (arm.currentState != arm.pauseState)
         {
-            isShooting = true;
-            arm.lineRenderer.enabled = true;
-            arm.blackHoleCentre.SetActive(true);
-            arm.realisticBlackHole.SetActive(true);
+            //isShooting = true;
         }
     }
 
     private void UnShootingArm(InputAction.CallbackContext obj)
     {
-
-        isShooting = false;
-        arm.lineRenderer.enabled = false;
-        arm.realisticBlackHole.SetActive(false);
-        arm.blackHoleCentre.transform.localScale = arm.startSize;
-        arm.scaleModifier = 1f;
-        arm.blackHoleCentre.SetActive(false);
-        //source.Stop();
+        if (arm.currentState != arm.grappleState)
+        {
+            isShooting = false;
+            arm.lineRenderer.enabled = false;
+            arm.realisticBlackHole.SetActive(false);
+            arm.blackHoleCentre.transform.localScale = arm.startSize;
+            arm.scaleModifier = 1f;
+            arm.blackHoleCentre.SetActive(false);
+        }
     }
 
 
     public void DrawLineRenderer()
     {
+        //arm.lineRenderer.enabled = true;
+        //arm.blackHoleCentre.SetActive(true);
+        //arm.realisticBlackHole.SetActive(true);
         arm.lineRenderer.positionCount = 2;
         arm.lineRenderer.SetPosition(0, arm.shootPoint.position);
         arm.blackHoleCentre.transform.position = arm.shootPoint.position;
