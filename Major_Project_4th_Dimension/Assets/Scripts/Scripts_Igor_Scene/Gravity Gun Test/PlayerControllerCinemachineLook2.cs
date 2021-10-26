@@ -34,6 +34,7 @@ public class PlayerControllerCinemachineLook2 : MonoBehaviour
     //private Vector2 m_Move;
     public Rig armRig;
     public Rig headRig;
+    public TurretStateManager turretSM;
     //public GameEvent interactedEvent;
 
     ArmStateManager arm;
@@ -83,7 +84,8 @@ public class PlayerControllerCinemachineLook2 : MonoBehaviour
         HookShotThrown,
         HookShotFlying,
         HookShotPullObjTowards,
-        HookShotMissed
+        HookShotMissed,
+        Death
     }
 
     private void Awake()
@@ -158,9 +160,14 @@ public class PlayerControllerCinemachineLook2 : MonoBehaviour
                 //chainShoot.HandleHookShotThrow();
                 isHookThrown = true;
                 break;
+            case State.Death:
+
+                moveAction.Disable();
+                lookAction.Disable();
+
+                break;
 
         }
-
     }
 
     // Update is called once per frame
@@ -184,6 +191,12 @@ public class PlayerControllerCinemachineLook2 : MonoBehaviour
                 break;
             case State.HookShotFlying:
                 Fly(flyToTarget);
+
+                break;
+            case State.Death:
+                animator.SetBool("isDead", true);
+                moveAction.Disable();
+                lookAction.Disable();
 
                 break;
 
@@ -308,4 +321,12 @@ public class PlayerControllerCinemachineLook2 : MonoBehaviour
 
     }
 
+    public void DeathCheck()
+    {
+            animator.SetBool("isDead", true);
+    }
+    public void NotDying() 
+    {
+        animator.SetBool("isDead", false);
+    }
 }

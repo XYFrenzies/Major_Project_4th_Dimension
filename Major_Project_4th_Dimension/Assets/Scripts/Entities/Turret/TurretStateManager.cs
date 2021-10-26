@@ -15,7 +15,7 @@ public class TurretStateManager : MonoBehaviour
 {
     #region Variables
     //TurretState
-    [SerializeField] private TurretState m_turretState;
+    [SerializeField] public TurretState m_turretState;
 
     //Startup
     [SerializeField] private GameEvent m_startUpTurret;
@@ -35,6 +35,8 @@ public class TurretStateManager : MonoBehaviour
     [SerializeField] private float m_gracePeriodTimer = 3.0f;
     [SerializeField] private float m_deathTimer = 3.0f;
     [SerializeField] private GameEvent m_restartLevel;
+    [SerializeField] private GameEvent m_deathAnimation;
+    [SerializeField] private GameEvent m_noDeath;
     private float m_deltaTimeTimer = 0f;
     private bool m_isDying = false;
     private float m_deathDT = 0f;
@@ -54,12 +56,17 @@ public class TurretStateManager : MonoBehaviour
     [SerializeField] private GameObject m_raycastChecker;
     private bool m_playerInArea = false;
     private Vector3 startPosLight;
+
+    AudioSource source;
+
     #endregion
     // Start is called before the first frame update
     private void Start()
     {
         m_spotLight.color = m_baseColourSpotLight;
         startPosLight = gizmos.transform.position;
+        source = GetComponent<AudioSource>();
+        m_noDeath.Raise();
     }
 
     // Update is called once per frame
@@ -163,6 +170,7 @@ public class TurretStateManager : MonoBehaviour
             m_spotLight.color = m_shootColourSpotLight;
             m_leftSight.SetActive(true);
             m_rightSight.SetActive(true);
+            SoundPlayer.Instance.PlaySoundEffect("TurretFire", source);
         }
         else if (Physics.Raycast(m_spotLight.gameObject.transform.position, m_spotLight.gameObject.transform.forward, out hit)
     && hit.transform.gameObject == hit.transform.CompareTag("StopSearch") && !m_playerInArea)
@@ -175,6 +183,7 @@ public class TurretStateManager : MonoBehaviour
             && hit.transform.gameObject == hit.transform.CompareTag("Player"))
         {
             m_turretState = TurretState.PlayerDying;
+            m_deathAnimation.Raise();
             //Need the player to not be able to move whilst it is dying.
             //So in here we need to do this.
             return;

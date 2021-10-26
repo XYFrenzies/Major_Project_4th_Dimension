@@ -39,6 +39,7 @@ public class RenderingMenu : Singleton<RenderingMenu>
                 indexOfResolution = i;
             }
         }
+        Screen.SetResolution(m_resolutionsMultiple[indexOfResolution].width, m_resolutionsMultiple[indexOfResolution].height, true);
         m_resolutionLevel = indexOfResolution;
         m_resolutionDropDown.AddOptions(options);
         m_resolutionDropDown.value = indexOfResolution;
@@ -54,14 +55,12 @@ public class RenderingMenu : Singleton<RenderingMenu>
             string option = m_qualityChanger[i].name;
             qualityOptions.Add(option);
         }
-
+        QualitySettings.SetQualityLevel(2);
         m_qualityLevel = GlobalVariables.Instance.m_qualityDisplayInt;
         m_quality.AddOptions(qualityOptions);
         m_quality.value = m_qualityLevel;
         m_quality.RefreshShownValue();
         #endregion
-
-        Screen.SetResolution(2560, 1440, true);
     }
     public void SaveValues()
     {
@@ -70,6 +69,8 @@ public class RenderingMenu : Singleton<RenderingMenu>
         QualitySettings.SetQualityLevel(m_qualityLevel);
         GlobalVariables.Instance.m_qualityDisplayInt = m_qualityLevel;
         GlobalVariables.Instance.m_resolutionInt = m_resolutionLevel;
+        m_resolutionDropDown.RefreshShownValue();
+        m_quality.RefreshShownValue();
     }
     public void SetResolution(int resolutionIndex)
     {

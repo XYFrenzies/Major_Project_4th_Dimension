@@ -19,7 +19,6 @@ public class PlayerMoveLookState : PlayerBaseState
         base.EnterState();
         Debug.Log("Enter move state");
         //pmStateMan.moveAction.Disable();
-        pmStateMan.lookAction.Disable();
     }
 
     public override void ExitState()
@@ -33,12 +32,15 @@ public class PlayerMoveLookState : PlayerBaseState
 
         CalculateMove();
         CheckForNoMovement();
+        //pmStateMan.lookAction.Disable();
     }
 
     public override void UpdatePhysics()
     {
         Move();
         Look();
+        pmStateMan.lookAction.Disable();
+
     }
 
     public void Move()
