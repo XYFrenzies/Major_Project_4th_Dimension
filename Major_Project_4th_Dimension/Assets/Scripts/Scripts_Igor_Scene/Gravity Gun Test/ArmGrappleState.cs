@@ -30,6 +30,8 @@ public class ArmGrappleState : ArmBaseState
         if(armStateMan.playerSM.isFlying == false)
         {
             armStateMan.SwitchState(armStateMan.pauseState);
+            armStateMan.playerSM.animator.SetBool("IsShooting", false);
+
         }
     }
 

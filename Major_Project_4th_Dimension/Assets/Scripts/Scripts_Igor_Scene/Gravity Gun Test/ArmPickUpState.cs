@@ -30,8 +30,8 @@ public class ArmPickUpState : ArmBaseState
         distanceBetweenPoints = Vector3.Distance(armStateMan.hitObject.transform.position, armStateMan.holdPoint.position);
         //Debug.Log(distanceBetweenPoints);
         changePoint = (int)(distanceBetweenPoints / armStateMan.lights.Count);
-        armStateMan.shootAction.performed += Shoot;
-        armStateMan.shootAction.canceled += NotShoot;
+        //armStateMan.shootAction.performed += Shoot;
+        //armStateMan.shootAction.canceled += NotShoot;
         isShooting = true;
 
         /////////////////////////////////////////////
@@ -56,8 +56,8 @@ public class ArmPickUpState : ArmBaseState
 
     public override void ExitState()
     {
-        armStateMan.shootAction.performed -= Shoot;
-        armStateMan.shootAction.canceled -= NotShoot;
+        //armStateMan.shootAction.performed -= Shoot;
+        //armStateMan.shootAction.canceled -= NotShoot;
         //Debug.Log("Exited pick up state");
         if (!cancelPickUp) // grab object
         {
@@ -80,8 +80,9 @@ public class ArmPickUpState : ArmBaseState
             armStateMan.initialBeamSpeed = armStateMan.holdInitialBeamSpeedValue;
             rb = null;
 
-            armStateMan.playerSM.armRig.weight = 1f;
-            
+            /////////
+            //armStateMan.playerSM.armRig.weight = 1f;
+            ////////
         }
         else // let go of mouse button before grabbing object
         {
@@ -98,10 +99,10 @@ public class ArmPickUpState : ArmBaseState
             armStateMan.lineRenderer.enabled = false;
             armStateMan.initialBeamSpeed = armStateMan.holdInitialBeamSpeedValue;
         }
-
+        
         /////////////////////
         //armStateMan.player.currentState = PlayerControllerCinemachineLook2.State.Normal; // old version
-        armStateMan.playerSM.ChangeState(armStateMan.playerSM.moveLookState); // new version
+        armStateMan.playerSM.ChangeState(armStateMan.playerSM.idleState); // new version
         ////////////////////
     }
 
@@ -115,27 +116,27 @@ public class ArmPickUpState : ArmBaseState
 
         armStateMan.initialBeamSpeed += armStateMan.beamSpeedAccelModifier / rb.mass;
 
+        if (!armStateMan.shotArm)
+        {
+            cancelPickUp = true;
+            armStateMan.SwitchState(armStateMan.idleState);
+        }
         if (Vector3.Distance(armStateMan.hitObject.transform.position, armStateMan.holdPoint.position) <= 1f + radius)
         {
             armStateMan.SwitchState(armStateMan.pauseState);
 
         }
 
-        if (!isShooting)
-        {
-            cancelPickUp = true;
-            armStateMan.SwitchState(armStateMan.idleState);
-        }
 
 
     }
 
-    public void Shoot(InputAction.CallbackContext context)
-    {
-        isShooting = true;
-    }
-    private void NotShoot(InputAction.CallbackContext context)
-    {
-        isShooting = false;
-    }
+    //public void Shoot(InputAction.CallbackContext context)
+    //{
+    //    isShooting = true;
+    //}
+    //private void NotShoot(InputAction.CallbackContext context)
+    //{
+    //    isShooting = false;
+    //}
 }
