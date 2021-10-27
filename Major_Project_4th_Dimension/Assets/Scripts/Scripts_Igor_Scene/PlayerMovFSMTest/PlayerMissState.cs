@@ -13,14 +13,14 @@ public class PlayerMissState : PlayerBaseState
     {
         //base.EnterState();
         //Debug.Log("Entered miss state");
-        PSManager.animator.SetBool("IsShooting", true);
+        //PSManager.animator.SetBool("IsShooting", true);
 
     }
 
     public override void ExitState()
     {
         //Debug.Log("Exited miss state");
-        PSManager.animator.SetBool("IsShooting", false);
+        //PSManager.animator.SetBool("IsShooting", false);
 
     }
 
