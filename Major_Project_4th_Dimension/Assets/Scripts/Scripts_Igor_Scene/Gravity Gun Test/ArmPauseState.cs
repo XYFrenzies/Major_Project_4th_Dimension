@@ -18,6 +18,8 @@ public class ArmPauseState : ArmBaseState
     public override void EnterState()
     {
         //Debug.Log("Entered pause state");
+        armStateMan.shotArm = false;
+        //armStateMan.playerSM.animator.SetBool("IsShooting", false);
 
         armStateMan.lights[0].SetActive(true);
         armStateMan.lights[1].SetActive(false);

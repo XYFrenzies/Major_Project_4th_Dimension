@@ -57,7 +57,7 @@ public class ArmPutDownState : ArmBaseState
 
         //////////////////
         //armStateMan.player.currentState = PlayerControllerCinemachineLook2.State.Normal;
-        armStateMan.playerSM.ChangeState(armStateMan.playerSM.moveLookState);
+        armStateMan.playerSM.ChangeState(armStateMan.playerSM.idleState);
         //////////////////
 
         //armStateMan.shootAction.performed -= Shoot;

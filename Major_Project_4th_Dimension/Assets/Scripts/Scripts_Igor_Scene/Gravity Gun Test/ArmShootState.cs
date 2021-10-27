@@ -115,7 +115,7 @@ public class ArmShootState : ArmBaseState
             }
             else if (hit.transform.CompareTag("MoveableToMe")) // pick up object
             {
-                armStateMan.shotArm = false;
+                //armStateMan.shotArm = false;
 
                 //Debug.Log("can pick up");
                 OnHookShotHit(armStateMan.pickUpState);

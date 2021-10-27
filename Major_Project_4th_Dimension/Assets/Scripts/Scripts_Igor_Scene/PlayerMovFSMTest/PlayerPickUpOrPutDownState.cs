@@ -14,7 +14,7 @@ public class PlayerPickUpOrPutDownState : PlayerBaseState
     public override void EnterState()
     {
         //Debug.Log("Entered PUOPD state");
-        PSManager.animator.SetBool("IsShooting", true);
+        //PSManager.animator.SetBool("IsShooting", true);
 
     }
 
