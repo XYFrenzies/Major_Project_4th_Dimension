@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 307.2365, g: 296.41412, b: 315.5721, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -25454,6 +25454,7 @@ MonoBehaviour:
     m_SingletonActionBindings: []
   parentConstraint: {fileID: 0}
   armEffects: {fileID: 0}
+  shotArm: 0
 --- !u!114 &1174014383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26052,50 +26053,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3c430f382484144e925c097c2d33cfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Weight: 1
+  m_Weight: 6.337577e-16
   m_Data:
-    m_ConstrainedObject: {fileID: 8583411069687248073}
+    m_ConstrainedObject: {fileID: 0}
     m_SourceObjects:
-      m_Length: 1
+      m_Length: 764768880
       m_Item0:
-        transform: {fileID: 2059821459}
-        weight: 1
+        transform: {fileID: 0}
+        weight: 1.6989243e-11
       m_Item1:
         transform: {fileID: 0}
-        weight: 0
+        weight: 1.70087e-11
       m_Item2:
         transform: {fileID: 0}
-        weight: 0
+        weight: 1.7007284e-11
       m_Item3:
         transform: {fileID: 0}
-        weight: 0
+        weight: 1.7005453e-11
       m_Item4:
         transform: {fileID: 0}
-        weight: 0
+        weight: 1.7414542e-11
       m_Item5:
         transform: {fileID: 0}
-        weight: 0
+        weight: 1.7412044e-11
       m_Item6:
         transform: {fileID: 0}
-        weight: 0
+        weight: 6.3378054e-16
       m_Item7:
         transform: {fileID: 0}
-        weight: 0
-    m_Offset: {x: 0, y: 0, z: 0}
-    m_MinLimit: -180
-    m_MaxLimit: 180
-    m_AimAxis: 2
-    m_UpAxis: 2
-    m_WorldUpType: 0
+        weight: 6.3377546e-16
+    m_Offset: {x: 6.337729e-16, y: 4.25e-43, z: 6.337704e-16}
+    m_MinLimit: 4.25e-43
+    m_MaxLimit: 6.3376784e-16
+    m_AimAxis: 303
+    m_UpAxis: 641117088
+    m_WorldUpType: 303
     m_WorldUpObject: {fileID: 0}
-    m_WorldUpAxis: 2
-    m_MaintainOffset: 0
+    m_WorldUpAxis: 641116992
+    m_MaintainOffset: 47
     m_ConstrainedAxes:
       x: 1
-      y: 1
-      z: 1
-  m_SourceObjectsGUIToggle: 1
-  m_SettingsGUIToggle: 1
+      y: 0
+      z: 0
+  m_SourceObjectsGUIToggle: 224
+  m_SettingsGUIToggle: 170
 --- !u!1 &1189458581
 GameObject:
   m_ObjectHideFlags: 0
@@ -29213,6 +29214,7 @@ MonoBehaviour:
     m_SingletonActionBindings: []
   parentConstraint: {fileID: 0}
   armEffects: {fileID: 0}
+  shotArm: 0
 --- !u!114 &1309525790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42854,6 +42856,7 @@ MonoBehaviour:
     m_SingletonActionBindings: []
   parentConstraint: {fileID: 0}
   armEffects: {fileID: 0}
+  shotArm: 0
 --- !u!114 &1952866678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49608,6 +49611,7 @@ MonoBehaviour:
     m_SingletonActionBindings: []
   parentConstraint: {fileID: 0}
   armEffects: {fileID: 0}
+  shotArm: 0
 --- !u!114 &244655921127099708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68727,7 +68731,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3373627836190250097}
   m_LocalRotation: {x: 0.018018777, y: 0.72512645, z: -0.01898786, w: 0.68811816}
-  m_LocalPosition: {x: -3.446348, y: 1.7656492, z: -3.6052134}
+  m_LocalPosition: {x: -3.4685473, y: 1.7656492, z: -4.02879}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -83871,6 +83875,7 @@ MonoBehaviour:
     m_SingletonActionBindings: []
   parentConstraint: {fileID: 0}
   armEffects: {fileID: 0}
+  shotArm: 0
 --- !u!114 &5804269354957740060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93598,6 +93603,7 @@ MonoBehaviour:
     m_SingletonActionBindings: []
   parentConstraint: {fileID: 0}
   armEffects: {fileID: 0}
+  shotArm: 0
 --- !u!145 &7643758375507144667
 SpringJoint:
   m_ObjectHideFlags: 0
@@ -105533,7 +105539,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 27326d4b569bfb549bffa09e6056a6f0, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -109917,7 +109923,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8880212889270086371}
   m_LocalRotation: {x: 0.026167642, y: 0.02616882, z: -0.0006852457, w: 0.9993148}
-  m_LocalPosition: {x: 0.7252136, y: 1.7656492, z: -2.839348}
+  m_LocalPosition: {x: 1.1487902, y: 1.7656492, z: -2.861548}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8880212889206689081}
@@ -109998,7 +110004,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.9156194, y: 1}
+    m_SensorSize: {x: 2.8465347, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -111301,6 +111307,7 @@ MonoBehaviour:
     m_SingletonActionBindings: []
   parentConstraint: {fileID: 0}
   armEffects: {fileID: 0}
+  shotArm: 0
 --- !u!114 &8880212889641690742
 MonoBehaviour:
   m_ObjectHideFlags: 0
