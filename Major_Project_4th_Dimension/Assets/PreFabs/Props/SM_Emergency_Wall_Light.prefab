@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2181127891200041241}
   - component: {fileID: 3020569373965545148}
   - component: {fileID: 1013240227641367158}
+  - component: {fileID: 6327652794320170327}
   m_Layer: 9
   m_Name: SM_Emergency_Wall_Light
   m_TagString: Untagged
@@ -83,6 +84,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &6327652794320170327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1517498593791753123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3c871137af790d42aa29a3db9e81f66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spotLightInScene: {fileID: 3546149432525514642}
+  pointLightInScene: {fileID: 1307394023776344011}
+  eventID: 0
 --- !u!1 &1591696886087217176
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,10 +5,10 @@ using UnityEngine.InputSystem;
 
 public class ArmPullState : ArmBaseState
 {
-    bool isShooting = false;
+    //bool isShooting = false;
     float initialSpringForce;
-    private PlayerInput playerInput;
-    private InputAction shootAction;
+    //private PlayerInput playerInput;
+    //private InputAction shootAction;
     float initialMass;
     Rigidbody rb;
     Renderer rend;
@@ -23,12 +23,13 @@ public class ArmPullState : ArmBaseState
     {
         //Debug.Log("Entered Pull state");
 
-        playerInput = armStateMan.GetComponent<PlayerInput>();
-        shootAction = playerInput.actions["HookShot"];
+        //playerInput = armStateMan.GetComponent<PlayerInput>();
+        //shootAction = playerInput.actions["HookShot"];
+        //armStateMan.playerInput.actions["HookShot"];
 
-        shootAction.performed += Shoot;
-        shootAction.canceled += NotShoot;
-        isShooting = true;
+        //armStateMan.shootAction.performed += Shoot;
+        //armStateMan.shootAction.canceled += NotShoot;
+        //isShooting = true;
         armStateMan.newGrappleHandle = Object.Instantiate(armStateMan.grappleHandle, armStateMan.hitObject.transform);
         armStateMan.newGrappleHandle.transform.localPosition = armStateMan.localPoint;
         armStateMan.newGrappleHandle.GetComponent<FixedJoint>().connectedBody = armStateMan.hitObject.GetComponent<Rigidbody>();
@@ -59,8 +60,8 @@ public class ArmPullState : ArmBaseState
 
     public override void ExitState()
     {
-        shootAction.performed -= Shoot;
-        shootAction.canceled -= NotShoot;
+        //armStateMan.shootAction.performed -= Shoot;
+        //armStateMan.shootAction.canceled -= NotShoot;
         //hand.transform.SetParent(armStateMan.transform);
         //rb.mass = initialMass;
         Object.Destroy(armStateMan.newGrappleHandle);
@@ -80,9 +81,9 @@ public class ArmPullState : ArmBaseState
     public override void UpdateState()
     {
 
-        if (!isShooting)
+        if (!armStateMan.shotArm)
         {
-            armStateMan.SwitchState(armStateMan.shootState);
+            armStateMan.SwitchState(armStateMan.idleState);
 
         }
         armStateMan.hitPoint = armStateMan.newGrappleHandle.transform.position;
@@ -95,13 +96,13 @@ public class ArmPullState : ArmBaseState
             }
     }
 
-    public void Shoot(InputAction.CallbackContext context)
-    {
-        isShooting = true;
-    }
-    private void NotShoot(InputAction.CallbackContext context)
-    {
-        isShooting = false;
+    //public void Shoot(InputAction.CallbackContext context)
+    //{
+    //    isShooting = true;
+    //}
+    //private void NotShoot(InputAction.CallbackContext context)
+    //{
+    //    isShooting = false;
 
-    }
+    //}
 }

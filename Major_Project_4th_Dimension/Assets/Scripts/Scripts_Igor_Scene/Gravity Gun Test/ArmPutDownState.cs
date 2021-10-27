@@ -27,8 +27,8 @@ public class ArmPutDownState : ArmBaseState
         armStateMan.playerSM.ChangeState(armStateMan.playerSM.pickUpOrPutDownState);
         ///////////////////
 
-        armStateMan.shootAction.performed += Shoot;
-        armStateMan.shootAction.canceled += NotShoot;
+        //armStateMan.shootAction.performed += Shoot;
+        //armStateMan.shootAction.canceled += NotShoot;
         //Debug.Log("Entered Putdown state");
         //playerInput = armStateMan.GetComponent<PlayerInput>();
 
@@ -60,8 +60,8 @@ public class ArmPutDownState : ArmBaseState
         armStateMan.playerSM.ChangeState(armStateMan.playerSM.moveLookState);
         //////////////////
 
-        armStateMan.shootAction.performed -= Shoot;
-        armStateMan.shootAction.canceled -= NotShoot;
+        //armStateMan.shootAction.performed -= Shoot;
+        //armStateMan.shootAction.canceled -= NotShoot;
         if (armStateMan.parentConstraint.sourceCount != 0)
             armStateMan.parentConstraint.RemoveSource(0);
     }
@@ -83,18 +83,18 @@ public class ArmPutDownState : ArmBaseState
 
         }
         //  }
-        if (!isShooting) // interrupt put down action and exit before object reaches target point
+        if (!armStateMan.shotArm) // interrupt put down action and exit before object reaches target point
         {
             armStateMan.SwitchState(armStateMan.pauseState);
         }
     }
 
-    public void Shoot(InputAction.CallbackContext context)
-    {
-        isShooting = true;
-    }
-    private void NotShoot(InputAction.CallbackContext context)
-    {
-        isShooting = false;
-    }
+    //public void Shoot(InputAction.CallbackContext context)
+    //{
+    //    isShooting = true;
+    //}
+    //private void NotShoot(InputAction.CallbackContext context)
+    //{
+    //    isShooting = false;
+    //}
 }

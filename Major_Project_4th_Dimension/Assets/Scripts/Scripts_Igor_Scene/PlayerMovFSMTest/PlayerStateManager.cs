@@ -97,6 +97,8 @@ public class PlayerStateManager : MonoBehaviour
         missState = new PlayerMissState(this);
 
         cam = Camera.main;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
 
         playerInput = GetComponent<PlayerInput>();
         moveAction = playerInput.actions["Move"];

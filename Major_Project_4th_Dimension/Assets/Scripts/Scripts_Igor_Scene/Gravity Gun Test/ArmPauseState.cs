@@ -9,7 +9,7 @@ public class ArmPauseState : ArmBaseState
     int index = 1;
     float amount = 0f;
     float initialAmount = 0f;
-    //bool secondTime = false;
+
 
     public ArmPauseState(ArmStateManager arm) : base(arm)
     {
@@ -33,7 +33,6 @@ public class ArmPauseState : ArmBaseState
         amount = 0f;
         index = 1;
         timer = 0f;
-        //secondTime = false;
 
     }
 
@@ -48,18 +47,15 @@ public class ArmPauseState : ArmBaseState
                 armStateMan.lights[index].SetActive(true);
                 armStateMan.lights[index - 1].SetActive(false);
             }
-            //if (secondTime)
-
-
 
             index++;
-            //secondTime = true;
+
         }
 
 
         if (timer >= armStateMan.armCoolDownTime)
         {
-            armStateMan.SwitchState(armStateMan.shootState);
+            armStateMan.SwitchState(armStateMan.idleState);
         }
 
     }

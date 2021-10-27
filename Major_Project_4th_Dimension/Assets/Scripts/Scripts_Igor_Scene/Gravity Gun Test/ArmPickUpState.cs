@@ -124,7 +124,7 @@ public class ArmPickUpState : ArmBaseState
         if (!isShooting)
         {
             cancelPickUp = true;
-            armStateMan.SwitchState(armStateMan.shootState);
+            armStateMan.SwitchState(armStateMan.idleState);
         }
 
 
