@@ -98,6 +98,7 @@ public class PlayerStateManager : MonoBehaviour
 
         cam = Camera.main;
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
 
         playerInput = GetComponent<PlayerInput>();
         moveAction = playerInput.actions["Move"];
