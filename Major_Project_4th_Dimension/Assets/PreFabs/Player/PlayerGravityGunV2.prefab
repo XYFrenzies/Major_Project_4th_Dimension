@@ -3175,7 +3175,7 @@ AimConstraint:
   m_Enabled: 1
   m_Weight: 1
   m_RotationAtRest: {x: -0, y: 0, z: 0}
-  m_RotationOffset: {x: 8.36956, y: -4.9646654, z: -0.7244182}
+  m_RotationOffset: {x: 8.369559, y: -4.964656, z: -0.7244171}
   m_AimVector: {x: 0, y: 0, z: 1}
   m_UpVector: {x: 0, y: 1, z: 0}
   m_WorldUpVector: {x: 0, y: 1, z: 0}
@@ -6684,6 +6684,7 @@ Transform:
   - {fileID: 7663215971057967915}
   - {fileID: 6722787561257095584}
   - {fileID: 1312804407}
+  - {fileID: 15345837578989733}
   m_Father: {fileID: 8431453540006725400}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7190,9 +7191,9 @@ MonoBehaviour:
   Response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8431453541361779734}
+      - m_Target: {fileID: 8431453541361779725}
         m_TargetAssemblyTypeName: PlayerControllerCinemachineLook2, Assembly-CSharp
-        m_MethodName: ChangeIsPlayerCloseEnough
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7771,3 +7772,65 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.08406763, y: 0.22555459, z: -0.08812628}
     m_Extent: {x: 0.041564703, y: 0.078540415, z: 0.014917031}
   m_DirtyAABB: 0
+--- !u!1001 &557388109337089870
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 8431453541361779726}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 9e008a7447e1c7b479b6ecd068d09f4d, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9e008a7447e1c7b479b6ecd068d09f4d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9e008a7447e1c7b479b6ecd068d09f4d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9e008a7447e1c7b479b6ecd068d09f4d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9e008a7447e1c7b479b6ecd068d09f4d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9e008a7447e1c7b479b6ecd068d09f4d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9e008a7447e1c7b479b6ecd068d09f4d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9e008a7447e1c7b479b6ecd068d09f4d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9e008a7447e1c7b479b6ecd068d09f4d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9e008a7447e1c7b479b6ecd068d09f4d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9e008a7447e1c7b479b6ecd068d09f4d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9e008a7447e1c7b479b6ecd068d09f4d, type: 3}
+      propertyPath: m_Name
+      value: SK_Character
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9e008a7447e1c7b479b6ecd068d09f4d, type: 3}
+--- !u!4 &15345837578989733 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9e008a7447e1c7b479b6ecd068d09f4d, type: 3}
+  m_PrefabInstance: {fileID: 557388109337089870}
+  m_PrefabAsset: {fileID: 0}
