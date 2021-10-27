@@ -6,6 +6,7 @@ public class LightToDoor
     public string spotLights { get; set; }
     public Light spotLightInScene;
     public Light pointLightInScene;
+    public int eventID;
 }
 public class LightController : Singleton<LightController>
 {
@@ -19,13 +20,6 @@ public class LightController : Singleton<LightController>
             lightLogic[i].spotLightInScene.color = m_defaultColour;
             lightLogic[i].pointLightInScene.color = m_defaultColour;
         }
-    }
-    public LightToDoor GetLightByID(int id)
-    {
-        if (FindID(id))
-            return lightLogic[id];
-        Debug.Log("No light with ID exists");
-        return null;
     }
     public void SetIDToColour(int id, Color colour)
     {
