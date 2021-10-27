@@ -62,35 +62,3 @@ sysinfo.txt
 
 # Crashlytics generated file
 crashlytics-build.properties
-
-### FMOD Unity Integration ###
-# Never ignore DLLs in the FMOD subfolder, so make sure that the FMOD-folder is in the correct path.
-!/[Aa]ssets/Plugins/FMOD/**/*.dll
-
-# Don't delete these files as they are required within the project.
-!/[Aa]ssets/Plugins/FMOD/FMODUnity.asmdef
-!/[Aa]ssets/Plugins/FMOD/addons/ResonanceAudio/Editor/FmodResonanceAudioRoomEditor.cs
-!/[Aa]ssets/Plugins/FMOD/addons/ResonanceAudio/Editor/FMODUnityResonanceEditor.asmdef
-!/[Aa]ssets/Plugins/FMOD/addons/ResonanceAudio/Scripts/FmodResonanceAudio.cs
-!/[Aa]ssets/Plugins/FMOD/addons/ResonanceAudio/Scripts/FmodResonanceAudioRoom.cs
-!/[Aa]ssets/Plugins/FMOD/addons/ResonanceAudio/Scripts/FMODUnityResonance.asmdef
-!/[Aa]ssets/Audio/AudioEventHandler/AudioEventHandler.fspro
-!/[Aa]ssets/Audio/AudioEventHandler/AudioEventHandler.fspro.meta
-
-# Don't ignore images and gizmos used by FMOD in the Unity Editor
-!/[Aa}ssets/Gizmos/FMOD/*
-!/[Aa}ssets/Editor Default Resources/FMOD/*
-
-# Ignore the Cache-file since it is updated locally either way
-/[Aa]ssets/**/FMODStudioCache.asset
-/[Aa]ssets/**/FMODStudioCache.asset.meta
-/[Aa]ssets/Plugins/FMOD/Cache.meta
-/[Aa]ssets/Plugins/FMOD/Cache/Editor.meta
-
-# Log-files
-fmod.log
-fmod_editor.log
-
-# FMOD 1.10.x (Legacy)
-/Assets/FMODAssets/*
-/Assets/FMODStudioCache.meta
