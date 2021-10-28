@@ -37,8 +37,8 @@ public class ArmPickUpState : ArmBaseState
         /////////////////////////////////////////////
         //armStateMan.player.currentState = PlayerControllerCinemachineLook2.State.HookShotThrown; // old version
         armStateMan.playerSM.ChangeState(armStateMan.playerSM.pickUpOrPutDownState); // new version
-        /////////////////////////////////////////////
-        
+                                                                                     /////////////////////////////////////////////
+
 
         cancelPickUp = false;
         rb = armStateMan.hitObject.GetComponent<Rigidbody>();
@@ -99,7 +99,7 @@ public class ArmPickUpState : ArmBaseState
             armStateMan.lineRenderer.enabled = false;
             armStateMan.initialBeamSpeed = armStateMan.holdInitialBeamSpeedValue;
         }
-        
+
         /////////////////////
         //armStateMan.player.currentState = PlayerControllerCinemachineLook2.State.Normal; // old version
         armStateMan.playerSM.ChangeState(armStateMan.playerSM.idleState); // new version
@@ -121,11 +121,12 @@ public class ArmPickUpState : ArmBaseState
             cancelPickUp = true;
             armStateMan.SwitchState(armStateMan.idleState);
         }
-        if (Vector3.Distance(armStateMan.hitObject.transform.position, armStateMan.holdPoint.position) <= 1f + radius)
-        {
-            armStateMan.SwitchState(armStateMan.pauseState);
+        if (armStateMan.hitObject != null)
+            if (Vector3.Distance(armStateMan.hitObject.transform.position, armStateMan.holdPoint.position) <= 1f + radius)
+            {
+                armStateMan.SwitchState(armStateMan.pauseState);
 
-        }
+            }
 
 
 
