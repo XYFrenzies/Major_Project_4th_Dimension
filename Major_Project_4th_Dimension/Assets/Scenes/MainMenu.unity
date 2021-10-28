@@ -29344,6 +29344,11 @@ ReflectionProbe:
   m_UseOcclusionCulling: 1
   m_Importance: 1
   m_CustomBakedTexture: {fileID: 0}
+--- !u!1 &1096393577 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8000579788078637053, guid: b4f269ae58c4e2f418b14a0db3113322, type: 3}
+  m_PrefabInstance: {fileID: 8000579789030527108}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1123547447
 GameObject:
   m_ObjectHideFlags: 0
@@ -84372,12 +84377,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8000579788626801443, guid: b4f269ae58c4e2f418b14a0db3113322, type: 3}
+      propertyPath: m_levelSelect
+      value: 
+      objectReference: {fileID: 1096393577}
+    - target: {fileID: 8000579788626801443, guid: b4f269ae58c4e2f418b14a0db3113322, type: 3}
       propertyPath: m_playerAnimtion
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8000579788626801443, guid: b4f269ae58c4e2f418b14a0db3113322, type: 3}
       propertyPath: m_timeBeforeStartScene
-      value: 3
+      value: 4.2
       objectReference: {fileID: 0}
     - target: {fileID: 8000579788626801445, guid: b4f269ae58c4e2f418b14a0db3113322, type: 3}
       propertyPath: m_Name
