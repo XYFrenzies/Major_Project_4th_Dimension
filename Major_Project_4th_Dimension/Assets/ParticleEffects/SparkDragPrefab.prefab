@@ -89,7 +89,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 4.7421134e+30, y: 7.4992535e+28, z: 7.2064716e+31, w: 4.612894e+24}
+  m_BoundingSphereOverride: {x: 0.000011038785, y: 0.000042052365, z: 0.000054166074, w: 0.000000010430814}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0.01
@@ -265,11 +265,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2082767848098116144, guid: bacadaa31efff0745a06acc34aba6c74, type: 3}
       propertyPath: LightsModule.ratio
-      value: 0.05
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 2082767848098116144, guid: bacadaa31efff0745a06acc34aba6c74, type: 3}
+      propertyPath: LightsModule.intensity
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2082767848098116144, guid: bacadaa31efff0745a06acc34aba6c74, type: 3}
       propertyPath: LightsModule.maxLights
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2082767848098116144, guid: bacadaa31efff0745a06acc34aba6c74, type: 3}
       propertyPath: InitialModule.startSize.scalar
