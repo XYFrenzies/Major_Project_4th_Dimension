@@ -64,6 +64,8 @@ public class OptionsMenu : MonoBehaviour
             m_menus[i].SetActive(false);
         }
         gameObject.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
     private void OnDisable()
     {
