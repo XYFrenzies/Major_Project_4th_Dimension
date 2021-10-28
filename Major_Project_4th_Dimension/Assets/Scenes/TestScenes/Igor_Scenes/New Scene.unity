@@ -40122,11 +40122,6 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 1316716523}
---- !u!95 &1857958450 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 7592833904384043841, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
-  m_PrefabInstance: {fileID: 1199984216902287406}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1859365284
 GameObject:
   m_ObjectHideFlags: 0
@@ -44891,17 +44886,6 @@ Transform:
   m_Father: {fileID: 1271438385}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2069406285 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4661202256751509523, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
-  m_PrefabInstance: {fileID: 1199984216902287406}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3debed4a85516b94e90a940748b2d425, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2071474834
 GameObject:
   m_ObjectHideFlags: 0
@@ -58354,22 +58338,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 827910650538584607, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4455782945292186114, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
-      propertyPath: m_RotationOffset.z
-      value: -0.7244187
-      objectReference: {fileID: 0}
-    - target: {fileID: 4661202256751509523, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 1857958450}
-    - target: {fileID: 8431453539743655186, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8431453540006725398, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
       propertyPath: m_Name
       value: PlayerParent
@@ -58417,38 +58385,6 @@ PrefabInstance:
     - target: {fileID: 8431453540006725400, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8431453540725934212, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.8759209
-      objectReference: {fileID: 0}
-    - target: {fileID: 8431453540725934212, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -2.8472476
-      objectReference: {fileID: 0}
-    - target: {fileID: 8431453540725934215, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
-      propertyPath: m_Lens.m_SensorSize.x
-      value: 2.376392
-      objectReference: {fileID: 0}
-    - target: {fileID: 8431453541361779727, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
-      propertyPath: Response.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 2069406285}
-    - target: {fileID: 8431453541361779727, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
-      propertyPath: Response.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PlayerStateManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 8431453541361779728, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
-      propertyPath: Response.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 2069406285}
-    - target: {fileID: 8431453541361779728, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
-      propertyPath: Response.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ChangeIsPlayerCloseEnough
-      objectReference: {fileID: 0}
-    - target: {fileID: 8431453541361779728, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
-      propertyPath: Response.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PlayerStateManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8431453541361779734, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
       propertyPath: turretSM
@@ -64661,8 +64597,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3373627836190250097}
-  m_LocalRotation: {x: 0.018018365, y: 0.7251272, z: -0.01898747, w: 0.6881173}
-  m_LocalPosition: {x: -3.4542477, y: 1.7656462, z: -3.7559206}
+  m_LocalRotation: {x: 0.018018363, y: 0.72512716, z: -0.018987468, w: 0.6881173}
+  m_LocalPosition: {x: -3.4749122, y: 1.7656462, z: -4.1501865}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
