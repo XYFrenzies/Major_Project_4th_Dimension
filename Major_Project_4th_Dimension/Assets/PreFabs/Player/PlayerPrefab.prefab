@@ -419,7 +419,7 @@ AimConstraint:
   m_Enabled: 1
   m_Weight: 1
   m_RotationAtRest: {x: -0, y: 0, z: 0}
-  m_RotationOffset: {x: 8.36956, y: -4.9646654, z: -0.7244182}
+  m_RotationOffset: {x: 8.36956, y: -4.9646654, z: -0.7244187}
   m_AimVector: {x: 0, y: 0, z: 1}
   m_UpVector: {x: 0, y: 1, z: 0}
   m_WorldUpVector: {x: 0, y: 1, z: 0}
@@ -5642,7 +5642,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8431453540725934211}
   m_LocalRotation: {x: 0.026167074, y: 0.026169922, z: -0.00068525964, w: 0.9993148}
-  m_LocalPosition: {x: 1.0375212, y: 1.7656462, z: -2.8557177}
+  m_LocalPosition: {x: 1.2701863, y: 1.7656462, z: -2.8679118}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8431453540922601305}
@@ -5678,7 +5678,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.6020093, y: 1}
+    m_SensorSize: {x: 3.1133502, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -8035,9 +8035,9 @@ MonoBehaviour:
   Response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8431453541361779725}
-        m_TargetAssemblyTypeName: PlayerControllerCinemachineLook2, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 4661202256751509523}
+        m_TargetAssemblyTypeName: PlayerStateManager, Assembly-CSharp
+        m_MethodName: ChangeIsPlayerCloseEnough
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8063,8 +8063,8 @@ MonoBehaviour:
   Response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8431453541361779734}
-        m_TargetAssemblyTypeName: PlayerControllerCinemachineLook2, Assembly-CSharp
+      - m_Target: {fileID: 4661202256751509523}
+        m_TargetAssemblyTypeName: PlayerStateManager, Assembly-CSharp
         m_MethodName: ChangeIsPlayerCloseEnough
         m_Mode: 1
         m_Arguments:
