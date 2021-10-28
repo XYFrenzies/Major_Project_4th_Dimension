@@ -80,9 +80,9 @@ public class ArmEffects : MonoBehaviour
 
     public void DrawLineRenderer()
     {
-        //arm.lineRenderer.enabled = true;
-        //arm.blackHoleCentre.SetActive(true);
-        //arm.realisticBlackHole.SetActive(true);
+        arm.lineRenderer.enabled = true;
+        arm.blackHoleCentre.SetActive(true);
+        arm.realisticBlackHole.SetActive(true);
         arm.lineRenderer.positionCount = 2;
         arm.lineRenderer.SetPosition(0, arm.shootPoint.position);
         arm.blackHoleCentre.transform.position = arm.shootPoint.position;

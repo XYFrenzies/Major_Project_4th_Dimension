@@ -11,8 +11,8 @@ public class ShootingCheck : MonoBehaviour
     {
         armE.isShooting = true;
         armSM.isShootingAnimationReady = true;
-        armSM.lineRenderer.enabled = true;
-        armSM.blackHoleCentre.SetActive(true);
-        armSM.realisticBlackHole.SetActive(true);
+        //armSM.lineRenderer.enabled = true;
+        //armSM.blackHoleCentre.SetActive(true);
+        //armSM.realisticBlackHole.SetActive(true);
     }
 }

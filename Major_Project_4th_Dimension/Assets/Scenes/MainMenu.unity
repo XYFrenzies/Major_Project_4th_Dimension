@@ -23686,6 +23686,11 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 390a8ecef3d6b1947ab489b3613422de, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e008a7447e1c7b479b6ecd068d09f4d, type: 3}
+--- !u!95 &743559202 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 9e008a7447e1c7b479b6ecd068d09f4d, type: 3}
+  m_PrefabInstance: {fileID: 743559201}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &755840976
 GameObject:
   m_ObjectHideFlags: 0
@@ -84288,6 +84293,14 @@ PrefabInstance:
     - target: {fileID: 8000579788626801441, guid: b4f269ae58c4e2f418b14a0db3113322, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000579788626801443, guid: b4f269ae58c4e2f418b14a0db3113322, type: 3}
+      propertyPath: m_playerAnimtion
+      value: 
+      objectReference: {fileID: 743559202}
+    - target: {fileID: 8000579788626801443, guid: b4f269ae58c4e2f418b14a0db3113322, type: 3}
+      propertyPath: m_timeBeforeStartScene
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8000579788626801445, guid: b4f269ae58c4e2f418b14a0db3113322, type: 3}
       propertyPath: m_Name
