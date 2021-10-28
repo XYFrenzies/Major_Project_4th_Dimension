@@ -154,6 +154,9 @@ public class PlayerStateManager : MonoBehaviour
     {
         if (currentState != null)
             currentState.UpdatePhysics();
+
+        
+
     }
 
     public void ChangeState(PlayerBaseState nextState)
@@ -243,6 +246,11 @@ public class PlayerStateManager : MonoBehaviour
         animator.SetFloat("xPos", inputs.x, 0.3f, Time.deltaTime);
         animator.SetFloat("yPos", inputs.y, 0.3f, Time.deltaTime);
 
+        animator.SetFloat("Mouse", lookAction.ReadValue<Vector2>().x);
+
+        //Debug.Log("xPos: " + inputs.x + "| yPos: " + inputs.y + "| Mouse: " + lookAction.ReadValue<Vector2>().x);
+
+        //animator.SetBool("PlayerStill", (inputs.x == 0 && inputs.y == 0));
 
     }
 
@@ -264,6 +272,7 @@ public class PlayerStateManager : MonoBehaviour
         animator.SetBool("IsLanding", false);
         ChangeState(idleState);
     }
+
 
 
 }
