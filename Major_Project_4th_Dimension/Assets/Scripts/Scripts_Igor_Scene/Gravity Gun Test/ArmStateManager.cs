@@ -68,7 +68,7 @@ public class ArmStateManager : MonoBehaviour
     public ConstraintSource constraintSource;
 
     // States
-    public ArmShootState shootState = null; 
+    public ArmShootState shootState = null;
     public ArmGrappleState grappleState = null;
     public ArmPickUpState pickUpState = null;
     public ArmPullState pullState = null;
@@ -126,7 +126,7 @@ public class ArmStateManager : MonoBehaviour
     public void Start()
     {
         SwitchState(idleState);
-        
+
     }
 
 
@@ -136,11 +136,19 @@ public class ArmStateManager : MonoBehaviour
         currentState.UpdateState();
 
 
-        timer += Time.deltaTime;
-        //if (timer >= amount)
+        //if (shotArm)
         //{
-           
+        //    shootAction.Disable();
+        //}
+        //if(!shootAction.enabled)
+        //{
+        //    timer += Time.deltaTime;
+        //    if (timer >= 1f)
+        //    {
+        //        shootAction.Enable();
+        //        timer = 0f;
 
+        //    }
         //}
 
     }
