@@ -21,10 +21,13 @@ public class ArmPauseState : ArmBaseState
         armStateMan.shotArm = false;
         //armStateMan.playerSM.animator.SetBool("IsShooting", false);
 
-        armStateMan.lights[0].SetActive(true);
-        armStateMan.lights[1].SetActive(false);
-        armStateMan.lights[2].SetActive(false);
-        armStateMan.lights[3].SetActive(false);
+        if (armStateMan.lights.Count != 0)
+        {
+            armStateMan.lights[0].SetActive(true);
+            armStateMan.lights[1].SetActive(false);
+            armStateMan.lights[2].SetActive(false);
+            armStateMan.lights[3].SetActive(false);
+        }
         amount = armStateMan.armCoolDownTime * 0.25f;
         initialAmount = amount;
     }
@@ -46,8 +49,11 @@ public class ArmPauseState : ArmBaseState
             amount += initialAmount;
             if (index < 4)
             {
-                armStateMan.lights[index].SetActive(true);
-                armStateMan.lights[index - 1].SetActive(false);
+                if (armStateMan.lights.Count != 0)
+                {
+                    armStateMan.lights[index].SetActive(true);
+                    armStateMan.lights[index - 1].SetActive(false);
+                }
             }
 
             index++;
