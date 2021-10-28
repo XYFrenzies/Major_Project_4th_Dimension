@@ -15,6 +15,7 @@ public class PlayerPickUpOrPutDownState : PlayerBaseState
     {
         //Debug.Log("Entered PUOPD state");
         //PSManager.animator.SetBool("IsShooting", true);
+        PSManager.animator.SetBool("IsPickOrPut", true);
 
     }
 
@@ -22,6 +23,7 @@ public class PlayerPickUpOrPutDownState : PlayerBaseState
     {
         //Debug.Log("Exited PUOPD state");
         PSManager.animator.SetBool("IsShooting", false);
+        PSManager.animator.SetBool("IsPickOrPut", false);
 
     }
 

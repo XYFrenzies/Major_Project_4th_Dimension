@@ -27,7 +27,7 @@ public class PlayerMissState : PlayerBaseState
     public override void UpdateLogic()
     {
         //base.UpdateLogic();
-        //PSManager.CalculateMove();
+        PSManager.CalculateMove();
 
 
         //PSManager.GroundCheck();

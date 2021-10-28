@@ -17,6 +17,7 @@ public class PlayerPullingState : PlayerBaseState
         //Debug.Log("Entered pulling state");
         //PSManager.animator.SetBool("IsPulling", true);
         PSManager.animator.SetBool("IsShooting", true);
+        PSManager.animator.SetBool("IsPulling", true);
 
     }
 
@@ -25,6 +26,7 @@ public class PlayerPullingState : PlayerBaseState
         //Debug.Log("Exited pulling state");
         //PSManager.animator.SetBool("IsPulling", false);
         PSManager.animator.SetBool("IsShooting", false);
+        PSManager.animator.SetBool("IsPulling", false);
 
 
     }
