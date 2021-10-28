@@ -21,14 +21,7 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
-      might lower retargeting quality:\nNote: Activate translation DOF on avatar
-      to improve retargeting quality.\n\t'JawJoint_M' has translation animation that
-      will be discarded.\n\t'GameSkeletonScapula_R' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n\t'GameSkeletonShoulderPart2_R'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'GameSkeletonScapula_L'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'GameSkeletonShoulderPart2_L'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n"
+    animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
@@ -652,7 +645,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: GameSkeletonShoulder_L
+    - boneName: GameSkeletonScapula_L
       humanName: LeftShoulder
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -660,7 +653,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: GameSkeletonShoulder_R
+    - boneName: GameSkeletonScapula_R
       humanName: RightShoulder
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -668,7 +661,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: GameSkeletonShoulderPart1_L
+    - boneName: GameSkeletonShoulder_L
       humanName: LeftUpperArm
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -676,7 +669,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: GameSkeletonShoulderPart1_R
+    - boneName: GameSkeletonShoulder_R
       humanName: RightUpperArm
       limit:
         min: {x: 0, y: 0, z: 0}
