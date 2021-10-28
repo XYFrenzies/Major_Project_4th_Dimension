@@ -10,16 +10,28 @@ public class LevelSelect : MonoBehaviour
 {
     [SerializeField] private Animator m_playerAnimtion;
     [SerializeField] private float m_timeBeforeStartScene;
-    public void LevelToSelect(string name) 
+    [SerializeField] private GameObject m_levelSelect;
+    [SerializeField] private GameObject m_title;
+    private string m_levelToSelect;
+    private AsyncOperation async;
+    public void LevelToSelect(string name)
     {
-        if(m_playerAnimtion != null)
+        m_levelToSelect = name;
+        if (m_playerAnimtion != null)
             m_playerAnimtion.SetBool("playGame", true);
-        gameObject.SetActive(false);
-        StartCoroutine(LevelBeforeStart(name));
+        StartCoroutine(LoadScene());
+        m_levelSelect.SetActive(false);
+        m_title.SetActive(false);
     }
-    private IEnumerator LevelBeforeStart(string name) 
+    private IEnumerator LoadScene() 
     {
         yield return new WaitForSeconds(m_timeBeforeStartScene);
-        SceneManager.LoadScene(name);
+        async = SceneManager.LoadSceneAsync(m_levelToSelect, LoadSceneMode.Additive);
+        async.allowSceneActivation = false;
+        while (async.progress < 0.9f)
+        {
+            yield return null;
+        }
+        async.allowSceneActivation = true;
     }
 }
