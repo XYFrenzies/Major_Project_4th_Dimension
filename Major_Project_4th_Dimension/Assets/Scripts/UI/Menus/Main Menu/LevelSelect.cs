@@ -13,7 +13,6 @@ public class LevelSelect : MonoBehaviour
     [SerializeField] private GameObject m_levelSelect;
     [SerializeField] private GameObject m_title;
     private string m_levelToSelect;
-    private AsyncOperation async;
     public void LevelToSelect(string name)
     {
         m_levelToSelect = name;

@@ -419,7 +419,7 @@ AimConstraint:
   m_Enabled: 1
   m_Weight: 1
   m_RotationAtRest: {x: -0, y: 0, z: 0}
-  m_RotationOffset: {x: 8.36956, y: -4.9646654, z: -0.7244182}
+  m_RotationOffset: {x: 8.369566, y: -4.964644, z: -0.7244071}
   m_AimVector: {x: 0, y: 0, z: 1}
   m_UpVector: {x: 0, y: 1, z: 0}
   m_WorldUpVector: {x: 0, y: 1, z: 0}
@@ -5645,8 +5645,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8431453540725934211}
-  m_LocalRotation: {x: 0.026166504, y: 0.026171084, z: -0.00068527454, w: 0.9993148}
-  m_LocalPosition: {x: 0.66264874, y: 1.765643, z: -2.8360717}
+  m_LocalRotation: {x: 0.026165364, y: 0.026171055, z: -0.00068524474, w: 0.9993147}
+  m_LocalPosition: {x: 0.6624731, y: 1.7656369, z: -2.8360658}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8431453540922601305}
@@ -5682,7 +5682,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7781454, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -6348,7 +6348,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_RecenterTarget: 2
   m_VerticalAxis:
-    Value: 2.999831
+    Value: 2.9997005
     m_SpeedMode: 1
     m_MaxSpeed: 0.2
     m_AccelTime: 0.2
@@ -7508,6 +7508,8 @@ GameObject:
   - component: {fileID: 8431453541361779727}
   - component: {fileID: 2167654700605579680}
   - component: {fileID: 1685447671}
+  - component: {fileID: 1421056566023330658}
+  - component: {fileID: 3017799975713610294}
   m_Layer: 7
   m_Name: PlayerLogic
   m_TagString: Player
@@ -8188,6 +8190,62 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1421056566023330658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8431453541361779725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48be2ea0f33e0194caf93c70cfde9568, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 381931295309dcd4db40240ee7be4d05, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4661202256751509523}
+        m_TargetAssemblyTypeName: PlayerStateManager, Assembly-CSharp
+        m_MethodName: PlayerIsCloseToSwitchConveyor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3017799975713610294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8431453541361779725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48be2ea0f33e0194caf93c70cfde9568, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: bc0282e8c39dfa545a917feae7265450, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4661202256751509523}
+        m_TargetAssemblyTypeName: PlayerStateManager, Assembly-CSharp
+        m_MethodName: PlayerIsCloseToSwitchConveyor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8431453541385172287
 GameObject:
   m_ObjectHideFlags: 0
@@ -8698,14 +8756,14 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 75809428782492289, guid: 396f3a37ff0b13046ba0591fdec9aec4, type: 3}
   m_PrefabInstance: {fileID: 2158982009235641910}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2156329711364673788 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7578660792960714, guid: 396f3a37ff0b13046ba0591fdec9aec4, type: 3}
-  m_PrefabInstance: {fileID: 2158982009235641910}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7048937661848412553 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8945527399415281599, guid: 396f3a37ff0b13046ba0591fdec9aec4, type: 3}
+  m_PrefabInstance: {fileID: 2158982009235641910}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1242958507578694689 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 921512375439591959, guid: 396f3a37ff0b13046ba0591fdec9aec4, type: 3}
   m_PrefabInstance: {fileID: 2158982009235641910}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &2604632997765114456 stripped
@@ -8713,8 +8771,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4166882280985328750, guid: 396f3a37ff0b13046ba0591fdec9aec4, type: 3}
   m_PrefabInstance: {fileID: 2158982009235641910}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1242958507578694689 stripped
+--- !u!1 &2156329711364673788 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 921512375439591959, guid: 396f3a37ff0b13046ba0591fdec9aec4, type: 3}
+  m_CorrespondingSourceObject: {fileID: 7578660792960714, guid: 396f3a37ff0b13046ba0591fdec9aec4, type: 3}
   m_PrefabInstance: {fileID: 2158982009235641910}
   m_PrefabAsset: {fileID: 0}
