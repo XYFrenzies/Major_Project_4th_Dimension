@@ -81,6 +81,7 @@ public class ArmStateManager : MonoBehaviour
 
     [HideInInspector]
     public bool shotArm = false;
+    private float timer = 0f;
 
     public void Awake()
     {
@@ -133,6 +134,14 @@ public class ArmStateManager : MonoBehaviour
     {
         playerSM.animator.SetBool("hasShot", shotArm);
         currentState.UpdateState();
+
+
+        timer += Time.deltaTime;
+        //if (timer >= amount)
+        //{
+           
+
+        //}
 
     }
 
