@@ -2301,6 +2301,7 @@ MonoBehaviour:
   m_Script: {fileID: 1273532306}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Entries: []
 --- !u!4 &33839692
 Transform:
   m_ObjectHideFlags: 19
@@ -40243,33 +40244,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1544671971}
   m_Mesh: {fileID: -5917077034614323850, guid: 21836bfaaea70c0408973111a6b9d564, type: 3}
---- !u!1 &1579683142 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6659442324138863086, guid: 396f3a37ff0b13046ba0591fdec9aec4, type: 3}
-  m_PrefabInstance: {fileID: 1785081069}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1579683143
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1579683142}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 9e008a7447e1c7b479b6ecd068d09f4d, type: 3}
-  m_Controller: {fileID: 9100000, guid: 390a8ecef3d6b1947ab489b3613422de, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
-    are already bound by a Humanoid avatar. These transforms can only be changed
-    by Humanoid clips.\n\tTransform 'GameSkeletonEye_R'\n\tTransform 'GameSkeletonEye_R'\n\tTransform
-    'GameSkeletonEye_R'\n\tFrom animation clip 'lyle'"
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1594671199
 PrefabInstance:
   m_ObjectHideFlags: 0
