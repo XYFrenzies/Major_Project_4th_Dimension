@@ -5,7 +5,7 @@ ModelImporter:
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
-    second: gameStart
+    second: playGame
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -23,9 +23,9 @@ ModelImporter:
     animationImportErrors: 
     animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
       might lower retargeting quality:\nNote: Activate translation DOF on avatar
-      to improve retargeting quality.\n\t'GameSkeletonShoulderPart1_R' is inbetween
-      humanoid transforms and has rotation animation that will be discarded.\n\t'GameSkeletonShoulderPart2_R'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'GameSkeletonShoulderPart1_L'
+      to improve retargeting quality.\n\t'GameSkeletonScapula_R' is inbetween humanoid
+      transforms and has rotation animation that will be discarded.\n\t'GameSkeletonShoulderPart2_R'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'GameSkeletonScapula_L'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'GameSkeletonShoulderPart2_L'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n"
     animationRetargetingWarnings: 
@@ -41,11 +41,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: gameStart
+      name: playGame
       takeName: Take 001
       internalID: 0
       firstFrame: 1
-      lastFrame: 150
+      lastFrame: 140
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -64,18 +64,11 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events:
-      - time: 0.98765427
-        functionName: PlayAni
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
+      events: []
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0.96
+      additiveReferencePoseFrame: 0.9599999
     isReadable: 0
   meshes:
     lODScreenPercentages: []
@@ -210,7 +203,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: GameSkeletonScapula_L
+    - boneName: GameSkeletonShoulder_L
       humanName: LeftShoulder
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -218,7 +211,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: GameSkeletonScapula_R
+    - boneName: GameSkeletonShoulder_R
       humanName: RightShoulder
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -226,7 +219,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: GameSkeletonShoulder_L
+    - boneName: GameSkeletonShoulderPart1_L
       humanName: LeftUpperArm
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -234,7 +227,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: GameSkeletonShoulder_R
+    - boneName: GameSkeletonShoulderPart1_R
       humanName: RightUpperArm
       limit:
         min: {x: 0, y: 0, z: 0}

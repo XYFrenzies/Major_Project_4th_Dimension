@@ -25,13 +25,15 @@ public class LevelSelect : MonoBehaviour
     }
     private IEnumerator LoadScene() 
     {
+        
         yield return new WaitForSeconds(m_timeBeforeStartScene);
-        async = SceneManager.LoadSceneAsync(m_levelToSelect, LoadSceneMode.Additive);
-        async.allowSceneActivation = false;
-        while (async.progress < 0.9f)
-        {
-            yield return null;
-        }
-        async.allowSceneActivation = true;
+        SceneManager.LoadScene(m_levelToSelect);
+        //async = SceneManager.LoadSceneAsync(m_levelToSelect, LoadSceneMode.Additive);
+        //async.allowSceneActivation = false;
+        //while (async.progress < 0.9f)
+        //{
+        //    yield return null;
+        //}
+        //async.allowSceneActivation = true;
     }
 }
