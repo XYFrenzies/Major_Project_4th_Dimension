@@ -40263,7 +40263,10 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
-  m_WarningMessage: 
+  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
+    are already bound by a Humanoid avatar. These transforms can only be changed
+    by Humanoid clips.\n\tTransform 'GameSkeletonEye_R'\n\tTransform 'GameSkeletonEye_R'\n\tTransform
+    'GameSkeletonEye_R'\n\tFrom animation clip 'lyle'"
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
@@ -42972,7 +42975,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4166882280985328750, guid: 396f3a37ff0b13046ba0591fdec9aec4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.4773161
+      value: 3.217
       objectReference: {fileID: 0}
     - target: {fileID: 4166882280985328750, guid: 396f3a37ff0b13046ba0591fdec9aec4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -42980,7 +42983,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4166882280985328750, guid: 396f3a37ff0b13046ba0591fdec9aec4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.6809893
+      value: 4.476
       objectReference: {fileID: 0}
     - target: {fileID: 4166882280985328750, guid: 396f3a37ff0b13046ba0591fdec9aec4, type: 3}
       propertyPath: m_LocalRotation.w
