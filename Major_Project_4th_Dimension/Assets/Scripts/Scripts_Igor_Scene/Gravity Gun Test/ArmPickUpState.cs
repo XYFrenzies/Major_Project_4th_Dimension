@@ -29,7 +29,7 @@ public class ArmPickUpState : ArmBaseState
         //shootAction = playerInput.actions["HookShot"];
         distanceBetweenPoints = Vector3.Distance(armStateMan.hitObject.transform.position, armStateMan.holdPoint.position);
         //Debug.Log(distanceBetweenPoints);
-        changePoint = (int)(distanceBetweenPoints / armStateMan.lights.Count);
+        //changePoint = (int)(distanceBetweenPoints / armStateMan.lights.Count);
         //armStateMan.shootAction.performed += Shoot;
         //armStateMan.shootAction.canceled += NotShoot;
         isShooting = true;
