@@ -278,7 +278,7 @@ public class PlayerStateManager : MonoBehaviour
 
     IEnumerator StopRotationAnim()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(1f);
         if (lookAction.ReadValue<Vector2>().magnitude < 0.1)
         {
             animator.SetBool("IsRotLeft", false);
