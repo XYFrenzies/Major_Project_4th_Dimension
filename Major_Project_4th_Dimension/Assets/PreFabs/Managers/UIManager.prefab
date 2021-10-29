@@ -415,6 +415,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6380094385696551424}
   - component: {fileID: 4422361254086572792}
+  - component: {fileID: 3213794155822815645}
   m_Layer: 0
   m_Name: SecondRoomInformAboutHook
   m_TagString: Untagged
@@ -449,6 +450,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3213794155822815645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 827046662486079514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db9502154fb5ff24881a3cee46af0cef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_location: 3
 --- !u!1 &1426605680707523929
 GameObject:
   m_ObjectHideFlags: 0
@@ -459,6 +473,7 @@ GameObject:
   m_Component:
   - component: {fileID: 175321997250884215}
   - component: {fileID: 458242318197397498}
+  - component: {fileID: 5075059404396596929}
   m_Layer: 0
   m_Name: ThirdRoomUIMoveObjects
   m_TagString: Untagged
@@ -493,6 +508,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5075059404396596929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426605680707523929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db9502154fb5ff24881a3cee46af0cef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_location: 5
 --- !u!1 &1741517154419071452
 GameObject:
   m_ObjectHideFlags: 0
@@ -1571,6 +1599,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4984651368732469086}
   - component: {fileID: 1460362868888444187}
+  - component: {fileID: 2443901609186695924}
   m_Layer: 0
   m_Name: SecondRoomShootHook
   m_TagString: Untagged
@@ -1605,6 +1634,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2443901609186695924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5113865532443633849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db9502154fb5ff24881a3cee46af0cef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_location: 2
 --- !u!1 &5448651657408827689
 GameObject:
   m_ObjectHideFlags: 0
@@ -2267,6 +2309,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7797480168515300218}
   - component: {fileID: 7797480168515300165}
+  - component: {fileID: 4893087818866339696}
   m_Layer: 0
   m_Name: ThirdRoomUIScanner
   m_TagString: Untagged
@@ -2301,6 +2344,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4893087818866339696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7797480168515300219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db9502154fb5ff24881a3cee46af0cef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_location: 4
 --- !u!1 &7797480168960345771
 GameObject:
   m_ObjectHideFlags: 0
@@ -2311,6 +2367,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7797480168960345770}
   - component: {fileID: 7797480168960345781}
+  - component: {fileID: 765676197435594096}
   m_Layer: 0
   m_Name: FourthRoomUIMoveObjects
   m_TagString: Untagged
@@ -2345,6 +2402,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &765676197435594096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7797480168960345771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db9502154fb5ff24881a3cee46af0cef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_location: 6
 --- !u!1 &7797480169037670822
 GameObject:
   m_ObjectHideFlags: 0
@@ -2354,14 +2424,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7797480169037670817}
-  - component: {fileID: 2791485259252886741}
+  - component: {fileID: 1280819146687967284}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7797480169037670817
 Transform:
   m_ObjectHideFlags: 0
@@ -2377,7 +2447,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2791485259252886741
+--- !u!114 &1280819146687967284
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2386,10 +2456,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7797480169037670822}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db9502154fb5ff24881a3cee46af0cef, type: 3}
+  m_Script: {fileID: 11500000, guid: a34cd2cc1e54b8540bd5071ffd742e9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_location: 0
 --- !u!1 &7797480169486769543
 GameObject:
   m_ObjectHideFlags: 0
@@ -2400,6 +2469,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7797480169486769542}
   - component: {fileID: 7797480169486769537}
+  - component: {fileID: 2987691596142474082}
   m_Layer: 0
   m_Name: FourthRoomUIPullObjects
   m_TagString: Untagged
@@ -2434,6 +2504,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2987691596142474082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7797480169486769543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db9502154fb5ff24881a3cee46af0cef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_location: 7
 --- !u!1 &7797480169903467432
 GameObject:
   m_ObjectHideFlags: 0
@@ -2444,6 +2527,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7797480169903467435}
   - component: {fileID: 7797480169903467434}
+  - component: {fileID: 5414574741072383195}
   m_Layer: 0
   m_Name: FirstRoomUIMove
   m_TagString: Untagged
@@ -2478,6 +2562,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5414574741072383195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7797480169903467432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db9502154fb5ff24881a3cee46af0cef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_location: 0
 --- !u!1 &7797480170453960142
 GameObject:
   m_ObjectHideFlags: 0
@@ -2488,6 +2585,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7797480170453960137}
   - component: {fileID: 7797480170453960136}
+  - component: {fileID: 9071931388082957905}
   m_Layer: 0
   m_Name: SecondRoomUIHook
   m_TagString: Untagged
@@ -2522,3 +2620,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &9071931388082957905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7797480170453960142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db9502154fb5ff24881a3cee46af0cef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_location: 1
