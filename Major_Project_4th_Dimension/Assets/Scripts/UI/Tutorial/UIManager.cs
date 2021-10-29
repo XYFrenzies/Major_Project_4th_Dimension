@@ -15,9 +15,6 @@ public class UIManager : Singleton<UIManager>
     private GameObject m_pressToShootRT;
     private GameObject m_zoomToLookLT;
 
-    private GameObject m_shootAtHook;
-    private GameObject m_traverseWithHook;
-
     //Third Room UI
     private GameObject m_pressSpaceForScanner;
     private GameObject m_pressRBForScanner;
@@ -42,14 +39,10 @@ public class UIManager : Singleton<UIManager>
         m_zoomToLookClick = gameObject.transform.Find("Canvas").Find("PC UI").Find("Left Click").gameObject;
         m_pressToShootRT = gameObject.transform.Find("Canvas").Find("Console UI").Find("RT to shoot").gameObject;
         m_zoomToLookLT = gameObject.transform.Find("Canvas").Find("Console UI").Find("LT to zoom").gameObject;
-        m_shootAtHook = gameObject.transform.Find("Canvas").Find("Universal").Find("ShootHook").gameObject;
-        m_traverseWithHook = gameObject.transform.Find("Canvas").Find("Universal").Find("ShootHookTraverse").gameObject;
         m_pressToShootClick.SetActive(false);
         m_zoomToLookClick.SetActive(false);
         m_pressToShootRT.SetActive(false);
         m_zoomToLookLT.SetActive(false);
-        m_shootAtHook.SetActive(false);
-        m_traverseWithHook.SetActive(false);
 
         //Third room
         m_pressSpaceForScanner = gameObject.transform.Find("Canvas").Find("PC UI").Find("Scanner Effect").gameObject;
@@ -94,34 +87,26 @@ public class UIManager : Singleton<UIManager>
                     m_zoomToLookLT.SetActive(enabled);
                 }
                 break;
-            //Second Room 2nd section
-            case 2:
-                m_shootAtHook.SetActive(enabled);
-                break;
-            //Second Room 3rd section
-            case 3:
-                m_traverseWithHook.SetActive(enabled);
-                break;
             //Third Room 1st section
-            case 4:
+            case 2:
                 if (mouseInput)
                     m_pressSpaceForScanner.SetActive(enabled);
                 else
                     m_pressRBForScanner.SetActive(enabled);
                 break;
             //Third Room 2nd section
-            case 5:
+            case 3:
                 m_moveObjects.SetActive(enabled);
                 break;
             //Fourth Room 1st section
-            case 6:
+            case 4:
                 if (mouseInput)
                     m_smallObjectsPC.SetActive(enabled);
                 else
                     m_smallObjectsXbox.SetActive(enabled);
                 break;
             //Fourth Room 2nd section
-            case 7:
+            case 5:
                 if (mouseInput)
                     m_releasePC.SetActive(enabled);
                 else
