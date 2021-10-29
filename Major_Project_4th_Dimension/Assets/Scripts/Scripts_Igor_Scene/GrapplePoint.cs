@@ -31,8 +31,8 @@ public class GrapplePoint : MonoBehaviour
     }
     private void Update()
     {
-        FindDirection(m_interfaceHookPC, GameObject.FindGameObjectWithTag("Player"));
-        FindDirection(m_interfaceHookXbox, GameObject.FindGameObjectWithTag("Player"));
+        FindDirection(m_interfaceHookPC, Camera.main);
+        FindDirection(m_interfaceHookXbox, Camera.main);
         if (isOn)
         {
             ChangeInterfaceType();
@@ -58,9 +58,9 @@ public class GrapplePoint : MonoBehaviour
             m_interfaceHookPC.SetActive(false);
         }
     }
-    private void FindDirection(GameObject obj, GameObject player) 
+    private void FindDirection(GameObject obj, Camera cam) 
     {
-        Vector3 dir = obj.transform.position - player.transform.position;
+        Vector3 dir = obj.transform.position - cam.transform.position;
         Quaternion lookDir = Quaternion.LookRotation(dir);
         obj.transform.rotation = lookDir;
     }
