@@ -29,7 +29,7 @@ public class PlayerIdleState : PlayerBaseState
     {
         //base.UpdateLogic();
         PSManager.CalculateMove();
-
+        PSManager.CheckIfRotating();
         CheckForMovement();
         PSManager.GroundCheck();
 
