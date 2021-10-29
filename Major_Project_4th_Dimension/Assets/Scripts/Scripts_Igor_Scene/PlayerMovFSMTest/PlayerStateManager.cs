@@ -243,14 +243,14 @@ public class PlayerStateManager : MonoBehaviour
         direction += inputs.y * camForward;
         direction += inputs.x * camRight;
 
-        animator.SetFloat("xPos", inputs.x, 0.3f, Time.deltaTime);
-        animator.SetFloat("yPos", inputs.y, 0.3f, Time.deltaTime);
+        animator.SetFloat("xPos", inputs.x, 0.2f, Time.deltaTime);
+        animator.SetFloat("yPos", inputs.y, 0.2f, Time.deltaTime);
 
         animator.SetFloat("Mouse", lookAction.ReadValue<Vector2>().x);
 
-        //Debug.Log("xPos: " + inputs.x + "| yPos: " + inputs.y + "| Mouse: " + lookAction.ReadValue<Vector2>().x);
+        Debug.Log("xPos: " + inputs.x + "| yPos: " + inputs.y + "| Mouse: " + lookAction.ReadValue<Vector2>().x);
 
-        //animator.SetBool("PlayerStill", (inputs.x == 0 && inputs.y == 0));
+        animator.SetBool("PlayerStill", (inputs.x == 0 && inputs.y == 0));
 
     }
 

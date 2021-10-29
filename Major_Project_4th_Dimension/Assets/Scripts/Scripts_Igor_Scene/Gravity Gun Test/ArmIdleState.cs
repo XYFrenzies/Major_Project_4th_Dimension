@@ -13,14 +13,14 @@ public class ArmIdleState : ArmBaseState
 
     public override void EnterState()
     {
-    //    armStateMan.shootAction.performed += Shoot;
-    //    armStateMan.shootAction.canceled += NotShoot;
+        //    armStateMan.shootAction.performed += Shoot;
+        //    armStateMan.shootAction.canceled += NotShoot;
+        armStateMan.isShootingAnimationReady = false;
     }
 
     public override void ExitState()
     {
-        armStateMan.isShootingAnimationReady = false;
-       // armStateMan.shotArm = false;
+        // armStateMan.shotArm = false;
 
     }
 
