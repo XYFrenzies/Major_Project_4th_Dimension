@@ -21,6 +21,7 @@ public class PauseMenu : Singleton<PauseMenu>
     private ColorBlock colourSelected;//Changing the ui selection colour
     private ColorBlock naturalState;//The natural state of the ui selection colour
     private bool m_gamePadActive = false;//Checking if the gamepad is active.
+    private GameObject manager;
     private void Awake()
     {
         pauseMenuAction = playerInput.actions["PauseMenu"];
@@ -34,6 +35,8 @@ public class PauseMenu : Singleton<PauseMenu>
         naturalState.highlightedColor = new Color(0, 1, 0.117f, 1);
         naturalState.selectedColor = new Color(0, 1, 1, 1);
         naturalState.normalColor = new Color(1, 1, 1, 1);
+        if(UIManager.Instance != null)
+        manager = UIManager.Instance.gameObject;
     }
     private void OnEnable()
     {
@@ -92,6 +95,8 @@ public class PauseMenu : Singleton<PauseMenu>
     //When the game is paused, this function will occur.
     private void PauseGame()
     {
+        if (UIManager.Instance != null)
+            manager.SetActive(false);
         playerInput.SwitchCurrentActionMap("Menu");
         pauseGamepad = playerInput.actions["PauseMoveController"];
         //Setting the cursor to visible, timescale = 0, cursor is not locked, changing menus and checking the initial input.
@@ -122,6 +127,8 @@ public class PauseMenu : Singleton<PauseMenu>
         m_pauseMenu.SetActive(false);
         m_gameUI.SetActive(true);
         m_optionsUI.SetActive(false);
+        if (UIManager.Instance != null)
+            manager.SetActive(true);
     }
     public void OptionsMenu()
     {
