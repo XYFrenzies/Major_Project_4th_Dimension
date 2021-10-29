@@ -4,12 +4,105 @@ using UnityEngine;
 using UnityEngine.UI;
 public class UIManager : Singleton<UIManager>
 {
-    public void EnableObjects(bool active, List<GameObject> obj) 
-    {
-        foreach (var item in obj)
-        {
-            item.SetActive(active);
-        }
-    }
+    #region Variables
+    //First Room ui
+    private GameObject m_keyWASDImage;
+    private GameObject m_joySticks;
 
+    //Second Room ui
+    private GameObject m_pressToShootClick;
+    private GameObject m_zoomToLookClick;
+
+    private GameObject m_pressToShootRT;
+    private GameObject m_zoomToLookLT;
+
+    private GameObject m_shootAtHook;
+    private GameObject m_traverseWithHook;
+
+    //Third Room UI
+    private GameObject m_pressSpaceForScanner;
+    private GameObject m_pressRBForScanner;
+    private GameObject m_moveObjects;
+
+    //Fourth Room UI
+    private GameObject m_smallObjectsPC;
+    private GameObject m_smallObjectsXbox;
+    private GameObject m_releasePC;
+    private GameObject m_releaseXbox;
+    #endregion
+    private void Awake()
+    {
+        //First room
+        m_keyWASDImage = gameObject.transform.Find("Canvas").Find("PC UI").Find("WASD Move").gameObject;
+        m_joySticks = gameObject.transform.Find("Canvas").Find("Console UI").Find("JoySticks").gameObject;
+        m_keyWASDImage.SetActive(false);
+        m_joySticks.SetActive(false);
+
+        //Second room
+        m_pressToShootClick = gameObject.transform.Find("Canvas").Find("PC UI").Find("Right Click").gameObject;
+        m_zoomToLookClick = gameObject.transform.Find("Canvas").Find("PC UI").Find("Left Click").gameObject;
+        m_pressToShootRT = gameObject.transform.Find("Canvas").Find("Console UI").Find("RT to shoot").gameObject;
+        m_zoomToLookLT = gameObject.transform.Find("Canvas").Find("Console UI").Find("LT to zoom").gameObject;
+        m_shootAtHook = gameObject.transform.Find("Canvas").Find("Universal").Find("ShootHook").gameObject;
+        m_traverseWithHook = gameObject.transform.Find("Canvas").Find("Universal").Find("ShootHookTraverse").gameObject;
+        m_pressToShootClick.SetActive(false);
+        m_zoomToLookClick.SetActive(false);
+        m_pressToShootRT.SetActive(false);
+        m_zoomToLookLT.SetActive(false);
+        m_shootAtHook.SetActive(false);
+        m_traverseWithHook.SetActive(false);
+
+        //Third room
+        m_pressSpaceForScanner = gameObject.transform.Find("Canvas").Find("PC UI").Find("Scanner Effect").gameObject;
+        m_pressRBForScanner = gameObject.transform.Find("Canvas").Find("Console UI").Find("Rb scanner effect").gameObject;
+        m_moveObjects = gameObject.transform.Find("Canvas").Find("Universal").Find("MoveObject").gameObject;
+        m_pressSpaceForScanner.SetActive(false);
+        m_pressRBForScanner.SetActive(false);
+        m_moveObjects.SetActive(false);
+
+        //Fourth room
+        m_smallObjectsPC = gameObject.transform.Find("Canvas").Find("PC UI").Find("SmallerObjects").gameObject;
+        m_smallObjectsXbox = gameObject.transform.Find("Canvas").Find("Console UI").Find("SmallerObjects gamepad").gameObject;
+        m_releasePC = gameObject.transform.Find("Canvas").Find("PC UI").Find("Release").gameObject;
+        m_releaseXbox = gameObject.transform.Find("Canvas").Find("Console UI").Find("Release gamepad").gameObject;
+        m_smallObjectsPC.SetActive(false);
+        m_smallObjectsXbox.SetActive(false);
+        m_releasePC.SetActive(false);
+        m_releaseXbox.SetActive(false);
+    }
+    public void EnableRoomUI(bool enabled, int location)
+    {
+        switch (location)
+        {
+            //First room UI
+            case 0:
+                //item.SetActive(active);
+                break;
+            //Second Room 1st section
+            case 1:
+                break;
+            //Second Room 2nd section
+            case 2:
+                break;
+            //Second Room 3rd section
+            case 3:
+                break;
+            //Third Room 1st section
+            case 4:
+                break;
+            //Third Room 2nd section
+            case 5:
+                break;
+            //Fourth Room 1st section
+            case 6:
+                break;
+            //Fourth Room 2nd section
+            case 7:
+                break;
+
+            default:
+                break;
+        }
+
+    }
 }

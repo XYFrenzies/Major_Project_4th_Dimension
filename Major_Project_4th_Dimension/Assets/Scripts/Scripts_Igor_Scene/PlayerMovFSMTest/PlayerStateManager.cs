@@ -52,6 +52,7 @@ public class PlayerStateManager : MonoBehaviour
     bool isPlayerCloseEnough = false;
     private bool isPlayerCloseToConveyorBelt = false;
 
+
     [HideInInspector]
     public Vector3 flyToTarget;
 
@@ -82,7 +83,7 @@ public class PlayerStateManager : MonoBehaviour
 
     }
 
-    
+
 
     // Is the player falling
     private void Awake()
@@ -155,7 +156,7 @@ public class PlayerStateManager : MonoBehaviour
         if (currentState != null)
             currentState.UpdatePhysics();
 
-        
+
 
     }
 
@@ -248,7 +249,7 @@ public class PlayerStateManager : MonoBehaviour
 
         animator.SetFloat("Mouse", lookAction.ReadValue<Vector2>().x);
 
-        Debug.Log("xPos: " + inputs.x + "| yPos: " + inputs.y + "| Mouse: " + lookAction.ReadValue<Vector2>().x);
+        //Debug.Log("xPos: " + inputs.x + "| yPos: " + inputs.y + "| Mouse: " + lookAction.ReadValue<Vector2>().x);
 
         animator.SetBool("PlayerStill", (inputs.x == 0 && inputs.y == 0));
 
@@ -266,13 +267,33 @@ public class PlayerStateManager : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, cam.transform.eulerAngles.y, 0);
     }
 
-    public void Landed()
+    //public void Landed()
+    //{
+    //    Debug.Log("Landed");
+    //    animator.SetBool("IsLanding", false);
+    //    ChangeState(idleState);
+    //}
+
+    public void CheckIfRotating()
     {
-        Debug.Log("Landed");
-        animator.SetBool("IsLanding", false);
-        ChangeState(idleState);
+        if (lookAction.ReadValue<Vector2>().x == 0f)
+            animator.SetBool("IsRotLeft", false); animator.SetBool("IsRotRight", false);
+
+        if (lookAction.ReadValue<Vector2>().x != 0f)
+            if (lookAction.ReadValue<Vector2>().x < 0f) //left
+            {
+                animator.SetBool("IsRotLeft", true);
+                animator.SetBool("IsRotRight", false);
+
+            }
+            else if (lookAction.ReadValue<Vector2>().x > 0f) //right
+            {
+                animator.SetBool("IsRotLeft", false);
+                animator.SetBool("IsRotRight", true);
+                
+            }
     }
 
-
-
 }
+
+
