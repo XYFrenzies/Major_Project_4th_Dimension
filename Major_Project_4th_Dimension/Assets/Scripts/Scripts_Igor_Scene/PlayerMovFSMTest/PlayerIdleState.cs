@@ -29,14 +29,15 @@ public class PlayerIdleState : PlayerBaseState
     {
         //base.UpdateLogic();
         PSManager.CalculateMove();
-        PSManager.CheckIfRotating();
         CheckForMovement();
         PSManager.GroundCheck();
+        PSManager.CheckIfRotating();
 
     }
 
     public override void UpdatePhysics()
     {
+        PSManager.RotatePlayerModel();
 
     }
 

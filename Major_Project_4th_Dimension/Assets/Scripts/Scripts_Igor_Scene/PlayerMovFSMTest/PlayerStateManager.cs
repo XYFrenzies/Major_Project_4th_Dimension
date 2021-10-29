@@ -278,7 +278,7 @@ public class PlayerStateManager : MonoBehaviour
 
     IEnumerator StopRotationAnim()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.2f);
         if (lookAction.ReadValue<Vector2>().magnitude < 0.1)
         {
             animator.SetBool("IsRotLeft", false);
@@ -292,8 +292,10 @@ public class PlayerStateManager : MonoBehaviour
         //    animator.SetBool("IsRotLeft", false); animator.SetBool("IsRotRight", false);
         if (lookAction.ReadValue<Vector2>().magnitude < 0.001f)
         {
-            myRotCo = StopRotationAnim();
-            StartCoroutine(StopRotationAnim());
+            //myRotCo = StopRotationAnim();
+            //StartCoroutine(StopRotationAnim());
+            animator.SetBool("IsRotLeft", false);
+            animator.SetBool("IsRotRight", false);
         }
 
         if (lookAction.ReadValue<Vector2>().magnitude > 0.002f)
@@ -301,15 +303,16 @@ public class PlayerStateManager : MonoBehaviour
             if (lookAction.ReadValue<Vector2>().x < 0f)
             {
                 animator.SetBool("IsRotLeft", true);
-                animator.SetBool("IsRotRight", StationaryMouseCheck());
-                StopCoroutine(myRotCo);
+                animator.SetBool("IsRotRight", false);
+                Debug.Log(StationaryMouseCheck());
+                //StopCoroutine(myRotCo);
             }
 
             else if (lookAction.ReadValue<Vector2>().x > 0f)
             {
                 animator.SetBool("IsRotRight", true);
-                animator.SetBool("IsRotLeft", StationaryMouseCheck());
-                StopCoroutine(myRotCo);
+                animator.SetBool("IsRotLeft", false);
+                //StopCoroutine(myRotCo);
             }
         }
 

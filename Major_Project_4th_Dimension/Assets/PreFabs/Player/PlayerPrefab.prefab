@@ -401,14 +401,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2956686276137043987}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0.00000009362675, y: -8.7659685e-15, z: 0.00000009362675, w: 1}
   m_LocalPosition: {x: 0.31400013, y: 0.12100005, z: 0.02000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5816815953118945597}
   m_Father: {fileID: 8968338858605364179}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -0, y: 0, z: 0}
 --- !u!895512359 &4455782945292186114
 AimConstraint:
   m_ObjectHideFlags: 0
@@ -419,7 +419,7 @@ AimConstraint:
   m_Enabled: 1
   m_Weight: 1
   m_RotationAtRest: {x: -0, y: 0, z: 0}
-  m_RotationOffset: {x: 8.36956, y: -4.9646654, z: -0.7244187}
+  m_RotationOffset: {x: 8.36956, y: -4.9646654, z: -0.7244182}
   m_AimVector: {x: 0, y: 0, z: 1}
   m_UpVector: {x: 0, y: 1, z: 0}
   m_WorldUpVector: {x: 0, y: 1, z: 0}
@@ -429,7 +429,7 @@ AimConstraint:
   m_AffectRotationY: 1
   m_AffectRotationZ: 1
   m_IsContraintActive: 1
-  m_IsLocked: 0
+  m_IsLocked: 1
   m_Sources:
   - sourceTransform: {fileID: 8431453540630503290}
     weight: 1
@@ -5646,7 +5646,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8431453540725934211}
   m_LocalRotation: {x: 0.00922008, y: -0.9355828, z: 0.024496654, w: 0.3521358}
-  m_LocalPosition: {x: 0.8434135, y: 1.7656364, z: 2.981238}
+  m_LocalPosition: {x: 1.2357186, y: 1.7656364, z: 2.637186}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8431453540922601305}
@@ -5682,7 +5682,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.9225, y: 1}
+    m_SensorSize: {x: 1.7772853, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -7572,9 +7572,9 @@ Rigidbody:
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 112
-  m_CollisionDetection: 3
+  m_CollisionDetection: 2
 --- !u!114 &8431453541361779735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8748,6 +8748,10 @@ PrefabInstance:
     - target: {fileID: 7693500482131158512, guid: 396f3a37ff0b13046ba0591fdec9aec4, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7693500482131158512, guid: 396f3a37ff0b13046ba0591fdec9aec4, type: 3}
+      propertyPath: m_WarningMessage
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8945527399415281599, guid: 396f3a37ff0b13046ba0591fdec9aec4, type: 3}
       propertyPath: m_IsActive
