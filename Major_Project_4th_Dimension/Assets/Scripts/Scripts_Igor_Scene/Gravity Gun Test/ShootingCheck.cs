@@ -19,6 +19,7 @@ public class ShootingCheck : MonoBehaviour
     public void StopShooting()
     {
         armE.isShooting = false;
+        armSM.shotArm = false;
         armSM.isShootingAnimationReady = false;
         armSM.playerSM.animator.SetBool("IsShooting", false);
         armSM.lineRenderer.enabled = false;
