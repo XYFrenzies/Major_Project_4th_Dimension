@@ -42,6 +42,9 @@ GameObject:
   - component: {fileID: 8555316289536552998}
   - component: {fileID: 2537262399143629392}
   - component: {fileID: 4310489038140635830}
+  - component: {fileID: 6762456963902468655}
+  - component: {fileID: 8775260486642833789}
+  - component: {fileID: 5756340743751578531}
   m_Layer: 0
   m_Name: SM_Walkway_Segment
   m_TagString: Untagged
@@ -112,3 +115,42 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6762456963902468655
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5782320186021718982}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.4687005, y: 0.10038641, z: 0.5001003}
+  m_Center: {x: 0.017887294, y: -0.40346187, z: 0}
+--- !u!65 &8775260486642833789
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5782320186021718982}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.05972314, y: 0.48101518, z: 0.5001003}
+  m_Center: {x: 0.7740512, y: 0.25687242, z: 0}
+--- !u!65 &5756340743751578531
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5782320186021718982}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.055064082, y: 0.48721898, z: 0.5001003}
+  m_Center: {x: -0.7763807, y: 0.2537706, z: 0}
