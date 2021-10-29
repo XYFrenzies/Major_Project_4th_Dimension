@@ -48,9 +48,9 @@ public class ArmShootState : ArmBaseState
         else
         {
             armStateMan.playerSM.animator.SetBool("IsShooting", false);
+            armStateMan.isShootingAnimationReady = false;
             armStateMan.playerSM.ChangeState(armStateMan.playerSM.idleState);
             armStateMan.SwitchState(armStateMan.idleState);
-            armStateMan.isShootingAnimationReady = false;
         }
     }
 

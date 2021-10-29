@@ -29,13 +29,13 @@ public class PlayerMissState : PlayerBaseState
         //base.UpdateLogic();
         PSManager.CalculateMove();
 
-
         //PSManager.GroundCheck();
 
     }
 
     public override void UpdatePhysics()
     {
+        PSManager.CheckIfRotating();
         PSManager.RotatePlayerModel();
 
     }

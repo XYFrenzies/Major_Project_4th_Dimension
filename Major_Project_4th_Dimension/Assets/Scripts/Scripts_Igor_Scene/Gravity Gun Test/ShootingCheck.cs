@@ -21,5 +21,8 @@ public class ShootingCheck : MonoBehaviour
         armE.isShooting = false;
         armSM.isShootingAnimationReady = false;
         armSM.playerSM.animator.SetBool("IsShooting", false);
+        armSM.lineRenderer.enabled = false;
+        armSM.blackHoleCentre.SetActive(false);
+        armSM.realisticBlackHole.SetActive(false);
     }
 }

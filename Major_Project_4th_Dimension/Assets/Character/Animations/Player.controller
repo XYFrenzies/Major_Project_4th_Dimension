@@ -116,9 +116,9 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 4
-    m_ConditionEvent: Mouse
-    m_EventTreshold: 0.001
+  - m_ConditionMode: 2
+    m_ConditionEvent: IsRotRight
+    m_EventTreshold: 0.1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1322337019155428154}
   m_Solo: 0
@@ -545,8 +545,8 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 4
-    m_ConditionEvent: Mouse
+  - m_ConditionMode: 2
+    m_ConditionEvent: IsRotRight
     m_EventTreshold: 0.001
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 8519047437255305086}
@@ -1074,8 +1074,8 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 4
-    m_ConditionEvent: Mouse
+  - m_ConditionMode: 1
+    m_ConditionEvent: IsRotLeft
     m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: PlayerStill
@@ -1518,6 +1518,18 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
+  - m_Name: IsRotLeft
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
+  - m_Name: IsRotRight
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -1834,8 +1846,8 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 3
-    m_ConditionEvent: Mouse
+  - m_ConditionMode: 2
+    m_ConditionEvent: IsRotLeft
     m_EventTreshold: -0.001
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1322337019155428154}
@@ -1937,8 +1949,8 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 4
-    m_ConditionEvent: Mouse
+  - m_ConditionMode: 1
+    m_ConditionEvent: IsRotLeft
     m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: PlayerStill
@@ -2457,8 +2469,8 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 3
-    m_ConditionEvent: Mouse
+  - m_ConditionMode: 1
+    m_ConditionEvent: IsRotRight
     m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: PlayerStill
@@ -2613,8 +2625,8 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 3
-    m_ConditionEvent: Mouse
+  - m_ConditionMode: 2
+    m_ConditionEvent: IsRotLeft
     m_EventTreshold: -0.001
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 8519047437255305086}
@@ -2647,18 +2659,18 @@ BlendTree:
     m_DirectBlendParameter: Blend
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 5d4d892876951cf4088893de7ad1138a, type: 2}
+    m_Motion: {fileID: -1660999286210796238, guid: c13f67614ed64a1478e061b0871b79f1, type: 3}
     m_Threshold: 0.125
     m_Position: {x: -0.71, y: 0}
-    m_TimeScale: 1
+    m_TimeScale: 1.5
     m_CycleOffset: 0
     m_DirectBlendParameter: Blend
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 44cb3956369045a449580ede84783c39, type: 2}
+    m_Motion: {fileID: 1827226128182048838, guid: c13f67614ed64a1478e061b0871b79f1, type: 3}
     m_Threshold: 0.25
     m_Position: {x: 0.71, y: 0}
-    m_TimeScale: 1
+    m_TimeScale: 1.5
     m_CycleOffset: 0
     m_DirectBlendParameter: Blend
     m_Mirror: 0
@@ -2725,8 +2737,8 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 3
-    m_ConditionEvent: Mouse
+  - m_ConditionMode: 1
+    m_ConditionEvent: IsRotRight
     m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: PlayerStill
