@@ -71,67 +71,67 @@ public class UIManager : Singleton<UIManager>
     }
     public void EnableRoomUI(bool enabled, int location)
     {
-    //    bool mouseInput = CheckInput.Instance.CheckMouseActive();
-    //    switch (location)
-    //    {
-    //        //First room UI
-    //        case 0:
-    //            if (mouseInput)
-    //                m_keyWASDImage.SetActive(enabled);
-    //            else
-    //                m_joySticks.SetActive(enabled);
-    //            break;
-    //        //Second Room 1st section
-    //        case 1:
-    //            if (mouseInput)
-    //            {
-    //                m_pressToShootClick.SetActive(enabled);
-    //                m_zoomToLookClick.SetActive(enabled);
-    //            }
-    //            else
-    //            {
-    //                m_pressToShootRT.SetActive(enabled);
-    //                m_zoomToLookLT.SetActive(enabled);
-    //            }
-    //            break;
-    //        //Second Room 2nd section
-    //        case 2:
-    //            m_shootAtHook.SetActive(enabled);
-    //            break;
-    //        //Second Room 3rd section
-    //        case 3:
-    //            m_traverseWithHook.SetActive(enabled);
-    //            break;
-    //        //Third Room 1st section
-    //        case 4:
-    //            if (mouseInput)
-    //                m_pressSpaceForScanner.SetActive(enabled);
-    //            else
-    //                m_pressRBForScanner.SetActive(enabled);
-    //            break;
-    //        //Third Room 2nd section
-    //        case 5:
-    //            m_moveObjects.SetActive(enabled);
-    //            break;
-    //        //Fourth Room 1st section
-    //        case 6:
-    //            if (mouseInput)
-    //                m_smallObjectsPC.SetActive(enabled);
-    //            else
-    //                m_smallObjectsXbox.SetActive(enabled);
-    //            break;
-    //        //Fourth Room 2nd section
-    //        case 7:
-    //            if(mouseInput)
-    //                m_releasePC.SetActive(enabled);
-    //            else
-    //                m_releaseXbox.SetActive(enabled);
-    //            break;
+        bool mouseInput = CheckInput.Instance.CheckMouseActive();
+        switch (location)
+        {
+            //First room UI
+            case 0:
+                if (mouseInput)
+                    m_keyWASDImage.SetActive(enabled);
+                else
+                    m_joySticks.SetActive(enabled);
+                break;
+            //Second Room 1st section
+            case 1:
+                if (mouseInput)
+                {
+                    m_pressToShootClick.SetActive(enabled);
+                    m_zoomToLookClick.SetActive(enabled);
+                }
+                else
+                {
+                    m_pressToShootRT.SetActive(enabled);
+                    m_zoomToLookLT.SetActive(enabled);
+                }
+                break;
+            //Second Room 2nd section
+            case 2:
+                m_shootAtHook.SetActive(enabled);
+                break;
+            //Second Room 3rd section
+            case 3:
+                m_traverseWithHook.SetActive(enabled);
+                break;
+            //Third Room 1st section
+            case 4:
+                if (mouseInput)
+                    m_pressSpaceForScanner.SetActive(enabled);
+                else
+                    m_pressRBForScanner.SetActive(enabled);
+                break;
+            //Third Room 2nd section
+            case 5:
+                m_moveObjects.SetActive(enabled);
+                break;
+            //Fourth Room 1st section
+            case 6:
+                if (mouseInput)
+                    m_smallObjectsPC.SetActive(enabled);
+                else
+                    m_smallObjectsXbox.SetActive(enabled);
+                break;
+            //Fourth Room 2nd section
+            case 7:
+                if (mouseInput)
+                    m_releasePC.SetActive(enabled);
+                else
+                    m_releaseXbox.SetActive(enabled);
+                break;
 
-    //        default:
-    //            Debug.Log("Out of scope!!!");
-    //            break;
-    //    }
+            default:
+                Debug.Log("Out of scope!!!");
+                break;
+        }
 
     }
 }
