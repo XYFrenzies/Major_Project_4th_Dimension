@@ -17,6 +17,7 @@ public class RoomUI : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             UIManager.Instance.EnableRoomUI(false, m_location);
+            gameObject.SetActive(false);
         }
     }
 }
