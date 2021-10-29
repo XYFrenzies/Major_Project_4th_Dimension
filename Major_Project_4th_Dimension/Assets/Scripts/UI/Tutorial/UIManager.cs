@@ -119,4 +119,8 @@ public class UIManager : Singleton<UIManager>
         }
 
     }
+    public void EnableThisObject(bool enabled)
+    { 
+        gameObject.SetActive(enabled);
+    }
 }
