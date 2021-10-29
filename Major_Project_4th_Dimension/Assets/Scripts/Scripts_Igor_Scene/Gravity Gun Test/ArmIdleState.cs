@@ -15,6 +15,7 @@ public class ArmIdleState : ArmBaseState
     {
         //    armStateMan.shootAction.performed += Shoot;
         //    armStateMan.shootAction.canceled += NotShoot;
+        armStateMan.armEffects.isShooting = false;
         armStateMan.isShootingAnimationReady = false;
     }
 

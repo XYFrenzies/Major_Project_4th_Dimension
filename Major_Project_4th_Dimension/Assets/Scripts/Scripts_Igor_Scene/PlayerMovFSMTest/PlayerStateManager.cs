@@ -37,6 +37,8 @@ public class PlayerStateManager : MonoBehaviour
     public Rig armRig;
     public Rig headRig;
 
+    private IEnumerator myRotCo;
+
 
     [HideInInspector] public Camera cam;
     [HideInInspector] public Vector3 direction = Vector3.zero;
@@ -274,24 +276,80 @@ public class PlayerStateManager : MonoBehaviour
     //    ChangeState(idleState);
     //}
 
+    IEnumerator StopRotationAnim()
+    {
+        yield return new WaitForSeconds(5f);
+        if (lookAction.ReadValue<Vector2>().magnitude < 0.1)
+        {
+            animator.SetBool("IsRotLeft", false);
+            animator.SetBool("IsRotRight", false);
+        }
+    }
+
     public void CheckIfRotating()
     {
-        if (lookAction.ReadValue<Vector2>().x == 0f)
-            animator.SetBool("IsRotLeft", false); animator.SetBool("IsRotRight", false);
+        //if (lookAction.ReadValue<Vector2>().x == 0f)
+        //    animator.SetBool("IsRotLeft", false); animator.SetBool("IsRotRight", false);
+        if (lookAction.ReadValue<Vector2>().magnitude < 0.001f)
+        {
+            myRotCo = StopRotationAnim();
+            StartCoroutine(StopRotationAnim());
+        }
 
-        if (lookAction.ReadValue<Vector2>().x != 0f)
-            if (lookAction.ReadValue<Vector2>().x < 0f) //left
+        if (lookAction.ReadValue<Vector2>().magnitude > 0.002f)
+        {
+            if (lookAction.ReadValue<Vector2>().x < 0f)
             {
                 animator.SetBool("IsRotLeft", true);
-                animator.SetBool("IsRotRight", false);
+                animator.SetBool("IsRotRight", StationaryMouseCheck());
+                StopCoroutine(myRotCo);
+            }
 
-            }
-            else if (lookAction.ReadValue<Vector2>().x > 0f) //right
+            else if (lookAction.ReadValue<Vector2>().x > 0f)
             {
-                animator.SetBool("IsRotLeft", false);
                 animator.SetBool("IsRotRight", true);
-                
+                animator.SetBool("IsRotLeft", StationaryMouseCheck());
+                StopCoroutine(myRotCo);
             }
+        }
+
+
+        //if (lookAction.ReadValue<Vector2>().x != 0f)
+        //if (lookAction.ReadValue<Vector2>().x < 0.5f) //left
+        //{
+        //    animator.SetBool("IsRotLeft", true);
+        //    animator.SetBool("IsRotRight", false);
+        //}
+        //else if (lookAction.ReadValue<Vector2>().magnitude > 0.1f) //right
+        //{
+
+        //    animator.SetBool("IsRotLeft", false);
+        //    animator.SetBool("IsRotRight", true);             
+        //}
+
+    }
+    double limitCountDown = 0.1;
+    double countDown = 0;
+    float xAccumulator;
+    const float Snappiness = 10.0f;
+
+    public bool StationaryMouseCheck()
+    {
+        float inputX = lookAction.ReadValue<Vector2>().x;
+        xAccumulator = Mathf.Lerp(xAccumulator, inputX, Snappiness * Time.deltaTime);
+
+        if (xAccumulator < 0.0001)
+        {
+            countDown += Time.deltaTime;
+        }
+        else if (xAccumulator > 0.0001)
+            countDown = 0;
+        if (countDown >= limitCountDown)
+        {
+
+            return false;
+        }
+        return true;
     }
 
 }
