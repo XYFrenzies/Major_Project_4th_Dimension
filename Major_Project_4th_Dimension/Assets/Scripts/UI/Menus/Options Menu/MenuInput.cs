@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MenuInput : MonoBehaviour
 {
+     
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +15,10 @@ public class MenuInput : MonoBehaviour
     void Update()
     {
         
+    }
+    public void ControllerInput() { }
+    public void PCInput() 
+    {
+
     }
 }
