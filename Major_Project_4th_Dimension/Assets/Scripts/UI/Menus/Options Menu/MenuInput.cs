@@ -4,21 +4,14 @@ using UnityEngine;
 
 public class MenuInput : MonoBehaviour
 {
-     
-    // Start is called before the first frame update
-    void Start()
+     //Sensitivety X
+     //Sensitivety Y
+    public void ControllerInput() 
     {
-        
+        CheckInput.Instance.SetController();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    public void ControllerInput() { }
     public void PCInput() 
     {
-
+        CheckInput.Instance.SetMouse();
     }
 }
