@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 public class ArmShootState : ArmBaseState
 {
 
-    private bool shooting;
+
     Vector3 offset = Vector3.zero;
 
     public ArmShootState(ArmStateManager arm) : base(arm)
@@ -19,8 +19,8 @@ public class ArmShootState : ArmBaseState
     public override void EnterState()
     {
 
-        armStateMan.shootAction.performed += ShootingArm;
-        armStateMan.shootAction.canceled += UnShootingArm;
+        //armStateMan.shootAction.performed += ShootingArm;
+        //armStateMan.shootAction.canceled += UnShootingArm;
 
         // called once when switch from some other state to this state.
 
@@ -33,18 +33,25 @@ public class ArmShootState : ArmBaseState
     {
         //Debug.Log("Shoot state exited");
         // called once when switching from this state to another state
-        armStateMan.shootAction.performed -= ShootingArm;
-        armStateMan.shootAction.canceled -= UnShootingArm;
+        //armStateMan.shootAction.performed -= ShootingArm;
+        //armStateMan.shootAction.canceled -= UnShootingArm;
 
-        shooting = false;
-
+        //armStateMan.shotArm = false;
+        armStateMan.isShootingAnimationReady = false;
     }
 
     public override void UpdateState()
     {
 
-        if (shooting)
+        if (armStateMan.shotArm)
             ShootArm();
+        else
+        {
+            armStateMan.playerSM.animator.SetBool("IsShooting", false);
+            armStateMan.isShootingAnimationReady = false;
+            armStateMan.playerSM.ChangeState(armStateMan.playerSM.idleState);
+            armStateMan.SwitchState(armStateMan.idleState);
+        }
     }
 
 
@@ -85,10 +92,13 @@ public class ArmShootState : ArmBaseState
 
             OnHookShotHit(armStateMan.putDownState);
 
-            armStateMan.player.currentState = PlayerControllerCinemachineLook2.State.HookShotThrown;
-            //armStateMan.playerSM.ChangeState(armStateMan.playerSM.pickUpOrPutDownState);
+            /////////////
+            //armStateMan.player.currentState = PlayerControllerCinemachineLook2.State.HookShotThrown;
+            armStateMan.playerSM.ChangeState(armStateMan.playerSM.pickUpOrPutDownState);
+            ////////////
             return;
         }
+
         if (Physics.Raycast(ray, out hit, armStateMan.shootRange, ~armStateMan.holdObjectLayerMask))
         {
             armStateMan.hitPoint = hit.point;
@@ -105,7 +115,7 @@ public class ArmShootState : ArmBaseState
             }
             else if (hit.transform.CompareTag("MoveableToMe")) // pick up object
             {
-                shooting = false;
+                //armStateMan.shotArm = false;
 
                 //Debug.Log("can pick up");
                 OnHookShotHit(armStateMan.pickUpState);
@@ -122,6 +132,7 @@ public class ArmShootState : ArmBaseState
             else // hit object but cant pick up, pull or grapple
             {
                 //Debug.Log("Hit other thing");
+                armStateMan.playerSM.ChangeState(armStateMan.playerSM.missState);
 
             }
 
@@ -131,6 +142,7 @@ public class ArmShootState : ArmBaseState
         {
             //Debug.Log("missed");
             armStateMan.hitPoint = ray.origin + (armStateMan.cam.transform.forward * armStateMan.shootRange);
+            armStateMan.playerSM.ChangeState(armStateMan.playerSM.missState);
         }
 
         //armStateMan.player.currentState = PlayerControllerCinemachineLook2.State.HookShotThrown;
@@ -139,25 +151,28 @@ public class ArmShootState : ArmBaseState
     }
 
 
-    public void ShootingArm(InputAction.CallbackContext context)
-    {
+    //public void ShootingArm(InputAction.CallbackContext context)
+    //{
 
-        if (armStateMan.lineRenderer != null && armStateMan.realisticBlackHole != null && armStateMan.blackHoleCentre != null)
-        {
-            shooting = true;
-        }
+    //    if (armStateMan.lineRenderer != null && armStateMan.realisticBlackHole != null && armStateMan.blackHoleCentre != null)
+    //    {
+    //        armStateMan.shotArm = true;
 
-    }
-    private void UnShootingArm(InputAction.CallbackContext context)
-    {
+    //    }
 
-        if (armStateMan.lineRenderer != null && armStateMan.realisticBlackHole != null && armStateMan.blackHoleCentre != null)
-        {
-            shooting = false;
+    //}
+    //private void UnShootingArm(InputAction.CallbackContext context)
+    //{
 
-        }
+    //    if (armStateMan.lineRenderer != null && armStateMan.realisticBlackHole != null && armStateMan.blackHoleCentre != null)
+    //    {
+    //        armStateMan.shotArm = false;
 
-    }
+    //        armStateMan.playerSM.ChangeState(armStateMan.playerSM.idleState);
+    //        armStateMan.isShootingAnimationReady = false;
+    //    }
+
+    //}
 
     public void OnHookShotHit(ArmBaseState state)
     {

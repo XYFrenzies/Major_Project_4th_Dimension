@@ -24,7 +24,7 @@ MonoBehaviour:
     m_Value: 0
   exposure:
     m_OverrideState: 0
-    m_Value: 0
+    m_Value: 2
   multiplier:
     m_OverrideState: 0
     m_Value: 1
@@ -149,7 +149,7 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: {x: 0, y: 0, z: 0}
   colorSaturation:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 0
     min: 0
     max: 1
@@ -192,18 +192,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24f077503be6ae942a1e1245dbd53ea9, type: 3}
   m_Name: Bloom
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   m_AdvancedMode: 0
   quality:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 2
   threshold:
     m_OverrideState: 1
     m_Value: 2
     min: 0
   intensity:
     m_OverrideState: 0
-    m_Value: 0.1
+    m_Value: 0.16
     min: 0
     max: 1
   scatter:
@@ -232,7 +232,7 @@ MonoBehaviour:
     m_Value: 2
   m_HighQualityPrefiltering:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 1
   m_HighQualityFiltering:
     m_OverrideState: 1
     m_Value: 1
@@ -280,13 +280,13 @@ MonoBehaviour:
     max: 360
   skyIntensityMode:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 2
   exposure:
     m_OverrideState: 1
-    m_Value: 1.5
+    m_Value: 1
   multiplier:
     m_OverrideState: 1
-    m_Value: 2
+    m_Value: 1
     min: 0
   upperHemisphereLuxValue:
     m_OverrideState: 0
@@ -403,12 +403,12 @@ MonoBehaviour:
     m_Value: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 1.69
+    m_Value: 1.98
     min: 0
     max: 4
   directLightingStrength:
     m_OverrideState: 1
-    m_Value: 0.425
+    m_Value: 1
     min: 0
     max: 1
   radius:
@@ -497,6 +497,7 @@ MonoBehaviour:
   - {fileID: -3982152117822048359}
   - {fileID: 5986398324831391304}
   - {fileID: -8578309669171369930}
+  - {fileID: 9131739960243179115}
 --- !u!114 &5525879790550945644
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -657,3 +658,52 @@ MonoBehaviour:
     m_Value: 0
     min: -100
     max: 100
+--- !u!114 &9131739960243179115
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ddcec8a8eb2d684d833ac8f5d26aebd, type: 3}
+  m_Name: HDShadowSettings
+  m_EditorClassIdentifier: 
+  active: 1
+  m_AdvancedMode: 0
+  maxShadowDistance:
+    m_OverrideState: 0
+    m_Value: 500
+    min: 0
+  directionalTransmissionMultiplier:
+    m_OverrideState: 0
+    m_Value: 1
+    min: 0
+    max: 1
+  cascadeShadowSplitCount:
+    m_OverrideState: 1
+    m_Value: 4
+    min: 1
+    max: 4
+  cascadeShadowSplit0:
+    m_OverrideState: 1
+    m_Value: 0.20529388
+  cascadeShadowSplit1:
+    m_OverrideState: 1
+    m_Value: 0.34764624
+  cascadeShadowSplit2:
+    m_OverrideState: 1
+    m_Value: 0.5235293
+  cascadeShadowBorder0:
+    m_OverrideState: 1
+    m_Value: 0
+  cascadeShadowBorder1:
+    m_OverrideState: 1
+    m_Value: 0
+  cascadeShadowBorder2:
+    m_OverrideState: 1
+    m_Value: 0
+  cascadeShadowBorder3:
+    m_OverrideState: 1
+    m_Value: 0

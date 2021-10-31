@@ -15,7 +15,7 @@ public class PlayerMoveLookState : PlayerBaseState
     public override void EnterState()
     {
         //base.EnterState();
-        Debug.Log("Enter move state");
+        //Debug.Log("Enter move state");
         //pmStateMan.moveAction.Disable();
     }
 
@@ -36,7 +36,7 @@ public class PlayerMoveLookState : PlayerBaseState
     public override void UpdatePhysics()
     {
         PSManager.Move();
-        RotatePlayerModel();
+        PSManager.RotatePlayerModel();
 
 
     }
@@ -47,13 +47,6 @@ public class PlayerMoveLookState : PlayerBaseState
         PSManager.lookInputs = PSManager.lookAction.ReadValue<Vector2>();
         if (Mathf.Abs(PSManager.inputs.x) < Mathf.Epsilon && Mathf.Abs(PSManager.inputs.y) < Mathf.Epsilon && Mathf.Abs(PSManager.lookInputs.x) < Mathf.Epsilon && Mathf.Abs(PSManager.lookInputs.y) < Mathf.Epsilon)
             PSManager.ChangeState(PSManager.idleState);
-    }
-
-    public void RotatePlayerModel()
-    {
-        //pmStateMan.lookInputs = pmStateMan.lookAction.ReadValue<Vector2>().normalized;
-
-        PSManager.transform.rotation = Quaternion.Euler(0, PSManager.cam.transform.eulerAngles.y, 0);
     }
 
 }

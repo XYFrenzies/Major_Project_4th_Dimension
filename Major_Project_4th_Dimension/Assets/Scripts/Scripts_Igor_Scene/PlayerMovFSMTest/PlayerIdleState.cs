@@ -14,13 +14,14 @@ public class PlayerIdleState : PlayerBaseState
     public override void EnterState()
     {
         //base.EnterState();
-        Debug.Log("Entered idle state");
+        //Debug.Log("Entered idle state");
+        PSManager.moveAction.Enable();
 
     }
 
     public override void ExitState()
     {
-        Debug.Log("Exited idle state");
+        //Debug.Log("Exited idle state");
 
     }
 
@@ -28,14 +29,15 @@ public class PlayerIdleState : PlayerBaseState
     {
         //base.UpdateLogic();
         PSManager.CalculateMove();
-
         CheckForMovement();
         PSManager.GroundCheck();
+        PSManager.CheckIfRotating();
 
     }
 
     public override void UpdatePhysics()
     {
+        PSManager.RotatePlayerModel();
 
     }
 

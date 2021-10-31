@@ -37,6 +37,8 @@ public class PlayerStateManager : MonoBehaviour
     public Rig armRig;
     public Rig headRig;
 
+    private IEnumerator myRotCo;
+
 
     [HideInInspector] public Camera cam;
     [HideInInspector] public Vector3 direction = Vector3.zero;
@@ -52,6 +54,7 @@ public class PlayerStateManager : MonoBehaviour
     bool isPlayerCloseEnough = false;
     private bool isPlayerCloseToConveyorBelt = false;
 
+
     [HideInInspector]
     public Vector3 flyToTarget;
 
@@ -62,6 +65,7 @@ public class PlayerStateManager : MonoBehaviour
     public PlayerLandingState landingState = null;
     public PlayerPickUpOrPutDownState pickUpOrPutDownState = null;
     public PlayerPullingState pullingState = null;
+    public PlayerMissState missState = null;
 
     private void OnEnable()
     {
@@ -81,7 +85,7 @@ public class PlayerStateManager : MonoBehaviour
 
     }
 
-    
+
 
     // Is the player falling
     private void Awake()
@@ -93,8 +97,11 @@ public class PlayerStateManager : MonoBehaviour
         landingState = new PlayerLandingState(this);
         pickUpOrPutDownState = new PlayerPickUpOrPutDownState(this);
         pullingState = new PlayerPullingState(this);
+        missState = new PlayerMissState(this);
 
         cam = Camera.main;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
 
         playerInput = GetComponent<PlayerInput>();
         moveAction = playerInput.actions["Move"];
@@ -143,12 +150,16 @@ public class PlayerStateManager : MonoBehaviour
     {
         if (currentState != null)
             currentState.UpdateLogic();
+        Debug.Log(currentState);
     }
 
     void FixedUpdate()
     {
         if (currentState != null)
             currentState.UpdatePhysics();
+
+
+
     }
 
     public void ChangeState(PlayerBaseState nextState)
@@ -235,9 +246,14 @@ public class PlayerStateManager : MonoBehaviour
         direction += inputs.y * camForward;
         direction += inputs.x * camRight;
 
-        animator.SetFloat("xPos", inputs.x, 0.3f, Time.deltaTime);
-        animator.SetFloat("yPos", inputs.y, 0.3f, Time.deltaTime);
+        animator.SetFloat("xPos", inputs.x, 0.2f, Time.deltaTime);
+        animator.SetFloat("yPos", inputs.y, 0.2f, Time.deltaTime);
 
+        animator.SetFloat("Mouse", lookAction.ReadValue<Vector2>().x);
+
+        //Debug.Log("xPos: " + inputs.x + "| yPos: " + inputs.y + "| Mouse: " + lookAction.ReadValue<Vector2>().x);
+
+        animator.SetBool("PlayerStill", (inputs.x == 0 && inputs.y == 0));
 
     }
 
@@ -246,11 +262,99 @@ public class PlayerStateManager : MonoBehaviour
         rb.MovePosition(rb.position + direction * moveSpeed * Time.fixedDeltaTime);
 
     }
-
-    public void Landed()
+    public void RotatePlayerModel()
     {
-        Debug.Log("Landed");
-        animator.SetBool("IsLanding", false);
-        ChangeState(idleState);
+        //pmStateMan.lookInputs = pmStateMan.lookAction.ReadValue<Vector2>().normalized;
+
+        transform.rotation = Quaternion.Euler(0, cam.transform.eulerAngles.y, 0);
     }
+
+    //public void Landed()
+    //{
+    //    Debug.Log("Landed");
+    //    animator.SetBool("IsLanding", false);
+    //    ChangeState(idleState);
+    //}
+
+    IEnumerator StopRotationAnim()
+    {
+        yield return new WaitForSeconds(0.2f);
+        if (lookAction.ReadValue<Vector2>().magnitude < 0.1)
+        {
+            animator.SetBool("IsRotLeft", false);
+            animator.SetBool("IsRotRight", false);
+        }
+    }
+
+    public void CheckIfRotating()
+    {
+        //if (lookAction.ReadValue<Vector2>().x == 0f)
+        //    animator.SetBool("IsRotLeft", false); animator.SetBool("IsRotRight", false);
+        if (lookAction.ReadValue<Vector2>().magnitude < 0.001f)
+        {
+            //myRotCo = StopRotationAnim();
+            //StartCoroutine(StopRotationAnim());
+            animator.SetBool("IsRotLeft", false);
+            animator.SetBool("IsRotRight", false);
+        }
+
+        if (lookAction.ReadValue<Vector2>().magnitude > 0.002f)
+        {
+            if (lookAction.ReadValue<Vector2>().x < 0f)
+            {
+                animator.SetBool("IsRotLeft", true);
+                animator.SetBool("IsRotRight", false);
+                Debug.Log(StationaryMouseCheck());
+                //StopCoroutine(myRotCo);
+            }
+
+            else if (lookAction.ReadValue<Vector2>().x > 0f)
+            {
+                animator.SetBool("IsRotRight", true);
+                animator.SetBool("IsRotLeft", false);
+                //StopCoroutine(myRotCo);
+            }
+        }
+
+
+        //if (lookAction.ReadValue<Vector2>().x != 0f)
+        //if (lookAction.ReadValue<Vector2>().x < 0.5f) //left
+        //{
+        //    animator.SetBool("IsRotLeft", true);
+        //    animator.SetBool("IsRotRight", false);
+        //}
+        //else if (lookAction.ReadValue<Vector2>().magnitude > 0.1f) //right
+        //{
+
+        //    animator.SetBool("IsRotLeft", false);
+        //    animator.SetBool("IsRotRight", true);             
+        //}
+
+    }
+    double limitCountDown = 0.1;
+    double countDown = 0;
+    float xAccumulator;
+    const float Snappiness = 10.0f;
+
+    public bool StationaryMouseCheck()
+    {
+        float inputX = lookAction.ReadValue<Vector2>().x;
+        xAccumulator = Mathf.Lerp(xAccumulator, inputX, Snappiness * Time.deltaTime);
+
+        if (xAccumulator < 0.0001)
+        {
+            countDown += Time.deltaTime;
+        }
+        else if (xAccumulator > 0.0001)
+            countDown = 0;
+        if (countDown >= limitCountDown)
+        {
+
+            return false;
+        }
+        return true;
+    }
+
 }
+
+

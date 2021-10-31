@@ -33,23 +33,19 @@ public class ArmStateManager : MonoBehaviour
 
     public Vector3 startSize;
 
-    [HideInInspector]
-    public Transform aimTarget;
-    [HideInInspector]
-    public LineRenderer lineRenderer;
-    [HideInInspector]
-    public float holdInitialBeamSpeedValue;
-    [HideInInspector]
-    public ArmBaseState currentState;
-    [HideInInspector]
-    public Vector3 hitPoint;
-    [HideInInspector]
-    public GameObject hitObject;
-    [HideInInspector]
-    public Camera cam;
+    public ShootingCheck shootCheck;
+    public bool isShootingAnimationReady = false;
+
+    [HideInInspector] public Transform aimTarget;
+    [HideInInspector] public LineRenderer lineRenderer;
+    [HideInInspector] public float holdInitialBeamSpeedValue;
+    [HideInInspector] public ArmBaseState currentState;
+    [HideInInspector] public Vector3 hitPoint;
+    [HideInInspector] public GameObject hitObject;
+    [HideInInspector] public Camera cam;
     [HideInInspector]
     public PlayerControllerCinemachineLook2 player;
-    public PlayerMovementSM playerSM;
+    public PlayerStateManager playerSM;
     [HideInInspector]
     public bool isObjectHeld = false;
     [HideInInspector]
@@ -72,15 +68,20 @@ public class ArmStateManager : MonoBehaviour
     public ConstraintSource constraintSource;
 
     // States
-    public ArmShootState shootState = null; // Remove V2 to go back to original
+    public ArmShootState shootState = null;
     public ArmGrappleState grappleState = null;
     public ArmPickUpState pickUpState = null;
     public ArmPullState pullState = null;
     public ArmPutDownState putDownState = null;
     public ArmPauseState pauseState = null;
+    public ArmIdleState idleState = null;
 
     [HideInInspector]
     public ArmEffects armEffects;
+
+    [HideInInspector]
+    public bool shotArm = false;
+    private float timer = 0f;
 
     public void Awake()
     {
@@ -92,7 +93,7 @@ public class ArmStateManager : MonoBehaviour
         springJoint = GetComponent<SpringJoint>();
         holdInitialBeamSpeedValue = initialBeamSpeed;
         player = GetComponent<PlayerControllerCinemachineLook2>();
-        playerSM = GetComponent<PlayerMovementSM>();
+        playerSM = GetComponent<PlayerStateManager>();
         lineRenderer.enabled = false;
         shootState = new ArmShootState(this); // Remove V2 to go back to original
         grappleState = new ArmGrappleState(this);
@@ -100,6 +101,7 @@ public class ArmStateManager : MonoBehaviour
         pullState = new ArmPullState(this);
         putDownState = new ArmPutDownState(this);
         pauseState = new ArmPauseState(this);
+        idleState = new ArmIdleState(this);
         aimTarget = GetComponent<AimTargetMove>().target.transform;
         constraintSource.sourceTransform = holdPoint;
         constraintSource.weight = 1f;
@@ -111,23 +113,44 @@ public class ArmStateManager : MonoBehaviour
 
     public void OnEnable()
     {
-
+        shootAction.performed += Shoot;
+        shootAction.canceled += NotShoot;
     }
 
     public void OnDisable()
     {
-
+        shootAction.performed -= Shoot;
+        shootAction.canceled -= NotShoot;
     }
 
     public void Start()
     {
-        SwitchState(shootState);
+        SwitchState(idleState);
+
     }
 
 
     void FixedUpdate()
     {
+        playerSM.animator.SetBool("hasShot", shotArm);
         currentState.UpdateState();
+
+
+        //if (shotArm)
+        //{
+        //    shootAction.Disable();
+        //}
+        //if(!shootAction.enabled)
+        //{
+        //    timer += Time.deltaTime;
+        //    if (timer >= 1f)
+        //    {
+        //        shootAction.Enable();
+        //        timer = 0f;
+
+        //    }
+        //}
+
     }
 
     public void SwitchState(ArmBaseState state)
@@ -139,6 +162,14 @@ public class ArmStateManager : MonoBehaviour
 
         if (currentState != null)
             currentState.EnterState();
+    }
+    public void Shoot(InputAction.CallbackContext context)
+    {
+        shotArm = true;
+    }
+    public void NotShoot(InputAction.CallbackContext context)
+    {
+        shotArm = false;
     }
 
 }
