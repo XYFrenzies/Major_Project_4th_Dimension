@@ -18,6 +18,7 @@ public class GlobalVariables : Singleton<GlobalVariables>
     [HideInInspector] public int mouseIsOn = 0;
     [HideInInspector] public int m_qualityDisplayInt = 2;
     [HideInInspector] public int m_resolutionInt = 0;
+    [HideInInspector] public int m_isFullscreen = 0;
     private AudioMixer m_audioMixer;
     private Toggle m_interfaceOn;
     private string[] allValues = { "Master Volume", "Sound Volume", "Sound Effect Volume", "Vertical Sensitivity",
@@ -37,6 +38,7 @@ public class GlobalVariables : Singleton<GlobalVariables>
                 mouseIsOn = PlayerPrefs.GetInt("MouseIsOn");
                 m_qualityDisplayInt = PlayerPrefs.GetInt("Quality");
                 m_resolutionInt = PlayerPrefs.GetInt("Resolution");
+                m_isFullscreen = PlayerPrefs.GetInt("FullScreen");
                 break;
             case false:
                 PlayerPrefs.SetFloat("Master Volume", masterVolume);
@@ -49,6 +51,7 @@ public class GlobalVariables : Singleton<GlobalVariables>
                 PlayerPrefs.SetInt("MouseIsOn", mouseIsOn);
                 PlayerPrefs.SetInt("Quality", m_resolutionInt);
                 PlayerPrefs.SetInt("Resolution",m_qualityDisplayInt);
+                PlayerPrefs.SetInt("FullScreen", m_isFullscreen);
                 break;
         }
         m_interfaceOn = InterfaceMenu.Instance.fpsCounter;
@@ -97,12 +100,27 @@ public class GlobalVariables : Singleton<GlobalVariables>
             return false;
         return false;
     }
+    public bool GetScreenIsOn()
+    {
+        if (m_isFullscreen == 0)
+            return true;
+        else if (m_isFullscreen == 1)
+            return false;
+        return false;
+    }
     public void SaveFPSIsOn(bool boolValue)
     {
         if (boolValue)
             fpsIsOn = 0;
         else
             fpsIsOn = 1;
+    }
+    public void SaveFullScreenIsOn(bool boolValue)
+    {
+        if (boolValue)
+            m_isFullscreen = 0;
+        else
+            m_isFullscreen = 1;
     }
     public void SaveSensitivity(float a_verticalSensitivity, float a_horizontalSensitivity)
     {
@@ -121,5 +139,6 @@ public class GlobalVariables : Singleton<GlobalVariables>
         PlayerPrefs.SetInt("MouseIsOn", mouseIsOn);
         PlayerPrefs.SetInt("Quality", m_resolutionInt);
         PlayerPrefs.SetInt("Resolution", m_qualityDisplayInt);
+        PlayerPrefs.SetInt("FullScreen", m_isFullscreen);
     }
 }
