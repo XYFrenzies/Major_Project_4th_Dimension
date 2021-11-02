@@ -12,6 +12,7 @@ public class RenderingMenu : Singleton<RenderingMenu>
     [SerializeField] private HDRenderPipelineAsset[] m_qualityChanger;
     private int m_qualityLevel;
     private int m_resolutionLevel;
+    private bool m_isFullScreen = true;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -64,11 +65,13 @@ public class RenderingMenu : Singleton<RenderingMenu>
         m_quality.value = QualitySettings.GetQualityLevel();
         m_quality.RefreshShownValue();
         #endregion
-        m_fullscreen.isOn = GlobalVariables.Instance.GetScreenIsOn();
+        m_isFullScreen = GlobalVariables.Instance.GetScreenIsOn();
+        m_fullscreen.isOn = m_isFullScreen;
     }
     public void SaveValues()
     {
         Resolution resolution = m_resolutionsMultiple[m_resolutionLevel];
+        Screen.fullScreen = m_isFullScreen;
         Screen.SetResolution(resolution.width * 2, resolution.height * 2, Screen.fullScreen);
         QualitySettings.SetQualityLevel(m_qualityLevel);
         QualitySettings.renderPipeline = m_qualityChanger[m_qualityLevel];
@@ -89,6 +92,6 @@ public class RenderingMenu : Singleton<RenderingMenu>
     }
     public void SetFullScreen(bool isFullscreen) 
     {
-        Screen.fullScreen = isFullscreen;
+        m_isFullScreen = isFullscreen;
     }
 }
