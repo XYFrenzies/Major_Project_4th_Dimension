@@ -15,7 +15,7 @@ public class MenuInput : MonoBehaviour
             player = GameObject.FindGameObjectWithTag("PlayerFlag").transform.Find("3rdPersonCinemachine").GetComponent<CinemachineVirtualCamera>();
         xAxis = GlobalVariables.Instance.verticalSensitivity;
         yAxis = GlobalVariables.Instance.horizontalSensitivity;
-        //player. ;
+        //player.;
     }
     public void ControllerInput() 
     {
