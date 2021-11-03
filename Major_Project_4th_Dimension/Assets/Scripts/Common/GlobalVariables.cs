@@ -22,7 +22,7 @@ public class GlobalVariables : Singleton<GlobalVariables>
     private AudioMixer m_audioMixer;
     private Toggle m_interfaceOn;
     private string[] allValues = { "Master Volume", "Sound Volume", "Sound Effect Volume", "Vertical Sensitivity",
-        "Horizontal Sensitivity", "FPS Display", "MouseIsOn" , "GamePadIsOn"};
+        "Horizontal Sensitivity", "FPS Display", "MouseIsOn" , "GamePadIsOn", "FullScreen"};
     private void Awake()
     {
         switch (CheckIfPrefsExist(allValues))
