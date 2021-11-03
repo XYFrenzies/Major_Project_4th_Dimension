@@ -31,6 +31,7 @@ public class PlayerMoveLookState : PlayerBaseState
         PSManager.CalculateMove();
         CheckForNoMovement();
         PSManager.GroundCheck();
+        PSManager.LookAtGrapplePoints();
     }
 
     public override void UpdatePhysics()

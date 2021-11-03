@@ -46,7 +46,9 @@ public class PlayerStateManager : MonoBehaviour
     [HideInInspector] public Vector2 lookInputs;
 
     [HideInInspector] public Rigidbody rb;
-    public CinemachineVirtualCamera vCam;
+    public CinemachineVirtualCamera cinemachineVCam;
+    //[HideInInspector]
+    public CinemachinePOV vCam;
 
 
     public GameEvent interacting;
@@ -112,6 +114,10 @@ public class PlayerStateManager : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         //animator = GetComponent<Animator>();
         arm = GetComponent<ArmStateManager>();
+
+        //cinemachineVCam = GetComponent<CinemachineVirtualCamera>();
+        vCam = cinemachineVCam.GetCinemachineComponent<CinemachinePOV>();
+        //vCam.m_HorizontalAxis.m_MaxSpeed = 2f;
     }
 
     public bool Grounded
@@ -150,7 +156,7 @@ public class PlayerStateManager : MonoBehaviour
     {
         if (currentState != null)
             currentState.UpdateLogic();
-        Debug.Log(currentState);
+        //Debug.Log(currentState);
     }
 
     void FixedUpdate()
@@ -304,7 +310,7 @@ public class PlayerStateManager : MonoBehaviour
             {
                 animator.SetBool("IsRotLeft", true);
                 animator.SetBool("IsRotRight", false);
-                Debug.Log(StationaryMouseCheck());
+                //Debug.Log(StationaryMouseCheck());
                 //StopCoroutine(myRotCo);
             }
 
@@ -353,6 +359,34 @@ public class PlayerStateManager : MonoBehaviour
             return false;
         }
         return true;
+    }
+
+    public void LookAtGrapplePoints()
+    {
+        Vector3 rayOrigin = cam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
+
+
+        RaycastHit hit;
+
+        if (Physics.Raycast(rayOrigin, cam.transform.forward, out hit, hookShotRange))
+        {
+
+            if (hit.collider.CompareTag("CanHookShotTowards"))
+            {
+                GameEvents.current.GrapplePointVisible(hit.collider.GetComponent<GrapplePoint>().id);
+            }
+            else
+            {
+                GameEvents.current.GrapplePointNotVisible();
+
+            }
+
+        }
+        else
+        {
+            GameEvents.current.GrapplePointNotVisible();
+
+        }
     }
 
 }

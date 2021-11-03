@@ -25,9 +25,11 @@ public class GrapplePoint : MonoBehaviour
     public void TurnPointOn(int id)
     {
         if (id == this.id)
+        {
             mat.color = materialOn.color;
-        ChangeInterfaceType();
-        isOn = true;
+            ChangeInterfaceType();
+            isOn = true;
+        }
     }
     private void Update()
     {
