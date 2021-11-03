@@ -32,6 +32,8 @@ public class PlayerIdleState : PlayerBaseState
         CheckForMovement();
         PSManager.GroundCheck();
         PSManager.CheckIfRotating();
+        PSManager.LookAtGrapplePoints();
+
 
     }
 
