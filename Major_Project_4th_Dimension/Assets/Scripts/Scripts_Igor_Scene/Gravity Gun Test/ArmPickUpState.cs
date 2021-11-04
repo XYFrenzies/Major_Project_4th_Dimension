@@ -81,7 +81,7 @@ public class ArmPickUpState : ArmBaseState
             rb = null;
 
             /////////
-            //armStateMan.playerSM.armRig.weight = 1f;
+            armStateMan.playerSM.armRig.weight = 1f;
             ////////
         }
         else // let go of mouse button before grabbing object
