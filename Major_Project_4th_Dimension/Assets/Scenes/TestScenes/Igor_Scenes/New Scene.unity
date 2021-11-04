@@ -22259,6 +22259,10 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 116
       objectReference: {fileID: 0}
+    - target: {fileID: 5070587578736435758, guid: 52e1585f8826b3249a1dc518d2ec8769, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5377070734909557669, guid: 52e1585f8826b3249a1dc518d2ec8769, type: 3}
       propertyPath: m_Name
       value: SM_Shipping_Container_Small
@@ -37102,7 +37106,10 @@ MonoBehaviour:
   inputs: {x: 0, y: 0}
   lookInputs: {x: 0, y: 0}
   rb: {fileID: 0}
-  vCam: {fileID: 805069675}
+  cinemachineVCam: {fileID: 0}
+  cinemachineVCamAim: {fileID: 0}
+  vCam: {fileID: 0}
+  vCamAim: {fileID: 0}
   interacting: {fileID: 0}
   interactingConveyorSwitch: {fileID: 0}
   flyToTarget: {x: 0, y: 0, z: 0}
@@ -58418,6 +58425,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2280944812521773805, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.00000009362675
+      objectReference: {fileID: 0}
+    - target: {fileID: 2280944812521773805, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -8.7659685e-15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2280944812521773805, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.00000009362675
+      objectReference: {fileID: 0}
     - target: {fileID: 8431453540006725398, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
       propertyPath: m_Name
       value: PlayerParent
@@ -58465,6 +58484,30 @@ PrefabInstance:
     - target: {fileID: 8431453540006725400, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8431453540725934212, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.2352127
+      objectReference: {fileID: 0}
+    - target: {fileID: 8431453540725934212, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.7656335
+      objectReference: {fileID: 0}
+    - target: {fileID: 8431453540725934212, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.6376286
+      objectReference: {fileID: 0}
+    - target: {fileID: 8431453540725934212, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.35213584
+      objectReference: {fileID: 0}
+    - target: {fileID: 8431453540725934212, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.024496121
+      objectReference: {fileID: 0}
+    - target: {fileID: 8431453540725934215, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
+      propertyPath: m_Lens.m_SensorSize.x
+      value: 1.7783133
       objectReference: {fileID: 0}
     - target: {fileID: 8431453541361779734, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
       propertyPath: turretSM
@@ -64677,8 +64720,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3373627836190250097}
-  m_LocalRotation: {x: 0.023841333, y: -0.4125594, z: 0.010802168, w: 0.91055465}
-  m_LocalPosition: {x: 2.374238, y: 1.7656364, z: -3.723414}
+  m_LocalRotation: {x: 0.023840811, y: -0.4125594, z: 0.010801933, w: 0.9105546}
+  m_LocalPosition: {x: 2.0306282, y: 1.7656335, z: -4.115213}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -84406,7 +84449,10 @@ MonoBehaviour:
   inputs: {x: 0, y: 0}
   lookInputs: {x: 0, y: 0}
   rb: {fileID: 0}
+  cinemachineVCam: {fileID: 0}
+  cinemachineVCamAim: {fileID: 0}
   vCam: {fileID: 0}
+  vCamAim: {fileID: 0}
   interacting: {fileID: 11400000, guid: 18e4fd24b905c8d40887ca44f2ebc613, type: 2}
   interactingConveyorSwitch: {fileID: 11400000, guid: 27110a35cd655014fa2a702b580cded0, type: 2}
   flyToTarget: {x: 0, y: 0, z: 0}

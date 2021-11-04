@@ -34,8 +34,11 @@ public class MainMenu : MonoBehaviour
     }
     private void Start()
     {
-        m_firstButtonLevelS.GetComponent<Button>().colors = colourSelected;
-        EventSystem.current.SetSelectedGameObject(m_firstButtonMain);
+        if (CheckInput.Instance.CheckGamePadActiveMenu())
+        {
+            m_firstButtonLevelS.GetComponent<Button>().colors = colourSelected;
+            EventSystem.current.SetSelectedGameObject(m_firstButtonMain);
+        }
     }
     /// <summary>
     ///For every frame, checking if theres a change in input and whether the button is being selected or not. 

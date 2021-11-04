@@ -46,7 +46,11 @@ public class PlayerStateManager : MonoBehaviour
     [HideInInspector] public Vector2 lookInputs;
 
     [HideInInspector] public Rigidbody rb;
-    public CinemachineVirtualCamera vCam;
+    public CinemachineVirtualCamera cinemachineVCam;
+    public CinemachineVirtualCamera cinemachineVCamAim;
+
+    [HideInInspector] public CinemachinePOV vCam;
+    [HideInInspector] public CinemachinePOV vCamAim;
 
 
     public GameEvent interacting;
@@ -112,6 +116,11 @@ public class PlayerStateManager : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         //animator = GetComponent<Animator>();
         arm = GetComponent<ArmStateManager>();
+
+        //cinemachineVCam = GetComponent<CinemachineVirtualCamera>();
+        vCam = cinemachineVCam.GetCinemachineComponent<CinemachinePOV>();
+        vCamAim = cinemachineVCamAim.GetCinemachineComponent<CinemachinePOV>();
+        //vCam.m_HorizontalAxis.m_MaxSpeed = 2f;
     }
 
     public bool Grounded
@@ -150,7 +159,7 @@ public class PlayerStateManager : MonoBehaviour
     {
         if (currentState != null)
             currentState.UpdateLogic();
-        Debug.Log(currentState);
+        //Debug.Log(currentState);
     }
 
     void FixedUpdate()
@@ -278,7 +287,7 @@ public class PlayerStateManager : MonoBehaviour
 
     IEnumerator StopRotationAnim()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.2f);
         if (lookAction.ReadValue<Vector2>().magnitude < 0.1)
         {
             animator.SetBool("IsRotLeft", false);
@@ -292,8 +301,10 @@ public class PlayerStateManager : MonoBehaviour
         //    animator.SetBool("IsRotLeft", false); animator.SetBool("IsRotRight", false);
         if (lookAction.ReadValue<Vector2>().magnitude < 0.001f)
         {
-            myRotCo = StopRotationAnim();
-            StartCoroutine(StopRotationAnim());
+            //myRotCo = StopRotationAnim();
+            //StartCoroutine(StopRotationAnim());
+            animator.SetBool("IsRotLeft", false);
+            animator.SetBool("IsRotRight", false);
         }
 
         if (lookAction.ReadValue<Vector2>().magnitude > 0.002f)
@@ -301,15 +312,16 @@ public class PlayerStateManager : MonoBehaviour
             if (lookAction.ReadValue<Vector2>().x < 0f)
             {
                 animator.SetBool("IsRotLeft", true);
-                animator.SetBool("IsRotRight", StationaryMouseCheck());
-                StopCoroutine(myRotCo);
+                animator.SetBool("IsRotRight", false);
+                //Debug.Log(StationaryMouseCheck());
+                //StopCoroutine(myRotCo);
             }
 
             else if (lookAction.ReadValue<Vector2>().x > 0f)
             {
                 animator.SetBool("IsRotRight", true);
-                animator.SetBool("IsRotLeft", StationaryMouseCheck());
-                StopCoroutine(myRotCo);
+                animator.SetBool("IsRotLeft", false);
+                //StopCoroutine(myRotCo);
             }
         }
 
@@ -351,6 +363,60 @@ public class PlayerStateManager : MonoBehaviour
         }
         return true;
     }
+
+    public void LookAtGrapplePoints()
+    {
+        Vector3 rayOrigin = cam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
+
+
+        RaycastHit hit;
+
+        if (Physics.Raycast(rayOrigin, cam.transform.forward, out hit, hookShotRange))
+        {
+
+            if (hit.collider.CompareTag("CanHookShotTowards"))
+            {
+                GameEvents.current.GrapplePointVisible(hit.collider.GetComponent<GrapplePoint>().id);
+            }
+            else
+            {
+                GameEvents.current.GrapplePointNotVisible();
+
+            }
+
+        }
+        else
+        {
+            GameEvents.current.GrapplePointNotVisible();
+
+        }
+    }
+
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.collider.CompareTag("BigPullObject"))
+            if (inputs.y > 0f)
+            {
+                animator.SetBool("IsPushing", true);
+                Debug.Log("pushing");
+            }
+            else
+            {
+                animator.SetBool("IsPushing", false);
+
+            }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.collider.CompareTag("BigPullObject"))
+        {
+            animator.SetBool("IsPushing", false);
+
+        }
+    }
+
 
 }
 

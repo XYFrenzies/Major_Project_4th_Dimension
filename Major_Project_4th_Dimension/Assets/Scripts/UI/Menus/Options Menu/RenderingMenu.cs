@@ -2,14 +2,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.HighDefinition;
 using TMPro;
+using UnityEngine.UI;
 public class RenderingMenu : Singleton<RenderingMenu>
 {
     public TMP_Dropdown m_resolutionDropDown;
     public TMP_Dropdown m_quality;
+    public Toggle m_fullscreen;
     private Resolution[] m_resolutionsMultiple;
     [SerializeField] private HDRenderPipelineAsset[] m_qualityChanger;
     private int m_qualityLevel;
     private int m_resolutionLevel;
+    private bool m_isFullScreen = true;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -56,21 +59,28 @@ public class RenderingMenu : Singleton<RenderingMenu>
             qualityOptions.Add(option);
         }
         QualitySettings.SetQualityLevel(2);
+
         m_qualityLevel = GlobalVariables.Instance.m_qualityDisplayInt;
         m_quality.AddOptions(qualityOptions);
-        m_quality.value = m_qualityLevel;
+        m_quality.value = QualitySettings.GetQualityLevel();
         m_quality.RefreshShownValue();
         #endregion
+        m_isFullScreen = GlobalVariables.Instance.GetScreenIsOn();
+        m_fullscreen.isOn = m_isFullScreen;
     }
     public void SaveValues()
     {
         Resolution resolution = m_resolutionsMultiple[m_resolutionLevel];
-        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+        Screen.fullScreen = m_isFullScreen;
+        Screen.SetResolution(resolution.width * 2, resolution.height * 2, Screen.fullScreen);
         QualitySettings.SetQualityLevel(m_qualityLevel);
+        QualitySettings.renderPipeline = m_qualityChanger[m_qualityLevel];
         GlobalVariables.Instance.m_qualityDisplayInt = m_qualityLevel;
         GlobalVariables.Instance.m_resolutionInt = m_resolutionLevel;
-        m_resolutionDropDown.RefreshShownValue();
+        GlobalVariables.Instance.SaveFullScreenIsOn(Screen.fullScreen);
+        m_quality.value = QualitySettings.GetQualityLevel();
         m_quality.RefreshShownValue();
+        m_resolutionDropDown.RefreshShownValue();
     }
     public void SetResolution(int resolutionIndex)
     {
@@ -80,8 +90,8 @@ public class RenderingMenu : Singleton<RenderingMenu>
     {
         m_qualityLevel = qualityIndex;
     }
-    public void SetFullScreen(bool isFullScreen)
+    public void SetFullScreen(bool isFullscreen) 
     {
-        Screen.fullScreen = isFullScreen;
+        m_isFullScreen = isFullscreen;
     }
 }

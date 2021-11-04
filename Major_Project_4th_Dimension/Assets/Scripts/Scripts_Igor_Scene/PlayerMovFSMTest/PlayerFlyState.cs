@@ -25,7 +25,7 @@ public class PlayerFlyState : PlayerBaseState
         PSManager.animator.SetBool("IsFlying", false);
         PSManager.arm.lineRenderer.enabled = false;
         PSManager.isFlying = false;
-        PSManager.headRig.weight = 1f;
+        //PSManager.headRig.weight = 1f;
         PSManager.rb.useGravity = true;
         PSManager.lookAction.Enable();
 

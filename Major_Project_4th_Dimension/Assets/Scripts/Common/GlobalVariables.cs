@@ -13,15 +13,18 @@ public class GlobalVariables : Singleton<GlobalVariables>
     [HideInInspector] public float musicVolume = 0.0f;
     [HideInInspector] public float verticalSensitivity = 0.2f;
     [HideInInspector] public float horizontalSensitivity = 0.2f;
+    [HideInInspector] public float verticalSensitivityNonZoom = 0.1f;
+    [HideInInspector] public float horizontalSensitivityNonZoom = 0.1f;
     [HideInInspector] public int fpsIsOn = 1;
     [HideInInspector] public int gamepadIsOn = 1;
     [HideInInspector] public int mouseIsOn = 0;
     [HideInInspector] public int m_qualityDisplayInt = 2;
     [HideInInspector] public int m_resolutionInt = 0;
+    [HideInInspector] public int m_isFullscreen = 0;
     private AudioMixer m_audioMixer;
     private Toggle m_interfaceOn;
     private string[] allValues = { "Master Volume", "Sound Volume", "Sound Effect Volume", "Vertical Sensitivity",
-        "Horizontal Sensitivity", "FPS Display", "MouseIsOn" , "GamePadIsOn"};
+        "Horizontal Sensitivity", "FPS Display", "MouseIsOn" , "GamePadIsOn", "FullScreen"};
     private void Awake()
     {
         switch (CheckIfPrefsExist(allValues))
@@ -30,13 +33,16 @@ public class GlobalVariables : Singleton<GlobalVariables>
                 masterVolume = PlayerPrefs.GetFloat("Master Volume");
                 soundVolume = PlayerPrefs.GetFloat("Sound Volume");
                 musicVolume = PlayerPrefs.GetFloat("Sound Effect Volume");
-                verticalSensitivity = PlayerPrefs.GetFloat("Vertical Sensitivity");
-                horizontalSensitivity = PlayerPrefs.GetFloat("Horizontal Sensitivity");
+                verticalSensitivity = PlayerPrefs.GetFloat("Vertical SensitivityZoom");
+                horizontalSensitivity = PlayerPrefs.GetFloat("Horizontal SensitivityZoom");
+                verticalSensitivityNonZoom = PlayerPrefs.GetFloat("Vertical SensitivityNonZoom");
+                horizontalSensitivityNonZoom = PlayerPrefs.GetFloat("Horizontal SensitivityNonZoom");
                 fpsIsOn = PlayerPrefs.GetInt("FPS Display");
                 gamepadIsOn = PlayerPrefs.GetInt("GamePadIsOn");
                 mouseIsOn = PlayerPrefs.GetInt("MouseIsOn");
                 m_qualityDisplayInt = PlayerPrefs.GetInt("Quality");
                 m_resolutionInt = PlayerPrefs.GetInt("Resolution");
+                m_isFullscreen = PlayerPrefs.GetInt("FullScreen");
                 break;
             case false:
                 PlayerPrefs.SetFloat("Master Volume", masterVolume);
@@ -44,11 +50,14 @@ public class GlobalVariables : Singleton<GlobalVariables>
                 PlayerPrefs.SetFloat("Sound Effect Volume", musicVolume);
                 PlayerPrefs.SetFloat("Vertical Sensitivity", verticalSensitivity);
                 PlayerPrefs.SetFloat("Horizontal Sensitivity", horizontalSensitivity);
+                PlayerPrefs.SetFloat("Vertical SensitivityNonZoom", verticalSensitivityNonZoom);
+                PlayerPrefs.SetFloat("Horizontal SensitivityNonZoom", horizontalSensitivityNonZoom);
                 PlayerPrefs.SetInt("FPS Display", fpsIsOn);
                 PlayerPrefs.SetInt("GamePadIsOn", gamepadIsOn);
                 PlayerPrefs.SetInt("MouseIsOn", mouseIsOn);
                 PlayerPrefs.SetInt("Quality", m_resolutionInt);
                 PlayerPrefs.SetInt("Resolution",m_qualityDisplayInt);
+                PlayerPrefs.SetInt("FullScreen", m_isFullscreen);
                 break;
         }
         m_interfaceOn = InterfaceMenu.Instance.fpsCounter;
@@ -89,11 +98,36 @@ public class GlobalVariables : Singleton<GlobalVariables>
         musicVolume = 0.0f;
     }
 
+    public bool GetMouseActive()
+    {
+        if (mouseIsOn == 0)
+            return true;
+        else if (mouseIsOn == 1)
+            return false;
+        return false;
+    }
+    public bool GetGamepadActive()
+    {
+        if (gamepadIsOn == 0)
+            return true;
+        else if (gamepadIsOn == 1)
+            return false;
+        return false;
+    }
+
     public bool GetFPSIsOn()
     {
         if (fpsIsOn == 0)
             return true;
         else if (fpsIsOn == 1)
+            return false;
+        return false;
+    }
+    public bool GetScreenIsOn()
+    {
+        if (m_isFullscreen == 0)
+            return true;
+        else if (m_isFullscreen == 1)
             return false;
         return false;
     }
@@ -103,6 +137,28 @@ public class GlobalVariables : Singleton<GlobalVariables>
             fpsIsOn = 0;
         else
             fpsIsOn = 1;
+    }
+    public void SaveFullScreenIsOn(bool boolValue)
+    {
+        if (boolValue)
+            m_isFullscreen = 0;
+        else
+            m_isFullscreen = 1;
+    }
+
+    public void SaveMouseIsOn(bool boolValue)
+    {
+        if (boolValue)
+            mouseIsOn = 0;
+        else
+            gamepadIsOn = 1;
+    }
+    public void SaveGamepadIsOn(bool boolValue)
+    {
+        if (boolValue)
+            gamepadIsOn = 0;
+        else
+            m_isFullscreen = 1;
     }
     public void SaveSensitivity(float a_verticalSensitivity, float a_horizontalSensitivity)
     {
@@ -116,10 +172,13 @@ public class GlobalVariables : Singleton<GlobalVariables>
         PlayerPrefs.SetFloat("Sound Effect Volume", musicVolume);
         PlayerPrefs.SetFloat("Vertical Sensitivity", verticalSensitivity);
         PlayerPrefs.SetFloat("Horizontal Sensitivity", horizontalSensitivity);
+        PlayerPrefs.SetFloat("Vertical SensitivityNonZoom", verticalSensitivityNonZoom);
+        PlayerPrefs.SetFloat("Horizontal SensitivityNonZoom", horizontalSensitivityNonZoom);
         PlayerPrefs.SetInt("FPS Display", fpsIsOn);
         PlayerPrefs.SetInt("GamePadIsOn", gamepadIsOn);
         PlayerPrefs.SetInt("MouseIsOn", mouseIsOn);
         PlayerPrefs.SetInt("Quality", m_resolutionInt);
         PlayerPrefs.SetInt("Resolution", m_qualityDisplayInt);
+        PlayerPrefs.SetInt("FullScreen", m_isFullscreen);
     }
 }
