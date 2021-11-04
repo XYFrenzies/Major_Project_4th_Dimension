@@ -392,6 +392,40 @@ public class PlayerStateManager : MonoBehaviour
         }
     }
 
+    //public void CheckIfPushing()
+    //{
+    //    if(inputs.y > 0f)
+    //    {
+
+    //    }
+
+
+    //}
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.collider.CompareTag("BigPullObject"))
+            if (inputs.y > 0f)
+            {
+                animator.SetBool("IsPushing", true);
+                Debug.Log("pushing");
+            }
+            else
+            {
+                animator.SetBool("IsPushing", false);
+
+            }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.collider.CompareTag("BigPullObject"))
+        {
+            animator.SetBool("IsPushing", false);
+
+        }
+    }
+
+
 }
 
 
