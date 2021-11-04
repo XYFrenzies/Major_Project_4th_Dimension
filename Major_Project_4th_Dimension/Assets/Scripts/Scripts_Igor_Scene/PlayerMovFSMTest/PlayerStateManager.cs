@@ -392,15 +392,7 @@ public class PlayerStateManager : MonoBehaviour
         }
     }
 
-    //public void CheckIfPushing()
-    //{
-    //    if(inputs.y > 0f)
-    //    {
 
-    //    }
-
-
-    //}
     private void OnCollisionStay(Collision collision)
     {
         if (collision.collider.CompareTag("BigPullObject"))
