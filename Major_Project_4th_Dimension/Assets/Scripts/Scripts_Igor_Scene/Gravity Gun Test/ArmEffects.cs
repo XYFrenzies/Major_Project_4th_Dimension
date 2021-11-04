@@ -37,20 +37,20 @@ public class ArmEffects : MonoBehaviour
     void Update()
     {
         if ((isShooting && arm.currentState != arm.pauseState) || arm.currentState == arm.grappleState)
-        {
-            DrawLineRenderer();
+        {           
             if (!source.isPlaying)
             {
                 SoundPlayer.Instance.PlaySoundEffect("FireArm", source);
             }
+            DrawLineRenderer();
         }
         else
-        {
-            StopDrawingLineRenderer();
+        {           
             if (source.isPlaying)
             {
                 source.Stop();
             }
+            StopDrawingLineRenderer();
         }
 
     }
@@ -69,11 +69,11 @@ public class ArmEffects : MonoBehaviour
         if (arm.currentState != arm.grappleState)
         {
             isShooting = false;
-            arm.lineRenderer.enabled = false;
             arm.realisticBlackHole.SetActive(false);
             arm.blackHoleCentre.transform.localScale = arm.startSize;
             arm.scaleModifier = 1f;
             arm.blackHoleCentre.SetActive(false);
+            arm.lineRenderer.enabled = false;
         }
     }
 
@@ -81,6 +81,8 @@ public class ArmEffects : MonoBehaviour
     public void DrawLineRenderer()
     {
 
+        arm.blackHoleCentre.SetActive(true);
+        arm.realisticBlackHole.SetActive(true);
         arm.lineRenderer.positionCount = 2;
         arm.lineRenderer.SetPosition(0, arm.shootPoint.position);
         arm.blackHoleCentre.transform.position = arm.shootPoint.position;
@@ -95,22 +97,18 @@ public class ArmEffects : MonoBehaviour
         {
             arm.lineRenderer.SetPosition(1, arm.hitPoint);
             arm.realisticBlackHole.transform.position = arm.hitPoint;
-
         }
-        arm.blackHoleCentre.SetActive(true);
-        arm.realisticBlackHole.SetActive(true);
         arm.lineRenderer.enabled = true;
     }
 
     public void StopDrawingLineRenderer()
     {
         isShooting = false;
-        arm.lineRenderer.enabled = false;
         arm.realisticBlackHole.SetActive(false);
         arm.blackHoleCentre.transform.localScale = arm.startSize;
         arm.scaleModifier = 1f;
         arm.blackHoleCentre.SetActive(false);
-
+        arm.lineRenderer.enabled = false;
     }
 
     public void DrawObjectHoldingEffect()
