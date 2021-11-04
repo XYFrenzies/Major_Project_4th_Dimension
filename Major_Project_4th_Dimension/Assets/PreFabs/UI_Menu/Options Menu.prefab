@@ -502,8 +502,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab6df62964e073f49beeffbdadc77d85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNonZoom: {fileID: 0}
-  playerZoom: {fileID: 0}
+  nonZoomXSlider: {fileID: 7995134538980430296}
+  zoomXSlider: {fileID: 9026173464073268734}
+  nonZoomYSlider: {fileID: 4251382028180317014}
+  zoomYSlider: {fileID: 7454394416156022381}
 --- !u!1 &172930887585163575
 GameObject:
   m_ObjectHideFlags: 0
@@ -8039,9 +8041,9 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 8329306855406137187}
+  m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 1430928827465526446}
-  m_HandleRect: {fileID: 8953618042152939828}
+  m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0.00001
   m_MaxValue: 1
@@ -10191,8 +10193,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 8953618042152939828}
+  m_Children: []
   m_Father: {fileID: 601115060974688910}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
