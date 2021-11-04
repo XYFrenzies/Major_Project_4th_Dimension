@@ -47,8 +47,10 @@ public class PlayerStateManager : MonoBehaviour
 
     [HideInInspector] public Rigidbody rb;
     public CinemachineVirtualCamera cinemachineVCam;
-    //[HideInInspector]
-    public CinemachinePOV vCam;
+    public CinemachineVirtualCamera cinemachineVCamAim;
+
+    [HideInInspector] public CinemachinePOV vCam;
+    [HideInInspector] public CinemachinePOV vCamAim;
 
 
     public GameEvent interacting;
@@ -117,6 +119,7 @@ public class PlayerStateManager : MonoBehaviour
 
         //cinemachineVCam = GetComponent<CinemachineVirtualCamera>();
         vCam = cinemachineVCam.GetCinemachineComponent<CinemachinePOV>();
+        vCamAim = cinemachineVCamAim.GetCinemachineComponent<CinemachinePOV>();
         //vCam.m_HorizontalAxis.m_MaxSpeed = 2f;
     }
 
