@@ -6,6 +6,7 @@ public class SwitchController : MonoBehaviour
 {
     [SerializeField] private List<GameObject> m_switchesInScene;
     [SerializeField] private List<GameEvent> closeDoors;
+
     private void Awake()
     {
         SwitchOff();
@@ -33,7 +34,6 @@ public class SwitchController : MonoBehaviour
             {
                 item.Raise();
             }
-
         }
     }
 }

@@ -31,6 +31,8 @@ public class PlayerMoveLookState : PlayerBaseState
         PSManager.CalculateMove();
         CheckForNoMovement();
         PSManager.GroundCheck();
+        PSManager.LookAtGrapplePoints();
+        //PSManager.CheckIfPushing();
     }
 
     public override void UpdatePhysics()
@@ -48,5 +50,7 @@ public class PlayerMoveLookState : PlayerBaseState
         if (Mathf.Abs(PSManager.inputs.x) < Mathf.Epsilon && Mathf.Abs(PSManager.inputs.y) < Mathf.Epsilon && Mathf.Abs(PSManager.lookInputs.x) < Mathf.Epsilon && Mathf.Abs(PSManager.lookInputs.y) < Mathf.Epsilon)
             PSManager.ChangeState(PSManager.idleState);
     }
+
+   
 
 }
