@@ -74,14 +74,14 @@ public class ArmPickUpState : ArmBaseState
             armStateMan.parentConstraint.constraintActive = true; // comment to use old version
             offset.z = radius;
             armStateMan.parentConstraint.SetTranslationOffset(0, offset);
-            //armStateMan.parentConstraint.weight = 1f;
+            armStateMan.parentConstraint.weight = 1f;
             armStateMan.isObjectHeld = true;
             //armStateMan.lineRenderer.enabled = false;
             armStateMan.initialBeamSpeed = armStateMan.holdInitialBeamSpeedValue;
             rb = null;
 
             /////////
-            //armStateMan.playerSM.armRig.weight = 1f;
+            armStateMan.playerSM.armRig.weight = 1f;
             ////////
         }
         else // let go of mouse button before grabbing object
