@@ -8,9 +8,9 @@ using System.Collections.Generic;
 /// </summary>
 public class GlobalVariables : Singleton<GlobalVariables>
 {
-    [HideInInspector] public float masterVolume = 0.0f;
-    [HideInInspector] public float soundVolume = 0.0f;
-    [HideInInspector] public float musicVolume = 0.0f;
+    [HideInInspector] public float masterVolume = 0.2f;
+    [HideInInspector] public float soundVolume = 0.2f;
+    [HideInInspector] public float musicVolume = 0.2f;
     [HideInInspector] public float verticalSensitivity = 0.2f;
     [HideInInspector] public float horizontalSensitivity = 0.2f;
     [HideInInspector] public float verticalSensitivityNonZoom = 0.1f;
@@ -23,8 +23,8 @@ public class GlobalVariables : Singleton<GlobalVariables>
     [HideInInspector] public int m_isFullscreen = 0;
     private AudioMixer m_audioMixer;
     private Toggle m_interfaceOn;
-    private string[] allValues = { "Master Volume", "Sound Volume", "Sound Effect Volume", "Vertical Sensitivity",
-        "Horizontal Sensitivity", "FPS Display", "MouseIsOn" , "GamePadIsOn", "FullScreen"};
+    private string[] allValues = { "Master Volume", "Sound Volume", "Sound Effect Volume", "Vertical SensitivityZoom",
+        "Horizontal SensitivityZoom", "Vertical SensitivityNonZoom", "Horizontal SensitivityNonZoom", "FPS Display", "MouseIsOn" , "GamePadIsOn", "FullScreen", "Resolution", "Quality"};
     private void Awake()
     {
         switch (CheckIfPrefsExist(allValues))
@@ -48,8 +48,8 @@ public class GlobalVariables : Singleton<GlobalVariables>
                 PlayerPrefs.SetFloat("Master Volume", masterVolume);
                 PlayerPrefs.SetFloat("Sound Volume", soundVolume);
                 PlayerPrefs.SetFloat("Sound Effect Volume", musicVolume);
-                PlayerPrefs.SetFloat("Vertical Sensitivity", verticalSensitivity);
-                PlayerPrefs.SetFloat("Horizontal Sensitivity", horizontalSensitivity);
+                PlayerPrefs.SetFloat("Vertical SensitivityZoom", verticalSensitivity);
+                PlayerPrefs.SetFloat("Horizontal SensitivityZoom", horizontalSensitivity);
                 PlayerPrefs.SetFloat("Vertical SensitivityNonZoom", verticalSensitivityNonZoom);
                 PlayerPrefs.SetFloat("Horizontal SensitivityNonZoom", horizontalSensitivityNonZoom);
                 PlayerPrefs.SetInt("FPS Display", fpsIsOn);
@@ -170,8 +170,8 @@ public class GlobalVariables : Singleton<GlobalVariables>
         PlayerPrefs.SetFloat("Master Volume", masterVolume);
         PlayerPrefs.SetFloat("Sound Volume", soundVolume);
         PlayerPrefs.SetFloat("Sound Effect Volume", musicVolume);
-        PlayerPrefs.SetFloat("Vertical Sensitivity", verticalSensitivity);
-        PlayerPrefs.SetFloat("Horizontal Sensitivity", horizontalSensitivity);
+        PlayerPrefs.SetFloat("Vertical SensitivityZoom", verticalSensitivity);
+        PlayerPrefs.SetFloat("Horizontal SensitivityZoom", horizontalSensitivity);
         PlayerPrefs.SetFloat("Vertical SensitivityNonZoom", verticalSensitivityNonZoom);
         PlayerPrefs.SetFloat("Horizontal SensitivityNonZoom", horizontalSensitivityNonZoom);
         PlayerPrefs.SetInt("FPS Display", fpsIsOn);

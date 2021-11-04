@@ -35,13 +35,15 @@ public class PlayerPullingState : PlayerBaseState
     {
         //base.UpdateLogic();
         PSManager.CalculateMove();
-        PSManager.lookAction.Disable();
+        //PSManager.lookAction.Disable();
 
     }
 
     public override void UpdatePhysics()
     {
         PSManager.Move();
+        PSManager.RotatePlayerModel();
+
 
     }
 }

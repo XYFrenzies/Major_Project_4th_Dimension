@@ -47,8 +47,10 @@ public class PlayerStateManager : MonoBehaviour
 
     [HideInInspector] public Rigidbody rb;
     public CinemachineVirtualCamera cinemachineVCam;
-    //[HideInInspector]
-    public CinemachinePOV vCam;
+    public CinemachineVirtualCamera cinemachineVCamAim;
+
+    [HideInInspector] public CinemachinePOV vCam;
+    [HideInInspector] public CinemachinePOV vCamAim;
 
 
     public GameEvent interacting;
@@ -117,6 +119,7 @@ public class PlayerStateManager : MonoBehaviour
 
         //cinemachineVCam = GetComponent<CinemachineVirtualCamera>();
         vCam = cinemachineVCam.GetCinemachineComponent<CinemachinePOV>();
+        vCamAim = cinemachineVCamAim.GetCinemachineComponent<CinemachinePOV>();
         //vCam.m_HorizontalAxis.m_MaxSpeed = 2f;
     }
 
@@ -388,6 +391,32 @@ public class PlayerStateManager : MonoBehaviour
 
         }
     }
+
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.collider.CompareTag("BigPullObject"))
+            if (inputs.y > 0f)
+            {
+                animator.SetBool("IsPushing", true);
+                Debug.Log("pushing");
+            }
+            else
+            {
+                animator.SetBool("IsPushing", false);
+
+            }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.collider.CompareTag("BigPullObject"))
+        {
+            animator.SetBool("IsPushing", false);
+
+        }
+    }
+
 
 }
 

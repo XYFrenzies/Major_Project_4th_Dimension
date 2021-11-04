@@ -17,17 +17,17 @@ public class VolumeMenu : Singleton<VolumeMenu>
     private float m_musicVolume = 0.0f;
     private float m_soundVolume = 0.0f;
     // Start is called before the first frame update
-    private void Awake()
+    private void Start()
     {
         m_soundVolume = GlobalVariables.Instance.soundVolume;
         m_musicVolume = GlobalVariables.Instance.musicVolume;
         m_masterVolume = GlobalVariables.Instance.masterVolume;
-        m_masterScroll.value = m_masterVolume;
-        m_musicScroll.value = m_musicVolume;
-        m_soundScroll.value = m_soundVolume;
         m_masterScroll.onValueChanged.AddListener(SetMasterVolume);
         m_musicScroll.onValueChanged.AddListener(SetMusicVolume);
         m_soundScroll.onValueChanged.AddListener(SetSoundVolume);
+        m_masterScroll.value = m_masterVolume;
+        m_musicScroll.value = m_musicVolume;
+        m_soundScroll.value = m_soundVolume;
     }
     public void SetMasterVolume(float masterVolLvl)
     {
