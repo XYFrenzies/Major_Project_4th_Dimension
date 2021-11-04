@@ -16,13 +16,23 @@ public class PowerStatus : Singleton<PowerStatus>
     {
         source = GetComponent<AudioSource>();
         if (powerIsOn)
-            m_powerOn.Raise();
-        else
-            m_powerOff.Raise();
-        foreach (var item in lightsInScene)
         {
-            item.color = Color.red;
+            m_powerOn.Raise();
+            foreach (var item in lightsInScene)
+            {
+                item.color = Color.green;
+            }
         }
+        else
+        {
+            m_powerOff.Raise();
+            foreach (var item in lightsInScene)
+            {
+                item.color = Color.red;
+            }
+        }
+
+
     }
     //Can change to collision depending on the collider to the power.
     public void TurnPowerOnOrOff()
