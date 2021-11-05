@@ -12,7 +12,7 @@ public class PowerStatus : Singleton<PowerStatus>
     //public SimpleAudioEvent powerOn;
     //public SimpleAudioEvent powerOff;
 
-    private void Awake()
+    private void Start()
     {
         source = GetComponent<AudioSource>();
         if (powerIsOn)
