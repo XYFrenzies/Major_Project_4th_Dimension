@@ -114,6 +114,7 @@ GameObject:
   - component: {fileID: 8778855264468094492}
   - component: {fileID: 5737104499233142194}
   - component: {fileID: 1986071369750158496}
+  - component: {fileID: 5298954817740336921}
   m_Layer: 0
   m_Name: rockCluster02_LOD1
   m_TagString: Untagged
@@ -184,6 +185,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &5298954817740336921
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2784772853087300865}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.250788, y: 1.3687985, z: 4.1958804}
+  m_Center: {x: -0.0000009536743, y: 0.6663246, z: 0.0000019073486}
 --- !u!1 &4544950589439522536
 GameObject:
   m_ObjectHideFlags: 0
@@ -195,6 +209,7 @@ GameObject:
   - component: {fileID: 2748159285139194473}
   - component: {fileID: 1157605696744835363}
   - component: {fileID: 4975795299193842484}
+  - component: {fileID: 1423413026870591462}
   m_Layer: 0
   m_Name: rockCluster02_LOD0
   m_TagString: Untagged
@@ -265,6 +280,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1423413026870591462
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4544950589439522536}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.250788, y: 1.3752882, z: 4.1958804}
+  m_Center: {x: -0.0000009536743, y: 0.6693884, z: 0.0000019073486}
 --- !u!1 &7024131587293096014
 GameObject:
   m_ObjectHideFlags: 0
@@ -276,6 +304,7 @@ GameObject:
   - component: {fileID: 8094190375232944372}
   - component: {fileID: 6356978261901124509}
   - component: {fileID: 4306434893021510307}
+  - component: {fileID: 8989682557042471705}
   m_Layer: 0
   m_Name: rockCluster02_LOD2
   m_TagString: Untagged
@@ -346,3 +375,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8989682557042471705
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7024131587293096014}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.2479134, y: 1.3687985, z: 4.194934}
+  m_Center: {x: -0.0014382601, y: 0.6663246, z: -0.00047147274}
