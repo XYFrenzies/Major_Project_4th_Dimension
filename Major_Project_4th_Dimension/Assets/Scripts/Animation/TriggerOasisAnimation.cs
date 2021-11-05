@@ -7,6 +7,7 @@ public class TriggerOasisAnimation : MonoBehaviour
     [SerializeField] private List<GameObject> cameras;
     [SerializeField] private GameObject m_playerMoveState;
     [SerializeField] private GameObject m_oasisPlayer;
+    private Animator anim;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +26,11 @@ public class TriggerOasisAnimation : MonoBehaviour
         }
         m_playerMoveState.SetActive(false);
         m_oasisPlayer.SetActive(true);
-        m_oasisPlayer.GetComponent<Animator>().SetBool("endGame", true);
+        anim = m_oasisPlayer.GetComponent<Animator>();
+        anim.SetBool("endGame", true);
+    }
+    private void Update()
+    {
+        //anim
     }
 }

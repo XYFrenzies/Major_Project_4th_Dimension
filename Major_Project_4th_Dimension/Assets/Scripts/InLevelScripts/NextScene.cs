@@ -11,4 +11,8 @@ public class NextScene : MonoBehaviour
         if(other.CompareTag("Player"))
             SceneManager.LoadScene(m_nameOfSceneNext);
     }
+    public void EndGame() 
+    {
+        SceneManager.LoadScene(m_nameOfSceneNext);
+    }
 }
