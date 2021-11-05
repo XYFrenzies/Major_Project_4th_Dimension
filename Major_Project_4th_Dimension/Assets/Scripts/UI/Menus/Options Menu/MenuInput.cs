@@ -36,10 +36,10 @@ public class MenuInput : MonoBehaviour
             nonZoomYSlider.gameObject.SetActive(true);
             zoomYSlider.gameObject.SetActive(true);
 
-            if (GameObject.FindGameObjectWithTag("Player").transform.Find("3rdPersonCinemachine").GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachinePOV>() != null)
-                playerNonZoom = GameObject.FindGameObjectWithTag("Player").transform.Find("3rdPersonCinemachine").GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachinePOV>();
-            if (GameObject.FindGameObjectWithTag("Player").transform.Find("3rdPersonCinemachineAim").GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachinePOV>() != null)
-                playerZoom = GameObject.FindGameObjectWithTag("Player").transform.Find("3rdPersonCinemachineAim").GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachinePOV>();
+            if (GameObject.FindGameObjectWithTag("PlayerFlag").transform.Find("3rdPersonCinemachine").GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachinePOV>() != null)
+                playerNonZoom = GameObject.FindGameObjectWithTag("PlayerFlag").transform.Find("3rdPersonCinemachine").GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachinePOV>();
+            if (GameObject.FindGameObjectWithTag("PlayerFlag").transform.Find("3rdPersonCinemachineAim").GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachinePOV>() != null)
+                playerZoom = GameObject.FindGameObjectWithTag("PlayerFlag").transform.Find("3rdPersonCinemachineAim").GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachinePOV>();
             xAxisNonZoom = GlobalVariables.Instance.verticalSensitivityNonZoom;
             yAxisNonZoom = GlobalVariables.Instance.horizontalSensitivityNonZoom;
             xAxisZoomed = GlobalVariables.Instance.verticalSensitivity;
