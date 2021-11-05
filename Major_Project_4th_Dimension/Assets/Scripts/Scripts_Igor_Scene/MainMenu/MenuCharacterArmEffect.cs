@@ -7,13 +7,16 @@ public class MenuCharacterArmEffect : MonoBehaviour
     public LineRenderer lineRenderer;
     public Transform firePoint;
     public Transform target;
+    //public FireArm arm;
 
-    public void FireArm()
+
+    private void Update()
     {
-        lineRenderer.enabled = true;
-        lineRenderer.positionCount = 2;
-        lineRenderer.SetPosition(0, firePoint.position);
-        lineRenderer.SetPosition(1, target.position);
+        if (lineRenderer.enabled)
+        {
+            lineRenderer.SetPosition(0, firePoint.position);
+            lineRenderer.SetPosition(1, target.position);
 
+        }
     }
 }
