@@ -35,51 +35,52 @@ public class MenuInput : MonoBehaviour
             zoomXSlider.gameObject.SetActive(true);
             nonZoomYSlider.gameObject.SetActive(true);
             zoomYSlider.gameObject.SetActive(true);
+
+            if (GameObject.FindGameObjectWithTag("PlayerFlag").transform.Find("3rdPersonCinemachine").GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachinePOV>() != null)
+                playerNonZoom = GameObject.FindGameObjectWithTag("PlayerFlag").transform.Find("3rdPersonCinemachine").GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachinePOV>();
+            if (GameObject.FindGameObjectWithTag("PlayerFlag").transform.Find("3rdPersonCinemachineAim").GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachinePOV>() != null)
+                playerZoom = GameObject.FindGameObjectWithTag("PlayerFlag").transform.Find("3rdPersonCinemachineAim").GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachinePOV>();
+            xAxisNonZoom = GlobalVariables.Instance.verticalSensitivityNonZoom;
+            yAxisNonZoom = GlobalVariables.Instance.horizontalSensitivityNonZoom;
+            xAxisZoomed = GlobalVariables.Instance.verticalSensitivity;
+            yAxisZoomed = GlobalVariables.Instance.horizontalSensitivity;
+            if (GlobalVariables.Instance.GetMouseActive())
+            {
+                CheckInput.Instance.SetMouse();
+                m_mouseActive = true;
+            }
+            else if (GlobalVariables.Instance.GetGamepadActive())
+            {
+                CheckInput.Instance.SetController();
+                m_mouseActive = false;
+            }
+            if (playerNonZoom != null)
+            {
+                playerNonZoom.m_HorizontalAxis.m_MaxSpeed = yAxisNonZoom;
+                playerNonZoom.m_VerticalAxis.m_MaxSpeed = xAxisNonZoom;
+            }
+            if (playerZoom != null)
+            {
+                playerZoom.m_HorizontalAxis.m_MaxSpeed = yAxisZoomed;
+                playerZoom.m_VerticalAxis.m_MaxSpeed = xAxisZoomed;
+            }
+            nonZoomXSlider.onValueChanged.AddListener(NonZoomedVerticalInput);
+            zoomXSlider.onValueChanged.AddListener(ZoomedVerticalInput);
+            nonZoomYSlider.onValueChanged.AddListener(NonZoomedHorizontalInput);
+            zoomYSlider.onValueChanged.AddListener(ZoomedHorizontalInput);
+            nonZoomXSlider.value = xAxisNonZoom;
+            zoomXSlider.value = xAxisZoomed;
+            nonZoomYSlider.value = yAxisNonZoom;
+            zoomYSlider.value = yAxisZoomed;
         }
 
-        if(GameObject.Find("PlayerGravityGunV2").transform.Find("3rdPersonCinemachine").GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachinePOV>() != null)
-            playerNonZoom = GameObject.Find("PlayerGravityGunV2").transform.Find("3rdPersonCinemachine").GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachinePOV>();
-        if(GameObject.Find("PlayerGravityGunV2").transform.Find("3rdPersonCinemachineAim").GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachinePOV>() != null)
-            playerZoom = GameObject.Find("PlayerGravityGunV2").transform.Find("3rdPersonCinemachineAim").GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachinePOV>();
-        xAxisNonZoom = GlobalVariables.Instance.verticalSensitivityNonZoom;
-        yAxisNonZoom = GlobalVariables.Instance.horizontalSensitivityNonZoom;
-        xAxisZoomed = GlobalVariables.Instance.verticalSensitivity;
-        yAxisZoomed = GlobalVariables.Instance.horizontalSensitivity;
-        if (GlobalVariables.Instance.GetMouseActive())
-        {
-            CheckInput.Instance.SetMouse();
-            m_mouseActive = true;
-        }
-        else if (GlobalVariables.Instance.GetGamepadActive())
-        {
-            CheckInput.Instance.SetController();
-            m_mouseActive = false;
-        }
-        if (playerNonZoom != null)
-        {
-            playerNonZoom.m_HorizontalAxis.m_MaxSpeed = yAxisNonZoom;
-            playerNonZoom.m_VerticalAxis.m_MaxSpeed = xAxisNonZoom;
-        }
-        if (playerZoom != null)
-        {
-            playerZoom.m_HorizontalAxis.m_MaxSpeed = yAxisZoomed;
-            playerZoom.m_VerticalAxis.m_MaxSpeed = xAxisZoomed;
-        }
-        nonZoomXSlider.onValueChanged.AddListener(NonZoomedVerticalInput);
-        zoomXSlider.onValueChanged.AddListener(ZoomedVerticalInput);
-        nonZoomYSlider.onValueChanged.AddListener(NonZoomedHorizontalInput);
-        zoomYSlider.onValueChanged.AddListener(ZoomedHorizontalInput);
-        nonZoomXSlider.value = xAxisNonZoom;
-        zoomXSlider.value = xAxisZoomed;
-        nonZoomYSlider.value = yAxisNonZoom;
-        zoomYSlider.value = yAxisZoomed;
     }
     public void SaveValues()
     {
         playerNonZoom.m_HorizontalAxis.m_MaxSpeed = yAxisNonZoom;
         playerNonZoom.m_VerticalAxis.m_MaxSpeed = xAxisNonZoom;
-       // playerZoom.m_HorizontalAxis.m_MaxSpeed = yAxisZoomed;
-       // playerZoom.m_VerticalAxis.m_MaxSpeed = xAxisZoomed;
+        // playerZoom.m_HorizontalAxis.m_MaxSpeed = yAxisZoomed;
+        // playerZoom.m_VerticalAxis.m_MaxSpeed = xAxisZoomed;
         GlobalVariables.Instance.verticalSensitivityNonZoom = xAxisNonZoom;
         GlobalVariables.Instance.horizontalSensitivityNonZoom = yAxisNonZoom;
         //GlobalVariables.Instance.verticalSensitivity = xAxisZoomed;
@@ -87,17 +88,17 @@ public class MenuInput : MonoBehaviour
         GlobalVariables.Instance.SaveMouseIsOn(m_mouseActive);
         GlobalVariables.Instance.SaveGamepadIsOn(!m_mouseActive);
     }
-    public void ControllerInput() 
+    public void ControllerInput()
     {
         CheckInput.Instance.SetController();
         m_mouseActive = false;
     }
-    public void PCInput() 
+    public void PCInput()
     {
         CheckInput.Instance.SetMouse();
         m_mouseActive = true;
     }
-    public void NonZoomedVerticalInput(float value) 
+    public void NonZoomedVerticalInput(float value)
     {
         xAxisNonZoom = value;
     }
