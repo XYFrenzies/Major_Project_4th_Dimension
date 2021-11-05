@@ -70,7 +70,8 @@ public class PlayerStateManager : MonoBehaviour
     public PlayerPickUpOrPutDownState pickUpOrPutDownState = null;
     public PlayerPullingState pullingState = null;
     public PlayerMissState missState = null;
-
+    [SerializeField] private bool conveyorOnlyPressedOnce = false;
+    private bool conveyorPressed = false;
     private void OnEnable()
     {
         lookAction.Enable();
@@ -196,7 +197,10 @@ public class PlayerStateManager : MonoBehaviour
         }
         else if (isPlayerCloseToConveyorBelt)
         {
-            interactingConveyorSwitch.Raise();
+            if (!conveyorPressed)
+                interactingConveyorSwitch.Raise();
+            if (conveyorOnlyPressedOnce)
+                conveyorPressed = true;
         }
     }
 
@@ -208,7 +212,10 @@ public class PlayerStateManager : MonoBehaviour
 
     public void PlayerIsCloseToSwitchConveyor()
     {
-        isPlayerCloseToConveyorBelt = !isPlayerCloseToConveyorBelt;
+        if (!conveyorPressed)
+            isPlayerCloseToConveyorBelt = !isPlayerCloseToConveyorBelt;
+        if (conveyorPressed)
+            isPlayerCloseToConveyorBelt = false;
     }
 
     public bool GroundCheck()
