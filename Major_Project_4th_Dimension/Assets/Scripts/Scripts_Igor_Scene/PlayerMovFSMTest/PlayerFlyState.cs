@@ -4,16 +4,14 @@ using UnityEngine;
 
 public class PlayerFlyState : PlayerBaseState
 {
-    //private PlayerMovementSM pmStateMan;
-
     public PlayerFlyState(PlayerStateManager psm) : base(psm)
     {
-        //pmStateMan = stateMachine;
+
     }
 
     public override void EnterState()
     {
-        //Debug.Log("Entered fly state");
+
         PSManager.animator.SetBool("IsFlying", true);
         PSManager.arm.lineRenderer.enabled = true;
 
@@ -21,7 +19,7 @@ public class PlayerFlyState : PlayerBaseState
 
     public override void ExitState()
     {
-        //Debug.Log("Exited fly state");
+
         PSManager.animator.SetBool("IsFlying", false);
         PSManager.arm.lineRenderer.enabled = false;
         PSManager.isFlying = false;
