@@ -34,7 +34,7 @@ public class MainMenu : MonoBehaviour
     }
     private void Start()
     {
-        if (CheckInput.Instance.CheckGamePadActiveMenu())
+        if (CheckInput.Instance.CheckGamePadActiveGame())
         {
             m_firstButtonLevelS.GetComponent<Button>().colors = colourSelected;
             EventSystem.current.SetSelectedGameObject(m_firstButtonMain);
@@ -46,7 +46,8 @@ public class MainMenu : MonoBehaviour
     /// </summary>
     private void Update()
     {
-        if (Gamepad.current != null && Gamepad.current.leftStick.IsActuated() && (EventSystem.current.currentSelectedGameObject == null || m_gamePadActive))
+
+        if (CheckInput.Instance.CheckGamePadActiveMenu() && EventSystem.current.currentSelectedGameObject == null)
         {
             if (m_parentMainMenu != null && m_parentMainMenu.activeSelf)
             {
@@ -60,10 +61,9 @@ public class MainMenu : MonoBehaviour
             }
             m_gamePadActive = true;
         }
-        else if (Mouse.current.IsActuated())
+        else if (CheckInput.Instance.CheckMouseActive())
         {
-            if(Gamepad.current != null && !Gamepad.current.leftStick.IsActuated())
-                m_gamePadActive = false;
+            m_gamePadActive = false;
             if (EventSystem.current.alreadySelecting)
             {
                 m_firstButtonLevelS.GetComponent<Button>().colors = naturalState;
@@ -104,7 +104,7 @@ public class MainMenu : MonoBehaviour
             m_firstButtonMain.GetComponent<Button>().colors = colourSelected;
             EventSystem.current.SetSelectedGameObject(m_firstButtonMain);
         }
-        else if (!m_gamePadActive) 
+        else if (!m_gamePadActive)
         {
             m_firstButtonMain.GetComponent<Button>().colors = naturalState;
             EventSystem.current.SetSelectedGameObject(null);
