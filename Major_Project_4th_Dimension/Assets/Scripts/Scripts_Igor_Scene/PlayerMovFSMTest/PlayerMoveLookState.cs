@@ -5,11 +5,11 @@ using UnityEngine.InputSystem;
 
 public class PlayerMoveLookState : PlayerBaseState
 {
-    //private PlayerMovementSM pmStateMan;
+
 
     public PlayerMoveLookState(PlayerStateManager psm) : base(psm)
     {
-        //pmStateMan = stateMachine;
+
     }
 
     public override void EnterState()

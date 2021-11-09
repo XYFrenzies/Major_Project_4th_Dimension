@@ -70,6 +70,7 @@ public class PlayerStateManager : MonoBehaviour
     public PlayerPickUpOrPutDownState pickUpOrPutDownState = null;
     public PlayerPullingState pullingState = null;
     public PlayerMissState missState = null;
+    public PlayerDeathState deathState = null;
     [SerializeField] private bool conveyorOnlyPressedOnce = false;
     private bool conveyorPressed = false;
     private void OnEnable()
@@ -103,6 +104,7 @@ public class PlayerStateManager : MonoBehaviour
         pickUpOrPutDownState = new PlayerPickUpOrPutDownState(this);
         pullingState = new PlayerPullingState(this);
         missState = new PlayerMissState(this);
+        deathState = new PlayerDeathState(this);
 
         cam = Camera.main;
         Cursor.lockState = CursorLockMode.Locked;
@@ -160,7 +162,7 @@ public class PlayerStateManager : MonoBehaviour
     {
         if (currentState != null)
             currentState.UpdateLogic();
-        //Debug.Log(currentState);
+
     }
 
     void FixedUpdate()
@@ -237,7 +239,8 @@ public class PlayerStateManager : MonoBehaviour
 
     public void DeathCheck()
     {
-        animator.SetBool("IsDead", true);
+        //animator.SetBool("IsDead", true);
+        ChangeState(deathState);
     }
     public void NotDying()
     {
@@ -285,12 +288,6 @@ public class PlayerStateManager : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, cam.transform.eulerAngles.y, 0);
     }
 
-    //public void Landed()
-    //{
-    //    Debug.Log("Landed");
-    //    animator.SetBool("IsLanding", false);
-    //    ChangeState(idleState);
-    //}
 
     IEnumerator StopRotationAnim()
     {

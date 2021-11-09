@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 /// <summary>
 /// These are global values that are saved between scenes.
 /// It will also be saving volumes outside of the game so that it will be set for each new start.
@@ -25,8 +26,10 @@ public class GlobalVariables : Singleton<GlobalVariables>
     private Toggle m_interfaceOn;
     private string[] allValues = { "Master Volume", "Sound Volume", "Sound Effect Volume", "Vertical SensitivityZoom",
         "Horizontal SensitivityZoom", "Vertical SensitivityNonZoom", "Horizontal SensitivityNonZoom", "FPS Display", "MouseIsOn" , "GamePadIsOn", "FullScreen", "Resolution", "Quality"};
+    private string m_preSceneNames;
     private void Awake()
     {
+        m_preSceneNames = SceneManager.GetActiveScene().name;
         switch (CheckIfPrefsExist(allValues))
         {
             case true:
@@ -82,6 +85,15 @@ public class GlobalVariables : Singleton<GlobalVariables>
 
         m_interfaceOn.isOn = GetFPSIsOn();
     }
+    public void SaveScene() 
+    {
+        m_preSceneNames = SceneManager.GetActiveScene().name;
+    }
+    public string GetPreScene()
+    {
+        return m_preSceneNames;
+    }
+
     public void SaveVolumes(float a_masterVolume, float a_soundVolume, float a_soundEffectVolume)
     {
         masterVolume = a_masterVolume;
