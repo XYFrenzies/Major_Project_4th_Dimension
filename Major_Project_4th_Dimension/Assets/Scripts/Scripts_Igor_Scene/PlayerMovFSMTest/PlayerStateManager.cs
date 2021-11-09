@@ -387,14 +387,16 @@ public class PlayerStateManager : MonoBehaviour
             }
             else
             {
-                GameEvents.current.GrapplePointNotVisible();
+                if(GameEvents.current != null)
+                    GameEvents.current.GrapplePointNotVisible();
 
             }
 
         }
         else
         {
-            GameEvents.current.GrapplePointNotVisible();
+            if (GameEvents.current != null)
+                GameEvents.current.GrapplePointNotVisible();
 
         }
     }
