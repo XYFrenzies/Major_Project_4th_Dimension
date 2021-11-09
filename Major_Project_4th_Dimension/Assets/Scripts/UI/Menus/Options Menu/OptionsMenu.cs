@@ -14,6 +14,8 @@ public class OptionsMenu : MonoBehaviour
     [SerializeField] private List<GameObject> m_optionsSceneSelect;
     [SerializeField] private GameObject m_mainMenu;
     [SerializeField] private GameObject m_firstButtonMainMenu;
+    [SerializeField] private GameObject objReplacement;
+    [SerializeField] private GameObject orgObj;
     private InputAction m_optionsMenuActionRight;
     private InputAction m_optionsMenuActionLeft;
     private ColorBlock colourSelected;//Changing the ui selection colour
@@ -68,6 +70,11 @@ public class OptionsMenu : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+            m_firstButtonInMenus[3] = orgObj;
+        }
+        else
+        {
+            m_firstButtonInMenus[3] = objReplacement;
         }
     }
     private void OnDisable()

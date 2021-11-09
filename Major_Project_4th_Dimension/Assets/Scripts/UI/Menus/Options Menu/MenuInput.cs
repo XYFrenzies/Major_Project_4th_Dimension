@@ -10,6 +10,7 @@ public class MenuInput : MonoBehaviour
     [SerializeField] private Slider zoomXSlider;
     [SerializeField] private Slider nonZoomYSlider;
     [SerializeField] private Slider zoomYSlider;
+    [SerializeField] private List<GameObject> textObjs;
     private CinemachinePOV playerZoom;
     private CinemachinePOV playerNonZoom;
 
@@ -28,6 +29,10 @@ public class MenuInput : MonoBehaviour
             zoomXSlider.gameObject.SetActive(false);
             nonZoomYSlider.gameObject.SetActive(false);
             zoomYSlider.gameObject.SetActive(false);
+            foreach (var item in textObjs)
+            {
+                item.SetActive(false);
+            }
         }
         else
         {
@@ -35,7 +40,10 @@ public class MenuInput : MonoBehaviour
             zoomXSlider.gameObject.SetActive(true);
             nonZoomYSlider.gameObject.SetActive(true);
             zoomYSlider.gameObject.SetActive(true);
-
+            foreach (var item in textObjs)
+            {
+                item.SetActive(true);
+            }
             if (GameObject.FindGameObjectWithTag("PlayerFlag").transform.Find("3rdPersonCinemachine").GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachinePOV>() != null)
                 playerNonZoom = GameObject.FindGameObjectWithTag("PlayerFlag").transform.Find("3rdPersonCinemachine").GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachinePOV>();
             if (GameObject.FindGameObjectWithTag("PlayerFlag").transform.Find("3rdPersonCinemachineAim").GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachinePOV>() != null)
