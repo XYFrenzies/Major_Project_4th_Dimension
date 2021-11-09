@@ -5,11 +5,11 @@ using TMPro;
 using UnityEngine.UI;
 public class RenderingMenu : Singleton<RenderingMenu>
 {
-    public TMP_Dropdown m_resolutionDropDown;
-    public TMP_Dropdown m_quality;
-    public Toggle m_fullscreen;
-    private Resolution[] m_resolutionsMultiple;
+    [SerializeField] private TMP_Dropdown m_resolutionDropDown;
+    [SerializeField] private TMP_Dropdown m_quality;
+    [SerializeField] private Toggle m_fullscreen;
     [SerializeField] private HDRenderPipelineAsset[] m_qualityChanger;
+    private Resolution[] m_resolutionsMultiple;
     private int m_qualityLevel;
     private int m_resolutionLevel;
     private bool m_isFullScreen = true;
@@ -67,6 +67,11 @@ public class RenderingMenu : Singleton<RenderingMenu>
         #endregion
         m_isFullScreen = GlobalVariables.Instance.GetScreenIsOn();
         m_fullscreen.isOn = m_isFullScreen;
+
+    }
+    private void Start()
+    {
+        
     }
     public void SaveValues()
     {
