@@ -7,14 +7,14 @@ public class GrapplePoint : MonoBehaviour
 {
     Material mat;
     public int id;
-    public Material materialOn;
-    public Material materialOff;
+    //public Material materialOn;
+    //public Material materialOff;
     [SerializeField] private GameObject m_interfaceHookPC;
     [SerializeField] private GameObject m_interfaceHookXbox;
     private bool isOn = false;
     private void Awake()
     {
-        mat = GetComponent<Renderer>().material;
+        //mat = GetComponent<Renderer>().material;
     }
 
     private void Start()
@@ -26,7 +26,7 @@ public class GrapplePoint : MonoBehaviour
     {
         if (id == this.id)
         {
-            mat.color = materialOn.color;
+            //mat.color = materialOn.color;
             ChangeInterfaceType();
             isOn = true;
         }
@@ -42,7 +42,7 @@ public class GrapplePoint : MonoBehaviour
     }
     public void TurnPointOff()
     {
-        mat.color = materialOff.color;
+        //mat.color = materialOff.color;
         m_interfaceHookPC.SetActive(false);
         m_interfaceHookXbox.SetActive(false);
         isOn = false;
