@@ -57,7 +57,7 @@ public class PlayerStateManager : MonoBehaviour
     [SerializeField] private GameEvent interactingConveyorSwitch;
     bool isPlayerCloseEnough = false;
     private bool isPlayerCloseToConveyorBelt = false;
-
+    public bool hasLanded = false;
 
     [HideInInspector]
     public Vector3 flyToTarget;
@@ -162,7 +162,7 @@ public class PlayerStateManager : MonoBehaviour
     {
         if (currentState != null)
             currentState.UpdateLogic();
-
+        Debug.Log(currentState);
     }
 
     void FixedUpdate()
