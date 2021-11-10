@@ -11,7 +11,6 @@ public class PlayerDeathState : PlayerBaseState
 
     public override void EnterState()
     {
-        Debug.Log("Dead");
         PSManager.animator.SetBool("IsDead", true);
     }
 
