@@ -14,7 +14,7 @@ public class PlayerFallingState : PlayerBaseState
     public override void EnterState()
     {
         //base.EnterState();
-        PSManager.animator.SetBool("IsFlying", true);
+        PSManager.animator.SetBool("IsFlying", false);
         //Debug.Log("Entered falling state");
 
     }
@@ -22,18 +22,20 @@ public class PlayerFallingState : PlayerBaseState
     public override void ExitState()
     {
         //Debug.Log("Exited falling state");
-        PSManager.animator.SetBool("IsFlying", false);
+        //PSManager.animator.SetBool("IsFlying", false);
 
-        PSManager.moveAction.Enable();
-        PSManager.lookAction.Enable();
+        //PSManager.moveAction.Enable();
+        //PSManager.lookAction.Enable();
     }
 
     public override void UpdateLogic()
     {
         //base.UpdateLogic();
-        PSManager.ChangeState(PSManager.landingState);
-        PSManager.moveAction.Disable();
-        PSManager.lookAction.Disable();
+        //PSManager.ChangeState(PSManager.landingState);
+        //PSManager.moveAction.Disable();
+        //PSManager.lookAction.Disable();
+        PSManager.CalculateMove();
+
         PSManager.GroundCheck();
         if (PSManager.Grounded)
         {
@@ -44,6 +46,8 @@ public class PlayerFallingState : PlayerBaseState
 
     public override void UpdatePhysics()
     {
+        PSManager.Move();
+        PSManager.RotatePlayerModel();
 
     }
 
