@@ -5,10 +5,9 @@ using UnityEngine.InputSystem;
 
 public class ArmPullState : ArmBaseState
 {
-    //bool isShooting = false;
+
     float initialSpringForce;
-    //private PlayerInput playerInput;
-    //private InputAction shootAction;
+
     float initialMass;
     Rigidbody rb;
     Renderer rend;
@@ -92,7 +91,13 @@ public class ArmPullState : ArmBaseState
             if (Vector3.Distance(armStateMan.transform.position, armStateMan.hitObject.transform.position) > armStateMan.distanceFromPlayerToStopPlaying + radius)
             {
                 if (armStateMan.transform != null && armStateMan.hitObject != null)
+                {
+                    // if (CheckInFront())
                     rb.AddForceAtPosition(Vector3.Normalize(armStateMan.transform.position - armStateMan.hitObject.transform.position) * armStateMan.pullForce, armStateMan.hitPoint, ForceMode.Force);
+                    //else
+                    //armStateMan.SwitchState(armStateMan.idleState);
+
+                }
             }
     }
 
@@ -105,4 +110,25 @@ public class ArmPullState : ArmBaseState
     //    isShooting = false;
 
     //}
+
+    public bool CheckInFront()
+    {
+        Vector3 directionToTarget = armStateMan.transform.position - rb.transform.position;
+        float angle = Vector3.Angle(armStateMan.transform.forward, directionToTarget);
+        float distance = directionToTarget.magnitude;
+
+        if (Mathf.Abs(angle) < 90 /*&& distance < 100*/)
+        {
+            //isVisible = false;
+            Debug.Log("not visible");
+            return false;
+        }
+        else
+        {
+            //isVisible = true;
+            Debug.Log("visible");
+            return true;
+
+        }
+    }
 }
