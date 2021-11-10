@@ -3355,11 +3355,11 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 30
+  near clip plane: 0.1
+  far clip plane: 5000
+  field of view: 45
   orthographic: 0
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -3382,8 +3382,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 495366643}
-  m_LocalRotation: {x: -0.0066119097, y: 0.9922226, z: 0.060382657, w: 0.108648516}
-  m_LocalPosition: {x: -0.6919999, y: 3.784, z: 12.720001}
+  m_LocalRotation: {x: -0.00661192, y: 0.9922226, z: 0.060382765, w: 0.108648494}
+  m_LocalPosition: {x: -1.6058168, y: 1.5891408, z: 42.61935}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -8632,6 +8632,7 @@ MonoBehaviour:
   - {fileID: 1342649907}
   - {fileID: 1253263507}
   - {fileID: 1590625282}
+  - {fileID: 1520440528}
   m_playerMoveState: {fileID: 801557084}
   m_oasisPlayer: {fileID: 1865473706}
 --- !u!135 &1304364980
@@ -10765,7 +10766,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8431453540725934215, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
       propertyPath: m_Lens.m_SensorSize.x
-      value: 1.8990536
+      value: 1.9238477
       objectReference: {fileID: 0}
     - target: {fileID: 8574715640111442752, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
       propertyPath: m_LocalPosition.x
