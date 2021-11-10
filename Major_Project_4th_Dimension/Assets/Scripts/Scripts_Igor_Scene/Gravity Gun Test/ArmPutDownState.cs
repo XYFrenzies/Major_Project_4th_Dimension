@@ -76,7 +76,7 @@ public class ArmPutDownState : ArmBaseState
         armStateMan.hitObject.transform.position = Vector3.MoveTowards(armStateMan.hitObject.transform.position, armStateMan.hitPoint, armStateMan.initialBeamSpeed * Time.deltaTime);
         armStateMan.initialBeamSpeed += armStateMan.beamSpeedAccelModifier / rb.mass;
         //rb.MovePosition(target * 5f * Time.deltaTime);
-        if (Vector3.Distance(armStateMan.hitObject.transform.position, armStateMan.hitPoint) <= 2f)
+        if (Vector3.Distance(armStateMan.hitObject.transform.position, armStateMan.hitPoint) <= 0.5f)
         {
 
             armStateMan.SwitchState(armStateMan.pauseState);

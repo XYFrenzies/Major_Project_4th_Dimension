@@ -13,26 +13,22 @@ public class LevelSelect : MonoBehaviour
     [SerializeField] private GameObject m_levelSelect;
     [SerializeField] private GameObject m_title;
     private string m_levelToSelect;
-    public void LevelToSelect(string name)
+    public void LevelToSelect(string nameofScene)
     {
-        m_levelToSelect = name;
+        m_levelToSelect = nameofScene;
         if (m_playerAnimtion != null)
             m_playerAnimtion.SetBool("playGame", true);
         StartCoroutine(LoadScene());
         m_levelSelect.SetActive(false);
         m_title.SetActive(false);
     }
+    public void LevelToGoToNext(string name) 
+    {
+        GlobalVariables.Instance.SaveScene(name);
+    }
     private IEnumerator LoadScene() 
     {
-        //async = SceneManager.LoadSceneAsync(m_levelToSelect, LoadSceneMode.Additive);
-        //async.allowSceneActivation = false;
-        //while (async.progress < 0.9f)
-        //{
-        //    yield return null;
-        //}
         yield return new WaitForSeconds(m_timeBeforeStartScene);
         SceneManager.LoadScene(m_levelToSelect);
-
-        //async.allowSceneActivation = true;
     }
 }

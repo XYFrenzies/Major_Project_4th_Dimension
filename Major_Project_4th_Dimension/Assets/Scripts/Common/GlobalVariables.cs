@@ -26,7 +26,7 @@ public class GlobalVariables : Singleton<GlobalVariables>
     private Toggle m_interfaceOn;
     private string[] allValues = { "Master Volume", "Sound Volume", "Sound Effect Volume", "Vertical SensitivityZoom",
         "Horizontal SensitivityZoom", "Vertical SensitivityNonZoom", "Horizontal SensitivityNonZoom", "FPS Display", "MouseIsOn" , "GamePadIsOn", "FullScreen", "Resolution", "Quality"};
-    private string m_preSceneNames;
+    [HideInInspector]public string m_preSceneNames;
     private void Awake()
     {
         m_preSceneNames = SceneManager.GetActiveScene().name;
@@ -63,8 +63,10 @@ public class GlobalVariables : Singleton<GlobalVariables>
                 PlayerPrefs.SetInt("FullScreen", m_isFullscreen);
                 break;
         }
-        m_interfaceOn = InterfaceMenu.Instance.fpsCounter;
-        m_audioMixer = VolumeMenu.Instance.m_audioMixer;
+        if(InterfaceMenu.Instance != null)
+            m_interfaceOn = InterfaceMenu.Instance.fpsCounter;
+        if(VolumeMenu.Instance != null)
+            m_audioMixer = VolumeMenu.Instance.m_audioMixer;
         DontDestroyOnLoad(gameObject);
 
     }
@@ -79,15 +81,18 @@ public class GlobalVariables : Singleton<GlobalVariables>
     }
     private void Start()
     {
-        m_audioMixer.SetFloat("MasterVol", Mathf.Log10(masterVolume) * 30.0f);
-        m_audioMixer.SetFloat("MusicVol", Mathf.Log10(soundVolume) * 30.0f);
-        m_audioMixer.SetFloat("SFXVol", Mathf.Log10(musicVolume) * 30.0f);
-
-        m_interfaceOn.isOn = GetFPSIsOn();
+        if (VolumeMenu.Instance != null)
+        {
+            m_audioMixer.SetFloat("MasterVol", Mathf.Log10(masterVolume) * 30.0f);
+            m_audioMixer.SetFloat("MusicVol", Mathf.Log10(soundVolume) * 30.0f);
+            m_audioMixer.SetFloat("SFXVol", Mathf.Log10(musicVolume) * 30.0f);
+        }
+        if (InterfaceMenu.Instance != null)
+            m_interfaceOn.isOn = GetFPSIsOn();
     }
-    public void SaveScene() 
+    public void SaveScene(string name) 
     {
-        m_preSceneNames = SceneManager.GetActiveScene().name;
+        m_preSceneNames = name;
     }
     public string GetPreScene()
     {
