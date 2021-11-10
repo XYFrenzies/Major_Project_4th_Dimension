@@ -55,13 +55,14 @@ public class TransitionScenes : MonoBehaviour
     }
     private IEnumerator LoadNewScene() 
     {
+        yield return new WaitForEndOfFrame();
         AsyncOperation async = SceneManager.LoadSceneAsync(m_nameOfScene);
-        while (!async.isDone)
+        while (async.progress < 1)
         {
             float progress = Mathf.Clamp01(async.progress / 0.9f);
             m_slider.value = progress;
             m_percentageText.text = progress * 100f + "%";
-            yield return null;
+            yield return new WaitForEndOfFrame();
         }
     }
 }

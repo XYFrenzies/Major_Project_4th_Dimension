@@ -81,11 +81,14 @@ public class GlobalVariables : Singleton<GlobalVariables>
     }
     private void Start()
     {
-        m_audioMixer.SetFloat("MasterVol", Mathf.Log10(masterVolume) * 30.0f);
-        m_audioMixer.SetFloat("MusicVol", Mathf.Log10(soundVolume) * 30.0f);
-        m_audioMixer.SetFloat("SFXVol", Mathf.Log10(musicVolume) * 30.0f);
-
-        m_interfaceOn.isOn = GetFPSIsOn();
+        if (VolumeMenu.Instance != null)
+        {
+            m_audioMixer.SetFloat("MasterVol", Mathf.Log10(masterVolume) * 30.0f);
+            m_audioMixer.SetFloat("MusicVol", Mathf.Log10(soundVolume) * 30.0f);
+            m_audioMixer.SetFloat("SFXVol", Mathf.Log10(musicVolume) * 30.0f);
+        }
+        if (InterfaceMenu.Instance != null)
+            m_interfaceOn.isOn = GetFPSIsOn();
     }
     public void SaveScene(string name) 
     {
