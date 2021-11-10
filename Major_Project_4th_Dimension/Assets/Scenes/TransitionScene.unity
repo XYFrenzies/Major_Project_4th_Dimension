@@ -679,7 +679,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Percent %
+  m_Text: 0%
 --- !u!222 &1398808767
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -688,62 +688,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1398808764}
   m_CullTransparentMesh: 1
---- !u!1 &1400557512
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1400557513}
-  - component: {fileID: 1400557514}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1400557513
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1400557512}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 818.60376, y: 370.38574, z: -3430.5293}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1400557514
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1400557512}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbab9541f728378408fc5ce749d948b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  masterVolume: 0.2
-  soundVolume: 0.2
-  musicVolume: 0.2
-  verticalSensitivity: 0.2
-  horizontalSensitivity: 0.2
-  verticalSensitivityNonZoom: 0.1
-  horizontalSensitivityNonZoom: 0.1
-  fpsIsOn: 1
-  gamepadIsOn: 1
-  mouseIsOn: 0
-  m_qualityDisplayInt: 2
-  m_resolutionInt: 0
-  m_isFullscreen: 0
 --- !u!1 &1619783744
 GameObject:
   m_ObjectHideFlags: 0

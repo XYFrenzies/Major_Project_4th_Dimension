@@ -19,7 +19,8 @@ public class TransitionScenes : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
-        m_nameOfScene = GlobalVariables.Instance.GetPreScene();
+        if (GlobalVariables.Instance != null)
+            m_nameOfScene = GlobalVariables.Instance.GetPreScene();
         if (m_nameOfScene == SceneManager.GetActiveScene().name || m_nameOfScene == null || m_nameOfScene == "")
             m_nameOfScene = "Level_01";
         switch (m_nameOfScene) 
@@ -57,15 +58,20 @@ public class TransitionScenes : MonoBehaviour
     }
     private IEnumerator LoadNewScene() 
     {
-        yield return new WaitForEndOfFrame();
         AsyncOperation async = SceneManager.LoadSceneAsync(m_nameOfScene);
-        while (async.progress < 1)
+        async.allowSceneActivation = false;
+        while (!async.isDone)
         {
             m_alreadyLoaded = true;
             float progress = Mathf.Clamp01(async.progress / 0.9f);
             m_slider.value = progress;
             m_percentageText.text = progress * 100f + "%";
-            yield return new WaitForEndOfFrame();
+            if (async.progress == 0.9f)
+            {
+                m_slider.value = 1f;
+                async.allowSceneActivation = true;
+            }
+            yield return null;
         }
     }
 }
