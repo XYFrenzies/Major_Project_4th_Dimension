@@ -29,8 +29,4 @@ public class TriggerOasisAnimation : MonoBehaviour
         anim = m_oasisPlayer.GetComponent<Animator>();
         anim.SetBool("endGame", true);
     }
-    private void Update()
-    {
-        //anim
-    }
 }

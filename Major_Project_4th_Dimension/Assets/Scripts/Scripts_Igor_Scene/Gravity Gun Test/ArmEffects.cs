@@ -34,7 +34,7 @@ public class ArmEffects : MonoBehaviour
 
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         if ((isShooting && arm.currentState != arm.pauseState) || arm.currentState == arm.grappleState)
         {           
