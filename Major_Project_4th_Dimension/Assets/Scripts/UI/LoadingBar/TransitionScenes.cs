@@ -15,11 +15,12 @@ public class TransitionScenes : MonoBehaviour
     [SerializeField] private List<string> m_oasisFacts;
     private string m_nameOfScene;
     private string m_randQuote;
+    private bool m_alreadyLoaded = false;
     // Start is called before the first frame update
     private void Awake()
     {
         m_nameOfScene = GlobalVariables.Instance.GetPreScene();
-        if (m_nameOfScene == SceneManager.GetActiveScene().name || m_nameOfScene == null)
+        if (m_nameOfScene == SceneManager.GetActiveScene().name || m_nameOfScene == null || m_nameOfScene == "")
             m_nameOfScene = "Level_01";
         switch (m_nameOfScene) 
         {
@@ -51,6 +52,7 @@ public class TransitionScenes : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if(!m_alreadyLoaded)
         StartCoroutine(LoadNewScene());
     }
     private IEnumerator LoadNewScene() 
@@ -59,6 +61,7 @@ public class TransitionScenes : MonoBehaviour
         AsyncOperation async = SceneManager.LoadSceneAsync(m_nameOfScene);
         while (async.progress < 1)
         {
+            m_alreadyLoaded = true;
             float progress = Mathf.Clamp01(async.progress / 0.9f);
             m_slider.value = progress;
             m_percentageText.text = progress * 100f + "%";
