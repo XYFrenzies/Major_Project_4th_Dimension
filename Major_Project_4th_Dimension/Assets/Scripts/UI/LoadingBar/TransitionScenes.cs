@@ -58,6 +58,7 @@ public class TransitionScenes : MonoBehaviour
     }
     private IEnumerator LoadNewScene() 
     {
+        yield return new WaitForEndOfFrame();
         AsyncOperation async = SceneManager.LoadSceneAsync(m_nameOfScene);
         async.allowSceneActivation = false;
         while (!async.isDone)
