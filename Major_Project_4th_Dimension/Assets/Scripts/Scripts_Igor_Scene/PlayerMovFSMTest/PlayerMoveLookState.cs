@@ -31,6 +31,9 @@ public class PlayerMoveLookState : PlayerBaseState
         PSManager.CalculateMove();
         CheckForNoMovement();
         PSManager.GroundCheck();
+        if (!PSManager.Grounded)
+            PSManager.ChangeState(PSManager.fallingState);
+
         PSManager.LookAtGrapplePoints();
         //PSManager.CheckIfPushing();
     }
@@ -51,6 +54,6 @@ public class PlayerMoveLookState : PlayerBaseState
             PSManager.ChangeState(PSManager.idleState);
     }
 
-   
+
 
 }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5119166985828000903}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GameManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49,11 +49,15 @@ MonoBehaviour:
   musicVolume: 0
   verticalSensitivity: 0.2
   horizontalSensitivity: 0.2
+  verticalSensitivityNonZoom: 0.1
+  horizontalSensitivityNonZoom: 0.1
   fpsIsOn: 1
   gamepadIsOn: 1
   mouseIsOn: 0
   m_qualityDisplayInt: 2
   m_resolutionInt: 0
+  m_isFullscreen: 0
+  m_preSceneNames: 
 --- !u!114 &5119166985828000903
 MonoBehaviour:
   m_ObjectHideFlags: 0

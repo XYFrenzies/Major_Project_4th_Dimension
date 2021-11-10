@@ -22,6 +22,7 @@ public class PlayerLandingState : PlayerBaseState
     {
         //Debug.Log("Exited landing state");
         //PSManager.ChangeState(PSManager.idleState);
+        PSManager.hasLanded = false;
     }
 
     public override void UpdateLogic()
@@ -29,7 +30,8 @@ public class PlayerLandingState : PlayerBaseState
         //base.UpdateLogic();
         //PSManager.GroundCheck();
         // if(PSManager.Grounded)
-        PSManager.ChangeState(PSManager.idleState);
+        if (PSManager.hasLanded)
+            PSManager.ChangeState(PSManager.idleState);
     }
 
     public override void UpdatePhysics()
