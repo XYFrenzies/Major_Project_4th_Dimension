@@ -384,7 +384,7 @@ public class PlayerStateManager : MonoBehaviour
             }
             else
             {
-                if(GameEvents.current != null)
+                if (GameEvents.current != null)
                     GameEvents.current.GrapplePointNotVisible();
 
             }
@@ -401,11 +401,20 @@ public class PlayerStateManager : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
+        Ray rayF = new Ray(transform.position, Vector3.forward); // Shoot a ray forward
+        Ray rayB = new Ray(transform.position, Vector3.back); // Shoot a ray back
+        RaycastHit hitF;
+        RaycastHit hitB;
+
         if (collision.collider.CompareTag("BigPullObject"))
             if (inputs.y > 0f)
             {
-                animator.SetBool("IsPushing", true);
-                Debug.Log("pushing");
+                //Debug.DrawRay(transform.position, Vector3.forward * 3f, Color.red);
+                if (Physics.Raycast(rayF, out hitF, 1.5f) || Physics.Raycast(rayB, out hitB, 1.5f))
+                {
+                    animator.SetBool("IsPushing", true);
+                    Debug.Log("pushing");
+                }
             }
             else
             {
