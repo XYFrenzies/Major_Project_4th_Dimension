@@ -29,6 +29,14 @@ public class GlobalVariables : Singleton<GlobalVariables>
         "Horizontal SensitivityZoom", "Vertical SensitivityNonZoom", "Horizontal SensitivityNonZoom", "FPS Display", "MouseIsOn" , "GamePadIsOn", "FullScreen", "Resolution", "Quality"};
     private void Awake()
     {
+        GameObject[] amount = GameObject.FindGameObjectsWithTag("GameManager");
+        if (amount.Length > 1)
+        {
+            for (int i = 1; i < amount.Length; i++)
+            {
+                amount[i].SetActive(false);
+            }
+        }
         switch (CheckIfPrefsExist(allValues))
         {
             case true:
