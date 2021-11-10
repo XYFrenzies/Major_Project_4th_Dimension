@@ -138,6 +138,7 @@ public class PauseMenu : Singleton<PauseMenu>
     //Returns the player to the main menu
     public void ReturnToMenu(string nameOfScene)
     {
+        GlobalVariables.Instance.SaveScene("MainMenu");
         Time.timeScale = 1;
         SceneManager.LoadScene(nameOfScene);
     }
