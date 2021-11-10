@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 /// //playGame
 public class LevelSelect : MonoBehaviour
 {
-    [SerializeField] private Animator m_playerAnimtion;
+    [SerializeField] private Animator m_playerAnimation;
     [SerializeField] private float m_timeBeforeStartScene;
     [SerializeField] private GameObject m_levelSelect;
     [SerializeField] private GameObject m_title;
@@ -16,8 +16,8 @@ public class LevelSelect : MonoBehaviour
     public void LevelToSelect(string nameofScene)
     {
         m_levelToSelect = nameofScene;
-        if (m_playerAnimtion != null)
-            m_playerAnimtion.SetBool("playGame", true);
+        if (m_playerAnimation != null)
+            m_playerAnimation.SetBool("playGame", true);
         StartCoroutine(LoadScene());
         m_levelSelect.SetActive(false);
         m_title.SetActive(false);

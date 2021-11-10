@@ -22,14 +22,13 @@ public class GlobalVariables : Singleton<GlobalVariables>
     [HideInInspector] public int m_qualityDisplayInt = 2;
     [HideInInspector] public int m_resolutionInt = 0;
     [HideInInspector] public int m_isFullscreen = 0;
+    [HideInInspector] public string m_preSceneNames;
     private AudioMixer m_audioMixer;
     private Toggle m_interfaceOn;
     private string[] allValues = { "Master Volume", "Sound Volume", "Sound Effect Volume", "Vertical SensitivityZoom",
         "Horizontal SensitivityZoom", "Vertical SensitivityNonZoom", "Horizontal SensitivityNonZoom", "FPS Display", "MouseIsOn" , "GamePadIsOn", "FullScreen", "Resolution", "Quality"};
-    [HideInInspector]public string m_preSceneNames;
     private void Awake()
     {
-        m_preSceneNames = SceneManager.GetActiveScene().name;
         switch (CheckIfPrefsExist(allValues))
         {
             case true:
