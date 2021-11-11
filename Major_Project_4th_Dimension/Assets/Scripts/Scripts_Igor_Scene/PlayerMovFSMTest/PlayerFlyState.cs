@@ -32,11 +32,11 @@ public class PlayerFlyState : PlayerBaseState
     public override void UpdateLogic()
     {
         PSManager.lookAction.Disable();
-        Fly(PSManager.flyToTarget);
     }
 
     public override void UpdatePhysics()
     {
+        Fly(PSManager.flyToTarget);
     }
 
     public void Fly(Vector3 target)

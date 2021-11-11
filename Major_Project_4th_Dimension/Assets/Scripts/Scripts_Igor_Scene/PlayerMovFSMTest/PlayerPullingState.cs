@@ -18,7 +18,7 @@ public class PlayerPullingState : PlayerBaseState
         //PSManager.animator.SetBool("IsPulling", true);
         PSManager.animator.SetBool("IsShooting", true);
         PSManager.animator.SetBool("IsPulling", true);
-
+        PSManager.animator.SetLayerWeight(3, 1f);
     }
 
     public override void ExitState()
@@ -27,6 +27,7 @@ public class PlayerPullingState : PlayerBaseState
         //PSManager.animator.SetBool("IsPulling", false);
         PSManager.animator.SetBool("IsShooting", false);
         PSManager.animator.SetBool("IsPulling", false);
+        PSManager.animator.SetLayerWeight(3, 0f);
 
 
     }
