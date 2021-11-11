@@ -2301,7 +2301,6 @@ MonoBehaviour:
   m_Script: {fileID: 1273532306}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Entries: []
 --- !u!4 &33839692
 Transform:
   m_ObjectHideFlags: 19
@@ -38181,6 +38180,18 @@ PrefabInstance:
     - target: {fileID: 3096627470465845422, guid: 2f5db0dbcca1def40a4ccdc0e8badd20, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197357616513291924, guid: 2f5db0dbcca1def40a4ccdc0e8badd20, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197357616513291924, guid: 2f5db0dbcca1def40a4ccdc0e8badd20, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: f5afbf3bacd2c204b87ce6f79a20fadb, type: 3}
+    - target: {fileID: 8197357616513291924, guid: 2f5db0dbcca1def40a4ccdc0e8badd20, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8700069749185577221, guid: 2f5db0dbcca1def40a4ccdc0e8badd20, type: 3}
       propertyPath: playMusic
@@ -86615,6 +86626,10 @@ PrefabInstance:
       objectReference: {fileID: 415344653}
     - target: {fileID: 8000579788626801443, guid: b4f269ae58c4e2f418b14a0db3113322, type: 3}
       propertyPath: m_playerAnimtion
+      value: 
+      objectReference: {fileID: 2046686706}
+    - target: {fileID: 8000579788626801443, guid: b4f269ae58c4e2f418b14a0db3113322, type: 3}
+      propertyPath: m_playerAnimation
       value: 
       objectReference: {fileID: 2046686706}
     - target: {fileID: 8000579788626801445, guid: b4f269ae58c4e2f418b14a0db3113322, type: 3}
