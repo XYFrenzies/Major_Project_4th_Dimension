@@ -38,23 +38,28 @@ public class TransitionScenes : MonoBehaviour
         {
             case "MainMenu":
                 m_randQuote = SceneFacts(m_mainMenuFacts);
-                backgroundImg.sprite = SceneFacts(m_mainMenuImages);
+                if(m_mainMenuImages.Count != 0)
+                    backgroundImg.sprite = SceneFacts(m_mainMenuImages);
                 break;
             case "Level_01":
                 m_randQuote = SceneFacts(m_firstLevelFacts);
-                backgroundImg.sprite = SceneFacts(m_firstLevelImages);
+                if (m_firstLevelImages.Count != 0)
+                    backgroundImg.sprite = SceneFacts(m_firstLevelImages);
                 break;
             case "Level_02":
                 m_randQuote = SceneFacts(m_secondLevelFacts);
-                backgroundImg.sprite = SceneFacts(m_secondLevelImages);
+                if (m_secondLevelImages.Count != 0)
+                    backgroundImg.sprite = SceneFacts(m_secondLevelImages);
                 break;
             case "Level_03":
                 m_randQuote = SceneFacts(m_thirdLevelFacts);
-                backgroundImg.sprite = SceneFacts(m_thirdLevelImages);
+                if (m_thirdLevelImages.Count != 0)
+                    backgroundImg.sprite = SceneFacts(m_thirdLevelImages);
                 break;
             case "Oasis":
                 m_randQuote = SceneFacts(m_oasisFacts);
-                backgroundImg.sprite = SceneFacts(m_oasisImages);
+                if (m_oasisImages.Count != 0)
+                    backgroundImg.sprite = SceneFacts(m_oasisImages);
                 break;
         }
         m_randQuoteTxt.text = m_randQuote;
