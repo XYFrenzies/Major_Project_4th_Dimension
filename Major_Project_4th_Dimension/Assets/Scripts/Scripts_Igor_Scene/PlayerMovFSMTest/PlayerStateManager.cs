@@ -162,7 +162,7 @@ public class PlayerStateManager : MonoBehaviour
     {
         if (currentState != null)
             currentState.UpdateLogic();
-        Debug.Log(currentState);
+        //Debug.Log(currentState);
     }
 
     void FixedUpdate()
@@ -209,15 +209,15 @@ public class PlayerStateManager : MonoBehaviour
     public void ChangeIsPlayerCloseEnough()
     {
         isPlayerCloseEnough = !isPlayerCloseEnough;
-        Debug.Log(isPlayerCloseEnough);
+        //Debug.Log(isPlayerCloseEnough);
     }
 
     public void PlayerIsCloseToSwitchConveyor()
     {
-        if (!conveyorPressed)
+        //if (!conveyorPressed)
             isPlayerCloseToConveyorBelt = !isPlayerCloseToConveyorBelt;
-        if (conveyorPressed)
-            isPlayerCloseToConveyorBelt = false;
+        //if (conveyorPressed)
+            //isPlayerCloseToConveyorBelt = false;
     }
 
     public bool GroundCheck()

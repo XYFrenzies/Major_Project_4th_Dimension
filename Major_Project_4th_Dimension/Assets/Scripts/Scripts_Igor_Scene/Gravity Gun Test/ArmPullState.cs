@@ -50,7 +50,9 @@ public class ArmPullState : ArmBaseState
         //initialMass = rb.mass;
         //rb.mass = 0.1f;
         //currentHookShotState = HookShotState.Pull;
-
+        rb.constraints = RigidbodyConstraints.None;
+        //rb.constraints = RigidbodyConstraints.FreezePositionY;
+        rb.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
         ///////////////////////////
         //armStateMan.player.currentState = PlayerControllerCinemachineLook2.State.Normal;
         armStateMan.playerSM.ChangeState(armStateMan.playerSM.pullingState);
@@ -59,6 +61,8 @@ public class ArmPullState : ArmBaseState
 
     public override void ExitState()
     {
+        rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY;
+
         //armStateMan.shootAction.performed -= Shoot;
         //armStateMan.shootAction.canceled -= NotShoot;
         //hand.transform.SetParent(armStateMan.transform);

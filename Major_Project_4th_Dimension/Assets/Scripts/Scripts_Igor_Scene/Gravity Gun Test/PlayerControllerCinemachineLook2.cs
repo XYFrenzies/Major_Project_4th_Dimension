@@ -126,7 +126,7 @@ public class PlayerControllerCinemachineLook2 : MonoBehaviour
     public void ChangeIsPlayerCloseEnough()
     {
         isPlayerCloseEnough = !isPlayerCloseEnough;
-        Debug.Log(isPlayerCloseEnough);
+        //Debug.Log(isPlayerCloseEnough);
     }
 
     public void PlayerIsCloseToSwitchConveyor()
