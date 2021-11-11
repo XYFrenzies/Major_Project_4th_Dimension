@@ -31,11 +31,13 @@ public class CheckInput : Singleton<CheckInput>
         {
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Confined;
+            m_mouseIsActive = false;
         }
         else 
         {
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
+            m_mouseIsActive = true;
         }
     }
     public void SetController()
