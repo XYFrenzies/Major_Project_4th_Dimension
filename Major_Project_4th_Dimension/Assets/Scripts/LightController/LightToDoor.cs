@@ -2,18 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum LightState 
-{
-    Red,
-    Green,
-    Yellow
-}
 public class LightToDoor : MonoBehaviour
 {
-
-    public Light spotLightInScene;
-    public Light pointLightInScene;
-    public int eventID;
+    [SerializeField]private Light spotLightInScene;
+    [SerializeField]private Light pointLightInScene;
     private void Awake()
     {
         if (spotLightInScene == null)

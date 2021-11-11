@@ -21,22 +21,23 @@ public class PlayerFlyState : PlayerBaseState
     {
 
         PSManager.animator.SetBool("IsFlying", false);
-        PSManager.arm.lineRenderer.enabled = false;
+        PSManager.animator.SetBool("IsHanging", true);
+        //PSManager.arm.lineRenderer.enabled = false;
         PSManager.isFlying = false;
         //PSManager.headRig.weight = 1f;
-        PSManager.rb.useGravity = true;
-        PSManager.lookAction.Enable();
+        //PSManager.rb.useGravity = true;
+        //PSManager.lookAction.Enable();
 
     }
 
     public override void UpdateLogic()
     {
         PSManager.lookAction.Disable();
-        Fly(PSManager.flyToTarget);
     }
 
     public override void UpdatePhysics()
     {
+        Fly(PSManager.flyToTarget);
     }
 
     public void Fly(Vector3 target)
@@ -58,7 +59,7 @@ public class PlayerFlyState : PlayerBaseState
             //chainShoot.fly = false;
             //chainShoot.ReturnHand();
             //pmStateMan.currentState = State.Normal;
-            PSManager.ChangeState(PSManager.fallingState);
+            PSManager.ChangeState(PSManager.hangState);
             //armRig.weight = 1f;
             //Debug.Log(chainShoot.currentHookShotState);
 

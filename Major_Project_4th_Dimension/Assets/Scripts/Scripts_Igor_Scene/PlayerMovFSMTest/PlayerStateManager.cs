@@ -71,6 +71,8 @@ public class PlayerStateManager : MonoBehaviour
     public PlayerPullingState pullingState = null;
     public PlayerMissState missState = null;
     public PlayerDeathState deathState = null;
+    public PlayerHangState hangState = null;
+
     [SerializeField] private bool conveyorOnlyPressedOnce = false;
     private bool conveyorPressed = false;
     private void OnEnable()
@@ -105,6 +107,7 @@ public class PlayerStateManager : MonoBehaviour
         pullingState = new PlayerPullingState(this);
         missState = new PlayerMissState(this);
         deathState = new PlayerDeathState(this);
+        hangState = new PlayerHangState(this);
 
         cam = Camera.main;
         Cursor.lockState = CursorLockMode.Locked;
@@ -162,7 +165,7 @@ public class PlayerStateManager : MonoBehaviour
     {
         if (currentState != null)
             currentState.UpdateLogic();
-        Debug.Log(currentState);
+        //Debug.Log(currentState);
     }
 
     void FixedUpdate()
@@ -209,23 +212,24 @@ public class PlayerStateManager : MonoBehaviour
     public void ChangeIsPlayerCloseEnough()
     {
         isPlayerCloseEnough = !isPlayerCloseEnough;
-        Debug.Log(isPlayerCloseEnough);
+        //Debug.Log(isPlayerCloseEnough);
     }
 
     public void PlayerIsCloseToSwitchConveyor()
     {
-        if (!conveyorPressed)
-            isPlayerCloseToConveyorBelt = !isPlayerCloseToConveyorBelt;
-        if (conveyorPressed)
-            isPlayerCloseToConveyorBelt = false;
+        //if (!conveyorPressed)
+        isPlayerCloseToConveyorBelt = !isPlayerCloseToConveyorBelt;
+        //if (conveyorPressed)
+        //isPlayerCloseToConveyorBelt = false;
     }
 
     public bool GroundCheck()
     {
         Ray ray = new Ray(transform.position, Vector3.down); // Shoot a ray down
+
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, 1.5f)) // If the ray hits the ground
+        if (Physics.SphereCast(ray, 0.25f, out hit, 1.5f)) // If the ray hits the ground
         {
             Grounded = true; // is the player on the ground?
             //animator.SetBool("IsGrounded", false);
@@ -401,23 +405,28 @@ public class PlayerStateManager : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
-        Ray ray = new Ray(transform.position, Vector3.down); // Shoot a ray down
+        Ray ray = new Ray(transform.position, transform.forward); // Shoot a ray down
         RaycastHit hit;
-
+        Debug.DrawRay(ray.origin, ray.direction * 5f, Color.green);
 
         if (collision.collider.CompareTag("BigPullObject"))
             if (inputs.y > 0f)
             {
-                if (Physics.Raycast(ray, out hit, 1.5f))
+                if (Physics.SphereCast(ray, 0.25f, out hit, 1.5f))
                 {
-                    if (!hit.collider.CompareTag("BigPullObject"))
-                        animator.SetBool("IsPushing", true);
+                    // if (!hit.collider.CompareTag("BigPullObject"))
+                    collision.collider.attachedRigidbody.constraints = RigidbodyConstraints.FreezeRotation;
+                    animator.SetBool("IsPushing", true);
                     Debug.Log("pushing");
+
                 }
             }
             else
             {
                 animator.SetBool("IsPushing", false);
+                collision.collider.attachedRigidbody.constraints = RigidbodyConstraints.None;
+                collision.collider.attachedRigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+
 
             }
     }

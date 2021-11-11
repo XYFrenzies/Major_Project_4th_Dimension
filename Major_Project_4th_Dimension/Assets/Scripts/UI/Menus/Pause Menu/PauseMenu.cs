@@ -16,6 +16,7 @@ public class PauseMenu : Singleton<PauseMenu>
     [SerializeField] private GameObject m_optionsUI = null;//Options menu obj
     [SerializeField] private GameObject m_fsPauseMenu = null;//Checking object first selected in pause menu
     private InputAction pauseMenuAction;//Checks if the input has been called for the pause menu
+    private InputAction unPauseMenuAction;//Checks if the input has been called for the pause menu
     private InputAction pauseGamepad;//Checks if the b button has been pressed on the controller.
     [HideInInspector]public bool isPaused = false;//Checks if the game has been paused
     private ColorBlock colourSelected;//Changing the ui selection colour
@@ -98,6 +99,8 @@ public class PauseMenu : Singleton<PauseMenu>
         if (UIManager.Instance != null)
             manager.SetActive(false);
         playerInput.SwitchCurrentActionMap("Menu");
+        unPauseMenuAction = playerInput.actions["UnPause"];
+        unPauseMenuAction.performed += Pause;
         pauseGamepad = playerInput.actions["PauseMoveController"];
         //Setting the cursor to visible, timescale = 0, cursor is not locked, changing menus and checking the initial input.
         Cursor.visible = true;
@@ -120,6 +123,7 @@ public class PauseMenu : Singleton<PauseMenu>
     public void ResumeGame()
     {
         playerInput.SwitchCurrentActionMap("Player");
+        unPauseMenuAction.performed -= Pause;
         isPaused = false;
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;

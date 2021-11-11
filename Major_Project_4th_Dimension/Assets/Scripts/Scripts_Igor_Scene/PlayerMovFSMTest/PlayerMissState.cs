@@ -14,6 +14,7 @@ public class PlayerMissState : PlayerBaseState
         //base.EnterState();
         //Debug.Log("Entered miss state");
         //PSManager.animator.SetBool("IsShooting", true);
+        PSManager.animator.SetLayerWeight(2, 1f);
 
     }
 
@@ -21,6 +22,7 @@ public class PlayerMissState : PlayerBaseState
     {
         //Debug.Log("Exited miss state");
         //PSManager.animator.SetBool("IsShooting", false);
+        PSManager.animator.SetLayerWeight(2, 0f);
 
     }
 

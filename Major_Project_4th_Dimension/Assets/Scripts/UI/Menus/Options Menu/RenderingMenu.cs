@@ -69,10 +69,6 @@ public class RenderingMenu : Singleton<RenderingMenu>
         m_fullscreen.isOn = m_isFullScreen;
 
     }
-    private void Start()
-    {
-        
-    }
     public void SaveValues()
     {
         Resolution resolution = m_resolutionsMultiple[m_resolutionLevel];
