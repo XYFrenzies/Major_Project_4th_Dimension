@@ -34,6 +34,7 @@ public class MainMenu : MonoBehaviour
     }
     private void Start()
     {
+        CheckInput.Instance.GamePadActive();
         if (CheckInput.Instance.CheckGamePadActiveGame())
         {
             m_firstButtonLevelS.GetComponent<Button>().colors = colourSelected;
@@ -47,7 +48,7 @@ public class MainMenu : MonoBehaviour
     private void Update()
     {
 
-        if (CheckInput.Instance.CheckGamePadActiveMenu() && EventSystem.current.currentSelectedGameObject == null)
+        if (CheckInput.Instance.CheckGamePadActiveGame() && EventSystem.current.currentSelectedGameObject == null)
         {
             if (m_parentMainMenu != null && m_parentMainMenu.activeSelf)
             {
