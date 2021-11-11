@@ -412,6 +412,7 @@ public class PlayerStateManager : MonoBehaviour
                 if (Physics.SphereCast(ray, 0.25f, out hit, 1.5f))
                 {
                     // if (!hit.collider.CompareTag("BigPullObject"))
+                    collision.collider.attachedRigidbody.constraints = RigidbodyConstraints.FreezeRotation;
                     animator.SetBool("IsPushing", true);
                     Debug.Log("pushing");
 
@@ -420,6 +421,9 @@ public class PlayerStateManager : MonoBehaviour
             else
             {
                 animator.SetBool("IsPushing", false);
+                collision.collider.attachedRigidbody.constraints = RigidbodyConstraints.None;
+                collision.collider.attachedRigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+
 
             }
     }
