@@ -17,6 +17,7 @@ public class TransitionScenes : MonoBehaviour
     [SerializeField] private List<string> m_thirdLevelFacts;
     [SerializeField] private List<string> m_oasisFacts;
 
+    //These are all the images for alll the transitions
     [SerializeField] private List<Sprite> m_mainMenuImages;
     [SerializeField] private List<Sprite> m_firstLevelImages;
     [SerializeField] private List<Sprite> m_secondLevelImages;
