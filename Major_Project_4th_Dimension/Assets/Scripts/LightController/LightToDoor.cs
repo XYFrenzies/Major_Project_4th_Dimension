@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//public enum LightState 
-//{
-//    Red,
-//    Green,
-//    Yellow
-//}
+public enum LightState
+{
+    Red,
+    Green,
+    Yellow
+}
 public class LightToDoor : MonoBehaviour
 {
     [SerializeField]private Light spotLightInScene;
