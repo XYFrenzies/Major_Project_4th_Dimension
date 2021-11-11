@@ -52,16 +52,6 @@ public class MenuInput : MonoBehaviour
             yAxisNonZoom = GlobalVariables.Instance.horizontalSensitivityNonZoom;
             xAxisZoomed = GlobalVariables.Instance.verticalSensitivity;
             yAxisZoomed = GlobalVariables.Instance.horizontalSensitivity;
-            if (GlobalVariables.Instance.GetMouseActive())
-            {
-                CheckInput.Instance.SetMouse();
-                m_mouseActive = true;
-            }
-            else if (GlobalVariables.Instance.GetGamepadActive())
-            {
-                CheckInput.Instance.SetController();
-                m_mouseActive = false;
-            }
             if (playerNonZoom != null)
             {
                 playerNonZoom.m_HorizontalAxis.m_MaxSpeed = yAxisNonZoom;
