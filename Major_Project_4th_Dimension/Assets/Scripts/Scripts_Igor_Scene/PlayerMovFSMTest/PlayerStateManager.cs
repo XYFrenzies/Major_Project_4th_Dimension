@@ -215,17 +215,18 @@ public class PlayerStateManager : MonoBehaviour
     public void PlayerIsCloseToSwitchConveyor()
     {
         //if (!conveyorPressed)
-            isPlayerCloseToConveyorBelt = !isPlayerCloseToConveyorBelt;
+        isPlayerCloseToConveyorBelt = !isPlayerCloseToConveyorBelt;
         //if (conveyorPressed)
-            //isPlayerCloseToConveyorBelt = false;
+        //isPlayerCloseToConveyorBelt = false;
     }
 
     public bool GroundCheck()
     {
         Ray ray = new Ray(transform.position, Vector3.down); // Shoot a ray down
+
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, 1.5f)) // If the ray hits the ground
+        if (Physics.SphereCast(ray, 0.25f, out hit, 1.5f)) // If the ray hits the ground
         {
             Grounded = true; // is the player on the ground?
             //animator.SetBool("IsGrounded", false);
@@ -408,7 +409,7 @@ public class PlayerStateManager : MonoBehaviour
         if (collision.collider.CompareTag("BigPullObject"))
             if (inputs.y > 0f)
             {
-                if (Physics.Raycast(ray, out hit, 1.5f))
+                if (Physics.SphereCast(ray, 0.25f, out hit, 1.5f))
                 {
                     if (!hit.collider.CompareTag("BigPullObject"))
                         animator.SetBool("IsPushing", true);
