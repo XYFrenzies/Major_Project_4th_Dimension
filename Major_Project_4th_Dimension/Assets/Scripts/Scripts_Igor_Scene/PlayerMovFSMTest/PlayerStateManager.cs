@@ -71,6 +71,8 @@ public class PlayerStateManager : MonoBehaviour
     public PlayerPullingState pullingState = null;
     public PlayerMissState missState = null;
     public PlayerDeathState deathState = null;
+    public PlayerHangState hangState = null;
+
     [SerializeField] private bool conveyorOnlyPressedOnce = false;
     private bool conveyorPressed = false;
     private void OnEnable()
@@ -105,6 +107,7 @@ public class PlayerStateManager : MonoBehaviour
         pullingState = new PlayerPullingState(this);
         missState = new PlayerMissState(this);
         deathState = new PlayerDeathState(this);
+        hangState = new PlayerHangState(this);
 
         cam = Camera.main;
         Cursor.lockState = CursorLockMode.Locked;
