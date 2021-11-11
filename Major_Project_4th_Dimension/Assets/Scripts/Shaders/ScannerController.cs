@@ -38,8 +38,6 @@ public class ScannerController : MonoBehaviour
         m_camera = Camera.main;
         alpha.AddRange(alphabet);
         SetScanner(false);
-
-
     }
 
     private void OnEnable()
@@ -61,19 +59,24 @@ public class ScannerController : MonoBehaviour
 
     private void Update()
     {
+        //If the scan button has been pressed.
         if (m_scanning)
         {
+            //If it has began scanning (prevents from going through this loop more thank once).
             if (!m_hasBeganScanning)
             {
                 StartCoroutine(ScanEffect());
                 m_hasBeganScanning = true;
             }
+            //Changes the colour to a greyscaled effect.
             if (profile.TryGet<ColorCurves>(out var col))
             {
                 col.hueVsSat.overrideState = true;
                 col.hueVsSat.Override(newTex);
             }
+            //The distance of the wave increases.
             m_scanDistance += Time.deltaTime * m_speed;
+            //This checks if all the indicators exist and to set their colour.
             if (Indicator.Instance != null)
             {
                 IndicatorChangeLayor(Indicator.Instance.objCanMoveAround, false, "SeeThroughWallsObjects");

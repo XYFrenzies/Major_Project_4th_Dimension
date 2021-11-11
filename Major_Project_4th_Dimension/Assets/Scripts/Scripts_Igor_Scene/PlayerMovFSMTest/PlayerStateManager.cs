@@ -402,23 +402,28 @@ public class PlayerStateManager : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
-        Ray ray = new Ray(transform.position, Vector3.down); // Shoot a ray down
+        Ray ray = new Ray(transform.position, transform.forward); // Shoot a ray down
         RaycastHit hit;
-
+        Debug.DrawRay(ray.origin, ray.direction * 5f, Color.green);
 
         if (collision.collider.CompareTag("BigPullObject"))
             if (inputs.y > 0f)
             {
                 if (Physics.SphereCast(ray, 0.25f, out hit, 1.5f))
                 {
-                    if (!hit.collider.CompareTag("BigPullObject"))
-                        animator.SetBool("IsPushing", true);
+                    // if (!hit.collider.CompareTag("BigPullObject"))
+                    collision.collider.attachedRigidbody.constraints = RigidbodyConstraints.FreezeRotation;
+                    animator.SetBool("IsPushing", true);
                     Debug.Log("pushing");
+
                 }
             }
             else
             {
                 animator.SetBool("IsPushing", false);
+                collision.collider.attachedRigidbody.constraints = RigidbodyConstraints.None;
+                collision.collider.attachedRigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+
 
             }
     }

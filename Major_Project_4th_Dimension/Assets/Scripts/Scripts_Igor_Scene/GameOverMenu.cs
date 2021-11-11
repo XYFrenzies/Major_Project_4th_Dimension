@@ -7,14 +7,15 @@ public class GameOverMenu : MonoBehaviour
 {
     private void Awake()
     {
-        Cursor.lockState = CursorLockMode.None;
-       
+        if (CheckInput.Instance.CheckMouseActive())
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
     }
-
     public void LoadMenu()
     {
         SceneManager.LoadScene("MainMenu");
-
     }
 
     public void QuitGame()
