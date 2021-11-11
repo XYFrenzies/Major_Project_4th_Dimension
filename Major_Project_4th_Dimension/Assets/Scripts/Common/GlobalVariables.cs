@@ -55,19 +55,7 @@ public class GlobalVariables : Singleton<GlobalVariables>
                 m_isFullscreen = PlayerPrefs.GetInt("FullScreen");
                 break;
             case false:
-                PlayerPrefs.SetFloat("Master Volume", masterVolume);
-                PlayerPrefs.SetFloat("Sound Volume", soundVolume);
-                PlayerPrefs.SetFloat("Sound Effect Volume", musicVolume);
-                PlayerPrefs.SetFloat("Vertical SensitivityZoom", verticalSensitivity);
-                PlayerPrefs.SetFloat("Horizontal SensitivityZoom", horizontalSensitivity);
-                PlayerPrefs.SetFloat("Vertical SensitivityNonZoom", verticalSensitivityNonZoom);
-                PlayerPrefs.SetFloat("Horizontal SensitivityNonZoom", horizontalSensitivityNonZoom);
-                PlayerPrefs.SetInt("FPS Display", fpsIsOn);
-                PlayerPrefs.SetInt("GamePadIsOn", gamepadIsOn);
-                PlayerPrefs.SetInt("MouseIsOn", mouseIsOn);
-                PlayerPrefs.SetInt("Quality", m_resolutionInt);
-                PlayerPrefs.SetInt("Resolution",m_qualityDisplayInt);
-                PlayerPrefs.SetInt("FullScreen", m_isFullscreen);
+                SetValues();
                 break;
         }
         if(InterfaceMenu.Instance != null)
@@ -76,6 +64,22 @@ public class GlobalVariables : Singleton<GlobalVariables>
             m_audioMixer = VolumeMenu.Instance.m_audioMixer;
         DontDestroyOnLoad(gameObject);
 
+    }
+    private void SetValues()
+    {
+        PlayerPrefs.SetFloat("Master Volume", masterVolume);
+        PlayerPrefs.SetFloat("Sound Volume", soundVolume);
+        PlayerPrefs.SetFloat("Sound Effect Volume", musicVolume);
+        PlayerPrefs.SetFloat("Vertical SensitivityZoom", verticalSensitivity);
+        PlayerPrefs.SetFloat("Horizontal SensitivityZoom", horizontalSensitivity);
+        PlayerPrefs.SetFloat("Vertical SensitivityNonZoom", verticalSensitivityNonZoom);
+        PlayerPrefs.SetFloat("Horizontal SensitivityNonZoom", horizontalSensitivityNonZoom);
+        PlayerPrefs.SetInt("FPS Display", fpsIsOn);
+        PlayerPrefs.SetInt("GamePadIsOn", gamepadIsOn);
+        PlayerPrefs.SetInt("MouseIsOn", mouseIsOn);
+        PlayerPrefs.SetInt("Quality", m_resolutionInt);
+        PlayerPrefs.SetInt("Resolution", m_qualityDisplayInt);
+        PlayerPrefs.SetInt("FullScreen", m_isFullscreen);
     }
     private bool CheckIfPrefsExist(string[] variables)
     {
@@ -191,18 +195,7 @@ public class GlobalVariables : Singleton<GlobalVariables>
     }
     private void OnApplicationQuit()
     {
-        PlayerPrefs.SetFloat("Master Volume", masterVolume);
-        PlayerPrefs.SetFloat("Sound Volume", soundVolume);
-        PlayerPrefs.SetFloat("Sound Effect Volume", musicVolume);
-        PlayerPrefs.SetFloat("Vertical SensitivityZoom", verticalSensitivity);
-        PlayerPrefs.SetFloat("Horizontal SensitivityZoom", horizontalSensitivity);
-        PlayerPrefs.SetFloat("Vertical SensitivityNonZoom", verticalSensitivityNonZoom);
-        PlayerPrefs.SetFloat("Horizontal SensitivityNonZoom", horizontalSensitivityNonZoom);
-        PlayerPrefs.SetInt("FPS Display", fpsIsOn);
-        PlayerPrefs.SetInt("GamePadIsOn", gamepadIsOn);
-        PlayerPrefs.SetInt("MouseIsOn", mouseIsOn);
-        PlayerPrefs.SetInt("Quality", m_resolutionInt);
-        PlayerPrefs.SetInt("Resolution", m_qualityDisplayInt);
-        PlayerPrefs.SetInt("FullScreen", m_isFullscreen);
+        SetValues();
     }
+
 }
