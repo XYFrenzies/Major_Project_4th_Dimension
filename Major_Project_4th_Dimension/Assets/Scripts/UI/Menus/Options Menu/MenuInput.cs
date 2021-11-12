@@ -11,7 +11,6 @@ public class MenuInput : MonoBehaviour
     [SerializeField] private Slider nonZoomYSlider;
     [SerializeField] private Slider zoomYSlider;
     [SerializeField] private List<GameObject> textObjs;
-    private CinemachinePOV playerZoom;
     private CinemachinePOV playerNonZoom;
 
     private float xAxisNonZoom;
@@ -46,8 +45,6 @@ public class MenuInput : MonoBehaviour
             }
             if (GameObject.FindGameObjectWithTag("PlayerFlag").transform.Find("3rdPersonCinemachine").GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachinePOV>() != null)
                 playerNonZoom = GameObject.FindGameObjectWithTag("PlayerFlag").transform.Find("3rdPersonCinemachine").GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachinePOV>();
-            if (GameObject.FindGameObjectWithTag("PlayerFlag").transform.Find("3rdPersonCinemachineAim").GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachinePOV>() != null)
-                playerZoom = GameObject.FindGameObjectWithTag("PlayerFlag").transform.Find("3rdPersonCinemachineAim").GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachinePOV>();
             xAxisNonZoom = GlobalVariables.Instance.verticalSensitivityNonZoom;
             yAxisNonZoom = GlobalVariables.Instance.horizontalSensitivityNonZoom;
             xAxisZoomed = GlobalVariables.Instance.verticalSensitivity;
@@ -56,11 +53,6 @@ public class MenuInput : MonoBehaviour
             {
                 playerNonZoom.m_HorizontalAxis.m_MaxSpeed = yAxisNonZoom;
                 playerNonZoom.m_VerticalAxis.m_MaxSpeed = xAxisNonZoom;
-            }
-            if (playerZoom != null)
-            {
-                playerZoom.m_HorizontalAxis.m_MaxSpeed = yAxisZoomed;
-                playerZoom.m_VerticalAxis.m_MaxSpeed = xAxisZoomed;
             }
             nonZoomXSlider.onValueChanged.AddListener(NonZoomedVerticalInput);
             zoomXSlider.onValueChanged.AddListener(ZoomedVerticalInput);
@@ -77,8 +69,6 @@ public class MenuInput : MonoBehaviour
     {
         playerNonZoom.m_HorizontalAxis.m_MaxSpeed = yAxisNonZoom;
         playerNonZoom.m_VerticalAxis.m_MaxSpeed = xAxisNonZoom;
-        //playerZoom.m_HorizontalAxis.m_MaxSpeed = yAxisZoomed;
-        //playerZoom.m_VerticalAxis.m_MaxSpeed = xAxisZoomed;
         GlobalVariables.Instance.verticalSensitivityNonZoom = xAxisNonZoom;
         GlobalVariables.Instance.horizontalSensitivityNonZoom = yAxisNonZoom;
         GlobalVariables.Instance.verticalSensitivity = xAxisZoomed;
