@@ -77,12 +77,12 @@ public class MenuInput : MonoBehaviour
     {
         playerNonZoom.m_HorizontalAxis.m_MaxSpeed = yAxisNonZoom;
         playerNonZoom.m_VerticalAxis.m_MaxSpeed = xAxisNonZoom;
-        // playerZoom.m_HorizontalAxis.m_MaxSpeed = yAxisZoomed;
-        // playerZoom.m_VerticalAxis.m_MaxSpeed = xAxisZoomed;
+        //playerZoom.m_HorizontalAxis.m_MaxSpeed = yAxisZoomed;
+        //playerZoom.m_VerticalAxis.m_MaxSpeed = xAxisZoomed;
         GlobalVariables.Instance.verticalSensitivityNonZoom = xAxisNonZoom;
         GlobalVariables.Instance.horizontalSensitivityNonZoom = yAxisNonZoom;
-        //GlobalVariables.Instance.verticalSensitivity = xAxisZoomed;
-        //GlobalVariables.Instance.horizontalSensitivity = yAxisZoomed;
+        GlobalVariables.Instance.verticalSensitivity = xAxisZoomed;
+        GlobalVariables.Instance.horizontalSensitivity = yAxisZoomed;
         GlobalVariables.Instance.SaveMouseIsOn(m_mouseActive);
         GlobalVariables.Instance.SaveGamepadIsOn(!m_mouseActive);
     }
