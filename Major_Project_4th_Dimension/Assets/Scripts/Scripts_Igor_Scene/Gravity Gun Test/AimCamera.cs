@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using Cinemachine;
 
 public class AimCamera : MonoBehaviour
 {
@@ -11,7 +11,7 @@ public class AimCamera : MonoBehaviour
 
     public GameObject mainCamera;
     public GameObject aimCamera;
-
+    private CinemachinePOV playerZoom;
     private void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
@@ -39,6 +39,8 @@ public class AimCamera : MonoBehaviour
         {
             mainCamera.SetActive(false);
             aimCamera.SetActive(true);
+            playerZoom.m_HorizontalAxis.m_MaxSpeed = GlobalVariables.Instance.horizontalSensitivity;
+            playerZoom.m_VerticalAxis.m_MaxSpeed = GlobalVariables.Instance.verticalSensitivity;
         }
     }
 
