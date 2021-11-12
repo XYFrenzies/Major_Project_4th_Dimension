@@ -18,6 +18,12 @@ public class ConveyorBelt : MonoBehaviour
     [SerializeField] private GameObject endPointForward;
     [SerializeField] private GameObject endPointBackward;
     [SerializeField] private GameObject materialTexture;
+    private AudioSource source;
+    private void Awake()
+    {
+        source = GetComponent<AudioSource>();
+
+    }
     private void Update()
     {
         if (PowerStatus.Instance.powerIsOn)
@@ -26,6 +32,7 @@ public class ConveyorBelt : MonoBehaviour
             float OffsetX = Time.time * m_scrollX;
             float OffsetY = Time.time * m_scrollY;
             materialTexture.GetComponent<Renderer>().material.mainTextureOffset = new Vector2(OffsetX, OffsetY);
+            SoundPlayer.Instance.PlaySoundEffect("Conveyor whirring", source);
         }
         else if (!PowerStatus.Instance.powerIsOn)
             gameObject.GetComponent<BoxCollider>().enabled = false;
@@ -36,6 +43,7 @@ public class ConveyorBelt : MonoBehaviour
         {
             case Direction.Forward:
                 MoveDirection(other, endPointForward);
+
                 break;
             case Direction.Backward:
                 MoveDirection(other, endPointBackward);
