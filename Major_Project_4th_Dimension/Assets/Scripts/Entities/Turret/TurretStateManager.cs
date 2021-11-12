@@ -179,8 +179,9 @@ public class TurretStateManager : MonoBehaviour
     private void RaycastAttackCheck()
     {
         RaycastHit hit;
-        if (Physics.Raycast(m_spotLight.gameObject.transform.position, m_spotLight.gameObject.transform.forward, out hit)
-            && hit.transform.gameObject == hit.transform.CompareTag("Player"))
+        if (gizmos.transform.position == GameObject.FindGameObjectWithTag("Player").transform.position && 
+            Physics.Raycast(m_spotLight.gameObject.transform.position, m_spotLight.gameObject.transform.forward, out hit)
+            && hit.transform.gameObject != hit.transform.CompareTag("StopSearch"))
         {
             m_turretState = TurretState.PlayerDying;
             m_deathAnimation.Raise();
