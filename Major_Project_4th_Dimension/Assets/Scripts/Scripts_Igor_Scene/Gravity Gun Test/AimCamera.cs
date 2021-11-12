@@ -16,6 +16,8 @@ public class AimCamera : MonoBehaviour
     {
         playerInput = GetComponent<PlayerInput>();
         aimAction = playerInput.actions["Aim"];
+        if (GameObject.FindGameObjectWithTag("PlayerFlag").transform.Find("3rdPersonCinemachineAim").GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachinePOV>() != null)
+            playerZoom = GameObject.FindGameObjectWithTag("PlayerFlag").transform.Find("3rdPersonCinemachineAim").GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachinePOV>();
     }
 
     public void OnEnable()
