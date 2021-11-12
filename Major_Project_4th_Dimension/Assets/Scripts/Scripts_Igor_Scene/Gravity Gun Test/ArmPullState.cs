@@ -100,6 +100,7 @@ public class ArmPullState : ArmBaseState
                     rb.AddForceAtPosition(Vector3.Normalize(armStateMan.transform.position - armStateMan.hitObject.transform.position) * armStateMan.pullForce, armStateMan.hitPoint, ForceMode.Force);
                     //else
                     //armStateMan.SwitchState(armStateMan.idleState);
+                    armStateMan.armEffects.DrawLineRenderer();
 
                 }
             }

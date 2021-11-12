@@ -78,6 +78,8 @@ public class ArmStateManager : MonoBehaviour
 
     [HideInInspector]
     public ArmEffects armEffects;
+    [HideInInspector]
+    public bool hasHitpoint = false;
 
     [HideInInspector]
     public bool shotArm = false;
@@ -130,12 +132,13 @@ public class ArmStateManager : MonoBehaviour
     }
 
 
-    void FixedUpdate()
+    void Update()
     {
         playerSM.animator.SetBool("hasShot", shotArm);
         currentState.UpdateState();
 
-
+        //if (hasHitpoint)
+            //armEffects.DrawLineRenderer();
         //if (shotArm)
         //{
         //    shootAction.Disable();

@@ -109,6 +109,7 @@ public class ArmPickUpState : ArmBaseState
     public override void UpdateState()
     {
         armStateMan.hitPoint = armStateMan.hitObject.transform.position;
+        armStateMan.armEffects.DrawLineRenderer();
 
 
         armStateMan.hitObject.transform.position = Vector3.MoveTowards(armStateMan.hitObject.transform.position, armStateMan.holdPoint.position,
