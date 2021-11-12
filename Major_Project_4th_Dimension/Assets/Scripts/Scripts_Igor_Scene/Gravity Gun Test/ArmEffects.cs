@@ -42,7 +42,7 @@ public class ArmEffects : MonoBehaviour
             {
                 SoundPlayer.Instance.PlaySoundEffect("FireArm", source);
             }
-            DrawLineRenderer();
+            //DrawLineRenderer();
         }
         else
         {           
@@ -83,6 +83,7 @@ public class ArmEffects : MonoBehaviour
 
         arm.blackHoleCentre.SetActive(true);
         arm.realisticBlackHole.SetActive(true);
+        arm.lineRenderer.enabled = true;
         arm.lineRenderer.positionCount = 2;
         arm.lineRenderer.SetPosition(0, arm.shootPoint.position);
         arm.blackHoleCentre.transform.position = arm.shootPoint.position;
@@ -98,7 +99,6 @@ public class ArmEffects : MonoBehaviour
             arm.lineRenderer.SetPosition(1, arm.hitPoint);
             arm.realisticBlackHole.transform.position = arm.hitPoint;
         }
-        arm.lineRenderer.enabled = true;
     }
 
     public void StopDrawingLineRenderer()
