@@ -44,7 +44,10 @@ public class ArmShootState : ArmBaseState
     {
 
         if (armStateMan.shotArm)
+        {
             ShootArm();
+            armStateMan.armEffects.DrawLineRenderer();
+        }
         else
         {
             armStateMan.playerSM.animator.SetBool("IsShooting", false);
