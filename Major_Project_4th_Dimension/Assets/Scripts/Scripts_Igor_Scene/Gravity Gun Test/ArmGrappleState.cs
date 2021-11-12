@@ -33,6 +33,11 @@ public class ArmGrappleState : ArmBaseState
             armStateMan.playerSM.animator.SetBool("IsShooting", false);
 
         }
+        else
+        {
+            armStateMan.armEffects.DrawLineRenderer();
+
+        }
     }
 
 
