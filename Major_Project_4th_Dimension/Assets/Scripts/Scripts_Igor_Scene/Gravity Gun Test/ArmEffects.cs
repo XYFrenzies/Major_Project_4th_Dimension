@@ -36,8 +36,9 @@ public class ArmEffects : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
+        //if (arm.shotArm)
         if ((isShooting && arm.currentState != arm.pauseState) || arm.currentState == arm.grappleState)
-        {           
+        {
             if (!source.isPlaying)
             {
                 SoundPlayer.Instance.PlaySoundEffect("FireArm", source);
@@ -45,7 +46,7 @@ public class ArmEffects : MonoBehaviour
             //DrawLineRenderer();
         }
         else
-        {           
+        {
             if (source.isPlaying)
             {
                 source.Stop();
@@ -88,7 +89,7 @@ public class ArmEffects : MonoBehaviour
         arm.lineRenderer.SetPosition(0, arm.shootPoint.position);
         arm.blackHoleCentre.transform.position = arm.shootPoint.position;
 
-        EffectSizeChange();
+        //if (arm.hasHitpoint)
         if (arm.isObjectHeld)
         {
             arm.lineRenderer.SetPosition(1, arm.hitObject.transform.position);
@@ -99,6 +100,8 @@ public class ArmEffects : MonoBehaviour
             arm.lineRenderer.SetPosition(1, arm.hitPoint);
             arm.realisticBlackHole.transform.position = arm.hitPoint;
         }
+
+        EffectSizeChange();
     }
 
     public void StopDrawingLineRenderer()

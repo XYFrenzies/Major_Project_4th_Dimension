@@ -87,6 +87,8 @@ public class ArmPutDownState : ArmBaseState
         {
             armStateMan.SwitchState(armStateMan.pauseState);
         }
+        armStateMan.armEffects.DrawLineRenderer();
+
     }
 
     //public void Shoot(InputAction.CallbackContext context)

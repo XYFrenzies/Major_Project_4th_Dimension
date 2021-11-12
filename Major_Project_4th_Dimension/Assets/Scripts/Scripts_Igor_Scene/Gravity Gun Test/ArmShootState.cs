@@ -25,6 +25,7 @@ public class ArmShootState : ArmBaseState
         // called once when switch from some other state to this state.
 
         //Debug.Log("Shoot enter");
+        armStateMan.hasHitpoint = false;
 
     }
 
@@ -38,6 +39,7 @@ public class ArmShootState : ArmBaseState
 
         //armStateMan.shotArm = false;
         armStateMan.isShootingAnimationReady = false;
+        armStateMan.hasHitpoint = true;
     }
 
     public override void UpdateState()
@@ -47,6 +49,7 @@ public class ArmShootState : ArmBaseState
         {
             ShootArm();
             armStateMan.armEffects.DrawLineRenderer();
+            
         }
         else
         {
@@ -63,7 +66,6 @@ public class ArmShootState : ArmBaseState
         //Debug.Log("Fired hook shot");
         RaycastHit hit;
         Vector3 aimPoint;
-
         // Ray from camera to crosshair
         Ray crosshair = new Ray(armStateMan.cam.transform.position, armStateMan.cam.transform.forward);
 
@@ -106,6 +108,7 @@ public class ArmShootState : ArmBaseState
         {
             armStateMan.hitPoint = hit.point;
             armStateMan.hitObject = hit.collider.gameObject;
+            //armStateMan.hasHitpoint = true;
             Debug.DrawRay(armStateMan.holdPoint.position, aimPoint - armStateMan.holdPoint.position * armStateMan.shootRange, Color.blue);
 
             if (hit.transform.CompareTag("CanHookShotTowards")) // hit grapple point
