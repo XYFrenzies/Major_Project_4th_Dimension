@@ -4,15 +4,21 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class DoorOpen : MonoBehaviour
 {
-
+    [SerializeField] private bool canBePressedOnce = false;
     public GameEvent OpenDoor;
     public GameEvent CloseDoor;
+    private bool pressedOnce = false;
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("BigPullObject") || other.CompareTag("MoveableToMe") || other.CompareTag("Player"))
         {
-            if ((OpenDoor != null && SceneManager.GetActiveScene().name == "Level_01") || (OpenDoor != null && (SceneManager.GetActiveScene().name == "Level_02" || SceneManager.GetActiveScene().name == "Level_03") && PowerStatus.Instance.powerIsOn))
+            if (!pressedOnce && (OpenDoor != null && SceneManager.GetActiveScene().name == "Level_01") || (OpenDoor != null && (SceneManager.GetActiveScene().name == "Level_02" || SceneManager.GetActiveScene().name == "Level_03") && PowerStatus.Instance.powerIsOn))
+            {
+                if (canBePressedOnce)
+                    pressedOnce = true;
                 OpenDoor.Raise();
+            }
+
         }
 
     }
@@ -24,6 +30,8 @@ public class DoorOpen : MonoBehaviour
         {
             if (CloseDoor != null)
                 CloseDoor.Raise();
+            if (canBePressedOnce)
+                pressedOnce = false;
         }
     }
 }

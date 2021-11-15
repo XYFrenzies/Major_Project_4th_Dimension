@@ -2,18 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LightToDoor : MonoBehaviour
+public class LightToDoor : Singleton<LightToDoor>
 {
     [SerializeField]private Light spotLightInScene;
     [SerializeField]private Light pointLightInScene;
     private void Awake()
     {
         if (spotLightInScene == null)
-        {
             spotLightInScene = transform.Find("Spot_Light").GetComponent<Light>();
-        }
         if (pointLightInScene == null)
             pointLightInScene = transform.Find("Point_Light").GetComponent<Light>();
+
     }
 
     public void SetIDToRed()
