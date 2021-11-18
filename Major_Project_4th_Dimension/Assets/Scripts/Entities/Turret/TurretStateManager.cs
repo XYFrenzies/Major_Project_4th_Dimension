@@ -154,10 +154,10 @@ public class TurretStateManager : MonoBehaviour
         m_deltaTimeTimer += Time.deltaTime;
         if (m_deltaTimeTimer >= m_gracePeriodTimer)
         {
+            m_deltaTimeTimer = 0;
             if (StopCheck())
                 return;
             RaycastAttackCheck();
-            m_deltaTimeTimer = 0;
         }
     }
     private void RaycastSearchCheck()
