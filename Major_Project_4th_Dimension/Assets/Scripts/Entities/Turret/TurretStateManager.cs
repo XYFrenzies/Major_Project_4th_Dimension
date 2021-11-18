@@ -151,11 +151,11 @@ public class TurretStateManager : MonoBehaviour
     private void FindPlayer()
     {
         gizmos.transform.position = GameObject.FindGameObjectWithTag("Player").transform.position;
-        if (StopCheck())
-            return;
-        m_deltaTimeTimer += Time.unscaledDeltaTime;
+        m_deltaTimeTimer += Time.deltaTime;
         if (m_deltaTimeTimer >= m_gracePeriodTimer)
         {
+            if (StopCheck())
+                return;
             RaycastAttackCheck();
             m_deltaTimeTimer = 0;
         }
@@ -185,8 +185,6 @@ public class TurretStateManager : MonoBehaviour
         {
             m_turretState = TurretState.PlayerDying;
             m_deathAnimation.Raise();
-            //Need the player to not be able to move whilst it is dying.
-            //So in here we need to do this.
             return;
         }
 
