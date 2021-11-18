@@ -54,6 +54,8 @@ public class ArmEffects : MonoBehaviour
             StopDrawingLineRenderer();
         }
 
+
+
     }
 
     private void ShootingArm(InputAction.CallbackContext obj)
@@ -110,8 +112,20 @@ public class ArmEffects : MonoBehaviour
         arm.realisticBlackHole.SetActive(false);
         arm.blackHoleCentre.transform.localScale = arm.startSize;
         arm.scaleModifier = 1f;
-        arm.blackHoleCentre.SetActive(false);
+
+        if (arm.isObjectHeld)
+        { 
+            arm.blackHoleCentre.SetActive(true);
+            arm.blackHoleCentre.transform.position = arm.holdPoint.transform.position;
+            arm.blackHoleCentre.transform.localScale = new Vector3(3f, 3f, 3f);
+
+        }
+        else
+            arm.blackHoleCentre.SetActive(false);
+
         arm.lineRenderer.enabled = false;
+
+
     }
 
     public void DrawObjectHoldingEffect()
