@@ -32,7 +32,8 @@ public class ConveyorBelt : MonoBehaviour
             float OffsetX = Time.time * m_scrollX;
             float OffsetY = Time.time * m_scrollY;
             materialTexture.GetComponent<Renderer>().material.mainTextureOffset = new Vector2(OffsetX, OffsetY);
-            SoundPlayer.Instance.PlaySoundEffect("Conveyor whirring", source);
+            if(!source.isPlaying)
+                SoundPlayer.Instance.PlaySoundEffect("Conveyor whirring", source);
         }
         else if (!PowerStatus.Instance.powerIsOn)
             gameObject.GetComponent<BoxCollider>().enabled = false;
