@@ -10,7 +10,7 @@ public class ArmPutDownState : ArmBaseState
     //private InputAction shootAction;
     Rigidbody rb;
     bool isShooting = false;
-
+    
 
     public ArmPutDownState(ArmStateManager arm) : base(arm)
     {
@@ -20,7 +20,7 @@ public class ArmPutDownState : ArmBaseState
     public override void EnterState()
     {
         armStateMan.playerSM.armRig.weight = 0f;
-
+        armStateMan.material.SetVector("_NoiseSpeed", new Vector4(-1f, 0f, 0f, 0f));
 
         ///////////////////
         //armStateMan.player.currentState = PlayerControllerCinemachineLook2.State.HookShotThrown;
@@ -48,6 +48,9 @@ public class ArmPutDownState : ArmBaseState
     public override void ExitState()
     {
         armStateMan.hitObject.layer = LayerMask.NameToLayer("Default");
+
+        armStateMan.material.SetVector("_NoiseSpeed", new Vector4(1f, 0f, 0f, 0f));
+
         //rb.isKinematic = false;
         rb.useGravity = true;
         armStateMan.isObjectHeld = false;
