@@ -8,6 +8,11 @@ public class DoorOpen : MonoBehaviour
     public GameEvent OpenDoor;
     public GameEvent CloseDoor;
     private bool pressedOnce = false;
+    private AudioSource source;
+    private void Awake()
+    {
+        source = transform.Find("Audio Source").GetComponent<AudioSource>();
+    }
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("BigPullObject") || other.CompareTag("MoveableToMe") || other.CompareTag("Player"))
@@ -15,7 +20,10 @@ public class DoorOpen : MonoBehaviour
             if (!pressedOnce && (OpenDoor != null && SceneManager.GetActiveScene().name == "Level_01") || (OpenDoor != null && (SceneManager.GetActiveScene().name == "Level_02" || SceneManager.GetActiveScene().name == "Level_03") && PowerStatus.Instance.powerIsOn))
             {
                 if (canBePressedOnce)
+                {
                     pressedOnce = true;
+                    SoundPlayer.Instance.PlaySoundEffect("Pressure Plate", source);
+                }
                 OpenDoor.Raise();
             }
 
