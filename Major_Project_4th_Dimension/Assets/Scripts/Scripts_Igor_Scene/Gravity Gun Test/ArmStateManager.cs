@@ -46,6 +46,9 @@ public class ArmStateManager : MonoBehaviour
     [HideInInspector]
     public PlayerControllerCinemachineLook2 player;
     public PlayerStateManager playerSM;
+
+    public Material material;
+
     [HideInInspector]
     public bool isObjectHeld = false;
     [HideInInspector]
