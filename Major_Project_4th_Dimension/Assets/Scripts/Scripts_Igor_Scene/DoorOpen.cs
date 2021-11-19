@@ -22,7 +22,7 @@ public class DoorOpen : MonoBehaviour
                 if (canBePressedOnce)
                 {
                     pressedOnce = true;
-                    SoundPlayer.Instance.PlaySoundEffect("Pressure Plate", source);
+                    SoundPlayer.Instance.PlaySoundEffect("PressurePlateOn", source);
                 }
                 OpenDoor.Raise();
             }
@@ -40,6 +40,7 @@ public class DoorOpen : MonoBehaviour
                 CloseDoor.Raise();
             if (canBePressedOnce)
                 pressedOnce = false;
+            SoundPlayer.Instance.PlaySoundEffect("PressurePlateOff", source);
         }
     }
 }
