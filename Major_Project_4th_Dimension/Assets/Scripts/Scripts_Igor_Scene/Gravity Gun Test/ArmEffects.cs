@@ -143,7 +143,7 @@ public class ArmEffects : MonoBehaviour
 
     public void EffectSizeChange()
     {
-        if (arm.scaleModifier < 4f)
+        if (arm.scaleModifier < 3.5f)
         {
             arm.blackHoleCentre.transform.localScale = arm.startSize * arm.scaleModifier;
             arm.scaleModifier += Time.deltaTime * arm.modifier; // need to find best place to set scalemodifier back to 0
