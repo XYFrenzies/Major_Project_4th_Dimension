@@ -111,6 +111,10 @@ public class MainMenu : MonoBehaviour
             EventSystem.current.SetSelectedGameObject(null);
         }
     }
+    public void LevelSelect(string name) 
+    {
+        SceneManager.LoadScene(name);
+    }
     //Exits the game (the if statements is determining if its in build or not).
     public void OptionsMenu()
     {
