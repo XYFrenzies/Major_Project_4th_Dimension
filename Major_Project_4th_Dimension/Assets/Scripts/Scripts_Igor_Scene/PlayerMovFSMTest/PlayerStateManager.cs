@@ -74,6 +74,7 @@ public class PlayerStateManager : MonoBehaviour
     public PlayerHangState hangState = null;
 
     [SerializeField] private bool conveyorOnlyPressedOnce = false;
+    [SerializeField] private GameObject m_gameUI = null;
     private bool conveyorPressed = false;
     private void OnEnable()
     {
@@ -204,8 +205,13 @@ public class PlayerStateManager : MonoBehaviour
         {
             if (!conveyorPressed)
                 interactingConveyorSwitch.Raise();
+
             if (conveyorOnlyPressedOnce)
+            {
                 conveyorPressed = true;
+                m_gameUI.transform.Find("Press E to interact").gameObject.SetActive(false);
+            }
+
         }
     }
 
