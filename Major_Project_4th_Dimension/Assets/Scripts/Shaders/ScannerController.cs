@@ -27,8 +27,10 @@ public class ScannerController : MonoBehaviour
     private List<string> alpha = new List<string>();//This is used to prevent code from being repeated.
     private readonly string[] alphabet = { "A", "B", "C", "D" };
     private readonly Keyframe[] originalKeyTex = { new Keyframe(0, 0.5f), new Keyframe(1, 0.5f) };
+    private AudioSource source;
     private void Awake()
     {
+        source = GetComponent<AudioSource>();
         m_passVolume = GetComponent<CustomPassVolume>();
         scannerAction = playerInput.actions["Scanner"];
         profile = volume.sharedProfile;
@@ -49,6 +51,7 @@ public class ScannerController : MonoBehaviour
     {
         if (!m_scanning)
         {
+            SoundPlayer.Instance.PlaySoundEffect("Scanner", source);
             SetScanner(true);
             Debug.Log("Scanning");
             m_scanning = true;
