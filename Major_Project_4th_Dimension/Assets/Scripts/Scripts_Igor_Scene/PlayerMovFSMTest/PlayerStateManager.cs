@@ -209,7 +209,7 @@ public class PlayerStateManager : MonoBehaviour
             if (conveyorOnlyPressedOnce)
             {
                 conveyorPressed = true;
-                m_gameUI.transform.Find("UI").Find("Power_Interactable").gameObject.SetActive(false);
+                m_gameUI.gameObject.SetActive(false);
             }
 
         }
