@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 307.2365, g: 296.41412, b: 315.5721, a: 1}
+  m_IndirectSpecularColor: {r: 306.41666, g: 295.61475, b: 314.69986, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -37220,6 +37220,7 @@ MonoBehaviour:
   hasLanded: 0
   flyToTarget: {x: 0, y: 0, z: 0}
   conveyorOnlyPressedOnce: 0
+  m_gameUI: {fileID: 0}
 --- !u!54 &1688118974
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -58749,15 +58750,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8431453540725934212, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.965735
+      value: 1.355841
       objectReference: {fileID: 0}
     - target: {fileID: 8431453540725934212, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.2941406
+      value: 1.2941418
       objectReference: {fileID: 0}
     - target: {fileID: 8431453540725934212, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.2385662
+      value: -2.373754
       objectReference: {fileID: 0}
     - target: {fileID: 8431453540725934212, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
       propertyPath: m_LocalRotation.w
@@ -58765,15 +58766,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8431453540725934212, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.06038277
+      value: -0.06038253
       objectReference: {fileID: 0}
     - target: {fileID: 8431453540725934212, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.10864852
+      value: -0.10864863
       objectReference: {fileID: 0}
     - target: {fileID: 8431453540725934212, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.006611922
+      value: -0.006611904
       objectReference: {fileID: 0}
     - target: {fileID: 8431453540725934215, guid: cf828afc2f6bf334faaeadd6d5d44cfe, type: 3}
       propertyPath: m_Lens.m_SensorSize.x
@@ -64990,8 +64991,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3373627836190250097}
-  m_LocalRotation: {x: -0.047372393, y: 0.6247813, z: 0.03802173, w: 0.7784335}
-  m_LocalPosition: {x: -2.8455665, y: 1.2941406, z: -4.8457346}
+  m_LocalRotation: {x: -0.047372214, y: 0.6247812, z: 0.038021572, w: 0.77843356}
+  m_LocalPosition: {x: -2.9807541, y: 1.2941418, z: -4.235841}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -84730,6 +84731,7 @@ MonoBehaviour:
   hasLanded: 0
   flyToTarget: {x: 0, y: 0, z: 0}
   conveyorOnlyPressedOnce: 0
+  m_gameUI: {fileID: 0}
 --- !u!33 &7643758375507144661
 MeshFilter:
   m_ObjectHideFlags: 0
