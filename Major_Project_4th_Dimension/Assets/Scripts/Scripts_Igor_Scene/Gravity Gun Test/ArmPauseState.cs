@@ -9,7 +9,7 @@ public class ArmPauseState : ArmBaseState
     int index = 1;
     float amount = 0f;
     float initialAmount = 0f;
-
+    bool alreadyPlayedSound = false;
 
     public ArmPauseState(ArmStateManager arm) : base(arm)
     {
@@ -17,9 +17,8 @@ public class ArmPauseState : ArmBaseState
     }
     public override void EnterState()
     {
-        //Debug.Log("Entered pause state");
+
         armStateMan.shotArm = false;
-        //armStateMan.playerSM.animator.SetBool("IsShooting", false);
 
         if (armStateMan.lights.Count != 0)
         {
@@ -30,6 +29,7 @@ public class ArmPauseState : ArmBaseState
         }
         amount = armStateMan.armCoolDownTime * 0.25f;
         initialAmount = amount;
+
     }
 
     public override void ExitState()
@@ -38,11 +38,17 @@ public class ArmPauseState : ArmBaseState
         amount = 0f;
         index = 1;
         timer = 0f;
-
+        alreadyPlayedSound = false;
     }
 
     public override void UpdateState()
     {
+        if (!armStateMan.source.isPlaying && !alreadyPlayedSound)
+        { 
+            SoundPlayer.Instance.PlaySoundEffect("Recharge", armStateMan.source);
+            alreadyPlayedSound = true;
+        }
+
         timer += Time.deltaTime;
         if (timer >= amount)
         {

@@ -83,6 +83,8 @@ public class ArmStateManager : MonoBehaviour
     public ArmEffects armEffects;
     [HideInInspector]
     public bool hasHitpoint = false;
+    [HideInInspector]
+    public AudioSource source;
 
     [HideInInspector]
     public bool shotArm = false;
@@ -112,6 +114,7 @@ public class ArmStateManager : MonoBehaviour
         constraintSource.weight = 1f;
         startSize = blackHoleCentre.transform.localScale;
         armEffects = GetComponent<ArmEffects>();
+        source = GetComponent<AudioSource>();
         //parentConstraint.AddSource(constraintSource);
         //parentConstraint.SetSource(0, constraintSource);
     }

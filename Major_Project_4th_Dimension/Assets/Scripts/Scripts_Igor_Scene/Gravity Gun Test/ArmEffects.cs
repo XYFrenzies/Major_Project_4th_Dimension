@@ -47,7 +47,7 @@ public class ArmEffects : MonoBehaviour
         }
         else
         {
-            if (source.isPlaying)
+            if (source.isPlaying && arm.currentState != arm.pauseState)
             {
                 source.Stop();
             }

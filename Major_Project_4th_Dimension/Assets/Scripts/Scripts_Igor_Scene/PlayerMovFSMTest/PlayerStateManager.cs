@@ -76,6 +76,8 @@ public class PlayerStateManager : MonoBehaviour
     [SerializeField] private bool conveyorOnlyPressedOnce = false;
     [SerializeField] private GameObject m_gameUI = null;
     private bool conveyorPressed = false;
+
+    [HideInInspector] public AudioSource source;
     private void OnEnable()
     {
         lookAction.Enable();
@@ -128,6 +130,7 @@ public class PlayerStateManager : MonoBehaviour
         vCam = cinemachineVCam.GetCinemachineComponent<CinemachinePOV>();
         vCamAim = cinemachineVCamAim.GetCinemachineComponent<CinemachinePOV>();
         //vCam.m_HorizontalAxis.m_MaxSpeed = 2f;
+        source = GetComponent<AudioSource>();
     }
 
     public bool Grounded
