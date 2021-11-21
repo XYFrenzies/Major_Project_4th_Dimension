@@ -7813,6 +7813,7 @@ MonoBehaviour:
   flyToTarget: {x: 0, y: 0, z: 0}
   conveyorOnlyPressedOnce: 1
   m_gameUI: {fileID: 6188624662914489931, guid: 9019643d56d51c54288d670f6f6f7d36, type: 3}
+  source: {fileID: 0}
 --- !u!114 &8431453541361779733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7825,8 +7826,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: facc9b99a1874874184f9efd961c56ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pullForce: 120
-  distanceFromPlayerToStopPlaying: 1
+  pullForce: 140
+  distanceFromPlayerToStopPulling: 1
   shootRange: 50
   armCoolDownTime: 1.5
   holdObjectLayerMask:
@@ -7886,6 +7887,7 @@ MonoBehaviour:
   parentConstraint: {fileID: 0}
   armEffects: {fileID: 0}
   hasHitpoint: 0
+  source: {fileID: 0}
   shotArm: 0
 --- !u!145 &8431453541361779732
 SpringJoint:
