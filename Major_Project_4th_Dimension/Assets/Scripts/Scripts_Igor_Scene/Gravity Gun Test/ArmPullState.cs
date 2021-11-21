@@ -9,6 +9,9 @@ public class ArmPullState : ArmBaseState
     float initialSpringForce;
 
     float initialMass;
+    float initialDistance = 0f;
+    float multiplier = 0f;
+    float currentDistance = 0f;
     Rigidbody rb;
     Renderer rend;
     float radius;
@@ -21,7 +24,7 @@ public class ArmPullState : ArmBaseState
     public override void EnterState()
     {
         //Debug.Log("Entered Pull state");
-
+        initialDistance = Vector3.Distance(armStateMan.transform.position, armStateMan.hitObject.transform.position);
         //playerInput = armStateMan.GetComponent<PlayerInput>();
         //shootAction = playerInput.actions["HookShot"];
         //armStateMan.playerInput.actions["HookShot"];
@@ -47,10 +50,12 @@ public class ArmPullState : ArmBaseState
         //initialSpringForce = armStateMan.springJoint.spring;
         //armStateMan.lineRenderer.enabled = true;
         rb = armStateMan.hitObject.GetComponent<Rigidbody>();
-        //initialMass = rb.mass;
+
+        initialMass = rb.mass;
+        rb.mass = 1f;
         //rb.mass = 0.1f;
         //currentHookShotState = HookShotState.Pull;
-       // rb.constraints = RigidbodyConstraints.None;
+        // rb.constraints = RigidbodyConstraints.None;
         //rb.constraints = RigidbodyConstraints.FreezePositionY;
         //rb.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
         ///////////////////////////
@@ -66,7 +71,7 @@ public class ArmPullState : ArmBaseState
         //armStateMan.shootAction.performed -= Shoot;
         //armStateMan.shootAction.canceled -= NotShoot;
         //hand.transform.SetParent(armStateMan.transform);
-        //rb.mass = initialMass;
+        rb.mass = initialMass;
         Object.Destroy(armStateMan.newGrappleHandle);
         //armStateMan.springJoint.spring = initialSpringForce;
         //armStateMan.springJoint.connectedAnchor = Vector3.zero;
@@ -83,26 +88,37 @@ public class ArmPullState : ArmBaseState
 
     public override void UpdateState()
     {
-
         if (!armStateMan.shotArm)
         {
             armStateMan.SwitchState(armStateMan.idleState);
 
         }
         armStateMan.hitPoint = armStateMan.newGrappleHandle.transform.position;
+        armStateMan.armEffects.DrawLineRenderer();
         //armStateMan.springJoint.spring += Time.deltaTime;
         if (armStateMan.transform != null && armStateMan.hitObject != null)
-            if (Vector3.Distance(armStateMan.transform.position, armStateMan.hitObject.transform.position) > armStateMan.distanceFromPlayerToStopPlaying + radius)
+            if (Vector3.Distance(armStateMan.transform.position, armStateMan.hitObject.transform.position) > armStateMan.distanceFromPlayerToStopPulling + radius)
             {
+                //if (rb.velocity.normalized.magnitude <= 0.1f)
+                //initialDistance = Vector3.Distance(armStateMan.transform.position, armStateMan.hitObject.transform.position);
+
+                //currentDistance = Vector3.Distance(armStateMan.transform.position, armStateMan.hitObject.transform.position);
+
+                //if (multiplier >= 0.5f)
+                //multiplier = currentDistance / initialDistance;
+
                 if (armStateMan.transform != null && armStateMan.hitObject != null)
                 {
                     // if (CheckInFront())
-                    rb.AddForceAtPosition(Vector3.Normalize(armStateMan.transform.position - armStateMan.hitObject.transform.position) * armStateMan.pullForce, armStateMan.hitPoint, ForceMode.Force);
+                    rb.AddForceAtPosition(Vector3.Normalize(armStateMan.transform.position - armStateMan.hitObject.transform.position) * armStateMan.pullForce /** multiplier*/, armStateMan.hitPoint, ForceMode.Force);
                     //else
                     //armStateMan.SwitchState(armStateMan.idleState);
-                    armStateMan.armEffects.DrawLineRenderer();
 
                 }
+            }
+            else
+            {
+                rb.velocity = Vector3.zero;
             }
     }
 

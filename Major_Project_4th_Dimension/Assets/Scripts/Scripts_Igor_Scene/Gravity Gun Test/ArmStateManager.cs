@@ -8,7 +8,7 @@ public class ArmStateManager : MonoBehaviour
 {
     // Exposed properties
     public float pullForce = 120f;
-    public float distanceFromPlayerToStopPlaying = 1f;
+    public float distanceFromPlayerToStopPulling = 1f;
     //public float throwForce = 30f;
     public float shootRange = 50f;
     public float armCoolDownTime = 1f;
