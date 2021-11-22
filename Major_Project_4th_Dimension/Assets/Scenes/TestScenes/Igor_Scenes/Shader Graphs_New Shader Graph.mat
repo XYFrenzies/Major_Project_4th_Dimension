@@ -31,10 +31,10 @@ Material:
     MotionVector: User
     RenderType: Transparent
   disabledShaderPasses:
-  - MOTIONVECTORS
+  - TransparentBackface
   - TransparentDepthPrepass
   - TransparentDepthPostpass
-  - TransparentBackface
+  - MOTIONVECTORS
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -69,7 +69,7 @@ Material:
     - _AlphaSrcBlend: 1
     - _AlphaToMask: 0
     - _AlphaToMaskInspectorValue: 0
-    - _BlendMode: 0
+    - _BlendMode: 4
     - _CullMode: 2
     - _CullModeForward: 2
     - _DepthOffsetEnable: 0

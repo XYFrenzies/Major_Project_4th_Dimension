@@ -27,7 +27,7 @@
                     "id": "f89f728e-c496-4ec2-abbc-edbdd3d84972",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Hold(duration=0.4)"
+                    "interactions": "Hold(duration=0.15)"
                 },
                 {
                     "name": "ThrowObject",
@@ -89,6 +89,14 @@
                     "name": "Interact",
                     "type": "Button",
                     "id": "57e0f05e-3687-4bf3-9f67-c04e68c2128c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Oasis",
+                    "type": "Button",
+                    "id": "0b06416e-6c1a-4bc5-aacf-fb47c1c11670",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -389,6 +397,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8012c165-e5ad-4751-90ab-8cfdefe2b3ec",
+                    "path": "<Keyboard>/o",
+                    "interactions": "Hold(duration=3)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Oasis",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

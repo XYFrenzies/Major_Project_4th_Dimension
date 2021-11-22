@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Cinemachine;
 using UnityEngine.Animations.Rigging;
+using System;
+using UnityEngine.SceneManagement;
 
 public class PlayerStateManager : MonoBehaviour
 {
@@ -28,6 +30,7 @@ public class PlayerStateManager : MonoBehaviour
     [HideInInspector] public InputAction moveAction;
     [HideInInspector] public InputAction lookAction;
     [HideInInspector] private InputAction interactAction;
+    [HideInInspector] private InputAction oasisAction;
 
     [HideInInspector]
     public ArmStateManager arm;
@@ -84,7 +87,8 @@ public class PlayerStateManager : MonoBehaviour
         moveAction.Enable();
         interactAction.Enable();
         interactAction.performed += Interact;
-
+        oasisAction.Enable();
+        oasisAction.performed += LoadOasisScene;
     }
 
     private void OnDisable()
@@ -93,10 +97,14 @@ public class PlayerStateManager : MonoBehaviour
         moveAction.Disable();
         interactAction.Disable();
         interactAction.performed -= Interact;
-
+        oasisAction.Disable();
+        oasisAction.performed -= LoadOasisScene;
     }
 
-
+    private void LoadOasisScene(InputAction.CallbackContext obj)
+    {
+        SceneManager.LoadScene("Oasis");
+    }
 
     // Is the player falling
     private void Awake()
@@ -120,7 +128,7 @@ public class PlayerStateManager : MonoBehaviour
         moveAction = playerInput.actions["Move"];
         lookAction = playerInput.actions["Look"];
         interactAction = playerInput.actions["Interact"];
-
+        oasisAction = playerInput.actions["Oasis"];
 
         rb = GetComponent<Rigidbody>();
         //animator = GetComponent<Animator>();
@@ -448,8 +456,6 @@ public class PlayerStateManager : MonoBehaviour
 
         }
     }
-
-
 }
 
 
