@@ -81,6 +81,7 @@ public class ArmPullState : ArmBaseState
         //ReturnHand();
         armStateMan.pull = false;
         armStateMan.hitObject = null;
+        armStateMan.shotArm = false;
         //armStateMan.lineRenderer.enabled = false;
         armStateMan.playerSM.ChangeState(armStateMan.playerSM.moveLookState);
 
@@ -120,6 +121,12 @@ public class ArmPullState : ArmBaseState
             {
                 rb.velocity = Vector3.zero;
             }
+
+        if(!IsObjectInFrontOfMe())
+        {
+            armStateMan.SwitchState(armStateMan.idleState);
+
+        }
     }
 
     //public void Shoot(InputAction.CallbackContext context)
@@ -132,24 +139,21 @@ public class ArmPullState : ArmBaseState
 
     //}
 
-    public bool CheckInFront()
+    public bool IsObjectInFrontOfMe()
     {
         Vector3 directionToTarget = armStateMan.transform.position - rb.transform.position;
         float angle = Vector3.Angle(armStateMan.transform.forward, directionToTarget);
         float distance = directionToTarget.magnitude;
 
-        if (Mathf.Abs(angle) < 90 /*&& distance < 100*/)
+        //Debug.Log(Mathf.Abs(angle));
+
+        if (Mathf.Abs(angle) > 90 /*&& distance < 100*/)
         {
-            //isVisible = false;
-            Debug.Log("not visible");
-            return false;
+            return true;
         }
         else
         {
-            //isVisible = true;
-            Debug.Log("visible");
-            return true;
-
+            return false;
         }
     }
 }
