@@ -61,6 +61,7 @@ public class PlayerStateManager : MonoBehaviour
     bool isPlayerCloseEnough = false;
     private bool isPlayerCloseToConveyorBelt = false;
     public bool hasLanded = false;
+    public bool isPushing = false;
 
     [HideInInspector]
     public Vector3 flyToTarget;
@@ -434,12 +435,13 @@ public class PlayerStateManager : MonoBehaviour
                     // if (!hit.collider.CompareTag("BigPullObject"))
                     collision.collider.attachedRigidbody.constraints = RigidbodyConstraints.FreezeRotation;
                     animator.SetBool("IsPushing", true);
-                    Debug.Log("pushing");
+                    isPushing = true;
 
                 }
             }
             else
             {
+                isPushing = false;
                 animator.SetBool("IsPushing", false);
                 collision.collider.attachedRigidbody.constraints = RigidbodyConstraints.None;
                 collision.collider.attachedRigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
