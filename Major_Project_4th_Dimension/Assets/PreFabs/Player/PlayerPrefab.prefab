@@ -401,7 +401,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2956686276137043987}
-  m_LocalRotation: {x: 0.0000001872535, y: -1.7531937e-14, z: 0.00000009362675, w: 1}
+  m_LocalRotation: {x: 0.00000009362675, y: -8.7659685e-15, z: 0.00000009362675, w: 1}
   m_LocalPosition: {x: 0.31400013, y: 1.121, z: 0.02000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5655,8 +5655,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8431453540725934211}
-  m_LocalRotation: {x: -0.060382526, y: -0.10864863, z: -0.0066119023, w: 0.99222267}
-  m_LocalPosition: {x: 1.4750764, y: 1.2941401, z: -2.3473265}
+  m_LocalRotation: {x: -0.036774796, y: -0.7944427, z: -0.048346464, w: 0.6042938}
+  m_LocalPosition: {x: 2.2999275, y: 1.2941419, z: 1.4776139}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8431453540922601305}
@@ -5692,7 +5692,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.0457876, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -6382,7 +6382,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_HorizontalAxis:
-    Value: -12.498012
+    Value: -105.48305
     m_SpeedMode: 1
     m_MaxSpeed: 0.3
     m_AccelTime: 0.2
@@ -7810,6 +7810,7 @@ MonoBehaviour:
   interacting: {fileID: 11400000, guid: 18e4fd24b905c8d40887ca44f2ebc613, type: 2}
   interactingConveyorSwitch: {fileID: 11400000, guid: 27110a35cd655014fa2a702b580cded0, type: 2}
   hasLanded: 0
+  isPushing: 0
   flyToTarget: {x: 0, y: 0, z: 0}
   conveyorOnlyPressedOnce: 1
   m_gameUI: {fileID: 6188624662914489931, guid: 9019643d56d51c54288d670f6f6f7d36, type: 3}
@@ -7826,7 +7827,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: facc9b99a1874874184f9efd961c56ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pullForce: 140
+  pullForce: 60
   distanceFromPlayerToStopPulling: 1
   shootRange: 50
   armCoolDownTime: 1.5
