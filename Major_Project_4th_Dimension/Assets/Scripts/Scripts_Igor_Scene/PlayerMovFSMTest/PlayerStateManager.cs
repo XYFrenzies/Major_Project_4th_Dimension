@@ -455,6 +455,7 @@ public class PlayerStateManager : MonoBehaviour
         if (collision.collider.CompareTag("BigPullObject"))
         {
             animator.SetBool("IsPushing", false);
+            isPushing = false;
 
         }
     }
