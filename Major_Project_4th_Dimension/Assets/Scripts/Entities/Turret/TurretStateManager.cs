@@ -126,6 +126,7 @@ public class TurretStateManager : MonoBehaviour
             m_deathDT = 0f;
             m_turretState = TurretState.Searching;
             m_spotLight.color = m_baseColourSpotLight;
+            source.Stop();
             m_restartLevel.Raise();
             return;
         }
@@ -157,6 +158,7 @@ public class TurretStateManager : MonoBehaviour
             m_deltaTimeTimer = 0;
             if (StopCheck())
                 return;
+            
             RaycastAttackCheck();
         }
     }
@@ -200,6 +202,7 @@ public class TurretStateManager : MonoBehaviour
         if (Physics.Raycast(m_raycastChecker.transform.position, m_raycastChecker.transform.forward, out hit)
             && (hit.transform.gameObject == hit.transform.CompareTag("StopSearch") || hit.transform.gameObject == hit.transform.CompareTag("BigPullObject") || hit.transform.gameObject == hit.transform.CompareTag("MoveableToMe")) && !m_playerInArea)
         {
+            source.Stop();
             m_turretState = TurretState.Searching;
             m_spotLight.color = m_baseColourSpotLight;
             gizmos.transform.position = startPosLight;
