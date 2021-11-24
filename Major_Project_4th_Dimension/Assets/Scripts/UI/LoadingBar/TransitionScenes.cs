@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System;
 public class TransitionScenes : MonoBehaviour
 {
     [SerializeField] private Slider m_slider;
@@ -95,7 +96,7 @@ public class TransitionScenes : MonoBehaviour
             m_alreadyLoaded = true;
             float progress = Mathf.Clamp01(async.progress / 0.9f);
             m_slider.value = progress;
-            m_percentageText.text = progress * 100f + "%";
+            m_percentageText.text = Math.Round(progress, 2) * 100f + "%";
             if (async.progress == 0.9f)
             {
                 m_slider.value = 1f;
