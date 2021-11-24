@@ -155,8 +155,10 @@ public class TurretStateManager : MonoBehaviour
         if (m_deltaTimeTimer >= m_gracePeriodTimer)
         {
             m_deltaTimeTimer = 0;
+            source.Stop();
             if (StopCheck())
                 return;
+            
             RaycastAttackCheck();
         }
     }
