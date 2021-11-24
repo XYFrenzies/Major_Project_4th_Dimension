@@ -147,7 +147,7 @@ public class ArmPullState : ArmBaseState
 
         //Debug.Log(Mathf.Abs(angle));
 
-        if (Mathf.Abs(angle) > 90 /*&& distance < 100*/)
+        if (Mathf.Abs(angle) > armStateMan.angleToStopPulling /*&& distance < 100*/)
         {
             return true;
         }

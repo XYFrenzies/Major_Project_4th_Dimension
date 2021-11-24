@@ -12,6 +12,7 @@ public class ArmStateManager : MonoBehaviour
     //public float throwForce = 30f;
     public float shootRange = 50f;
     public float armCoolDownTime = 1f;
+    public float angleToStopPulling = 110f;
     public LayerMask holdObjectLayerMask;
     public float initialBeamSpeed = 1f;
     public float beamSpeedAccelModifier = 0.1f;
@@ -89,6 +90,7 @@ public class ArmStateManager : MonoBehaviour
     [HideInInspector]
     public bool shotArm = false;
     private float timer = 0f;
+
 
     public void Awake()
     {
