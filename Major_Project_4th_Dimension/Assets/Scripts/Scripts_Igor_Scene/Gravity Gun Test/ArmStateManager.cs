@@ -140,7 +140,7 @@ public class ArmStateManager : MonoBehaviour
     }
 
 
-    void Update()
+    void FixedUpdate()
     {
         playerSM.animator.SetBool("hasShot", shotArm);
         currentState.UpdateState();
