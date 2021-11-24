@@ -8,23 +8,24 @@ public class UIManager : Singleton<UIManager>
     //First Room ui
     private GameObject m_keyWASDImage;
     private GameObject m_joySticks;
-
+    [SerializeField] private bool m_disableFirstRUI;
     //Second Room ui
     private GameObject m_pressToShootClick;
     private GameObject m_zoomToLookClick;
     private GameObject m_pressToShootRT;
     private GameObject m_zoomToLookLT;
-
+    [SerializeField] private bool m_disableSRUI;
     //Third Room UI
     private GameObject m_pressSpaceForScanner;
     private GameObject m_pressRBForScanner;
     private GameObject m_moveObjects;
-
+    [SerializeField] private bool m_disableTRUI;
     //Fourth Room UI
     private GameObject m_smallObjectsPC;
     private GameObject m_smallObjectsXbox;
     private GameObject m_releasePC;
     private GameObject m_releaseXbox;
+    [SerializeField] private bool m_disableFourthRUI;
     #endregion
     private void Awake()
     {
@@ -69,19 +70,20 @@ public class UIManager : Singleton<UIManager>
         {
             //First room UI
             case 0:
-                if (mouseInput)
+                if (mouseInput && !m_disableFirstRUI)
                     m_keyWASDImage.SetActive(enabled);
-                else
+                else if (!mouseInput && !m_disableFirstRUI)
                     m_joySticks.SetActive(enabled);
+
                 break;
             //Second Room 1st section
             case 1:
-                if (mouseInput)
+                if (mouseInput && !m_disableSRUI)
                 {
                     m_pressToShootClick.SetActive(enabled);
                     m_zoomToLookClick.SetActive(enabled);
                 }
-                else
+                else if (!mouseInput && !m_disableSRUI)
                 {
                     m_pressToShootRT.SetActive(enabled);
                     m_zoomToLookLT.SetActive(enabled);
@@ -89,27 +91,28 @@ public class UIManager : Singleton<UIManager>
                 break;
             //Third Room 1st section
             case 2:
-                if (mouseInput)
+                if (mouseInput && !m_disableTRUI)
                     m_pressSpaceForScanner.SetActive(enabled);
-                else
+                else if (!mouseInput && !m_disableTRUI)
                     m_pressRBForScanner.SetActive(enabled);
                 break;
             //Third Room 2nd section
             case 3:
-                m_moveObjects.SetActive(enabled);
+                if (!m_disableTRUI)
+                    m_moveObjects.SetActive(enabled);
                 break;
             //Fourth Room 1st section
             case 4:
-                if (mouseInput)
+                if (mouseInput && !m_disableFourthRUI)
                     m_smallObjectsPC.SetActive(enabled);
-                else
+                else if (!mouseInput && !m_disableFourthRUI)
                     m_smallObjectsXbox.SetActive(enabled);
                 break;
             //Fourth Room 2nd section
             case 5:
-                if (mouseInput)
+                if (mouseInput && !m_disableFourthRUI)
                     m_releasePC.SetActive(enabled);
-                else
+                else if (!mouseInput && !m_disableFourthRUI)
                     m_releaseXbox.SetActive(enabled);
                 break;
 
@@ -120,7 +123,7 @@ public class UIManager : Singleton<UIManager>
 
     }
     public void EnableThisObject(bool enabled)
-    { 
+    {
         gameObject.SetActive(enabled);
     }
 }
