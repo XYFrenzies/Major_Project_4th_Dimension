@@ -155,19 +155,14 @@ public class PauseMenu : Singleton<PauseMenu>
     //Exits the game (the if statements is determining if its in build or not).
     public void ExitGame()
     {
-#if UNITY_EDITOR
         doorData.door1Open = false;
         doorData.door2Open = false;
         doorData.door3Open = false;
         doorData.door4Open = false;
         doorData.door5Open = false;
+#if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else
-        doorData.door1Open = false;
-        doorData.door2Open = false;
-        doorData.door3Open = false;
-        doorData.door4Open = false;
-        doorData.door5Open = false;
         Application.Quit();
 #endif
     }
@@ -182,5 +177,12 @@ public class PauseMenu : Singleton<PauseMenu>
         doorData.door5Open = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-
+    private void OnApplicationQuit()
+    {
+        doorData.door1Open = false;
+        doorData.door2Open = false;
+        doorData.door3Open = false;
+        doorData.door4Open = false;
+        doorData.door5Open = false;
+    }
 }
