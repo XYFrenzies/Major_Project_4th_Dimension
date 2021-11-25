@@ -124,13 +124,13 @@ public class ArmStateManager : MonoBehaviour
     public void OnEnable()
     {
         shootAction.performed += Shoot;
-        shootAction.canceled += NotShoot;
+       // shootAction.canceled += NotShoot;
     }
 
     public void OnDisable()
     {
         shootAction.performed -= Shoot;
-        shootAction.canceled -= NotShoot;
+        //shootAction.canceled -= NotShoot;
     }
 
     public void Start()
@@ -176,11 +176,12 @@ public class ArmStateManager : MonoBehaviour
     }
     public void Shoot(InputAction.CallbackContext context)
     {
-        shotArm = true;
+        shotArm = !shotArm;
+        
     }
-    public void NotShoot(InputAction.CallbackContext context)
-    {
-        shotArm = false;
-    }
+    //public void NotShoot(InputAction.CallbackContext context)
+    //{
+    //    shotArm = false;
+    //}
 
 }
