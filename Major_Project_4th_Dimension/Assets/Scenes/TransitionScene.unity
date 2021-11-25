@@ -157,7 +157,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 9.200012, y: -157.9}
+  m_AnchoredPosition: {x: 9.199951, y: -157.9}
   m_SizeDelta: {x: 579.3593, y: 23.638}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &336998502
@@ -396,6 +396,7 @@ MonoBehaviour:
   m_slider: {fileID: 1619783746}
   m_percentageText: {fileID: 1398808766}
   m_randQuoteTxt: {fileID: 336998502}
+  backgroundImg: {fileID: 0}
   m_mainMenuFacts:
   - Resolution and graphics can be adjusted via the options menu
   m_firstLevelFacts:
@@ -406,6 +407,48 @@ MonoBehaviour:
   - Use the power panel to turn on the machinery and progress through the level
   m_oasisFacts:
   - Beware of turrets, when their light beacon is on you they shoot to kill
+  m_mainMenuImages:
+  - {fileID: 21300000, guid: 3129d6f0f48d8df4a88a98feccd1b398, type: 3}
+  - {fileID: 21300000, guid: 98744139bba2b1f4b9f7b8edf6649a2f, type: 3}
+  - {fileID: 21300000, guid: 0404b2c8ca05d15469f6a351fe55851e, type: 3}
+  - {fileID: 21300000, guid: fe1f71e6af4e7b5409010a5c86191c13, type: 3}
+  - {fileID: 21300000, guid: 8b69f0df2e6791f489c6627f419ca314, type: 3}
+  - {fileID: 21300000, guid: 135954a51b987454eb17c30ab3ee66ce, type: 3}
+  - {fileID: 21300000, guid: 3f784df755bd4484686e04c1400c5f4d, type: 3}
+  m_firstLevelImages:
+  - {fileID: 21300000, guid: 6a0e8f894642cc9479c8654123ef5732, type: 3}
+  - {fileID: 21300000, guid: fe1f71e6af4e7b5409010a5c86191c13, type: 3}
+  - {fileID: 21300000, guid: 98744139bba2b1f4b9f7b8edf6649a2f, type: 3}
+  - {fileID: 21300000, guid: 3129d6f0f48d8df4a88a98feccd1b398, type: 3}
+  - {fileID: 21300000, guid: 0404b2c8ca05d15469f6a351fe55851e, type: 3}
+  - {fileID: 21300000, guid: 135954a51b987454eb17c30ab3ee66ce, type: 3}
+  - {fileID: 21300000, guid: 8b69f0df2e6791f489c6627f419ca314, type: 3}
+  - {fileID: 21300000, guid: 3f784df755bd4484686e04c1400c5f4d, type: 3}
+  m_secondLevelImages:
+  - {fileID: 21300000, guid: 6a0e8f894642cc9479c8654123ef5732, type: 3}
+  - {fileID: 21300000, guid: fe1f71e6af4e7b5409010a5c86191c13, type: 3}
+  - {fileID: 21300000, guid: 98744139bba2b1f4b9f7b8edf6649a2f, type: 3}
+  - {fileID: 21300000, guid: 3129d6f0f48d8df4a88a98feccd1b398, type: 3}
+  - {fileID: 21300000, guid: 0404b2c8ca05d15469f6a351fe55851e, type: 3}
+  - {fileID: 21300000, guid: 135954a51b987454eb17c30ab3ee66ce, type: 3}
+  - {fileID: 21300000, guid: 8b69f0df2e6791f489c6627f419ca314, type: 3}
+  - {fileID: 21300000, guid: 3f784df755bd4484686e04c1400c5f4d, type: 3}
+  m_thirdLevelImages:
+  - {fileID: 21300000, guid: 3f784df755bd4484686e04c1400c5f4d, type: 3}
+  - {fileID: 21300000, guid: 6a0e8f894642cc9479c8654123ef5732, type: 3}
+  - {fileID: 21300000, guid: fe1f71e6af4e7b5409010a5c86191c13, type: 3}
+  - {fileID: 21300000, guid: 98744139bba2b1f4b9f7b8edf6649a2f, type: 3}
+  - {fileID: 21300000, guid: 3129d6f0f48d8df4a88a98feccd1b398, type: 3}
+  - {fileID: 21300000, guid: 0404b2c8ca05d15469f6a351fe55851e, type: 3}
+  - {fileID: 21300000, guid: 8b69f0df2e6791f489c6627f419ca314, type: 3}
+  - {fileID: 21300000, guid: 135954a51b987454eb17c30ab3ee66ce, type: 3}
+  m_oasisImages:
+  - {fileID: 21300000, guid: 3f784df755bd4484686e04c1400c5f4d, type: 3}
+  - {fileID: 21300000, guid: 6a0e8f894642cc9479c8654123ef5732, type: 3}
+  - {fileID: 21300000, guid: fe1f71e6af4e7b5409010a5c86191c13, type: 3}
+  - {fileID: 21300000, guid: 98744139bba2b1f4b9f7b8edf6649a2f, type: 3}
+  - {fileID: 21300000, guid: 3129d6f0f48d8df4a88a98feccd1b398, type: 3}
+  - {fileID: 21300000, guid: 0404b2c8ca05d15469f6a351fe55851e, type: 3}
 --- !u!1 &905693751
 GameObject:
   m_ObjectHideFlags: 0
@@ -812,7 +855,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0.00082397, y: 0}
-  m_SizeDelta: {x: 1706.7, y: 878}
+  m_SizeDelta: {x: 806.3, y: 461.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1674766775
 MonoBehaviour:
@@ -827,14 +870,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 3f784df755bd4484686e04c1400c5f4d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
