@@ -38,7 +38,14 @@ public class Indicator : Singleton<Indicator>
         }
         foreach (var item in GameObject.FindGameObjectsWithTag("Power"))
         {
-            objPower.Add(item);
+
+            if (item.name == "CBSwitch")
+            {
+                GameObject obj = item.transform.Find("SM_Conveyor_Control_Box").gameObject;
+                objPower.Add(obj);
+            }
+            else
+                objPower.Add(item);
         }
         foreach (var item in GameObject.FindGameObjectsWithTag("Switch"))
         {

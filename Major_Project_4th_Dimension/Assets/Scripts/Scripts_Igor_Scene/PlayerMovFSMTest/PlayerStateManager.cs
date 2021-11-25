@@ -213,17 +213,11 @@ public class PlayerStateManager : MonoBehaviour
             interacting.Raise();
             Debug.Log("Player interacted");
         }
-        else if (isPlayerCloseToConveyorBelt)
+        else if (!conveyorPressed)
         {
-            if (!conveyorPressed)
-                interactingConveyorSwitch.Raise();
-
-            if (conveyorOnlyPressedOnce)
-            {
-                conveyorPressed = true;
-                m_gameUI.transform.Find("Press E to interact").gameObject.SetActive(false);
-            }
-
+            interactingConveyorSwitch.Raise();
+            conveyorPressed = true;
+            m_gameUI.transform.Find("Press E to interact").gameObject.SetActive(false);
         }
     }
 
