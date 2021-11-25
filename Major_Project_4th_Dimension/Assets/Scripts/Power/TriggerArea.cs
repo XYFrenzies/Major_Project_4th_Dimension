@@ -15,7 +15,8 @@ public class TriggerArea : MonoBehaviour
         if ((other.CompareTag("Player") && gameObject.CompareTag("Power")) || (other.CompareTag("Player") && gameObject.CompareTag("Conveyor Belt") && PowerStatus.Instance.powerIsOn))
         {
             insideTriggerArea.Raise();
-            m_uiInteract.gameObject.SetActive(true);
+            if(!PlayerStateManager.player.conveyorPressed || gameObject.name != "CBSwitch")
+                m_uiInteract.gameObject.SetActive(true);
             if (CheckInput.Instance.CheckGamePadActiveGame())
                 m_uiInteract.GetComponent<Text>().text = m_controllerUI;
             else

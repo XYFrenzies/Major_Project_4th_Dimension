@@ -43,7 +43,7 @@ public class PlayerStateManager : MonoBehaviour
 
     private IEnumerator myRotCo;
 
-
+    static public PlayerStateManager player;
     [HideInInspector] public Camera cam;
     [HideInInspector] public Vector3 direction = Vector3.zero;
     [HideInInspector] public Vector2 inputs;
@@ -77,10 +77,8 @@ public class PlayerStateManager : MonoBehaviour
     public PlayerMissState missState = null;
     public PlayerDeathState deathState = null;
     public PlayerHangState hangState = null;
-
-    [SerializeField] private bool conveyorOnlyPressedOnce = false;
     [SerializeField] private GameObject m_gameUI = null;
-    private bool conveyorPressed = false;
+    [HideInInspector]public bool conveyorPressed = false;
 
     [HideInInspector] public AudioSource source;
     private void OnEnable()
@@ -121,7 +119,7 @@ public class PlayerStateManager : MonoBehaviour
         missState = new PlayerMissState(this);
         deathState = new PlayerDeathState(this);
         hangState = new PlayerHangState(this);
-
+        player = this;
         cam = Camera.main;
         Cursor.lockState = CursorLockMode.Locked;
         //Cursor.visible = false;
@@ -219,7 +217,7 @@ public class PlayerStateManager : MonoBehaviour
             interactingConveyorSwitch.Raise();
             conveyorPressed = true;
             m_gameUI.transform.Find("Press E to interact").gameObject.SetActive(false);
-                conveyorSwitchAnimator.SetBool("IsConveyorOn", true);
+            conveyorSwitchAnimator.SetBool("IsConveyorOn", true);
         }
     }
 
