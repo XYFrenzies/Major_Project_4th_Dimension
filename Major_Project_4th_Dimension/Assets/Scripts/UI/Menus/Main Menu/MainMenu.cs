@@ -20,6 +20,7 @@ public class MainMenu : MonoBehaviour
     private ColorBlock colourSelected;//Changing the ui selection colour
     private ColorBlock naturalState;//The natural state of the ui selection colour
     private bool m_gamePadActive = false;//Checking if the gamepad is active.
+    public DoorData doorData;
     private void Awake()
     {
         colourSelected.colorMultiplier = 1;
@@ -124,8 +125,18 @@ public class MainMenu : MonoBehaviour
     public void QuitGame()
     {
 #if UNITY_EDITOR
+        doorData.door1Open = false;
+        doorData.door2Open = false;
+        doorData.door3Open = false;
+        doorData.door4Open = false;
+        doorData.door5Open = false;
         UnityEditor.EditorApplication.isPlaying = false;
 #else
+        doorData.door1Open = false;
+        doorData.door2Open = false;
+        doorData.door3Open = false;
+        doorData.door4Open = false;
+        doorData.door5Open = false;
         Application.Quit();
 #endif
     }

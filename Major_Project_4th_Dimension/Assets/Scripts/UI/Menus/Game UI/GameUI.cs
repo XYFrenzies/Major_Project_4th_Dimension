@@ -7,6 +7,7 @@ public class GameUI : MonoBehaviour
 {
     [SerializeField] private GameObject m_diedUI;
     [SerializeField] private PlayerInput playerInput;
+    public DoorData doorData;
     public void PlayerDied() 
     {
         playerInput.SwitchCurrentActionMap("Menu");
@@ -31,8 +32,18 @@ public class GameUI : MonoBehaviour
     public void QuitGame()
     {
 #if UNITY_EDITOR
+        doorData.door1Open = false;
+        doorData.door2Open = false;
+        doorData.door3Open = false;
+        doorData.door4Open = false;
+        doorData.door5Open = false;
         UnityEditor.EditorApplication.isPlaying = false;
 #else
+        doorData.door1Open = false;
+        doorData.door2Open = false;
+        doorData.door3Open = false;
+        doorData.door4Open = false;
+        doorData.door5Open = false;
         Application.Quit();
 #endif
     }

@@ -23,6 +23,7 @@ public class PauseMenu : Singleton<PauseMenu>
     private ColorBlock naturalState;//The natural state of the ui selection colour
     private bool m_gamePadActive = false;//Checking if the gamepad is active.
     private GameObject manager;
+    public DoorData doorData;
     private void Awake()
     {
         pauseMenuAction = playerInput.actions["PauseMenu"];
@@ -143,6 +144,11 @@ public class PauseMenu : Singleton<PauseMenu>
     public void ReturnToMenu(string nameOfScene)
     {
         GlobalVariables.Instance.SaveScene("MainMenu");
+        doorData.door1Open = false;
+        doorData.door2Open = false;
+        doorData.door3Open = false;
+        doorData.door4Open = false;
+        doorData.door5Open = false;
         Time.timeScale = 1;
         SceneManager.LoadScene(nameOfScene);
     }
@@ -150,8 +156,18 @@ public class PauseMenu : Singleton<PauseMenu>
     public void ExitGame()
     {
 #if UNITY_EDITOR
+        doorData.door1Open = false;
+        doorData.door2Open = false;
+        doorData.door3Open = false;
+        doorData.door4Open = false;
+        doorData.door5Open = false;
         UnityEditor.EditorApplication.isPlaying = false;
 #else
+        doorData.door1Open = false;
+        doorData.door2Open = false;
+        doorData.door3Open = false;
+        doorData.door4Open = false;
+        doorData.door5Open = false;
         Application.Quit();
 #endif
     }
@@ -159,6 +175,11 @@ public class PauseMenu : Singleton<PauseMenu>
     public void RestartLevel() 
     {
         Time.timeScale = 1;
+        doorData.door1Open = false;
+        doorData.door2Open = false;
+        doorData.door3Open = false;
+        doorData.door4Open = false;
+        doorData.door5Open = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
