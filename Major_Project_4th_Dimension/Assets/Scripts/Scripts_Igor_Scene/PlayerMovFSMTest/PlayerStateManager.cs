@@ -39,6 +39,7 @@ public class PlayerStateManager : MonoBehaviour
     public Animator animator;
     public Rig armRig;
     public Rig headRig;
+    public Animator conveyorSwitchAnimator;
 
     private IEnumerator myRotCo;
 
@@ -216,10 +217,13 @@ public class PlayerStateManager : MonoBehaviour
         else if (isPlayerCloseToConveyorBelt)
         {
             if (!conveyorPressed)
+            {
                 interactingConveyorSwitch.Raise();
+            }
 
             if (conveyorOnlyPressedOnce)
             {
+                conveyorSwitchAnimator.SetBool("IsConveyorOn", true);
                 conveyorPressed = true;
                 m_gameUI.transform.Find("Press E to interact").gameObject.SetActive(false);
             }
