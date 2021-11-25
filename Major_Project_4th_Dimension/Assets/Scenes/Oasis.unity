@@ -11678,6 +11678,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3260185045792722073, guid: 95774a0a127db3b45951320217528f39, type: 3}
   m_PrefabInstance: {fileID: 7729347801066125098}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1492012184 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 405322896498415625, guid: e05a03c0b539aae4e84e59c35e47e64e, type: 3}
+  m_PrefabInstance: {fileID: 675142845635771416}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1492012187
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1492012184}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.80838704, y: 8.973574, z: 20.358353}
+  m_Center: {x: 4.1275334, y: 4.4867096, z: 0.2886219}
 --- !u!1001 &1494536092
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16228,7 +16246,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.9238477, y: 1}
+    m_SensorSize: {x: 2.0674374, y: 1}
     Iso: 200
     ShutterSpeed: 0.005
     Aperture: 16
@@ -17032,6 +17050,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 856842127605180519, guid: 8844f6ab555f26d48b4f8b3d5c45edad, type: 3}
   m_PrefabInstance: {fileID: 2060896466}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2088014933 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7281497627733109946, guid: 263c161b47723ba4d94609080e3fc970, type: 3}
+  m_PrefabInstance: {fileID: 7013122881003947304}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &2088014936
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088014933}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.6532507, y: 0.54398155, z: 18.844997}
+  m_Center: {x: -0, y: 7.3052998, z: 0}
+--- !u!65 &2088014937
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088014933}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5123093, y: 7.5773764, z: 18.844997}
+  m_Center: {x: 3.5704708, y: 3.7886024, z: 0}
 --- !u!1 &2091078792
 GameObject:
   m_ObjectHideFlags: 0

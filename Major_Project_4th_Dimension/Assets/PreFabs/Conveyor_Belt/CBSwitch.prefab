@@ -111,6 +111,7 @@ GameObject:
   - component: {fileID: 12731379802403988}
   - component: {fileID: 9033486897341056998}
   - component: {fileID: 6247872430521324361}
+  - component: {fileID: 4226304501411405239}
   m_Layer: 0
   m_Name: SM_Conveyor_Lever
   m_TagString: Untagged
@@ -181,6 +182,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &4226304501411405239
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4382977433962970046}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9e629b3fb0a59ab418c8e2439c22839b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4977210677019863059
 GameObject:
   m_ObjectHideFlags: 0

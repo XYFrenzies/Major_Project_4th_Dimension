@@ -39,6 +39,7 @@ public class PlayerStateManager : MonoBehaviour
     public Animator animator;
     public Rig armRig;
     public Rig headRig;
+    public Animator conveyorSwitchAnimator;
 
     private IEnumerator myRotCo;
 
@@ -218,6 +219,7 @@ public class PlayerStateManager : MonoBehaviour
             interactingConveyorSwitch.Raise();
             conveyorPressed = true;
             m_gameUI.transform.Find("Press E to interact").gameObject.SetActive(false);
+                conveyorSwitchAnimator.SetBool("IsConveyorOn", true);
         }
     }
 

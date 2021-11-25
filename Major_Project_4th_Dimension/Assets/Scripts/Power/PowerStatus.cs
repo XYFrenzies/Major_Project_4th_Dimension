@@ -9,8 +9,7 @@ public class PowerStatus : Singleton<PowerStatus>
     [SerializeField] private List<Light> lightsInScene;
     public bool powerIsOn = false;
     AudioSource source;
-    //public SimpleAudioEvent powerOn;
-    //public SimpleAudioEvent powerOff;
+    public Animator[] animators;
 
     private void Start()
     {
@@ -22,6 +21,10 @@ public class PowerStatus : Singleton<PowerStatus>
             {
                 item.color = Color.green;
             }
+            foreach (var item in animators)
+            {
+                item.SetBool("IsPowerOn", true);
+            }
         }
         else
         {
@@ -29,6 +32,10 @@ public class PowerStatus : Singleton<PowerStatus>
             foreach (var item in lightsInScene)
             {
                 item.color = Color.red;
+            }
+            foreach (var item in animators)
+            {
+                item.SetBool("IsPowerOn", false);
             }
         }
 
@@ -49,7 +56,10 @@ public class PowerStatus : Singleton<PowerStatus>
                 {
                     item.color = Color.green;
                 }
-                //Debug.Log("Power on sound");
+                foreach (var item in animators)
+                {
+                    item.SetBool("IsPowerOn", true);
+                }
                 Debug.Log("Power is on");
                 break;
             case false:
@@ -61,7 +71,12 @@ public class PowerStatus : Singleton<PowerStatus>
                 {
                     item.color = Color.red;
                 }
+                foreach (var item in animators)
+                {
+                    item.SetBool("IsPowerOn", false);
+                }
                 Debug.Log("Power is off");
+
                 break;
         }
     }
